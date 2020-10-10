@@ -79,7 +79,7 @@ var game;
             }
             else {
                 this.mMcFlag = MovieClipComponent.produce("mc_flag");
-                this.kGrpFlag.addChild(this.mMcFlag);
+                this.kGrpFlag.addChildAt(this.mMcFlag, 0);
                 this.mMcFlag.x = 175;
                 this.mMcFlag.y = 90;
                 this.mMcFlag.play(-1);
@@ -177,13 +177,13 @@ var game;
         MainView.prototype.onSelectOption = function (idx) {
             var _this = this;
             if (idx == this.mCurHintIdx) {
-                // TODO: hint next
+                // hint next
                 this.playCorrectAction(function () {
                     _this.hintNext();
                 });
             }
             else {
-                // TODO: choose err
+                // choose err
                 this.oops();
                 XDFSoundManager.play("sound_oopstryagain_mp3");
             }
@@ -191,11 +191,12 @@ var game;
         MainView.prototype.playCorrectAction = function (cb) {
             XDFSoundManager.play("sound_goodjob_mp3");
             egret.Tween.get(this["kImgTip" + this.mCurHintIdx]).to({ alpha: 1 }, 300);
-            egret.Tween.get(this["kImgTip" + this.mCurHintIdx]).to({ scaleX: 1, scaleY: 1 }, 300, egret.Ease.backOut);
+            egret.Tween.get(this["kImgTip" + this.mCurHintIdx]).to({ scaleX: 2, scaleY: 2 }, 300, egret.Ease.backOut);
             this["kGrpMc" + this.mCurHintIdx].removeChildren();
             var mc = MovieClipComponent.produce("mc_action" + this.mCurHintIdx);
             this["kGrpMc" + this.mCurHintIdx].addChild(mc);
             mc.x = mc.y = 100;
+            mc.scaleX = mc.scaleY = 2;
             mc.play(2);
             cb && cb();
         };

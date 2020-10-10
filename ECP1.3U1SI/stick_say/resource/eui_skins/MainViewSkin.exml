@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="MainViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="kImgOption0" x="329.82" y="726.88" scaleX="2" scaleY="2" source="img_action_0_png" />
-	<e:Image id="kImgOption1" source="img_action_1_png" x="688.31" y="724.88" scaleX="2" scaleY="2" />
-	<e:Image id="kImgOption2" x="1043.94" y="726.88" scaleX="2" scaleY="2" source="img_action_2_png" />
-	<e:Image id="kImgOption3" x="1345.88" y="726.88" scaleX="2" scaleY="2" source="img_action_3_png" />
-	<e:Image id="kImgShadow0" source="img_shadow_0_0_png" x="712.31" y="172.37" />
-	<e:Image id="kImgShadow3" x="1068.94" y="172.37" source="img_shadow_3_0_png" />
-	<e:Image id="kImgShadow1" x="370.73" y="180" source="img_shadow_1_0_png" />
-	<e:Image id="kImgShadow2" x="1370.88" y="172.37" source="img_shadow_2_0_png" />
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0xffffff"/>
+	<e:Image id="kImgOption0" x="329.82" y="726.88" scaleX="2.5" scaleY="2.5" source="img_action_0_png" />
+	<e:Image id="kImgOption1" source="img_action_1_png" x="688.31" y="724.88" scaleX="2.5" scaleY="2.5" />
+	<e:Image id="kImgOption2" x="1043.94" y="726.88" scaleX="2.5" scaleY="2.5" source="img_action_2_png" />
+	<e:Image id="kImgOption3" x="1404.13" y="724.88" scaleX="2.5" scaleY="2.5" source="img_action_3_png" />
 	<e:Group id="kGrpPanel" x="-30" verticalCenter="45" name="kGrpPanel" touchChildren="true">
 		<e:Image source="img_select_png" x="0" scaleX="1.8" scaleY="1.8" y="0" name="kGrpPanel" />
 		<e:Group id="kGrpShirt" width="300" height="250" x="16" y="192" name="kGrpPanel" />
 		<e:Group id="kGrpPants" width="300" height="300" x="13" y="451" name="kGrpPanel" />
 	</e:Group>
 	<e:Group id="kGrpFlag" width="350" height="180" x="-30" y="0" touchChildren="false" touchEnabled="true" name="kGrpFlag">
+		<e:Label text="Words" horizontalCenter="0" verticalCenter="0" textColor="0x328a38" size="50" stroke="4" strokeColor="0xffffff"/>
 	</e:Group>
-	<e:Image id="kImgTip0" source="img_dia_0_png" anchorOffsetX="114" anchorOffsetY="37" x="798" y="140" />
-	<e:Image id="kImgTip1" source="img_dia_1_png" horizontalCenter="-519" verticalCenter="-378" />
-	<e:Image id="kImgTip3" source="img_dia_3_png" horizontalCenter="194.5" verticalCenter="-401" />
-	<e:Image id="kImgTip2" source="img_dia_2_png" horizontalCenter="496.5" verticalCenter="-405" />
-	<e:Group id="kGrpMc1" width="200" height="200" x="436.73" y="256" anchorOffsetX="100" anchorOffsetY="100"/>
-	<e:Group width="200" height="200" x="788.73" y="256" anchorOffsetX="100" anchorOffsetY="100" id="kGrpMc0"/>
-	<e:Group id="kGrpMc3" width="200" height="200" x="1154.94" y="262" anchorOffsetX="100" anchorOffsetY="100"/>
-	<e:Group id="kGrpMc2" width="200" height="200" x="1456.88" y="262" anchorOffsetX="100" anchorOffsetY="100"/>
+	<e:Group x="236.21" y="127.45" width="500" height="400">
+		<e:Image id="kImgShadow1" source="img_shadow_1_0_png" scaleX="2" scaleY="2" horizontalCenter="0" bottom="0"/>
+		<e:Image id="kImgTip1" source="img_dia_1_png" scaleX="2" scaleY="2" y="0" horizontalCenter="0"/>
+		<e:Group id="kGrpMc1" horizontalCenter="0" bottom="0"/>
+	</e:Group>
+	<e:Group x="570" y="126.61" width="500" height="400">
+		<e:Image id="kImgShadow0" source="img_shadow_0_0_png" scaleX="2" scaleY="2" horizontalCenter="0" bottom="0"/>
+		<e:Group id="kGrpMc0" horizontalCenter="0" bottom="0"/>
+		<e:Image id="kImgTip0" source="img_dia_0_png" anchorOffsetX="114" anchorOffsetY="37" scaleX="2" scaleY="2" horizontalCenter="0" y="13.4"/>
+	</e:Group>
+	<e:Group x="914" y="124.75" width="500" height="400">
+		<e:Image id="kImgShadow3" source="img_shadow_3_0_png" scaleX="2" scaleY="2" horizontalCenter="0" bottom="0"/>
+		<e:Group id="kGrpMc3" horizontalCenter="0" bottom="0"/>
+		<e:Image id="kImgTip3" source="img_dia_3_png" scaleX="2" scaleY="2" x="0" y="-33.33"/>
+	</e:Group>
+	<e:Group x="1298.85" y="126.81" width="500" height="400">
+		<e:Image id="kImgShadow2" source="img_shadow_2_0_png" scaleX="2" scaleY="2" horizontalCenter="0" bottom="0"/>
+		<e:Group id="kGrpMc2" horizontalCenter="0" bottom="0"/>
+		<e:Image id="kImgTip2" source="img_dia_2_png" scaleX="2" scaleY="2" y="-81.81" horizontalCenter="0"/>
+	</e:Group>
 	<e:Image id="kImgGood" source="img_goodjob_png" rotation="700" anchorOffsetX="401" anchorOffsetY="73" x="960" y="541" visible="false"/>
 	<e:Image id="kImgErr" source="img_tryAgain_png" horizontalCenter="0" verticalCenter="0" anchorOffsetX="381" anchorOffsetY="152" rotation="-1080" visible="false"/>
 	<e:Group width="200" height="200" bottom="40" right="40">
