@@ -6,6 +6,7 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/eui_skins/AnswerComponentSkin.exml",
 		"resource/eui_skins/MainScreenSkin.exml",
 		"resource/eui_skins/MainViewSkin.exml"
 	],

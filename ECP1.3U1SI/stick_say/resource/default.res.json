@@ -1,11 +1,11 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json,img_action_0_png,img_action_1_png,img_action_2_png,img_action_3_png,img_dia_0_png,img_dia_1_png,img_dia_2_png,img_flag_0_png,img_dia_3_png,img_flag_2_png,img_flag_1_png,img_shadow_0_1_png,img_shadow_0_0_png,img_select_png,img_goodjob_png,img_shadow_1_1_png,img_shadow_1_0_png,img_shadow_2_1_png,img_shadow_2_0_png,img_shadow_3_1_png,img_shadow_3_0_png,img_tryAgain_png,mc_cloud_json,mc_cloud_png,mc_action0_png,mc_action0_json,mc_action1_png,mc_action1_json,mc_action2_png,mc_action2_json,mc_action3_png,mc_action3_json,img_action_color_0_png,img_action_color_1_png,img_action_color_2_png,img_action_color_3_png,img_replay_d_png,img_replay_j_png,mc_flag_json,mc_flag_png",
+			"keys":"description_json,_xdf_logo__png,pp_game_config_json,img_action_0_png,img_action_1_png,img_action_2_png,img_action_3_png,img_dia_0_png,img_dia_1_png,img_dia_2_png,img_flag_0_png,img_dia_3_png,img_flag_2_png,img_flag_1_png,img_shadow_0_1_png,img_shadow_0_0_png,img_select_png,img_goodjob_png,img_shadow_1_1_png,img_shadow_1_0_png,img_shadow_2_1_png,img_shadow_2_0_png,img_shadow_3_1_png,img_shadow_3_0_png,img_tryAgain_png,mc_cloud_json,mc_cloud_png,mc_action0_png,mc_action0_json,mc_action1_png,mc_action1_json,mc_action2_png,mc_action2_json,mc_action3_png,mc_action3_json,img_action_color_0_png,img_action_color_1_png,img_action_color_2_png,img_action_color_3_png,img_replay_d_png,img_replay_j_png,mc_flag_json,mc_flag_png,img_bg_png,mc_good_enter_json,mc_good_enter_png,mc_good_star_json,mc_good_star_png,img_star_png,img_star_bg_png,img_bg_0_png,img_bg_1_png,img_bg_2_png",
 			"name":"preload"
 		},
 		{
-			"keys":"sound_goodjob_mp3,sound_oopstryagain_mp3",
+			"keys":"sound_goodjob_mp3,sound_oopstryagain_mp3,sound_du_mp3,sound_pants_mp3,sound_shirt_mp3,sound_tip_0_mp3,sound_tip_1_mp3,sound_tip_2_mp3,sound_tip_3_mp3",
 			"name":"sound"
 		},
 		{
@@ -278,6 +278,91 @@
 			"name":"mc_flag_png",
 			"type":"image",
 			"url":"assets/mc/mc_flag/mc_flag.png"
+		},
+		{
+			"name":"img_bg_png",
+			"type":"image",
+			"url":"assets/img/img_bg.png"
+		},
+		{
+			"name":"sound_du_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_du.mp3"
+		},
+		{
+			"name":"sound_pants_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_pants.mp3"
+		},
+		{
+			"name":"sound_shirt_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_shirt.mp3"
+		},
+		{
+			"name":"sound_tip_0_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_tip_0.mp3"
+		},
+		{
+			"name":"sound_tip_1_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_tip_1.mp3"
+		},
+		{
+			"name":"sound_tip_2_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_tip_2.mp3"
+		},
+		{
+			"name":"sound_tip_3_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_tip_3.mp3"
+		},
+		{
+			"name":"mc_good_enter_json",
+			"type":"json",
+			"url":"assets/mc/mc_good_enter/mc_good_enter.json"
+		},
+		{
+			"name":"mc_good_enter_png",
+			"type":"image",
+			"url":"assets/mc/mc_good_enter/mc_good_enter.png"
+		},
+		{
+			"name":"mc_good_star_json",
+			"type":"json",
+			"url":"assets/mc/mc_good_star/mc_good_star.json"
+		},
+		{
+			"name":"mc_good_star_png",
+			"type":"image",
+			"url":"assets/mc/mc_good_star/mc_good_star.png"
+		},
+		{
+			"name":"img_star_png",
+			"type":"image",
+			"url":"assets/img/img_star.png"
+		},
+		{
+			"name":"img_star_bg_png",
+			"type":"image",
+			"url":"assets/img/img_star_bg.png"
+		},
+		{
+			"name":"img_bg_0_png",
+			"type":"image",
+			"url":"assets/img/img_bg_0.png"
+		},
+		{
+			"name":"img_bg_1_png",
+			"type":"image",
+			"url":"assets/img/img_bg_1.png"
+		},
+		{
+			"name":"img_bg_2_png",
+			"type":"image",
+			"url":"assets/img/img_bg_2.png"
 		}
 	]
 }

@@ -5,25 +5,26 @@ namespace game {
         public kImgOption1: eui.Image;
         public kImgOption2: eui.Image;
         public kImgOption3: eui.Image;
-        public kImgShadow0: eui.Image;
-        public kImgShadow3: eui.Image;
-        public kImgShadow1: eui.Image;
-        public kImgShadow2: eui.Image;
         public kGrpPanel: eui.Group;
         public kGrpShirt: eui.Group;
         public kGrpPants: eui.Group;
         public kGrpFlag: eui.Group;
-        public kImgTip0: eui.Image;
+        public kImgShadow1: eui.Image;
         public kImgTip1: eui.Image;
-        public kImgTip3: eui.Image;
-        public kImgTip2: eui.Image;
         public kGrpMc1: eui.Group;
+        public kImgShadow0: eui.Image;
         public kGrpMc0: eui.Group;
+        public kImgTip0: eui.Image;
+        public kImgShadow3: eui.Image;
         public kGrpMc3: eui.Group;
+        public kImgTip3: eui.Image;
+        public kImgShadow2: eui.Image;
         public kGrpMc2: eui.Group;
-        public kImgGood: eui.Image;
-        public kImgErr: eui.Image;
+        public kImgTip2: eui.Image;
         public kImgReplay: eui.Image;
+        public kComAnswer: game.AnswerComponent;
+        public kRectMaskPanel: eui.Rect;
+        public kRectMaskFlag: eui.Rect;
 
         private mCurShowArr: number[] = [];// 当前显示的顺序
         private mCurHintIdx: number = 0;// 当前正在提示的索引
@@ -44,15 +45,17 @@ namespace game {
             this.kGrpFlag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelAction, this);
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
             for (let i = 0; i < 4; i++) {
                 this[`kImgOption${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
                     this.onSelectOption(i);
                 }, this);
             }
+            this.kGrpPanel.mask = this.kRectMaskPanel;
+            this.kGrpFlag.mask = this.kRectMaskFlag;
             this.init();
+
         }
-
-
 
         private init(): void {
             this.initView();
@@ -72,11 +75,12 @@ namespace game {
                 this[`kGrpMc${i}`].removeChildren();
             }
             this.initPanelStatus();
-            this.kImgReplay.visible = this.kImgGood.visible = this.kImgErr.visible = false;
+            this.kImgReplay.visible = this.kComAnswer.visible = false;
+            this.kComAnswer.visible = false;
         }
 
         private initPanelStatus(): void {
-            this.kGrpPanel.x = -330;
+            this.kGrpPanel.x = -76;
             this.mIsShowPanel = false;
             this.mIsPlayFlodAction = false;
         }
@@ -105,7 +109,9 @@ namespace game {
         private hint(): void {
             if (this.mCurShowArr.length == 0) {
                 // 游戏结束
-                this.finish();
+                egret.setTimeout(() => {
+                    this.finish();
+                }, this, 1000)
             } else {
                 this.mIsHintStatus = true;
                 this.mCurHintIdx = this.mCurShowArr.shift();
@@ -149,13 +155,13 @@ namespace game {
             this.mIsPlayFlodAction = true;
             if (this.mIsShowPanel) {
                 // 收
-                egret.Tween.get(this.kGrpPanel).to({ x: -330 }, 600, egret.Ease.cubicInOut).call(() => {
+                egret.Tween.get(this.kGrpPanel).to({ x: -76 }, 600, egret.Ease.cubicInOut).call(() => {
                     this.mIsShowPanel = false;
                     this.mIsPlayFlodAction = false;
                 });
             } else {
                 // 展开
-                egret.Tween.get(this.kGrpPanel).to({ x: -30 }, 600, egret.Ease.cubicInOut).call(() => {
+                egret.Tween.get(this.kGrpPanel).to({ x: 240 }, 600, egret.Ease.cubicInOut).call(() => {
                     this.mIsShowPanel = true;
                     this.mIsPlayFlodAction = false;
                 });
@@ -173,10 +179,12 @@ namespace game {
 
         /* 播放shirt */
         private onPlayShirt(): void {
+            XDFSoundManager.play("sound_shirt_mp3");
         }
 
         /* 播放pants */
         private onPlayPants(): void {
+            XDFSoundManager.play("sound_pants_mp3");
         }
 
         /** 生产随机队列 */
@@ -204,24 +212,27 @@ namespace game {
             } else {
                 // choose err
                 this.oops();
-                XDFSoundManager.play("sound_oopstryagain_mp3");
             }
         }
 
         private playCorrectAction(cb: Function): void {
-            XDFSoundManager.play("sound_goodjob_mp3");
+            XDFSoundManager.play(`sound_tip_${this.mCurHintIdx}_mp3`);
             egret.Tween.get(this[`kImgTip${this.mCurHintIdx}`]).to({ alpha: 1 }, 300);
-            egret.Tween.get(this[`kImgTip${this.mCurHintIdx}`]).to({ scaleX: 2, scaleY: 2 }, 300, egret.Ease.backOut);
+            egret.Tween.get(this[`kImgTip${this.mCurHintIdx}`]).to({ scaleX: 1.5, scaleY: 1.5 }, 300, egret.Ease.backOut);
 
             this[`kGrpMc${this.mCurHintIdx}`].removeChildren();
             let mc = MovieClipComponent.produce(`mc_action${this.mCurHintIdx}`);
             this[`kGrpMc${this.mCurHintIdx}`].addChild(mc);
-            mc.scaleX = mc.scaleY = 2;
+            mc.scaleX = mc.scaleY = 1.5;
+            mc.bottom = 0;
+            mc.horizontalCenter = 0;
             mc.play(2);
 
             let smokeMc = MovieClipComponent.produce(`mc_cloud`);
             this[`kGrpMc${this.mCurHintIdx}`].addChild(smokeMc);
-            smokeMc.scaleX = smokeMc.scaleY = 2;
+            smokeMc.scaleX = smokeMc.scaleY = 1.5;
+            smokeMc.bottom = 0;
+            smokeMc.horizontalCenter = 0;
             smokeMc.play(1);
 
             cb && cb();
@@ -238,24 +249,19 @@ namespace game {
 
         /** 完成 */
         private finish(): void {
-            egret.Tween.removeTweens(this.kImgGood);
-            this.kImgGood.scaleX = this.kImgGood.scaleY = 5;
-            this.kImgGood.visible = true;
-            this.kImgGood.rotation = 0;
-            egret.Tween.get(this.kImgGood).to({ rotation: 700, scaleX: 1, scaleY: 1 }, 500, egret.Ease.cubicIn).call(
-                () => {
-                    this.showReplay();
-                }
-            )
+            this.kComAnswer.visible = true;
+            this.kComAnswer.playGood(() => {
+                this.showReplay();
+            })
         }
 
         /** 选错了 */
         private oops(): void {
-            egret.Tween.removeTweens(this.kImgErr);
-            this.kImgErr.scaleX = this.kImgErr.scaleY = 5;
-            this.kImgErr.visible = true;
-            egret.Tween.get(this.kImgErr).to({ rotation: 700, scaleX: 1, scaleY: 1 }, 500, egret.Ease.cubicIn).wait(1000).call(() => {
-                this.kImgErr.visible = false;
+            this.kComAnswer.visible = true;
+            this.touchEnabled = false;
+            this.kComAnswer.playErr(()=>{
+                this.touchEnabled = true;
+                this.kComAnswer.visible = false;
             })
         }
 
@@ -268,13 +274,17 @@ namespace game {
         private showReplay(): void {
             egret.Tween.removeTweens(this.kImgReplay);
             this.kImgReplay.x = this.kImgReplay.y = 100;
-            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 4;
+            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 3.5;
             this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
-                .to({ scaleX: 4.2, scaleY: 4.2 }, 300, egret.Ease.cubicInOut)
                 .to({ scaleX: 4, scaleY: 4 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 4.2, scaleY: 4.2 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 3.5, scaleY: 3.5 }, 300, egret.Ease.cubicInOut)
                 .to({ scaleX: 4, scaleY: 4 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 3.5, scaleY: 3.5 }, 300, egret.Ease.cubicInOut)
+        }
+
+        /** 监听鼠标移动事件 */
+        private onTouchMove(): void {
         }
     }
 } 
