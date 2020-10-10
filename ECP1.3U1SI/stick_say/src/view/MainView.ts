@@ -216,9 +216,14 @@ namespace game {
             this[`kGrpMc${this.mCurHintIdx}`].removeChildren();
             let mc = MovieClipComponent.produce(`mc_action${this.mCurHintIdx}`);
             this[`kGrpMc${this.mCurHintIdx}`].addChild(mc);
-            mc.x = mc.y = 100;
             mc.scaleX = mc.scaleY = 2;
             mc.play(2);
+
+            let smokeMc = MovieClipComponent.produce(`mc_cloud`);
+            this[`kGrpMc${this.mCurHintIdx}`].addChild(smokeMc);
+            smokeMc.scaleX = smokeMc.scaleY = 2;
+            smokeMc.play(1);
+
             cb && cb();
         }
 
