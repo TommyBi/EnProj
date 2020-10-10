@@ -26,6 +26,10 @@
 		},
 		{
 			"name": "promise"
+		},
+		{
+			"name": "mouse",
+			"path": "libs/mouse"
 		}
 	],
 	"targets": {

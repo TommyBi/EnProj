@@ -21,6 +21,7 @@ namespace game {
         public kImgShadow2: eui.Image;
         public kGrpMc2: eui.Group;
         public kImgTip2: eui.Image;
+        public kGrpReplay: eui.Group;
         public kImgReplay: eui.Image;
         public kComAnswer: game.AnswerComponent;
         public kRectMaskPanel: eui.Rect;
@@ -45,7 +46,8 @@ namespace game {
             this.kGrpFlag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelAction, this);
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
-            this.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+            this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplayBtn, this);
+            this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplayBtn, this);
             for (let i = 0; i < 4; i++) {
                 this[`kImgOption${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, () => {
                     this.onSelectOption(i);
@@ -53,6 +55,9 @@ namespace game {
             }
             this.kGrpPanel.mask = this.kRectMaskPanel;
             this.kGrpFlag.mask = this.kRectMaskFlag;
+
+            mouse.enable(this.stage);
+
             this.init();
 
         }
@@ -259,7 +264,7 @@ namespace game {
         private oops(): void {
             this.kComAnswer.visible = true;
             this.touchEnabled = false;
-            this.kComAnswer.playErr(()=>{
+            this.kComAnswer.playErr(() => {
                 this.touchEnabled = true;
                 this.kComAnswer.visible = false;
             })
@@ -273,18 +278,37 @@ namespace game {
 
         private showReplay(): void {
             egret.Tween.removeTweens(this.kImgReplay);
-            this.kImgReplay.x = this.kImgReplay.y = 100;
-            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 3.5;
+            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 0.3;
+            this.kImgReplay.source = "img_replay_j_png";
             this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
-                .to({ scaleX: 4, scaleY: 4 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 3.5, scaleY: 3.5 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 4, scaleY: 4 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 3.5, scaleY: 3.5 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.32, scaleY: 0.32 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.3, scaleY: 0.3 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.32, scaleY: 0.32 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.3, scaleY: 0.3 }, 300, egret.Ease.cubicInOut)
         }
 
-        /** 监听鼠标移动事件 */
-        private onTouchMove(): void {
+        /** 鼠标移到重放按钮 */
+        private onMoveOverReplayBtn(): void {
+            if (this.kImgReplay.source != "img_replay_d_png") {
+                this.kImgReplay.source = "img_replay_d_png";
+                egret.Tween.removeTweens(this.kImgReplay);
+                egret.Tween.removeTweens(this.kGrpReplay);
+                this.kGrpReplay.y = 758;
+                egret.Tween.get(this.kGrpReplay, { loop: true })
+                    .to({ y: 778 }, 300, egret.Ease.cubicInOut)
+                    .to({ y: 758 }, 300, egret.Ease.cubicInOut)
+                    .to({ y: 778 }, 300, egret.Ease.cubicInOut)
+                    .to({ y: 758 }, 300, egret.Ease.cubicInOut)
+            }
+        }
+
+        /** 鼠标移出重放按钮 */
+        private onMoveOutReplayBtn(): void {
+            if (this.kImgReplay.source != "img_replay_j_png") this.kImgReplay.source = "img_replay_j_png";
+            egret.Tween.removeTweens(this.kGrpReplay);
+            this.kGrpReplay.y = 768;
+            this.showReplay();
         }
     }
 } 

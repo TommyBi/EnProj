@@ -7,7 +7,8 @@
 		"libs/modules/tween/tween.js",
 		"libs/modules/game/game.js",
 		"libs/modules/dragonBones/dragonBones.js",
-		"libs/modules/promise/promise.js"
+		"libs/modules/promise/promise.js",
+		"libs/mouse/mouse.js"
 	],
 	"game": [
 		"bin-debug/component/WorldGame.js",
