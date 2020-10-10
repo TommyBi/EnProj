@@ -1,0 +1,42 @@
+{
+	"engineVersion": "5.2.33",
+	"compilerVersion": "5.2.33",
+	"template": {},
+	"target": {
+		"current": "web"
+	},
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"name": "assetsmanager"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "dragonBones"
+		},
+		{
+			"name": "promise"
+		}
+	],
+	"targets": {
+		"android": {
+			"appname": "1111111111111",
+			"packagename": "com.companyname"
+		},
+		"ios": {
+			"appname": "111111111",
+			"packagename": "com.companyname",
+			"hybrid": false
+		}
+	}
+}

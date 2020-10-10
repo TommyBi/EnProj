@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing">
+	<e:Image id="kImgBody0" source="img_action_color_0_png" x="308.27" y="211.52" scaleX="3" scaleY="3"/>
+	<e:Image id="kImgIcon0" source="img_action_0_png" y="897.7" x="310" name="0"/>
+	<e:Image id="kImgBody1" x="1191" y="247.64" scaleX="3" scaleY="3" source="img_action_color_2_png"/>
+	<e:Image id="kImgBody1Up" source="img_action_0_png" y="454.14" x="1350.97"/>
+	<e:Image id="kImgBody1Down" source="img_action_0_png" y="584.35" x="1354"/>
+	<e:Image id="kImgBody0Up" source="img_action_0_png" y="454.14" x="446.98"/>
+	<e:Image id="kImgBody0Down" source="img_action_0_png" y="578.29" x="453.04"/>
+	<e:Image id="kImgIcon1" source="img_action_1_png" y="886.7" x="670" name="1"/>
+	<e:Image id="kImgIcon2" source="img_action_1_png" y="887.7" x="1040" name="2"/>
+	<e:Image id="kImgIcon3" source="img_action_1_png" y="887.7" right="400" name="3"/>
+	<e:Image id="kImgPutOn" source="img_replay_d_png" x="425.77" y="54.49" scaleX="2" scaleY="2"/>
+	<e:Image id="kImgTakeOff" source="img_replay_j_png" x="1355" y="54.49" scaleX="2" scaleY="2"/>
+</e:Skin>

@@ -1,0 +1,27 @@
+{
+  "166f66674ae": {
+    "path": "Index.ts",
+    "class": "Index",
+    "parentPath": ""
+  },
+  "16826ee59ed": {
+    "path": "component\\StudySkin.ts",
+    "class": "StudySkin",
+    "parentPath": ""
+  },
+  "16826ef5e60": {
+    "path": "component\\GameSkin.ts",
+    "class": "GameSkin",
+    "parentPath": ""
+  },
+  "16835c96c87": {
+    "path": "component\\FinishSkin.ts",
+    "class": "FinishSkin",
+    "parentPath": ""
+  },
+  "global": {
+    "globalAutoLayerMarkEnable": true,
+    "globalRulerEnable": true,
+    "globalAdsorbEnable": true
+  }
+}
