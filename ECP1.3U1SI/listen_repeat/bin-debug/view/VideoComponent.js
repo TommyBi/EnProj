@@ -17,6 +17,7 @@ var game;
         __extends(VideoComponent, _super);
         function VideoComponent() {
             var _this = _super.call(this) || this;
+            _this.mLength = 0; // 当前视频长度
             _this.skinName = "VideoComponentSkin";
             return _this;
         }
@@ -32,6 +33,7 @@ var game;
             this.mVideo.height = 540; //设置视频高
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         };
         /** 播放的视频索引 */
         VideoComponent.prototype.play = function (idx) {
@@ -48,10 +50,24 @@ var game;
             egret.Tween.get(this.kRect).to({ alpha: 0 }, 500, egret.Ease.cubicOut);
             //获取视频长度
             console.log("获取视频长度: " + this.mVideo.length);
+            this.mLength = this.mVideo.length;
+            this.kComPro.reset(this.mLength);
         };
         /** 加载失败 */
         VideoComponent.prototype.onLoadErr = function (err) {
             console.log("video load error happened", err);
+        };
+        /** 调整性播放进度 */
+        VideoComponent.prototype.adjustPlay = function (e) {
+            egret.log(e);
+            if (this.mLength == 0) {
+                console.log("视频尚未加载完成");
+            }
+            else {
+                console.log("this.mvideo:", this.mVideo);
+                this.mVideo.play(e.data * this.mVideo.length);
+                this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
+            }
         };
         return VideoComponent;
     }(eui.Component));

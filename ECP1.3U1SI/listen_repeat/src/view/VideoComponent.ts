@@ -5,6 +5,7 @@ namespace game {
     export class VideoComponent extends eui.Component implements eui.UIComponent {
         public kGrpVideo: eui.Group;
         public kRect: eui.Rect;
+        public kComPro: game.VideoProBarComponent;
 
         private mIdx: number;   // 正在播放的idx
         private mVideo: egret.Video;
@@ -28,6 +29,8 @@ namespace game {
             this.mVideo.height = 540;                //设置视频高
             this.mVideo.fullscreen = false;          //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
+
+            XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         }
 
         /** 播放的视频索引 */
@@ -47,11 +50,24 @@ namespace game {
             //获取视频长度
             console.log("获取视频长度: " + this.mVideo.length);
             this.mLength = this.mVideo.length;
+            this.kComPro.reset(this.mLength);
         }
 
         /** 加载失败 */
         private onLoadErr(err: any): void {
             console.log("video load error happened", err);
+        }
+
+        /** 调整性播放进度 */
+        private adjustPlay(e: any): void {
+            egret.log(e);
+            if (this.mLength == 0) {
+                console.log("视频尚未加载完成");
+            } else {
+                console.log("this.mvideo:", this.mVideo);
+                this.mVideo.play(e.data * this.mVideo.length);
+                this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
+            }
         }
     }
 }

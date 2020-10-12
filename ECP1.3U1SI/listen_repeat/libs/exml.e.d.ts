@@ -8,3 +8,5 @@ declare class MainViewSkin extends eui.Skin{
 }
 declare class VideoComponentSkin extends eui.Skin{
 }
+declare class VideoProBarSkin extends eui.Skin{
+}

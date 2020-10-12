@@ -11,7 +11,7 @@
 		"libs/mouse/mouse.js"
 	],
 	"game": [
-		"bin-debug/manager/LayerManager.js",
+		"bin-debug/manager/EventConst.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
@@ -20,7 +20,9 @@
 		"bin-debug/Util.js",
 		"bin-debug/component/ChangeNum.js",
 		"bin-debug/component/WorldGame.js",
+		"bin-debug/manager/EventCenter.js",
 		"bin-debug/DragonFun.js",
+		"bin-debug/manager/LayerManager.js",
 		"bin-debug/manager/MovieClipComponent.js",
 		"bin-debug/manager/XDFEventManager.js",
 		"bin-debug/manager/XDFLogoComponent.js",
@@ -28,6 +30,7 @@
 		"bin-debug/view/AnswerComponent.js",
 		"bin-debug/view/DialogComponent.js",
 		"bin-debug/view/MainView.js",
-		"bin-debug/view/VideoComponent.js"
+		"bin-debug/view/VideoComponent.js",
+		"bin-debug/view/VideoProBarComponent.js"
 	]
 }

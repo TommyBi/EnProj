@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="VideoComponentSkin" width="720" height="542" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="VideoComponentSkin" width="720" height="542" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Group id="kGrpVideo" top="0" bottom="0" left="0" right="0" locked="true">
 	</e:Group>
 	<e:Rect id="kRect" top="0" bottom="0" left="0" right="0"/>
+	<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="10" x="110"/>
 </e:Skin>
