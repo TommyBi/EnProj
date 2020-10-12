@@ -5,6 +5,9 @@ var XDFSoundManager = (function () {
     function XDFSoundManager() {
     }
     XDFSoundManager.play = function (url, startTime, loops, volume, key, func) {
+        if (startTime === void 0) { startTime = 0; }
+        if (loops === void 0) { loops = 1; }
+        if (volume === void 0) { volume = 1; }
         if (key === void 0) { key = url; }
         if (!this._musicHash[key]) {
             this._musicHash[key] = new Sound(url, volume);
@@ -80,7 +83,9 @@ var Sound = (function () {
     }
     Sound.prototype.play = function (startTime, loops, mute, func) {
         var _this = this;
+        if (startTime === void 0) { startTime = 0; }
         if (loops === void 0) { loops = 1; }
+        if (mute === void 0) { mute = false; }
         this.stop();
         if (func) {
             this.callBack = func;

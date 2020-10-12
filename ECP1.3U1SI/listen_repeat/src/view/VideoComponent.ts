@@ -6,6 +6,7 @@ namespace game {
         public kGrpVideo: eui.Group;
         public kRect: eui.Rect;
         public kComPro: game.VideoProBarComponent;
+        public kImgMask: eui.Image;
 
         private mIdx: number;   // 正在播放的idx
         private mVideo: egret.Video;
@@ -29,7 +30,7 @@ namespace game {
             this.mVideo.height = 540;                //设置视频高
             this.mVideo.fullscreen = false;          //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
-
+            this.kImgMask.visible = true;
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         }
 
@@ -44,6 +45,7 @@ namespace game {
 
         /** 加载成功 */
         private onLoad(): void {
+            this.kImgMask.visible = false;
             this.mVideo.play(0, false);
             this.kRect.alpha = 1;
             egret.Tween.get(this.kRect).to({ alpha: 0 }, 500, egret.Ease.cubicOut);

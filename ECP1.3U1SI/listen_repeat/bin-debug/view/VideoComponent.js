@@ -33,6 +33,7 @@ var game;
             this.mVideo.height = 540; //设置视频高
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
+            this.kImgMask.visible = true;
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         };
         /** 播放的视频索引 */
@@ -45,6 +46,7 @@ var game;
         };
         /** 加载成功 */
         VideoComponent.prototype.onLoad = function () {
+            this.kImgMask.visible = false;
             this.mVideo.play(0, false);
             this.kRect.alpha = 1;
             egret.Tween.get(this.kRect).to({ alpha: 0 }, 500, egret.Ease.cubicOut);

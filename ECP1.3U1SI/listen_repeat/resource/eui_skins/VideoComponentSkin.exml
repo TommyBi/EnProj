@@ -4,4 +4,5 @@
 	</e:Group>
 	<e:Rect id="kRect" top="0" bottom="0" left="0" right="0"/>
 	<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="10" x="110"/>
+	<e:Image id="kImgMask" source="img_mask_video_png" horizontalCenter="0" verticalCenter="0" scaleX="1.05" scaleY="1.05"/>
 </e:Skin>

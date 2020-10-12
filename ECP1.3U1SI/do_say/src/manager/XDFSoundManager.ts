@@ -4,7 +4,7 @@ class XDFSoundManager {
     }
 
     private static _musicHash: { [key: string]: Sound } = {};
-    static play(url: string, startTime?: number, loops?: number, volume?: number, key = url, func?) {
+    static play(url: string, startTime: number = 0, loops: number = 1, volume: number = 1, key = url, func?) {
         if (!this._musicHash[key]) {
             this._musicHash[key] = new Sound(url, volume);
         }
@@ -81,7 +81,7 @@ class Sound {
     constructor(public url: string, private _volume = 0.5) {
 
     }
-    play(startTime?: number, loops: number = 1, mute?: boolean, func?) {
+    play(startTime: number = 0, loops: number = 1, mute: boolean = false, func?) {
         this.stop();
         if (func) {
             this.callBack = func;

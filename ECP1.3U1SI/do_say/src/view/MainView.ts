@@ -1,37 +1,40 @@
 namespace game {
-    // 游戏模式
-    enum gameType {
-        UNKONW,
-        PUTON,
-        TAKEOFF
+    enum ACTION_TYPE {
+        PUTON_SHIRT,
+        PUTON_PANTS,
+        TAKEOFF_SHIRT,
+        TAKEOFF_PANTS,
     }
+
     export class MainView extends eui.Component {
 
-        public kImgBody0: eui.Image;
-        public kImgBody1: eui.Image;
-        public kImgBody1Up: eui.Image;
-        public kImgBody1Down: eui.Image;
-        public kImgBody0Up: eui.Image;
-        public kImgBody0Down: eui.Image;
-        public kImgIcon0: eui.Image;
-        public kImgIcon1: eui.Image;
-        public kImgIcon2: eui.Image;
-        public kImgIcon3: eui.Image;
         public kImgPutOn: eui.Image;
         public kImgTakeOff: eui.Image;
+        public kGrpDownLight: eui.Group;
+        public kImgShirtDown1: eui.Image;
+        public kImgShirtDown0: eui.Image;
+        public kImgPantsDown1: eui.Image;
+        public kImgPantsDown0: eui.Image;
+        public kGrpUpLight0: eui.Group;
+        public kImgShirtUp_0_l: eui.Image;
+        public kImgPantsUp_0_l: eui.Image;
+        public kGrpUpGray0: eui.Group;
+        public kImgShirtUp_0_g: eui.Image;
+        public kImgPantsUp_0_g: eui.Image;
+        public kGrpUpGray1: eui.Group;
+        public kImgShirtUp_1_g: eui.Image;
+        public kImgPantsUp_1_g: eui.Image;
+        public kGrpUpLight1: eui.Group;
+        public kImgShirtUp_1_l: eui.Image;
+        public kImgPantsUp_1_l: eui.Image;
+        public kComReplay: game.ReplayComponent;
+        public kComAnswer: game.AnswerComponent;
 
-        private mStatus: number = gameType.UNKONW;// 1: put on  2: take off  0: unknow
-        private mBodyStatus: {
-            up: number,
-            down: number,
-        }[] = [{
-            up: -1,
-            down: -1,
-        }, {
-            up: -1,
-            down: -1,
-        }]
-        private mCurSelectClothIdx: number = -1;// 当前选择的衣服
+        private mCurPlayMode = -1;// 游戏模式 0:putOn  1:takeOff  -1:啥也没干
+        private mIsFinishPutOn: boolean = false;    // 是否完成了穿衣模式
+        private mIsFinishTakeOff: boolean = false;  // 是否完成了脱衣模式
+        private mActionQueue: number[] = [];// 当前队列
+        private mCurHintActionType: number = -1;
 
         constructor() {
             super();
@@ -40,135 +43,301 @@ namespace game {
 
         protected createChildren() {
             super.createChildren();
+            this.kImgPutOn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStartPutOn, this);
+            this.kImgTakeOff.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStartTakeOff, this);
 
-            // register
-            this.kImgPutOn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectPutOn, this);
-            this.kImgTakeOff.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectTakeOff, this);
-            this.kImgBody0Up.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectBody0Up, this);
-            this.kImgBody0Down.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectBody0Down, this);
-            this.kImgBody1Up.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectBody1Up, this);
-            this.kImgBody1Down.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectBody1Down, this);
+            this.kImgPantsDown0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPutOnPants0, this);
+            this.kImgPantsDown1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPutOnPants1, this);
+            this.kImgShirtDown0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPutOnShirt0, this);
+            this.kImgShirtDown1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPutOnShirt1, this);
 
-            for (let i = 0; i < 4; i++) {
-                this[`kImgIcon${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onSelectCloth, this);
-            }
+            this.kImgShirtUp_0_g.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTakeOffShirt0, this);
+            this.kImgShirtUp_1_g.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTakeOffShirt1, this);
+            this.kImgPantsUp_0_g.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTakeOffPants0, this);
+            this.kImgPantsUp_1_g.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTakeOffPants1, this);
 
+            XDFFrame.EventCenter.addEventListenr(EventConst.eventReplay, this.init, this);
+
+            mouse.enable(this.stage);
             this.init();
         }
 
         private init(): void {
-            for (let i = 0; i < 4; i++) {
-                this[`kImgIcon${i}`].scaleX = this[`kImgIcon${i}`].scaleY = 1;
-                egret.Tween.removeTweens(this[`kImgIcon${i}`]);
-                this[`kImgIcon${i}`].visible = false;
-            }
-            this.mStatus = gameType.UNKONW;
+            this.showHintMode();
+            this.initMode();
+        }
+
+        private initMode(): void {
+            this.kGrpUpGray0.visible =
+                this.kGrpUpGray1.visible =
+                this.kGrpUpLight0.visible =
+                this.kGrpUpLight1.visible = false;
+            this.kImgShirtDown0.visible = this.kImgShirtDown1.visible = this.kImgPantsDown0.visible = this.kImgPantsDown1.visible = false;
+            this.mCurPlayMode = -1;
+            this.kComAnswer.visible = this.kComReplay.visible = false;
+            this.mIsFinishPutOn = this.mIsFinishTakeOff = false;
+        }
+
+        private showHintMode(): void {
             egret.Tween.removeTweens(this.kImgPutOn);
             egret.Tween.removeTweens(this.kImgTakeOff);
-            this.kImgPutOn.alpha = this.kImgTakeOff.alpha = 1;
+            this.kImgPutOn.scaleX = this.kImgPutOn.scaleY = this.kImgTakeOff.scaleX = this.kImgTakeOff.scaleY = 0.95;
             egret.Tween.get(this.kImgPutOn, { loop: true })
-                .to({ alpha: 0.5 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 1 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 0.5 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 1 }, 500, egret.Ease.cubicInOut)
+                .to({ scaleX: 1.05, scaleY: 1.05 }, 800, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.95, scaleY: 0.95 }, 800, egret.Ease.cubicInOut);
             egret.Tween.get(this.kImgTakeOff, { loop: true })
-                .to({ alpha: 0.5 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 1 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 0.5 }, 500, egret.Ease.cubicInOut)
-                .to({ alpha: 1 }, 500, egret.Ease.cubicInOut)
-
-            this.mBodyStatus = [{
-                up: -1,
-                down: -1,
-            }, {
-                up: -1,
-                down: -1,
-            }]
-
-            this.mCurSelectClothIdx = -1;
+                .to({ scaleX: 1.05, scaleY: 1.05 }, 800, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.95, scaleY: 0.95 }, 800, egret.Ease.cubicInOut);
         }
 
-        /** 选择了穿模式 */
-        private onSelectPutOn(): void {
-            if (this.mStatus != gameType.UNKONW) return;
-            this.changeMode(1);
-            for (let i = 0; i < 4; i++) {
-                this[`kImgIcon${i}`].visible = true;
-            }
-        }
-
-        /** 选择了脱模式 */
-        private onSelectTakeOff(): void {
-            if (this.mStatus != gameType.UNKONW) return;
-            this.changeMode(2);
-            for (let i = 0; i < 4; i++) {
-                this[`kImgIcon${i}`].visible = false;
-            }
-        }
-
-        private changeMode(status: number): void {
-            this.mStatus = status;
+        /** 停止模式提示效果 */
+        private stopModeHintAction(): void {
             egret.Tween.removeTweens(this.kImgPutOn);
             egret.Tween.removeTweens(this.kImgTakeOff);
+            this.kImgPutOn.scaleX = this.kImgPutOn.scaleY = this.kImgTakeOff.scaleX = this.kImgTakeOff.scaleY = 1;
         }
 
-        private onSelectCloth(e: egret.TouchEvent): void {
-            if (this.mStatus != gameType.PUTON) return;
-            egret.Tween.removeTweens(this[`kImgIcon${e.target.name}`]);
-            this[`kImgIcon${e.target.name}`].scaleX = this[`kImgIcon${e.target.name}`].scaleY = 1;
-            egret.Tween.get(this[`kImgIcon${e.target.name}`], { loop: true })
-                .to({ scaleX: 1.3, scaleY: 1.3 }, 500, egret.Ease.cubicInOut)
-                .to({ scaleX: 1, scaleY: 1 }, 500, egret.Ease.cubicInOut)
-                .to({ scaleX: 1.3, scaleY: 1.3 }, 500, egret.Ease.cubicInOut)
-                .to({ scaleX: 1, scaleY: 1 }, 500, egret.Ease.cubicInOut)
-            this.mCurSelectClothIdx = Number(e.target.name);
+        /** 开启PutOn模式 */
+        private onStartPutOn(): void {
+            if (this.mCurPlayMode != -1) return;
+            this.mCurPlayMode = 0;
+            this.stopModeHintAction();
+
+            // 小人阴影衣服隐藏
+            this.kGrpUpGray0.visible = this.kGrpUpGray1.visible = false;
+            // 常规衣服组显示
+            this.kGrpUpLight0.visible = this.kGrpUpLight1.visible = true;
+            // 人身上的衣服隐藏
+            this.kImgShirtUp_0_l.visible = this.kImgShirtUp_1_l.visible = this.kImgPantsUp_0_l.visible = this.kImgPantsUp_1_l.visible = false;
+            // 待选择的衣服都设置为带阴影的资源
+            this.kImgShirtDown0.visible = this.kImgShirtDown1.visible = this.kImgPantsDown0.visible = this.kImgPantsDown1.visible = true;
+            this.kImgShirtDown0.source = "img_shirt_0_g_png";
+            this.kImgShirtDown1.source = "img_shirt_1_g_png";
+            this.kImgPantsDown0.source = "img_pants_0_g_png";
+            this.kImgPantsDown1.source = "img_pants_1_g_png";
+
+            this.mCurHintActionType = -1;
+            this.mActionQueue = [0, 0, 1, 1];
+            XDFSoundManager.play("sound_put_on_mp3", 0, 1, 1, "sound_put_on_mp3", () => {
+                this.goNextStep();
+            });
         }
 
-        /** 当前选择的是否正确 */
-        private isSelectCorrect(bodyIdx: number, isUp: boolean): boolean {
-            if (this.mStatus == gameType.PUTON) {
+        /** 开启TakeOff模式 */
+        private onStartTakeOff(): void {
+            if (this.mCurPlayMode != -1) return;
+            this.mCurPlayMode = 1;
+            this.stopModeHintAction();
+            XDFSoundManager.play("sound_take_off_mp3");
 
-                // 当前为穿衣模式
-                if (this.mCurSelectClothIdx < 1) {
-                    // 目标为衣服
-                    if (!isUp) return false;
-                    if (this.mBodyStatus[bodyIdx].up != -1) return false;
-                    this.mBodyStatus[bodyIdx].up = this.mCurSelectClothIdx;
-                } else {
-                    // 目标找裤子
-                    if (isUp) return false;
-                    if (this.mBodyStatus[bodyIdx].down != -1) return false;
-                    this.mBodyStatus[bodyIdx].down = this.mCurSelectClothIdx;
+            // 底部
+            this.kImgShirtDown0.visible = this.kImgShirtDown1.visible = this.kImgPantsDown0.visible = this.kImgPantsDown1.visible = false;
+            this.kImgShirtDown0.source = "img_shirt_0_l_png";
+            this.kImgShirtDown1.source = "img_shirt_1_l_png";
+            this.kImgPantsDown0.source = "img_pants_0_l_png";
+            this.kImgPantsDown1.source = "img_pants_1_l_png";
+            // 小人身上带阴影的资源显示
+            this.kGrpUpGray0.visible = this.kGrpUpGray1.visible = true;
+            this.kGrpUpLight0.visible = this.kGrpUpLight1.visible = false;
+            this.kImgShirtUp_0_g.visible = this.kImgShirtUp_1_g.visible = this.kImgPantsUp_0_g.visible = this.kImgPantsUp_1_g.visible = true;
+
+            this.mCurHintActionType = -1;
+            this.mActionQueue = [2, 2, 3, 3];
+            XDFSoundManager.play("sound_take_off_mp3", 0, 1, 1, "sound_take_off_mp3", () => {
+                this.goNextStep();
+            });
+        }
+
+        /** 穿衣服0 */
+        private onPutOnShirt0(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
+                // TODO:OOPS
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgShirtDown0.visible = false;
+            this.kImgShirtUp_0_l.visible = true;
+            this.playSoundDing(() => {
+                this.goNextStep();
+            })
+        }
+        /** 穿衣服1 */
+        private onPutOnShirt1(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgShirtDown1.visible = false;
+            this.kImgShirtUp_1_l.visible = true;
+            this.playSoundDing(() => {
+                this.goNextStep();
+            })
+        }
+
+        /** 穿裤子0 */
+        private onPutOnPants0(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgPantsDown0.visible = false;
+            this.kImgPantsUp_0_l.visible = true;
+            this.playSoundDing(() => {
+                this.goNextStep();
+            })
+        }
+        /** 穿裤子1 */
+        private onPutOnPants1(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgPantsDown1.visible = false;
+            this.kImgPantsUp_1_l.visible = true;
+            this.playSoundDing(()=>{
+                 this.goNextStep();
+            })
+        }
+
+        /** ---------- */
+
+        /** 脱上衣0 */
+        private onTakeOffShirt0(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgShirtUp_0_g.visible = false;
+            this.kImgShirtDown0.visible = true;
+            this.playSoundDing(()=>{
+                 this.goNextStep();
+            })
+        }
+        /** 脱上衣1 */
+        private onTakeOffShirt1(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgShirtUp_1_g.visible = false;
+            this.kImgShirtDown1.visible = true;
+            this.playSoundDing(()=>{
+                 this.goNextStep();
+            })
+        }
+        /** 脱裤子0 */
+        private onTakeOffPants0(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgPantsUp_0_g.visible = false;
+            this.kImgPantsDown0.visible = true;
+            this.playSoundDing(()=>{
+                 this.goNextStep();
+            })
+        }
+        /** 脱裤子1 */
+        private onTakeOffPants1(): void {
+            if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
+                this.kComAnswer.visible = true;
+                this.kComAnswer.playErr(() => {
+                    this.kComAnswer.visible = false;
+                    this.playHintSound();
+                })
+                return;
+            }
+            this.kImgPantsUp_1_g.visible = false;
+            this.kImgPantsDown1.visible = true;
+            this.playSoundDing(()=>{
+                 this.goNextStep();
+            })
+        }
+
+        /** 提示操作下一步 */
+        private goNextStep(): void {
+            if (this.mActionQueue.length <= 0) {
+                if (this.mCurPlayMode == 0) {
+                    this.mIsFinishPutOn = true;
+                } else if (this.mCurPlayMode == 1) {
+                    this.mIsFinishTakeOff = true;
                 }
 
-            } else if (this.mStatus == gameType.TAKEOFF) {
-
-                // 当前为脱衣模式
-                // if ()
-
+                if (this.mIsFinishPutOn && this.mIsFinishTakeOff) {
+                    this.kComAnswer.visible = true;
+                    this.kComAnswer.playGood(() => {
+                        this.kComReplay.visible = true;
+                        this.kComReplay.showReplay();
+                    })
+                    return;
+                } else {
+                    this.mCurPlayMode = -1;
+                    this.showHintMode();
+                    // if (this.mCurPlayMode == 0) {
+                    //     this.mCurPlayMode = 1;
+                    //     this.mCurHintActionType = -1;
+                    //     this.mActionQueue = [2, 2, 3, 3];
+                    // } else if (this.mCurPlayMode == 1) {
+                    //     this.mCurPlayMode = 0;
+                    //     this.mCurHintActionType = -1;
+                    //     this.mActionQueue = [0, 0, 1, 1];
+                    // }
+                }
             }
-            return true;
+
+            this.mCurHintActionType = this.mActionQueue.shift();
+            this.playHintSound();
         }
 
-        /** 左侧选手衣服 */
-        private onSelectBody0Up(): void {
-
+        private playHintSound(): void {
+            switch (this.mCurHintActionType) {
+                case ACTION_TYPE.PUTON_SHIRT:
+                    XDFSoundManager.play("sound_put_on_shirt_mp3");
+                    break;
+                case ACTION_TYPE.PUTON_PANTS:
+                    XDFSoundManager.play("sound_put_on_pants_mp3");
+                    break;
+                case ACTION_TYPE.TAKEOFF_SHIRT:
+                    XDFSoundManager.play("sound_take_off_shirt_mp3");
+                    break;
+                case ACTION_TYPE.TAKEOFF_PANTS:
+                    XDFSoundManager.play("sound_take_off_pants_mp3");
+                    break;
+            }
         }
 
-        /** 左侧选手裤子 */
-        private onSelectBody0Down(): void {
-
+        private playSoundDing(cb: Function): void {
+            XDFSoundManager.play("sound_ding_mp3", 0, 1, 1, "sound_ding_mp3", () => {
+                cb && cb();
+            })
         }
-
-        /** 右侧选手衣服 */
-        private onSelectBody1Up(): void {
-
-        }
-
-        /** 右侧选手裤子 */
-        private onSelectBody1Down(): void {
-
-        }
-
     }
 } 
