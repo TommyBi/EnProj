@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsWatchSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0"/>
+</e:Skin>
