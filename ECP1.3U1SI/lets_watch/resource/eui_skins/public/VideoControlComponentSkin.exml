@@ -5,8 +5,8 @@
 		</e:Group>
 		<e:Rect id="kRect" left="0" right="0" top="0" bottom="0" visible="false"/>
 		<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="50" left="80" width="700"/>
-		<e:Image id="kImgPlay" source="img_replay_d_png" x="982.12" y="902" scaleX="0.2" scaleY="0.2"/>
-		<e:Image id="kImgPause" source="img_replay_d_png" x="1112.12" y="902" scaleX="0.2" scaleY="0.2"/>
-		<e:Image id="kImgRestart" source="img_replay_d_png" x="1242.12" y="902" scaleX="0.2" scaleY="0.2"/>
+		<e:Image id="kImgPlay" x="943" y="882" source="img_btn_play_n_png" scaleX="0.7" scaleY="0.7"/>
+		<e:Image id="kImgPause" x="1097" y="882" scaleX="0.7" scaleY="0.7" source="img_btn_pause_n_png"/>
+		<e:Image id="kImgRePlay" x="1251" y="882" scaleX="0.7" scaleY="0.7" source="img_btn_rePlay_n_png"/>
 	</e:Group>
 </e:Skin>

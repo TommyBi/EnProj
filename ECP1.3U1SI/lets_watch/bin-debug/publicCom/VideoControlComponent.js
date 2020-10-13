@@ -35,9 +35,15 @@ var game;
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
-            this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startPlay, this);
+            this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
             this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
-            this.kImgRestart.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
+            this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
+            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
+            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
+            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
+            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
+            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
+            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
             mouse.enable(this.stage);
         };
         /** 播放的视频索引 */
@@ -61,7 +67,6 @@ var game;
         };
         /** 调整性播放进度 */
         VideoControlComponent.prototype.adjustPlay = function (e) {
-            egret.log(e);
             if (this.mLength == 0) {
                 console.log("视频尚未加载完成");
             }
@@ -73,8 +78,9 @@ var game;
         };
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */
-        VideoControlComponent.prototype.startPlay = function () {
-            this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
+        VideoControlComponent.prototype.onStart = function () {
+            if (this.mVideo)
+                this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
             this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
         };
         /** 暂停 */
@@ -87,6 +93,12 @@ var game;
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mVideo.length);
         };
+        VideoControlComponent.prototype.onMoveOverPlay = function () { this.kImgPlay.source = "img_btn_play_p_png"; };
+        VideoControlComponent.prototype.onMoveOutplay = function () { this.kImgPlay.source = "img_btn_play_n_png"; };
+        VideoControlComponent.prototype.onMoveOverPause = function () { this.kImgPause.source = "img_btn_pause_p_png"; };
+        VideoControlComponent.prototype.onMoveOutPause = function () { this.kImgPause.source = "img_btn_pause_n_png"; };
+        VideoControlComponent.prototype.onMoveOverReplay = function () { this.kImgRePlay.source = "img_btn_rePlay_p_png"; };
+        VideoControlComponent.prototype.onMoveOutReplay = function () { this.kImgRePlay.source = "img_btn_rePlay_n_png"; };
         return VideoControlComponent;
     }(eui.Component));
     game.VideoControlComponent = VideoControlComponent;

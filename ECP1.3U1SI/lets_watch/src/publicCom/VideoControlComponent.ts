@@ -10,8 +10,7 @@ namespace game {
         public kComPro: game.VideoProBarComponent;
         public kImgPlay: eui.Image;
         public kImgPause: eui.Image;
-        public kImgRestart: eui.Image;
-
+        public kImgRePlay: eui.Image;
 
         private mVideo: egret.Video;
         private mLength: number = 0;// 当前视频长度
@@ -37,9 +36,15 @@ namespace game {
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
 
-            this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.startPlay, this);
+            this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
             this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
-            this.kImgRestart.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
+            this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
+            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
+            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
+            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
+            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
+            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
+            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
             mouse.enable(this.stage);
 
         }
@@ -69,7 +74,6 @@ namespace game {
 
         /** 调整性播放进度 */
         private adjustPlay(e: any): void {
-            egret.log(e);
             if (this.mLength == 0) {
                 console.log("视频尚未加载完成");
             } else {
@@ -81,8 +85,9 @@ namespace game {
 
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */
-        private startPlay(): void {
-            this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
+        private onStart(): void {
+            if (this.mVideo)
+                this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
             this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
         }
 
@@ -98,5 +103,11 @@ namespace game {
             this.kComPro.reset(this.mVideo.length);
         }
 
+        private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
+        private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
+        private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
+        private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
+        private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
+        private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
     }
 }
