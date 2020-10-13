@@ -118,7 +118,7 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 7, , 8]);
+                        _a.trys.push([0, 8, , 9]);
                         return [4 /*yield*/, RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/")];
                     case 1:
                         _a.sent();
@@ -140,14 +140,17 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
                     case 6:
                         _a.sent();
+                        return [4 /*yield*/, RES.loadGroup("public")];
+                    case 7:
+                        _a.sent();
                         DragonFun.resetDragon("preload");
                         this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 8];
-                    case 7:
+                        return [3 /*break*/, 9];
+                    case 8:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 8];
-                    case 8: return [2 /*return*/];
+                        return [3 /*break*/, 9];
+                    case 9: return [2 /*return*/];
                 }
             });
         });
@@ -170,8 +173,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var mainView = new game.MainView();
-        XDFFrame.LayerManager.UI_View.addChild(mainView);
+        var LetsWatchView = new game.LetsWatchView();
+        XDFFrame.LayerManager.UI_View.addChild(LetsWatchView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

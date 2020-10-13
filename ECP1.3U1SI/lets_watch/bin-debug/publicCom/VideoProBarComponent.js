@@ -33,14 +33,18 @@ var game;
         };
         VideoProBarComponent.prototype.reset = function (time) {
             this.kImgProBtn.x = 0;
+            this.kImgBar.width = this.kImgProBtn.x;
             this.updateProPos(time);
         };
         VideoProBarComponent.prototype.updateProPos = function (remainTime) {
             egret.Tween.removeTweens(this.kImgProBtn);
             egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.removeTweens(this.kImgBar);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
         };
         VideoProBarComponent.prototype.init = function () {
             this.kImgProBtn.x = 0;
+            this.kImgBar.width = this.kImgProBtn.x;
             this.mIsAdjust = false;
         };
         VideoProBarComponent.prototype.onTouchBegin = function (e) {
@@ -48,6 +52,7 @@ var game;
             this.mTmpX = this.kImgProBtn.x;
             this.mIsAdjust = true;
             egret.Tween.removeTweens(this.kImgProBtn);
+            egret.Tween.removeTweens(this.kImgBar);
         };
         VideoProBarComponent.prototype.onTouchEnd = function (e) {
             if (this.mIsAdjust) {
@@ -64,16 +69,31 @@ var game;
                 // 结束播放
                 console.log("\u7ED3\u675F\u64AD\u653E\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = this.kGrpBar.width;
+                this.kImgBar.width = this.kImgProBtn.x;
             }
             else if (this.mTmpX + offSet <= 0) {
                 // 回到起点 
                 console.log("\u56DE\u5230\u8D77\u70B9\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = 0;
+                this.kImgBar.width = this.kImgProBtn.x;
             }
             else {
                 console.log("\u4F4D\u7F6E\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = this.mTmpX + offSet;
+                this.kImgBar.width = this.kImgProBtn.x;
             }
+        };
+        Object.defineProperty(VideoProBarComponent.prototype, "schedule", {
+            /** 获取当前播放进度 */
+            get: function () {
+                return this.kImgProBtn.x / this.kGrpBar.width;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        VideoProBarComponent.prototype.pause = function () {
+            egret.Tween.removeTweens(this.kImgProBtn);
+            egret.Tween.removeTweens(this.kImgBar);
         };
         return VideoProBarComponent;
     }(eui.Component));

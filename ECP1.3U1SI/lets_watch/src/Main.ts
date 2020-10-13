@@ -71,6 +71,7 @@ class Main extends eui.UILayer {
             await this.loadMusic();
             await this.loadTheme();
             await RES.loadGroup("preload", 0, loadingView);
+            await RES.loadGroup("public");
             DragonFun.resetDragon("preload");
             this.stage.removeChild(loadingView);
         }
@@ -96,8 +97,8 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let mainView = new game.MainView();
-        XDFFrame.LayerManager.UI_View.addChild(mainView);
+        let LetsWatchView = new game.LetsWatchView();
+        XDFFrame.LayerManager.UI_View.addChild(LetsWatchView);
     }
 
     private async loadMusic() {

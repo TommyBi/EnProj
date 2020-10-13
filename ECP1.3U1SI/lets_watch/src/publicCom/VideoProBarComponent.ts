@@ -26,16 +26,20 @@ namespace game {
         }
         public reset(time: number): void {
             this.kImgProBtn.x = 0;
+            this.kImgBar.width = this.kImgProBtn.x;
             this.updateProPos(time);
         }
 
         public updateProPos(remainTime): void {
             egret.Tween.removeTweens(this.kImgProBtn);
             egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.removeTweens(this.kImgBar);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
         }
 
         private init(): void {
             this.kImgProBtn.x = 0;
+            this.kImgBar.width = this.kImgProBtn.x;
             this.mIsAdjust = false;
         }
 
@@ -44,6 +48,7 @@ namespace game {
             this.mTmpX = this.kImgProBtn.x;
             this.mIsAdjust = true;
             egret.Tween.removeTweens(this.kImgProBtn);
+            egret.Tween.removeTweens(this.kImgBar);
         }
 
         private onTouchEnd(e: egret.TouchEvent): void {
@@ -61,14 +66,27 @@ namespace game {
                 // 结束播放
                 console.log(`结束播放：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = this.kGrpBar.width;
+                this.kImgBar.width = this.kImgProBtn.x;
             } else if (this.mTmpX + offSet <= 0) {
                 // 回到起点 
                 console.log(`回到起点：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = 0;
+                this.kImgBar.width = this.kImgProBtn.x;
             } else {
                 console.log(`位置：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = this.mTmpX + offSet;
+                this.kImgBar.width = this.kImgProBtn.x;
             }
+        }
+
+        /** 获取当前播放进度 */
+        public get schedule(): number {
+            return this.kImgProBtn.x / this.kGrpBar.width;
+        }
+
+        public pause(): void {
+            egret.Tween.removeTweens(this.kImgProBtn);
+            egret.Tween.removeTweens(this.kImgBar);
         }
     }
 
