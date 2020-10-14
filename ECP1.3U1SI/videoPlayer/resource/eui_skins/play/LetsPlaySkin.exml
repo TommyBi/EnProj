@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" />
+	<e:Group id="kGrpMain" x="240" y="0" width="1440" height="1080">
+		<e:Image source="img_lp_bg_png" scaleX="0.75" scaleY="0.75" x="0" y="0" />
+		<e:Group id="kGrpSheep" touchEnabled="false" horizontalCenter="0" touchChildren="false" touchThrough="true"
+		         verticalCenter="0">
+			<e:Group id="kGrpSheepIdle" scaleX="1" scaleY="1" />
+			<e:Group id="kGrpSheepCatch" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
+			<e:Group id="kGrpSheepJump" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" />
+		</e:Group>
+		<e:Rect id="kImgMask" scaleY="1"  anchorOffsetX="0" width="414.79" anchorOffsetY="0" height="529.48" right="0" bottom="0" visible="false"/>
+		<e:Image id="kImgHint" source="img_lp_hint_shirt_png" scaleX="0.7" scaleY="0.7" right="-107" bottom="0" />
+		<e:Group id="kGrpOption0" x="105.27" y="46" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image source="img_lp_option_bg_png" scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0" />
+			<e:Image id="kImgOption0" horizontalCenter="0" verticalCenter="0" source="img_lp_pants_png" scaleX="1.4" scaleY="1.4" />
+		</e:Group>
+		<e:Group id="kGrpOption1" x="669.82" y="43.88" touchChildren="false" touchEnabled="true" touchThrough="false"
+		         locked="true">
+			<e:Image source="img_lp_option_bg_png" scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0" />
+			<e:Image id="kImgOption1" horizontalCenter="0" verticalCenter="0" scaleX="1.4" scaleY="1.4" source="img_lp_shirt_png" />
+		</e:Group>
+		<e:Group x="-87.81" y="706.6" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true">
+			<e:Image source="img_lp_bar_bg_png" x="37.83" y="0" />
+			<e:Image id="kImgBar" source="img_bar_png" x="204.6" y="270" scale9Grid="26,2,163,13" height="40" width="520" />
+			<e:Image source="img_lp_bar_frame_png" x="37.83" y="0" />
+			<e:Image source="img_lp_bar_clock_png" x="0" y="163.5" scaleX="0.4" scaleY="0.4" />
+		</e:Group>
+		<e:Group id="kGrpGame" horizontalCenter="0" verticalCenter="0" />
+		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" />
+	</e:Group>
+</e:Skin>

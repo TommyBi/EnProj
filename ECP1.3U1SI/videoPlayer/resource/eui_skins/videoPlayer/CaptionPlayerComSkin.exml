@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="CaptionPlayerComSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:game="game.*" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="kGrpVideo" width="1440" height="1080" horizontalCenter="0" verticalCenter="0" locked="true">
+	</e:Group>
+	<e:Group id="kGrpCaptionVideo" scaleX="1" scaleY="1" width="1440" height="1080" horizontalCenter="0" verticalCenter="0" locked="true">
+	</e:Group>
+	<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="10" anchorOffsetX="0" width="776" horizontalCenter="-280"/>
+	<e:Group id="kGrpControl" x="1248" y="974">
+		<e:Image id="kImgShowCaption" source="img_pro_icon_png" x="0" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="kImgRePlay" x="327" y="12" scaleX="0.4" scaleY="0.4" source="img_btn_rePlay_n_png"/>
+		<e:Image id="kImgPause" x="233" y="12" scaleX="0.4" scaleY="0.4" source="img_btn_pause_n_png"/>
+		<e:Image id="kImgPlay" x="139" y="12" source="img_btn_play_n_png" scaleX="0.4" scaleY="0.4"/>
+	</e:Group>
+</e:Skin>
