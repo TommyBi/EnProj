@@ -1,11 +1,12 @@
 namespace game {
     export class LetsPlayView extends eui.Component {
         public kGrpMain: eui.Group;
-        public kImgHint: eui.Image;
         public kGrpSheep: eui.Group;
         public kGrpSheepIdle: eui.Group;
         public kGrpSheepCatch: eui.Group;
         public kGrpSheepJump: eui.Group;
+        public kImgMask: eui.Image;
+        public kImgHint: eui.Image;
         public kGrpOption0: eui.Group;
         public kImgOption0: eui.Image;
         public kGrpOption1: eui.Group;
@@ -41,6 +42,7 @@ namespace game {
             this.kImgBar.width = 520;
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
+            this.kImgHint.mask = this.kImgMask;
 
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");

@@ -33,6 +33,7 @@ var game;
             this.kImgBar.width = 520;
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
+            this.kImgHint.mask = this.kImgMask;
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
             this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
