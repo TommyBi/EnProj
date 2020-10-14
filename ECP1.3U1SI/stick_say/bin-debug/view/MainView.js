@@ -26,8 +26,8 @@ var game;
         MainView.prototype.createChildren = function () {
             var _this = this;
             _super.prototype.createChildren.call(this);
-            this.kGrpShirt.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayShirt, this);
-            this.kGrpPants.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayPants, this);
+            this.kShirt.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayShirt, this);
+            this.kPants.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayPants, this);
             this.kGrpFlag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelAction, this);
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
@@ -42,7 +42,7 @@ var game;
             for (var i = 0; i < 4; i++) {
                 _loop_1(i);
             }
-            this.kGrpPanel.mask = this.kRectMaskPanel;
+            this.kImgPanel.mask = this.kRectMaskPanel;
             this.kGrpFlag.mask = this.kRectMaskFlag;
             mouse.enable(this.stage);
             this.init();
@@ -155,8 +155,7 @@ var game;
         };
         /** 点击事件 */
         MainView.prototype.onTouch = function (e) {
-            console.log("touch :" + e.target.source);
-            if (e.target.name != "kGrpFlag" && e.target.name != "kGrpPanel" && this.mIsShowPanel) {
+            if (e.target.parent && e.target.name != "kGrpPanel" && e.target.parent.name != "kGrpPanel" && this.mIsShowPanel) {
                 // 点击空白区域，收起侧面板
                 this.onPanelAction();
             }

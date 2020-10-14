@@ -1,0 +1,17 @@
+{
+	"skins": {
+		"ItembkSkin": "resource/eui_skins/component/itembkSkin.exml",
+		"ItembkSkin1": "resource/eui_skins/component/itembkSkin1.exml",
+		"Box": "resource/eui_skins/component/Box.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/AnswerComponentSkin.exml",
+		"resource/eui_skins/DialogComponentSkin.exml",
+		"resource/eui_skins/MainScreenSkin.exml",
+		"resource/eui_skins/VideoProBarSkin.exml",
+		"resource/eui_skins/VideoComponentSkin.exml",
+		"resource/eui_skins/MainViewSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}

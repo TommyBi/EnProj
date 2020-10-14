@@ -6,8 +6,9 @@ namespace game {
         public kImgOption2: eui.Image;
         public kImgOption3: eui.Image;
         public kGrpPanel: eui.Group;
-        public kGrpShirt: eui.Group;
-        public kGrpPants: eui.Group;
+        public kImgPanel: eui.Image;
+        public kShirt: eui.Group;
+        public kPants: eui.Group;
         public kGrpFlag: eui.Group;
         public kImgShadow1: eui.Image;
         public kImgTip1: eui.Image;
@@ -24,7 +25,7 @@ namespace game {
         public kGrpReplay: eui.Group;
         public kImgReplay: eui.Image;
         public kComAnswer: game.AnswerComponent;
-        public kRectMaskPanel: eui.Rect;
+        public kRectMaskPanel: eui.Image;
         public kRectMaskFlag: eui.Rect;
 
         private mCurShowArr: number[] = [];// 当前显示的顺序
@@ -41,8 +42,8 @@ namespace game {
 
         protected createChildren() {
             super.createChildren();
-            this.kGrpShirt.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayShirt, this);
-            this.kGrpPants.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayPants, this);
+            this.kShirt.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayShirt, this);
+            this.kPants.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlayPants, this);
             this.kGrpFlag.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPanelAction, this);
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
@@ -53,7 +54,7 @@ namespace game {
                     this.onSelectOption(i);
                 }, this);
             }
-            this.kGrpPanel.mask = this.kRectMaskPanel;
+            this.kImgPanel.mask = this.kRectMaskPanel;
             this.kGrpFlag.mask = this.kRectMaskFlag;
 
             mouse.enable(this.stage);
@@ -175,8 +176,7 @@ namespace game {
 
         /** 点击事件 */
         private onTouch(e: egret.TouchEvent): void {
-            console.log(`touch :${e.target.source}`);
-            if (e.target.name != "kGrpFlag" && e.target.name != "kGrpPanel" && this.mIsShowPanel) {
+            if (e.target.parent && e.target.name != "kGrpPanel" && e.target.parent.name != "kGrpPanel" && this.mIsShowPanel) {
                 // 点击空白区域，收起侧面板
                 this.onPanelAction();
             }
