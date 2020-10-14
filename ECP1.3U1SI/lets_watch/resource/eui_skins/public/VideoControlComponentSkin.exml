@@ -2,11 +2,11 @@
 <e:Skin class="VideoControlComponentSkin" width="1440" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Group id="kGrpMain" left="0" right="0" top="0" bottom="0">
 		<e:Group id="kGrpVideo" left="0" right="0" top="0" bottom="0">
+			<e:Image id="kImgPlay" x="1109.69" y="930.91" source="img_btn_play_n_png" scaleX="0.4" scaleY="0.4"/>
+			<e:Image id="kImgPause" x="1209.69" y="930.91" scaleX="0.4" scaleY="0.4" source="img_btn_pause_n_png"/>
+			<e:Image id="kImgRePlay" x="1308.69" y="930.91" scaleX="0.4" scaleY="0.4" source="img_btn_rePlay_n_png"/>
 		</e:Group>
 		<e:Rect id="kRect" left="0" right="0" top="0" bottom="0" visible="false"/>
 		<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="50" left="80" width="700"/>
-		<e:Image id="kImgPlay" x="943" y="882" source="img_btn_play_n_png" scaleX="0.7" scaleY="0.7"/>
-		<e:Image id="kImgPause" x="1097" y="882" scaleX="0.7" scaleY="0.7" source="img_btn_pause_n_png"/>
-		<e:Image id="kImgRePlay" x="1251" y="882" scaleX="0.7" scaleY="0.7" source="img_btn_rePlay_n_png"/>
 	</e:Group>
 </e:Skin>
