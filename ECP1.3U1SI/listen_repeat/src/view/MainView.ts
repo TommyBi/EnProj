@@ -22,13 +22,13 @@ namespace game {
             super.createChildren();
 
             for (let i = 0; i < 8; i++) {
-                this[`kCom${i}`].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverCom, this);
-                this[`kCom${i}`].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutCom, this);
+                // this[`kCom${i}`].addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverCom, this);
+                // this[`kCom${i}`].addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutCom, this);
                 this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
                 this[`kCom${i}`].setData(i);
             }
 
-            mouse.enable(this.stage);
+            // mouse.enable(this.stage);
 
             this.init();
 
@@ -38,17 +38,17 @@ namespace game {
             this.mCurPlayIdx = -1;
         }
 
-        /** 鼠标移到重放按钮 */
-        private onMoveOverCom(e: egret.TouchEvent): void {
-            this[`kCom${e.target.name}`].light();
-        }
+        // /** 鼠标移到重放按钮 */
+        // private onMoveOverCom(e: egret.TouchEvent): void {
+        //     this[`kCom${e.target.name}`].light();
+        // }
 
-        /** 鼠标移出重放按钮 */
-        private onMoveOutCom(e: egret.TouchEvent): void {
-            if (Number(e.target.name) != this.mCurPlayIdx) {
-                this[`kCom${e.target.name}`].normal();
-            }
-        }
+        // /** 鼠标移出重放按钮 */
+        // private onMoveOutCom(e: egret.TouchEvent): void {
+        //     if (Number(e.target.name) != this.mCurPlayIdx) {
+        //         this[`kCom${e.target.name}`].normal();
+        //     }
+        // }
 
         private onTouch(e: egret.TouchEvent): void {
             this.mCurPlayIdx = Number(e.target.name);

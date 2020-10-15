@@ -37,10 +37,10 @@ var game;
         DialogComponent.prototype.init = function () {
         };
         DialogComponent.prototype.light = function () {
-            this.klbl.textColor = 0xfc9c00;
+            this.klbl.textColor = 0xe66b27;
         };
         DialogComponent.prototype.normal = function () {
-            this.klbl.textColor = 0xffffff;
+            this.klbl.textColor = 0x561108;
         };
         DialogComponent.prototype.setData = function (idx) {
             this.mIdx = idx;

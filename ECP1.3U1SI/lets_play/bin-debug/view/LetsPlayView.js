@@ -54,7 +54,7 @@ var game;
             var _this = this;
             egret.Tween.removeTweens(this.kImgBar);
             this.kImgBar.width = 520;
-            egret.Tween.get(this.kImgBar).to({ width: 0 }, 8000).call(function () {
+            egret.Tween.get(this.kImgBar).to({ width: 0 }, 13000).call(function () {
                 _this.kComRestart.visible = true;
                 _this.kComRestart.playActionTimeOut();
                 XDFSoundManager.play("sound_die_mp3");
@@ -130,7 +130,6 @@ var game;
                 });
             }
             else {
-                // TODO: err 
                 this.showErr();
             }
         };

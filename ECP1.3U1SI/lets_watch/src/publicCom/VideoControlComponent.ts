@@ -6,7 +6,6 @@ namespace game {
     export class VideoControlComponent extends eui.Component implements eui.UIComponent {
         public kGrpMain: eui.Group;
         public kGrpVideo: eui.Group;
-        public kRect: eui.Rect;
         public kComPro: game.VideoProBarComponent;
         public kImgPlay: eui.Image;
         public kImgPause: eui.Image;

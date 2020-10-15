@@ -1,7 +1,7 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json,img_action_0_png,img_action_1_png,img_action_2_png,img_action_3_png,img_dia_0_png,img_dia_1_png,img_dia_2_png,img_flag_0_png,img_dia_3_png,img_flag_2_png,img_flag_1_png,img_shadow_0_1_png,img_shadow_0_0_png,img_select_png,img_goodjob_png,img_shadow_1_1_png,img_shadow_1_0_png,img_shadow_2_1_png,img_shadow_2_0_png,img_shadow_3_1_png,img_shadow_3_0_png,img_tryAgain_png,mc_cloud_json,mc_cloud_png,mc_action0_png,mc_action0_json,mc_action1_png,mc_action1_json,mc_action2_png,mc_action2_json,mc_action3_png,mc_action3_json,img_action_color_0_png,img_action_color_1_png,img_action_color_2_png,img_action_color_3_png,img_replay_d_png,img_replay_j_png,mc_flag_json,mc_flag_png,img_bg_png,mc_good_enter_json,mc_good_enter_png,mc_good_star_json,mc_good_star_png,img_star_png,img_star_bg_png,img_bg_0_png,img_bg_1_png,img_bg_2_png,img_pro_icon_png,img_pro_line_png,img_pro_line_bg_png,img_mask_video_png",
+			"keys":"description_json,_xdf_logo__png,pp_game_config_json,img_action_0_png,img_action_1_png,img_action_2_png,img_action_3_png,img_dia_0_png,img_dia_1_png,img_dia_2_png,img_flag_0_png,img_dia_3_png,img_flag_2_png,img_flag_1_png,img_shadow_0_1_png,img_shadow_0_0_png,img_select_png,img_goodjob_png,img_shadow_1_1_png,img_shadow_1_0_png,img_shadow_2_1_png,img_shadow_2_0_png,img_shadow_3_1_png,img_shadow_3_0_png,img_tryAgain_png,mc_cloud_json,mc_cloud_png,mc_action0_png,mc_action0_json,mc_action1_png,mc_action1_json,mc_action2_png,mc_action2_json,mc_action3_png,mc_action3_json,img_action_color_0_png,img_action_color_1_png,img_action_color_2_png,img_action_color_3_png,img_replay_d_png,img_replay_j_png,mc_flag_json,mc_flag_png,img_bg_png,mc_good_enter_json,mc_good_enter_png,mc_good_star_json,mc_good_star_png,img_star_png,img_star_bg_png,img_bg_0_png,img_bg_1_png,img_bg_2_png,img_pro_icon_png,img_pro_line_png,img_pro_line_bg_png,img_mask_video_png,img_tv_png",
 			"name":"preload"
 		},
 		{
@@ -383,6 +383,11 @@
 			"name":"img_mask_video_png",
 			"type":"image",
 			"url":"assets/img/img_mask_video.png"
+		},
+		{
+			"name":"img_tv_png",
+			"type":"image",
+			"url":"assets/img/img_tv.png"
 		}
 	]
 }

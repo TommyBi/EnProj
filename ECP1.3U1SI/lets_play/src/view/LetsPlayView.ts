@@ -65,7 +65,7 @@ namespace game {
         private playCountDown(): void {
             egret.Tween.removeTweens(this.kImgBar);
             this.kImgBar.width = 520;
-            egret.Tween.get(this.kImgBar).to({ width: 0 }, 8000).call(() => {
+            egret.Tween.get(this.kImgBar).to({ width: 0 }, 13000).call(() => {
                 this.kComRestart.visible = true;
                 this.kComRestart.playActionTimeOut();
                 XDFSoundManager.play("sound_die_mp3");
@@ -140,7 +140,6 @@ namespace game {
                     }
                 })
             } else {
-                // TODO: err 
                 this.showErr();
             }
         }

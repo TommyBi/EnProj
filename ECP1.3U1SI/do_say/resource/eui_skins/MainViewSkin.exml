@@ -6,7 +6,7 @@
 		<e:Image source="img_bg_png" x="0" y="0"/>
 		<e:Image id="kImgPutOn" source="img_btn_putOn_png" anchorOffsetX="105" anchorOffsetY="43.5" y="70.5" x="267"/>
 		<e:Image id="kImgTakeOff" source="img_btn_takeOff_png" anchorOffsetX="105" anchorOffsetY="43.5" y="70.5" x="667"/>
-		<e:Group id="kGrpDownLight" y="490.81" horizontalCenter="0">
+		<e:Group id="kGrpDownLight" horizontalCenter="0" bottom="0">
 			<e:Image id="kImgShirtDown1" source="img_shirt_1_l_png" x="0" y="8"/>
 			<e:Image id="kImgShirtDown0" source="img_shirt_0_l_png" x="174" y="9"/>
 			<e:Image id="kImgPantsDown1" source="img_pants_1_l_png" x="370.79" y="0"/>
@@ -31,7 +31,7 @@
 			<e:Image id="kImgShirtUp_1_g" source="img_shirt_1_g_png" x="0" y="0"/>
 			<e:Image id="kImgPantsUp_1_g" source="img_pants_1_g_png" x="38" y="72.58"/>
 		</e:Group>
-		<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="40" bottom="40" scaleX="0.76" scaleY="0.76"/>
+		<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="20" bottom="20" scaleX="0.6" scaleY="0.6"/>
 		<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" scaleX="0.76" scaleY="0.76"/>
 	</e:Group>
 </e:Skin>

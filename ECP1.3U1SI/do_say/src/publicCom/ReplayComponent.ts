@@ -16,9 +16,9 @@ namespace game {
         protected createChildren() {
             super.createChildren();
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
-            this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplayBtn, this);
-            this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplayBtn, this);
-            mouse.enable(this.stage);
+            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplayBtn, this);
+            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplayBtn, this);
+            // mouse.enable(this.stage);
             this.init();
         }
 
@@ -40,34 +40,34 @@ namespace game {
             this.kImgReplay.source = "img_replay_j_png";
             this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
-                .to({ scaleX: 0.32, scaleY: 0.32 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.3, scaleY: 0.3 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.32, scaleY: 0.32 }, 300, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.3, scaleY: 0.3 }, 300, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.32, scaleY: 0.32 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.3, scaleY: 0.3 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.32, scaleY: 0.32 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 0.3, scaleY: 0.3 }, 400, egret.Ease.cubicInOut)
         }
 
-        /** 鼠标移到重放按钮 */
-        private onMoveOverReplayBtn(): void {
-            if (this.kImgReplay.source != "img_replay_d_png") {
-                this.kImgReplay.source = "img_replay_d_png";
-                egret.Tween.removeTweens(this.kImgReplay);
-                egret.Tween.removeTweens(this.kGrpReplay);
-                this.kGrpReplay.y = 0;
-                egret.Tween.get(this.kGrpReplay, { loop: true })
-                    .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-                    .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-                    .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-                    .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-            }
-        }
+        // /** 鼠标移到重放按钮 */
+        // private onMoveOverReplayBtn(): void {
+        //     if (this.kImgReplay.source != "img_replay_d_png") {
+        //         this.kImgReplay.source = "img_replay_d_png";
+        //         egret.Tween.removeTweens(this.kImgReplay);
+        //         egret.Tween.removeTweens(this.kGrpReplay);
+        //         this.kGrpReplay.y = 0;
+        //         egret.Tween.get(this.kGrpReplay, { loop: true })
+        //             .to({ y: 10 }, 400, egret.Ease.cubicInOut)
+        //             .to({ y: -10 }, 400, egret.Ease.cubicInOut)
+        //             .to({ y: 10 }, 400, egret.Ease.cubicInOut)
+        //             .to({ y: -10 }, 400, egret.Ease.cubicInOut)
+        //     }
+        // }
 
-        /** 鼠标移出重放按钮 */
-        private onMoveOutReplayBtn(): void {
-            if (this.kImgReplay.source != "img_replay_j_png") this.kImgReplay.source = "img_replay_j_png";
-            egret.Tween.removeTweens(this.kGrpReplay);
-            this.kGrpReplay.y = 0;
-            this.showReplay();
-        }
+        // /** 鼠标移出重放按钮 */
+        // private onMoveOutReplayBtn(): void {
+        //     if (this.kImgReplay.source != "img_replay_j_png") this.kImgReplay.source = "img_replay_j_png";
+        //     egret.Tween.removeTweens(this.kGrpReplay);
+        //     this.kGrpReplay.y = 0;
+        //     this.showReplay();
+        // }
 
     }
 

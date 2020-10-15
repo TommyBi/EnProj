@@ -19,7 +19,7 @@ namespace XDFFrame {
         public static UI_Tips: BaseUILayer = new BaseUILayer();/** 提示层（Alert面板，飘字效果。。。）*/
         public static UI_EffectLayer: BaseUILayer = new BaseUILayer();/** 特效展示层*/
         public static UI_GUIDE: BaseUILayer = new BaseUILayer();/* 引导层*/
-        public static UI_LOGO: BaseUILayer = new BaseUILayer();/** Logo层*/
+        // public static UI_LOGO: BaseUILayer = new BaseUILayer();/** Logo层*/
         public static layers: BaseUILayer[] = [];
 
         public static get stage() {
@@ -34,8 +34,8 @@ namespace XDFFrame {
             this.addLayer(this.UI_Tips, 4);
             this.addLayer(this.UI_EffectLayer, 5);
             this.addLayer(this.UI_GUIDE, 6);
-            this.addLayer(this.UI_LOGO, 7);
-            this.UI_LOGO.addChild(new XDFLogoComponent());
+            // this.addLayer(this.UI_LOGO, 7);
+            // this.UI_LOGO.addChild(new XDFLogoComponent());
         }
 
         public static addLayer(type: BaseUILayer, idx): void {

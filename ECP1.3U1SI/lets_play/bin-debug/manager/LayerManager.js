@@ -43,8 +43,8 @@ var XDFFrame;
             this.addLayer(this.UI_Tips, 4);
             this.addLayer(this.UI_EffectLayer, 5);
             this.addLayer(this.UI_GUIDE, 6);
-            this.addLayer(this.UI_LOGO, 7);
-            this.UI_LOGO.addChild(new XDFLogoComponent());
+            // this.addLayer(this.UI_LOGO, 7);
+            // this.UI_LOGO.addChild(new XDFLogoComponent());
         };
         LayerManager.addLayer = function (type, idx) {
             this.stage.addChildAt(type, idx);
@@ -57,7 +57,7 @@ var XDFFrame;
         LayerManager.UI_Tips = new BaseUILayer(); /** 提示层（Alert面板，飘字效果。。。）*/
         LayerManager.UI_EffectLayer = new BaseUILayer(); /** 特效展示层*/
         LayerManager.UI_GUIDE = new BaseUILayer(); /* 引导层*/
-        LayerManager.UI_LOGO = new BaseUILayer(); /** Logo层*/
+        // public static UI_LOGO: BaseUILayer = new BaseUILayer();/** Logo层*/
         LayerManager.layers = [];
         return LayerManager;
     }());

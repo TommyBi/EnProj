@@ -33,11 +33,11 @@ namespace game {
         }
 
         private light(): void {
-            this.klbl.textColor = 0xfc9c00;
+            this.klbl.textColor = 0xe66b27;
         }
 
         private normal(): void {
-            this.klbl.textColor = 0xffffff;
+            this.klbl.textColor = 0x561108;
         }
 
         private setData(idx: number): void {
