@@ -114,49 +114,46 @@ var Main = (function (_super) {
     };
     Main.prototype.loadResource = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var loadingView, e_1;
+            var e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 10, , 11]);
+                        _a.trys.push([0, 8, , 9]);
                         return [4 /*yield*/, RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/")];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("loading")];
+                        // await RES.loadGroup("loading");
+                        return [4 /*yield*/, RES.loadGroup("preload")];
                     case 2:
+                        // await RES.loadGroup("loading");
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("sound")];
                     case 3:
                         _a.sent();
-                        DragonFun.resetDragon("loading");
-                        loadingView = new LoadingUI();
-                        this.stage.addChild(loadingView);
-                        return [4 /*yield*/, this.loadMusic()];
-                    case 4:
-                        _a.sent();
+                        // DragonFun.resetDragon("loading");
+                        // const loadingView = new LoadingUI();
+                        // this.stage.addChild(loadingView);
                         return [4 /*yield*/, this.loadTheme()];
-                    case 5:
-                        _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
-                    case 6:
+                    case 4:
+                        // DragonFun.resetDragon("loading");
+                        // const loadingView = new LoadingUI();
+                        // this.stage.addChild(loadingView);
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("public")];
-                    case 7:
+                    case 5:
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("db")];
-                    case 8:
+                    case 6:
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("letsPlay")];
-                    case 9:
+                    case 7:
                         _a.sent();
-                        DragonFun.resetDragon("preload");
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 11];
-                    case 10:
+                        return [3 /*break*/, 9];
+                    case 8:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 11];
-                    case 11: return [2 /*return*/];
+                        return [3 /*break*/, 9];
+                    case 9: return [2 /*return*/];
                 }
             });
         });

@@ -63,17 +63,10 @@ class Main extends eui.UILayer {
     private async loadResource() {
         try {
             await RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/");
-            await RES.loadGroup("loading");
+            await RES.loadGroup("preload");
             await RES.loadGroup("sound");
-            DragonFun.resetDragon("loading");
-            const loadingView = new LoadingUI();
-            this.stage.addChild(loadingView);
-            await this.loadMusic();
             await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
             await RES.loadGroup("public");
-            DragonFun.resetDragon("preload");
-            this.stage.removeChild(loadingView);
         }
         catch (e) {
             console.error(e);

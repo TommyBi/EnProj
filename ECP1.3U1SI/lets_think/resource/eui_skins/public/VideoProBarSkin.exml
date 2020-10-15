@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="VideoProBarSkin" width="500" height="100" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="kGrpBar" bottom="5" left="0" right="0">
-		<e:Image source="img_pro_line_bg_png" verticalCenter="0" scale9Grid="55,12,1424,1" height="14" left="0" right="0"/>
-		<e:Image id="kImgBar" source="img_pro_line_png" verticalCenter="0" x="0" height="15" scale9Grid="192,12,1156,2" width="300"/>
-	</e:Group>
-	<e:Image id="kImgProBtn" source="img_pro_icon_png" scaleX="0.3" scaleY="0.3" anchorOffsetX="111" anchorOffsetY="98" x="0" y="70"/>
-</e:Skin>
