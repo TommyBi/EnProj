@@ -7,7 +7,6 @@ namespace game {
         public kRect: eui.Rect;
         public kComPro: game.VideoProBarComponent;
 
-        private mIdx: number;   // 正在播放的idx
         private mVideo: egret.Video;
         private mLength: number = 0;// 当前视频长度
 

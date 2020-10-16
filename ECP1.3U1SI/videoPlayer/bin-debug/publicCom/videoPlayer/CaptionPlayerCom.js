@@ -16,17 +16,32 @@ var game;
      */
     var CaptionPlayerCom = (function (_super) {
         __extends(CaptionPlayerCom, _super);
-        // private get canPlay(): boolean {
-        //     return this.mVideo && this.mVideo.length > 0 && this.mCaptionsVideo && this.mCaptionsVideo.length > 0;
-        // }
         function CaptionPlayerCom() {
             var _this = _super.call(this) || this;
-            // private mCaptionsVideo: egret.Video;
             _this.mLength = 0; // 当前视频长度
-            _this.mIsPlayCaption = false; // 是否正在播放字幕
+            _this._mIsPlayCaption = false; // 是否开启麦克风
+            _this._mIsPlaying = false; // 是否正在播放
             _this.skinName = "CaptionPlayerComSkin";
             return _this;
         }
+        Object.defineProperty(CaptionPlayerCom.prototype, "mIsPlayCaption", {
+            get: function () { return this._mIsPlayCaption; },
+            set: function (b) {
+                this._mIsPlayCaption = b;
+                this.kImgCaption.source = b ? "img_micro_enable_png" : "img_micro_forbid_png";
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(CaptionPlayerCom.prototype, "mIsPlaying", {
+            get: function () { return this._mIsPlaying; },
+            set: function (b) {
+                this._mIsPlaying = b;
+                this.kImgPlay.source = b ? "img_pause_png" : "img_play_png";
+            },
+            enumerable: true,
+            configurable: true
+        });
         CaptionPlayerCom.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
             this.register();
@@ -40,53 +55,35 @@ var game;
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.mVideo.volume = 0.1;
             this.kGrpVideo.addChild(this.mVideo);
-            // this.mCaptionsVideo = new egret.Video();
-            // this.mCaptionsVideo.x = 0;                       //设置视频坐标x
-            // this.mCaptionsVideo.y = 500;                       //设置视频坐标y
-            // this.mCaptionsVideo.width = 1440;                //设置视频宽
-            // this.mCaptionsVideo.height = 1080;               //设置视频高
-            // this.mCaptionsVideo.fullscreen = false;          //设置是否全屏（暂不支持移动设备）
-            // this.kGrpCaptionVideo.addChild(this.mCaptionsVideo);
             this.kGrpControl.visible = false;
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            // mouse.enable(this.stage);
-            this.kImgShowCaption.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeCaptionShowState, this);
+            this.kImgCaption.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeCaptionShowState, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.showControl, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         };
         /** 播放的视频索引 */
         CaptionPlayerCom.prototype.load = function (name) {
             this.mVideo.load("resource/assets/video/" + name + ".mp4");
-            // this.mCaptionsVideo.load(`resource/assets/video/${name}_caption.mp4`);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
-            // this.mCaptionsVideo.once(egret.Event.COMPLETE, this.onLoadCaption, this);
-            // this.mCaptionsVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadCaptionErr, this);
         };
         /** 加载成功 */
         CaptionPlayerCom.prototype.onLoad = function () {
-            console.log("获取视频长度: " + this.mVideo.length);
+            var _this = this;
             this.mLength = this.mVideo.length;
-            // this.kGrpControl.visible = this.canPlay;
             this.kGrpControl.visible = true;
+            this.mIsPlayCaption = false;
+            this.mIsPlaying = false;
+            this.mVideo.play(1);
+            egret.Tween.get(this).wait(200).call(function () {
+                _this.mVideo.pause();
+            });
         };
         /** 加载失败 */
         CaptionPlayerCom.prototype.onLoadErr = function (err) {
             console.log("video load error happened", err);
-        };
-        CaptionPlayerCom.prototype.onLoadCaption = function () {
-            // this.kGrpControl.visible = this.canPlay;
-            this.kGrpControl.visible = true;
-        };
-        CaptionPlayerCom.prototype.onLoadCaptionErr = function (err) {
-            console.log("caption video load error happened", err);
         };
         /** 调整性播放进度 */
         CaptionPlayerCom.prototype.adjustPlay = function (e) {
@@ -98,56 +95,70 @@ var game;
                 this.mVideo.play(e.data * this.mVideo.length);
                 if (this.mIsPlayCaption)
                     XDFSoundManager.play("sound_bg_mp3", e.data * this.mVideo.length, 1, 1);
-                // this.mCaptionsVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
         };
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */
         CaptionPlayerCom.prototype.onStart = function () {
-            if (this.mVideo) {
-                this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
-                // this.mCaptionsVideo.play(this.kComPro.schedule * this.mVideo.length);
-                this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
-                if (this.mIsPlayCaption)
-                    XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
+            if (!this.mIsPlaying) {
+                if (this.mVideo) {
+                    this.mIsPlaying = true;
+                    this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
+                    this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
+                    if (this.mIsPlayCaption)
+                        XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
+                }
+                else {
+                    this.mIsPlaying = false;
+                }
+            }
+            else {
+                this.onPause();
             }
         };
         /** 暂停 */
         CaptionPlayerCom.prototype.onPause = function () {
             this.mVideo.pause();
-            // this.mCaptionsVideo.pause();
             this.kComPro.pause();
+            this.mIsPlaying = false;
             XDFSoundManager.stop("sound_bg_mp3");
         };
         /** 重新开始 */
         CaptionPlayerCom.prototype.onRestart = function () {
             this.mVideo.play(0, false);
-            // this.mCaptionsVideo.play(0, false);
             this.kComPro.reset(this.mVideo.length);
             if (this.mIsPlayCaption)
                 XDFSoundManager.play("sound_bg_mp3", 0, 1, 1);
         };
-        // private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
-        // private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
-        // private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
-        // private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
-        // private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
-        // private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
         /** 切换显示字幕视频 */
         CaptionPlayerCom.prototype.onChangeCaptionShowState = function () {
             if (this.mVideo.length = 0)
                 return;
             if (!this.mIsPlayCaption) {
                 this.mIsPlayCaption = true;
-                this.kImgShowCaption.source = "img_micro_enable_png";
                 XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
             }
             else {
                 this.mIsPlayCaption = false;
-                this.kImgShowCaption.source = "img_micro_forbid_png";
                 XDFSoundManager.stop("sound_bg_mp3");
             }
+        };
+        CaptionPlayerCom.prototype.showControl = function () {
+            egret.Tween.removeTweens(this.kGrpControl);
+            this.kGrpControl.alpha = 0.4;
+            egret.Tween.get(this.kGrpControl).to({ alpha: 1 }, 1000, egret.Ease.cubicInOut);
+            egret.Tween.removeTweens(this.kComPro);
+            this.kComPro.alpha = 0.4;
+            egret.Tween.get(this.kComPro).to({ alpha: 1 }, 1000, egret.Ease.cubicInOut);
+        };
+        CaptionPlayerCom.prototype.hideControl = function () {
+            egret.Tween.removeTweens(this.kGrpControl);
+            this.kGrpControl.alpha = 1;
+            egret.Tween.get(this.kGrpControl).to({ alpha: 0.4 }, 1000, egret.Ease.cubicInOut);
+            egret.Tween.removeTweens(this.kComPro);
+            this.kComPro.alpha = 1;
+            egret.Tween.get(this.kComPro).to({ alpha: 0.4 }, 1000, egret.Ease.cubicInOut);
         };
         return CaptionPlayerCom;
     }(eui.Component));
