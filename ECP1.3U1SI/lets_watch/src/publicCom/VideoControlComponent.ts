@@ -13,6 +13,12 @@ namespace game {
 
         private mVideo: egret.Video;
         private mLength: number = 0;// 当前视频长度
+        private _mIsPlaying: boolean = false;// 是否正在播放
+        private set mIsPlaying(b: boolean) {
+            this._mIsPlaying = b;
+            this.kImgPlay.source = b ? "img_pause_png" : "img_play_png";
+        }
+        private get mIsPlaying(): boolean { return this._mIsPlaying; }
 
         public constructor() {
             super();
@@ -36,7 +42,7 @@ namespace game {
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
 
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
+            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
             // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
             // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
@@ -62,6 +68,7 @@ namespace game {
             this.mLength = this.mVideo.length;
 
             //播放视频
+            this.mIsPlaying = true;
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mLength);
         }
@@ -85,13 +92,23 @@ namespace game {
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */
         private onStart(): void {
-            if (this.mVideo)
-                this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
-            this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
+            if (!this.mIsPlaying) {
+                if (this.mVideo) {
+                    this.mIsPlaying = true;
+                    this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
+                    this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
+                } else {
+                    this.mIsPlaying = false;
+                }
+            } else {
+                this.onPause();
+            }
+
         }
 
         /** 暂停 */
         private onPause(): void {
+            this.mIsPlaying = false;
             this.mVideo.pause();
             this.kComPro.pause();
         }

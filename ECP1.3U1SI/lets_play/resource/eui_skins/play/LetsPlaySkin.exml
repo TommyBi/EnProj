@@ -14,7 +14,7 @@
 		<e:Image id="kImgHint" source="img_lp_hint_shirt_png" scaleX="0.7" scaleY="0.7" right="-107" bottom="0" />
 		<e:Group id="kGrpOption0" x="105.27" y="46" touchChildren="false" touchEnabled="true" touchThrough="false">
 			<e:Image source="img_lp_option_bg_png" scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0" />
-			<e:Image id="kImgOption0" horizontalCenter="0" verticalCenter="0" source="img_lp_pants_png" scaleX="1.4" scaleY="1.4" />
+			<e:Image id="kImgOption0" horizontalCenter="-13" verticalCenter="0" source="img_lp_pants_png" scaleX="1.4" scaleY="1.4" />
 		</e:Group>
 		<e:Group id="kGrpOption1" x="669.82" y="43.88" touchChildren="false" touchEnabled="true" touchThrough="false"
 		         locked="true">

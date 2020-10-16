@@ -52,13 +52,13 @@ namespace game {
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
             this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            mouse.enable(this.stage);
+            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
+            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
+            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
+            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
+            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
+            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
+            // mouse.enable(this.stage);
 
             this.kImgShowCaption.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeCaptionShowState, this);
 
@@ -137,21 +137,23 @@ namespace game {
             if (this.mIsPlayCaption) XDFSoundManager.play("sound_bg_mp3", 0, 1, 1);
         }
 
-        private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
-        private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
-        private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
-        private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
-        private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
-        private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
+        // private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
+        // private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
+        // private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
+        // private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
+        // private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
+        // private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
 
         /** 切换显示字幕视频 */
         private onChangeCaptionShowState(): void {
             if (this.mVideo.length = 0) return;
             if (!this.mIsPlayCaption) {
                 this.mIsPlayCaption = true;
+                this.kImgShowCaption.source = "img_micro_enable_png";
                 XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
             } else {
                 this.mIsPlayCaption = false;
+                this.kImgShowCaption.source = "img_micro_forbid_png";
                 XDFSoundManager.stop("sound_bg_mp3");
             }
         }

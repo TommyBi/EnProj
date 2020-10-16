@@ -19,9 +19,19 @@ var game;
         function VideoControlComponent() {
             var _this = _super.call(this) || this;
             _this.mLength = 0; // 当前视频长度
+            _this._mIsPlaying = false; // 是否正在播放
             _this.skinName = "VideoControlComponentSkin";
             return _this;
         }
+        Object.defineProperty(VideoControlComponent.prototype, "mIsPlaying", {
+            get: function () { return this._mIsPlaying; },
+            set: function (b) {
+                this._mIsPlaying = b;
+                this.kImgPlay.source = b ? "img_pause_png" : "img_play_png";
+            },
+            enumerable: true,
+            configurable: true
+        });
         VideoControlComponent.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
             this.register();
@@ -36,7 +46,7 @@ var game;
             this.kGrpVideo.addChild(this.mVideo);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
+            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
             // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
             // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
@@ -58,6 +68,7 @@ var game;
             console.log("获取视频长度: " + this.mVideo.length);
             this.mLength = this.mVideo.length;
             //播放视频
+            this.mIsPlaying = true;
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mLength);
         };
@@ -79,12 +90,23 @@ var game;
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */
         VideoControlComponent.prototype.onStart = function () {
-            if (this.mVideo)
-                this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
-            this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
+            if (!this.mIsPlaying) {
+                if (this.mVideo) {
+                    this.mIsPlaying = true;
+                    this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
+                    this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
+                }
+                else {
+                    this.mIsPlaying = false;
+                }
+            }
+            else {
+                this.onPause();
+            }
         };
         /** 暂停 */
         VideoControlComponent.prototype.onPause = function () {
+            this.mIsPlaying = false;
             this.mVideo.pause();
             this.kComPro.pause();
         };

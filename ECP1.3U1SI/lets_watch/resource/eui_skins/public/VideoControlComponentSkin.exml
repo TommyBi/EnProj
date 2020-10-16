@@ -5,7 +5,7 @@
 		</e:Group>
 		<game:VideoProBarComponent id="kComPro" skinName="VideoProBarSkin" bottom="50" left="80" width="700"/>
 		<e:Image id="kImgRePlay" x="1308.69" y="961.21" source="img_rePlay_png"/>
-		<e:Image id="kImgPlay" x="1109.69" y="961.21" source="img_play_png"/>
-		<e:Image id="kImgPause" x="1209.69" y="961.21" source="img_pause_png"/>
+		<e:Image id="kImgPlay" x="1209.69" y="961.21" source="img_play_png"/>
+		<e:Image id="kImgPause" x="1209.69" y="961.21" source="img_pause_png" visible="false"/>
 	</e:Group>
 </e:Skin>
