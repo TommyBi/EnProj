@@ -5,7 +5,7 @@ namespace game {
         public kGrpSheepIdle: eui.Group;
         public kGrpSheepCatch: eui.Group;
         public kGrpSheepJump: eui.Group;
-        public kImgMask: eui.Image;
+        public kImgMask: eui.Rect;
         public kImgHint: eui.Image;
         public kGrpOption0: eui.Group;
         public kImgOption0: eui.Image;
@@ -14,6 +14,7 @@ namespace game {
         public kImgBar: eui.Image;
         public kGrpGame: eui.Group;
         public kComRestart: game.ReStartComponent;
+        public kLabelHint: eui.Label;
 
         private mAnimSheepCatch: XDFFrame.DBAnim;
         private mAnimSheepIdle: XDFFrame.DBAnim;
@@ -33,8 +34,12 @@ namespace game {
             XDFFrame.EventCenter.addEventListenr(EventConst.startComPlayGame, this.onStart, this);
             this.kGrpOption0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch0, this);
             this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch1, this);
-
+            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
             this.init();
+        }
+
+        private onTouch(e: egret.TouchEvent): void {
+            egret.log(e.target);
         }
 
         private init(): void {
@@ -46,11 +51,11 @@ namespace game {
 
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.4, scaleY: 1.4 });
             this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch");
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.4, scaleY: 1.4 });
             this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump");
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.4, scaleY: 1.4 });
             this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepIdle.visible = true;
             this.mAnimSheepIdle.play(null, 0);
@@ -94,7 +99,7 @@ namespace game {
             }
             this.mCurrentHint = this.mHintArr.shift();
             XDFSoundManager.play(`sound_${this.mCurrentHint}_mp3`);
-            this.kImgHint.source = `img_lp_hint_${this.mCurrentHint}_png`;
+            this.kLabelHint.text = `${this.mCurrentHint}`;
             this.playCountDown();
         }
 

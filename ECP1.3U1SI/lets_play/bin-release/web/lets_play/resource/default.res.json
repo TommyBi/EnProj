@@ -17,11 +17,11 @@
 			"name":"public"
 		},
 		{
-			"keys":"db_goodJob_ske_json,db_sheep_catch_ske_json,db_sheep_catch_tex_json,db_sheep_catch_tex_png,db_sheep_idle_ske_json,db_sheep_idle_tex_json,db_sheep_idle_tex_png,db_sheep_jump_ske_json,db_sheep_jump_tex_json,db_sheep_jump_tex_png,db_start_ske_json,db_start_tex_json,db_start_tex_png,db_timeOut_ske_json,db_timeOut_tex_json,db_timeOut_tex_png,db_goodJob_tex_0_json,db_goodJob_tex_0_png,db_goodJob_tex_1_json,db_goodJob_tex_1_png,db_goodJob_tex_2_json,db_goodJob_tex_2_png,db_goodJob_tex_3_json,db_goodJob_tex_3_png",
+			"keys":"db_goodJob_ske_json,db_sheep_catch_ske_json,db_sheep_catch_tex_json,db_sheep_catch_tex_png,db_sheep_idle_ske_json,db_sheep_jump_ske_json,db_sheep_jump_tex_json,db_sheep_jump_tex_png,db_start_ske_json,db_start_tex_json,db_start_tex_png,db_timeOut_ske_json,db_timeOut_tex_json,db_timeOut_tex_png,db_sheep_idle_tex_json,db_sheep_idle_tex_png,db_goodJob_tex_json,db_goodJob_tex_png",
 			"name":"db"
 		},
 		{
-			"keys":"img_lp_pants_png,img_lp_bg_png,img_lp_bar_clock_png,img_lp_bar_frame_png,img_lp_hint_shirt_png,img_lp_shirt_png,img_bar_png,img_lp_hint_pants_png,img_lp_bar_bg_png,img_lp_option_bg_png",
+			"keys":"img_lp_pants_png,img_lp_bg_png,img_lp_bar_clock_png,img_lp_bar_frame_png,img_lp_hint_shirt_png,img_lp_shirt_png,img_bar_png,img_lp_hint_pants_png,img_lp_bar_bg_png,img_lp_option_bg_png,img_lp_scale_png,img_lp_hint_panel_png",
 			"name":"letsPlay"
 		}
 	],
@@ -432,16 +432,6 @@
 			"url":"assets/db/db_sheep_idle/db_sheep_idle_ske.json"
 		},
 		{
-			"name":"db_sheep_idle_tex_json",
-			"type":"json",
-			"url":"assets/db/db_sheep_idle/db_sheep_idle_tex.json"
-		},
-		{
-			"name":"db_sheep_idle_tex_png",
-			"type":"image",
-			"url":"assets/db/db_sheep_idle/db_sheep_idle_tex.png"
-		},
-		{
 			"name":"db_sheep_jump_ske_json",
 			"type":"json",
 			"url":"assets/db/db_sheep_jump/db_sheep_jump_ske.json"
@@ -522,49 +512,39 @@
 			"url":"assets/sound/sound_start.mp3"
 		},
 		{
-			"name":"db_goodJob_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_0.json"
-		},
-		{
-			"name":"db_goodJob_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_0.png"
-		},
-		{
-			"name":"db_goodJob_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_1.json"
-		},
-		{
-			"name":"db_goodJob_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_1.png"
-		},
-		{
-			"name":"db_goodJob_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_2.json"
-		},
-		{
-			"name":"db_goodJob_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_2.png"
-		},
-		{
-			"name":"db_goodJob_tex_3_json",
-			"type":"json",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_3.json"
-		},
-		{
-			"name":"db_goodJob_tex_3_png",
-			"type":"image",
-			"url":"assets/db/db_goodJob/db_goodJob_tex_3.png"
-		},
-		{
 			"name":"sound_die_mp3",
 			"type":"sound",
 			"url":"assets/sound/sound_die.mp3"
+		},
+		{
+			"name":"img_lp_scale_png",
+			"type":"image",
+			"url":"assets/img/lets_play/img_lp_scale.png"
+		},
+		{
+			"name":"img_lp_hint_panel_png",
+			"type":"image",
+			"url":"assets/img/lets_play/img_lp_hint_panel.png"
+		},
+		{
+			"name":"db_sheep_idle_tex_json",
+			"type":"json",
+			"url":"assets/db/db_sheep_idle/db_sheep_idle_tex.json"
+		},
+		{
+			"name":"db_sheep_idle_tex_png",
+			"type":"image",
+			"url":"assets/db/db_sheep_idle/db_sheep_idle_tex.png"
+		},
+		{
+			"name":"db_goodJob_tex_json",
+			"type":"json",
+			"url":"assets/db/db_goodJob/db_goodJob_tex.json"
+		},
+		{
+			"name":"db_goodJob_tex_png",
+			"type":"image",
+			"url":"assets/db/db_goodJob/db_goodJob_tex.png"
 		}
 	]
 }

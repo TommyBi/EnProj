@@ -26,7 +26,11 @@ var game;
             XDFFrame.EventCenter.addEventListenr(game.EventConst.startComPlayGame, this.onStart, this);
             this.kGrpOption0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch0, this);
             this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch1, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
             this.init();
+        };
+        LetsPlayView.prototype.onTouch = function (e) {
+            egret.log(e.target);
         };
         LetsPlayView.prototype.init = function () {
             egret.Tween.removeTweens(this.kImgBar);
@@ -36,11 +40,11 @@ var game;
             this.kImgHint.mask = this.kImgMask;
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.4, scaleY: 1.4 });
             this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch");
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.4, scaleY: 1.4 });
             this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump");
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.4, scaleY: 1.4 });
             this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepIdle.visible = true;
             this.mAnimSheepIdle.play(null, 0);
@@ -83,7 +87,7 @@ var game;
             }
             this.mCurrentHint = this.mHintArr.shift();
             XDFSoundManager.play("sound_" + this.mCurrentHint + "_mp3");
-            this.kImgHint.source = "img_lp_hint_" + this.mCurrentHint + "_png";
+            this.kLabelHint.text = "" + this.mCurrentHint;
             this.playCountDown();
         };
         LetsPlayView.prototype.playSheepCatch = function (cb) {

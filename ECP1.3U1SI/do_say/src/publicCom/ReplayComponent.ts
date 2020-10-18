@@ -30,20 +30,19 @@ namespace game {
         /** 重新开始 */
         private onRePlay(): void {
             egret.Tween.removeTweens(this.kImgReplay);
-            // TODO: sentEevent to replay
             XDFFrame.EventCenter.sendEvent(EventConst.eventReplay);
         }
 
         public showReplay(): void {
             egret.Tween.removeTweens(this.kImgReplay);
-            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 0.3;
+            this.kImgReplay.scaleX = this.kImgReplay.scaleY = 1;
             this.kImgReplay.source = "img_replay_j_png";
             this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
-                .to({ scaleX: 0.32, scaleY: 0.32 }, 400, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.3, scaleY: 0.3 }, 400, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.32, scaleY: 0.32 }, 400, egret.Ease.cubicInOut)
-                .to({ scaleX: 0.3, scaleY: 0.3 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
         }
 
         // /** 鼠标移到重放按钮 */

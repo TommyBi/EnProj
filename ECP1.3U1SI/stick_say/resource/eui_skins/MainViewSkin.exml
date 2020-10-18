@@ -13,8 +13,8 @@
 		<e:Group id="kPants" width="200" height="239.39" x="97" y="464.03" anchorOffsetY="0" name="pants" />
 		<e:Group id="kShirt" width="200" height="209.09" x="97" y="190.15" anchorOffsetY="0" name="shirt" />
 	</e:Group>
-	<e:Group id="kGrpFlag" width="350" height="180" x="228.93" y="0" touchChildren="false" touchEnabled="true"
-	         name="kGrpFlag" locked="true">
+	<e:Group id="kGrpFlag" width="350" height="180" x="219.81" y="0" touchChildren="false" touchEnabled="true"
+	         name="kGrpFlag">
 		<e:Label text="Words" horizontalCenter="0" verticalCenter="0" textColor="0x328a38" size="50" stroke="4"
 		         strokeColor="0xffffff" />
 	</e:Group>
@@ -40,12 +40,12 @@
 		<e:Image id="kImgTip2" source="img_dia_2_png" scaleX="2" scaleY="2" y="6.06" horizontalCenter="-12" />
 	</e:Group>
 	<e:Group id="kGrpReplay" width="200" height="200" right="300" y="768">
-		<e:Image id="kImgReplay" source="img_replay_j_png" scaleX="0.3" scaleY="0.3" horizontalCenter="0" verticalCenter="0" />
+		<e:Image id="kImgReplay" source="img_replay_j_png"  anchorOffsetX="100" anchorOffsetY="103" x="100" y="100"/>
 	</e:Group>
 	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0"
 	                      touchChildren="false" touchEnabled="false" visible="false" />
-	<e:Image id="kRectMaskPanel" width="310" height="910" x="261.21" verticalCenter="45" touchEnabled="false"
-	         source="img_bg_1_png" fillMode="repeat" visible="false" locked="true" />
-	<e:Rect id="kRectMaskFlag" width="350" height="180" x="264" top="0" touchChildren="false" touchEnabled="false"
-	        locked="true" visible="false" />
+	<e:Image id="kRectMaskPanel" width="310" height="910" x="259" verticalCenter="45" touchEnabled="false"
+	         source="img_bg_1_png" fillMode="repeat"  visible="false"/>
+	<e:Rect id="kRectMaskFlag" width="350" height="180" x="259" top="0" touchChildren="false" touchEnabled="false"
+	         visible="false"/>
 </e:Skin>

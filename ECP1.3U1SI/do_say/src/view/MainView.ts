@@ -35,6 +35,7 @@ namespace game {
         private mIsFinishTakeOff: boolean = false;  // 是否完成了脱衣模式
         private mActionQueue: number[] = [];// 当前队列
         private mCurHintActionType: number = -1;
+        private mLock: boolean = false;// 同步操作的锁子
 
         constructor() {
             super();
@@ -150,8 +151,8 @@ namespace game {
 
         /** 穿衣服0 */
         private onPutOnShirt0(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
-                // TODO:OOPS
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
                     this.kComAnswer.visible = false;
@@ -167,6 +168,7 @@ namespace game {
         }
         /** 穿衣服1 */
         private onPutOnShirt1(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -184,6 +186,7 @@ namespace game {
 
         /** 穿裤子0 */
         private onPutOnPants0(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -200,6 +203,7 @@ namespace game {
         }
         /** 穿裤子1 */
         private onPutOnPants1(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -210,8 +214,8 @@ namespace game {
             }
             this.kImgPantsDown1.visible = false;
             this.kImgPantsUp_1_l.visible = true;
-            this.playSoundDing(()=>{
-                 this.goNextStep();
+            this.playSoundDing(() => {
+                this.goNextStep();
             })
         }
 
@@ -219,6 +223,7 @@ namespace game {
 
         /** 脱上衣0 */
         private onTakeOffShirt0(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -229,12 +234,13 @@ namespace game {
             }
             this.kImgShirtUp_0_g.visible = false;
             this.kImgShirtDown0.visible = true;
-            this.playSoundDing(()=>{
-                 this.goNextStep();
+            this.playSoundDing(() => {
+                this.goNextStep();
             })
         }
         /** 脱上衣1 */
         private onTakeOffShirt1(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -245,12 +251,13 @@ namespace game {
             }
             this.kImgShirtUp_1_g.visible = false;
             this.kImgShirtDown1.visible = true;
-            this.playSoundDing(()=>{
-                 this.goNextStep();
+            this.playSoundDing(() => {
+                this.goNextStep();
             })
         }
         /** 脱裤子0 */
         private onTakeOffPants0(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -261,12 +268,13 @@ namespace game {
             }
             this.kImgPantsUp_0_g.visible = false;
             this.kImgPantsDown0.visible = true;
-            this.playSoundDing(()=>{
-                 this.goNextStep();
+            this.playSoundDing(() => {
+                this.goNextStep();
             })
         }
         /** 脱裤子1 */
         private onTakeOffPants1(): void {
+            if (this.mLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -277,8 +285,8 @@ namespace game {
             }
             this.kImgPantsUp_1_g.visible = false;
             this.kImgPantsDown1.visible = true;
-            this.playSoundDing(()=>{
-                 this.goNextStep();
+            this.playSoundDing(() => {
+                this.goNextStep();
             })
         }
 
@@ -335,7 +343,9 @@ namespace game {
         }
 
         private playSoundDing(cb: Function): void {
+            this.mLock = true;
             XDFSoundManager.play("sound_ding_mp3", 0, 1, 1, "sound_ding_mp3", () => {
+                this.mLock = false;
                 cb && cb();
             })
         }

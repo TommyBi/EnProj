@@ -26,6 +26,7 @@ var game;
             _this.mIsFinishTakeOff = false; // 是否完成了脱衣模式
             _this.mActionQueue = []; // 当前队列
             _this.mCurHintActionType = -1;
+            _this.mLock = false; // 同步操作的锁子
             _this.skinName = "MainViewSkin";
             return _this;
         }
@@ -129,8 +130,9 @@ var game;
         /** 穿衣服0 */
         MainView.prototype.onPutOnShirt0 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
-                // TODO:OOPS
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
                     _this.kComAnswer.visible = false;
@@ -147,6 +149,8 @@ var game;
         /** 穿衣服1 */
         MainView.prototype.onPutOnShirt1 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -164,6 +168,8 @@ var game;
         /** 穿裤子0 */
         MainView.prototype.onPutOnPants0 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -181,6 +187,8 @@ var game;
         /** 穿裤子1 */
         MainView.prototype.onPutOnPants1 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -199,6 +207,8 @@ var game;
         /** 脱上衣0 */
         MainView.prototype.onTakeOffShirt0 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -216,6 +226,8 @@ var game;
         /** 脱上衣1 */
         MainView.prototype.onTakeOffShirt1 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -233,6 +245,8 @@ var game;
         /** 脱裤子0 */
         MainView.prototype.onTakeOffPants0 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -250,6 +264,8 @@ var game;
         /** 脱裤子1 */
         MainView.prototype.onTakeOffPants1 = function () {
             var _this = this;
+            if (this.mLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -316,7 +332,10 @@ var game;
             }
         };
         MainView.prototype.playSoundDing = function (cb) {
+            var _this = this;
+            this.mLock = true;
             XDFSoundManager.play("sound_ding_mp3", 0, 1, 1, "sound_ding_mp3", function () {
+                _this.mLock = false;
                 cb && cb();
             });
         };

@@ -13,7 +13,7 @@
 			"name":"loading"
 		},
 		{
-			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png",
+			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png",
 			"name":"public"
 		}
 	],
@@ -352,6 +352,31 @@
 			"name":"img_btn_rePlay_p_png",
 			"type":"image",
 			"url":"assets/img/public/img_btn_rePlay_p.png"
+		},
+		{
+			"name":"img_micro_enable_png",
+			"type":"image",
+			"url":"assets/img/public/img_micro_enable.png"
+		},
+		{
+			"name":"img_micro_forbid_png",
+			"type":"image",
+			"url":"assets/img/public/img_micro_forbid.png"
+		},
+		{
+			"name":"img_pause_png",
+			"type":"image",
+			"url":"assets/img/public/img_pause.png"
+		},
+		{
+			"name":"img_play_png",
+			"type":"image",
+			"url":"assets/img/public/img_play.png"
+		},
+		{
+			"name":"img_rePlay_png",
+			"type":"image",
+			"url":"assets/img/public/img_rePlay.png"
 		}
 	]
 }
