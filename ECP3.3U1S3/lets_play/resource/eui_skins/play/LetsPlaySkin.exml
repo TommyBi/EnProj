@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" />
+	<e:Group id="kGrpMain" x="240" y="0" width="1440" height="1080">
+		<e:Image source="img_lp_bg_png"  verticalCenter="0" horizontalCenter="0"/>
+		<e:Group x="-57.51" y="814.77" touchChildren="false" touchEnabled="false" touchThrough="true" scaleX="0.7" scaleY="0.7">
+			<e:Image source="img_lp_bar_bg_png" x="37.83" y="0" />
+			<e:Image id="kImgBar" source="img_bar_png" x="204.6" y="270" scale9Grid="26,2,163,13" height="40" width="520" />
+			<e:Image source="img_lp_scale_png" x="202.13" y="269.75" width="500"/>
+			<e:Image source="img_lp_bar_frame_png" x="37.83" y="1.43" />
+			<e:Image source="img_lp_bar_clock_png" x="68.64" y="194.96" scaleX="0.15" scaleY="0.15" />
+		</e:Group>
+		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" />
+		<e:Image source="img_lp_hintPanel_1_png" x="333.09" y="297.12" anchorOffsetX="0" width="1061.75" scale9Grid="343,98,1018,592" anchorOffsetY="0" height="603.15"/>
+		<e:Group x="311.66" y="63.3">
+			<e:Image source="img_lp_hintPanel_3_png" x="0" y="0" scale9Grid="122,25,938,156" anchorOffsetX="0" width="1083.73"/>
+			<e:Label id="kLabelDesc" text="Label" textColor="0x55122c" horizontalCenter="0" verticalCenter="0" size="80" bold="true"/>
+		</e:Group>
+		<e:Group id="kGrpRoleAnim" y="669.49" x="200"/>
+		<e:Group height="248.48" x="390.15" y="332.94" anchorOffsetX="0" anchorOffsetY="0">
+			<e:Image id="kImgOption0" source="img_lp_option0_png" x="12" scaleX="0.7" scaleY="0.7" verticalCenter="0.7600000000000051"/>
+			<e:Image id="kImgOption1" source="img_lp_option0_png" x="12" scaleX="0.7" scaleY="0.7" verticalCenter="0"/>
+			<e:Image id="kImgOption2" source="img_lp_option0_png" x="12" scaleX="0.7" scaleY="0.7" verticalCenter="0"/>
+			<e:layout>
+				<e:HorizontalLayout gap="50"/>
+			</e:layout>
+		</e:Group>
+		<e:Image source="img_lp_micro_png" x="48" y="484"/>
+	</e:Group>
+</e:Skin>
