@@ -3,14 +3,14 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
 	<e:Group y="669.27" horizontalCenter="0">
-		<game:DialogComponent id="kCom0" x="0" y="0" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="0" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom1" x="10" y="10" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="1" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom2" x="20" y="20" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="2" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom3" x="30" y="30" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="3" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom4" x="40" y="40" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="4" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom5" x="50" y="50" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="5" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom6" x="60" y="60" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="6" touchChildren="false" touchEnabled="true"/>
-		<game:DialogComponent id="kCom7" x="70" y="70" skinName="DialogComponentSkin" scaleX="2" scaleY="2" name="7" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom0" x="0" y="0" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="0" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom1" x="10" y="10" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="1" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom2" x="20" y="20" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="2" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom3" x="30" y="30" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="3" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom4" x="40" y="40" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="4" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom5" x="50" y="50" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="5" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom6" x="60" y="60" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="6" touchChildren="false" touchEnabled="true"/>
+		<game:DialogComponent id="kCom7" x="70" y="70" skinName="DialogComponentSkin" scaleX="1" scaleY="1" name="7" touchChildren="false" touchEnabled="true"/>
 		<e:layout>
 			<e:TileLayout verticalGap="10" requestedRowCount="4" horizontalGap="40"/>
 		</e:layout>
