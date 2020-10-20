@@ -28,22 +28,20 @@ var game;
             this.init();
         };
         LetsPlayView.prototype.init = function () {
+            // XDFSoundManager.play("sound_do_say_mp3");
             egret.Tween.removeTweens(this.kImgBar);
             this.kImgBar.width = 520;
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
-            // init DBAnim
-            this.mAnimRoleRight = XDFFrame.DBFactory.createAnim("db_right");
-            this.mAnimRoleRight.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleErr = XDFFrame.DBFactory.createAnim("db_wrong");
-            this.mAnimRoleErr.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
-            this.mAnimRoleIdle.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleIdle.play(null, 0);
-            // init state
         };
         /** 开始游戏 */
         LetsPlayView.prototype.onStart = function () {
+        };
+        LetsPlayView.prototype.onChoise0 = function () {
+        };
+        LetsPlayView.prototype.onChoise1 = function () {
+        };
+        LetsPlayView.prototype.onChoise2 = function () {
         };
         return LetsPlayView;
     }(eui.Component));

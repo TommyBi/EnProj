@@ -11,7 +11,6 @@
 			<e:Image source="img_lp_bar_frame_png" x="37.83" y="1.43" />
 			<e:Image source="img_lp_bar_clock_png" x="68.64" y="194.96" scaleX="0.15" scaleY="0.15" />
 		</e:Group>
-		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" />
 		<e:Image source="img_lp_hintPanel_1_png" x="333.09" y="297.12" anchorOffsetX="0" width="1061.75" scale9Grid="343,98,1018,592" anchorOffsetY="0" height="603.15"/>
 		<e:Group x="311.66" y="63.3">
 			<e:Image source="img_lp_hintPanel_3_png" x="0" y="0" scale9Grid="122,25,938,156" anchorOffsetX="0" width="1083.73"/>
@@ -27,5 +26,6 @@
 			</e:layout>
 		</e:Group>
 		<e:Image source="img_lp_micro_png" x="48" y="484"/>
+		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>
 	</e:Group>
 </e:Skin>

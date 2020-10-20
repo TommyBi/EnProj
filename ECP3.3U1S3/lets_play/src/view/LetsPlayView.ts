@@ -14,7 +14,6 @@ namespace game {
         private mAnimRoleIdle: XDFFrame.DBAnim;
 
         private mOptionCount: number = 3;
-        private 
 
         constructor() {
             super();
@@ -31,28 +30,24 @@ namespace game {
         }
 
         private init(): void {
+            // XDFSoundManager.play("sound_do_say_mp3");
             egret.Tween.removeTweens(this.kImgBar);
             this.kImgBar.width = 520;
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
-
-            // init DBAnim
-            this.mAnimRoleRight = XDFFrame.DBFactory.createAnim("db_right");
-            this.mAnimRoleRight.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleErr = XDFFrame.DBFactory.createAnim("db_wrong");
-            this.mAnimRoleErr.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
-            this.mAnimRoleIdle.setProtery({ parent: this.kGrpRoleAnim, scaleX: 1, scaleY: 1 });
-            this.mAnimRoleIdle.play(null, 0);
-
-            // init state
-            
         }
 
         /** 开始游戏 */
         private onStart(): void {
 
         }
+        private onChoise0(): void {
+        }
+        private onChoise1(): void {
 
+        }
+        private onChoise2(): void {
+
+        }
     }
 } 
