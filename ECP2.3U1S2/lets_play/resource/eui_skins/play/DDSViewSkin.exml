@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DDSViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_1_png" locked="true"/>
+	<e:Image source="img_lp_bg_png" verticalCenter="0" horizontalCenter="0"/>
+	<e:Group width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Group y="33.33" horizontalCenter="0">
+			<e:Image source="img_lp_hintPanel_3_png" x="0" y="0" scale9Grid="122,25,938,156" anchorOffsetX="0" width="1083.73"/>
+			<e:Label id="kLabelDesc" text="Label" textColor="0x55122C" horizontalCenter="0" verticalCenter="0" size="80" bold="true"/>
+		</e:Group>
+		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
+		<game:DDSComponent id="kCom0" x="211.11" y="305.96" skinName="DDSComponentSkin"/>
+		<game:DDSComponent x="899.91" y="303.85" skinName="DDSComponentSkin" id="kCom1"/>
+		<game:DDSComponent x="537.19" y="589.61" skinName="DDSComponentSkin" id="kCom2"/>
+		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+</e:Skin>
