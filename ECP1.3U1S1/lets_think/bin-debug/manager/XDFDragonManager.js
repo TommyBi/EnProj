@@ -50,6 +50,16 @@ var XDFFrame;
             this.cb = { cbf: null, thisObj: null };
             this.name = name;
         }
+        Object.defineProperty(DBAnim.prototype, "visible", {
+            get: function () {
+                return this.armatureDisplay && this.armatureDisplay.visible;
+            },
+            set: function (b) {
+                this.armatureDisplay.visible = b;
+            },
+            enumerable: true,
+            configurable: true
+        });
         DBAnim.prototype.createAnim = function (textureCount) {
             // 当前默认都是放在了资源配置文件中，新东方的需求就到这了，异步可以作为动态创建组的方式去加载，有时间继续写
             var dragonbonesData = RES.getRes(this.name + "_ske_json");
@@ -84,7 +94,7 @@ var XDFFrame;
             if (armatureName === void 0) { armatureName = null; }
             if (times === void 0) { times = -1; }
             this.armatureDisplay.animation.play(armatureName, times);
-            if (this.cb && thisObj) {
+            if (this.cb && cb && thisObj) {
                 this.cb.cbf = cb;
                 this.cb.thisObj = thisObj;
             }

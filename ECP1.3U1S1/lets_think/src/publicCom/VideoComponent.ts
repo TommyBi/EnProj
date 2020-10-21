@@ -33,6 +33,11 @@ namespace game {
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         }
 
+        /** 设置滑动条的皮肤 */
+        public setSkinType(skinType: number):void {
+            this.kComPro.setSkinType(skinType);
+        }
+
         /** 播放的视频索引 */
         public play(idx: number): void {
             this.kRect.alpha = 1;

@@ -1,27 +1,37 @@
 namespace game {
     export class LetsPlayView extends eui.Component {
         public kGrpMain: eui.Group;
-        public kGrpSheep: eui.Group;
-        public kGrpSheepIdle: eui.Group;
-        public kGrpSheepCatch: eui.Group;
-        public kGrpSheepJump: eui.Group;
-        public kImgMask: eui.Image;
-        public kImgHint: eui.Image;
-        public kGrpOption0: eui.Group;
+        public kLabelDesc: eui.Label;
         public kImgOption0: eui.Image;
-        public kGrpOption1: eui.Group;
         public kImgOption1: eui.Image;
-        public kImgBar: eui.Image;
-        public kGrpGame: eui.Group;
+        public kImgOption2: eui.Image;
+        public kImgOption3: eui.Image;
+        public kGrpRoleAnim: eui.Group;
         public kComRestart: game.ReStartComponent;
+        public kComBar: game.TimeBarComponent;
 
-        private mAnimSheepCatch: XDFFrame.DBAnim;
-        private mAnimSheepIdle: XDFFrame.DBAnim;
-        private mAnimSheepJump: XDFFrame.DBAnim;
+        private mAnimRoleRight: XDFFrame.DBAnim;
+        private mAnimRoleErr: XDFFrame.DBAnim;
+        private mAnimRoleIdle: XDFFrame.DBAnim;
 
-        private mPlayTimes: number = 0;
-        private mHintArr: string[] = [];
-        private mCurrentHint: string = "";
+        private mOptionCount: number = 4;
+        private mCurShowArr: number[] = []; // 当前显示的序列
+        private mHintWords: string[] = [    // 目标提示文本
+            "I like dogs.",
+            "I don't like dogs.",
+            "I like cats.",
+            "I don't like cats."
+        ]
+        private mHintQueue: number[] = [];  // 当前已经提示过得队列
+        private mCurHintIdx: number = 0;    // 当前正在提示的队列索引
+        private _canSelect: boolean = false;
+        private get canSelect(): boolean { return this._canSelect; }
+        private set canSelect(b: boolean) {
+            this._canSelect = b;
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kImgOption${i}`].touchEnabled = b;
+            }
+        }
 
         constructor() {
             super();
@@ -30,155 +40,187 @@ namespace game {
 
         protected createChildren() {
             super.createChildren();
+            // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(EventConst.startComPlayGame, this.onStart, this);
-            this.kGrpOption0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch0, this);
-            this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch1, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kImgOption${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this[`onChoise${i}`], this);
+            }
+            // 初始化动画
+            this.mAnimRoleRight = XDFFrame.DBFactory.createAnim("db_right");
+            this.mAnimRoleRight.setProtery({ x: 70, y: -20, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleErr = XDFFrame.DBFactory.createAnim("db_wrong", 9);
+            this.mAnimRoleErr.setProtery({ x: 50, y: 30, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
+            this.mAnimRoleIdle.setProtery({ x: 50, y: 50, parent: this.kGrpRoleAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimRoleErr.visible = this.mAnimRoleIdle.visible = this.mAnimRoleRight.visible = false;
 
             this.init();
         }
 
         private init(): void {
-            egret.Tween.removeTweens(this.kImgBar);
-            this.kImgBar.width = 520;
+            this.kComBar.reset();
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
-            this.kImgHint.mask = this.kImgMask;
-
-            // init DBAnim
-            this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
-            this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch");
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
-            this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump");
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
-            this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepIdle.visible = true;
-            this.mAnimSheepIdle.play(null, 0);
+            // 默认不显示待选的选项
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kImgOption${i}`].visible = false;
+            }
+            this.kGrpRoleAnim.visible = false;
+            this.kLabelDesc.text = "";
         }
 
+        /** 重置到初始化状态 */
+        private reset(): void {
+            // 默认不显示待选的选项
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kImgOption${i}`].visible = false;
+            }
+            this.kGrpRoleAnim.visible = false;
+            this.kLabelDesc.text = "";
+            this.kComBar.reset();
+        }
+
+        /** 开始游戏 */
         private onStart(): void {
+            // 提示队列
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this.mHintQueue.push(i);
+            }
+
+            // 隐藏结束组件
             this.kComRestart.visible = false;
-            this.prepareOder();
-            this.hint();
+
+            // 随机显示的位置
+            this.calShowOrder();
+
+            // 显示npc动画
+            this.kGrpRoleAnim.visible = true;
+            this.palyRoleAnim("idle");
+
+            // 开始
+            this.canSelect = false;
+            this.next();
         }
 
-        private playCountDown(): void {
-            egret.Tween.removeTweens(this.kImgBar);
-            this.kImgBar.width = 520;
-            egret.Tween.get(this.kImgBar).to({ width: 0 }, 8000).call(() => {
+        /** 切换角色动画显示 */
+        private palyRoleAnim(type: string, cb?: Function): void {
+            switch (type) {
+                case "idle":
+                    this.mAnimRoleIdle.visible = true;
+                    this.mAnimRoleErr.visible = this.mAnimRoleRight.visible = false;
+                    this.mAnimRoleIdle.play(null, 0);
+                    break;
+                case "right":
+                    this.mAnimRoleRight.visible = true;
+                    this.mAnimRoleErr.visible = this.mAnimRoleIdle.visible = false;
+                    this.mAnimRoleRight.play(null, 1, cb, this);
+                    break;
+                case "err":
+                    this.mAnimRoleErr.visible = true;
+                    this.mAnimRoleRight.visible = this.mAnimRoleIdle.visible = false;
+                    this.mAnimRoleErr.play(null, 1, cb, this);
+                    break;
+            }
+        }
+
+        /** 初始化播放顺序 */
+        private calShowOrder(): void {
+            this.mCurShowArr = [];
+            this.produceOrderArr();
+            for (let i = 0; i < this.mCurShowArr.length; i++) {
+                // format img
+                this[`kImgOption${i}`].visible = true;
+                this[`kImgOption${i}`].source = `img_lp_option${this.mCurShowArr[i]}_png`;
+                this[`kImgOption${i}`].name = this.mCurShowArr[i];
+            }
+        }
+        /** 生产随机队列 */
+        private produceOrderArr(): void {
+            if (this.mCurShowArr.length < 4) {
+                let idx = Util.randomNum(0, 3);
+                if (this.mCurShowArr.indexOf(idx) == -1) {
+                    this.mCurShowArr.push(idx);
+                    if (this.mCurShowArr.length < 4) {
+                        this.produceOrderArr();
+                    }
+                } else {
+                    this.produceOrderArr();
+                }
+            }
+        }
+
+        /** 下一步 */
+        private next(): void {
+            if (this.mHintQueue.length <= 0) {
+                // 完成
+                this.reset();
                 this.kComRestart.visible = true;
-                this.kComRestart.playActionTimeOut();
-                XDFSoundManager.play("sound_die_mp3");
+                this.kComRestart.playActionGoodJob();
+                return;
+            };
+            this.mCurHintIdx = this.mHintQueue.shift();
+            this.playHintAction();
+            this.kComBar.play();
+        }
+
+        private playHintAction(): void {
+            XDFSoundManager.play(`sound_lp_option${this.mCurHintIdx}_mp3`, 0, 1, 1, `sound_lp_option${this.mCurHintIdx}_mp3`, () => {
+                this.canSelect = true;
+            });
+            this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
+        }
+
+        private onChoise0(): void {
+            this.judge(0);
+        }
+        private onChoise1(): void {
+            this.judge(1);
+        }
+        private onChoise2(): void {
+            this.judge(2);
+        }
+        private onChoise3(): void {
+            this.judge(3);
+        }
+
+        private judge(num: number): void {
+            if (this[`kImgOption${num}`].name == String(this.mCurHintIdx)) {
+                // TODO: correct
+                this.onSelectRight();
+            } else {
+                // TODO: err
+                this.onSelectErr();
+            }
+        }
+
+        /** 选择正确 */
+        private onSelectRight(): void {
+            this.kComBar.reset();
+            this.canSelect = false;
+            XDFSoundManager.play("sound_ding_mp3");
+            XDFSoundManager.play("sound_lp_choise_right_mp3");
+            this.palyRoleAnim("right", () => {
+                this.palyRoleAnim("idle");
+                this.next();
+            })
+        }
+
+        /** 选择错误 */
+        private onSelectErr(): void {
+            this.canSelect = false;
+            XDFSoundManager.play("sound_lp_choise_err_mp3");
+            this.palyRoleAnim("err", () => {
+                this.palyRoleAnim("idle");
+                this.canSelect = true;
             });
         }
 
-        private prepareOder(): void {
-            if (this.mPlayTimes % 2 == 0) {
-                this.mHintArr = ["shirt", "pants"];
-            } else {
-                this.mHintArr = ["pants", "shirt"];
-            }
-        }
-
-        private hint(): void {
-            if (this.mPlayTimes % 2 == 0) {
-                this.kGrpOption0.name = "shirt";
-                this.kImgOption0.source = "img_lp_shirt_png";
-                this.kGrpOption1.name = "pants";
-                this.kImgOption1.source = "img_lp_pants_png";
-            } else {
-                this.kGrpOption1.name = "shirt";
-                this.kImgOption1.source = "img_lp_shirt_png";
-                this.kGrpOption0.name = "pants";
-                this.kImgOption0.source = "img_lp_pants_png";
-            }
-            this.mCurrentHint = this.mHintArr.shift();
-            XDFSoundManager.play(`sound_${this.mCurrentHint}_mp3`);
-            this.kImgHint.source = `img_lp_hint_${this.mCurrentHint}_png`;
-            this.playCountDown();
-        }
-
-        private playSheepCatch(cb?: Function): void {
-            this.kGrpSheepIdle.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepCatch.visible = true;
-            this.mAnimSheepCatch.play(null, 1, () => {
-                this.kGrpSheepCatch.visible = false;
-                this.playSheepIdle();
-                cb && cb();
-            }, this);
-        }
-
-        private playSheepIdle(): void {
-            this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepIdle.visible = true;
-            this.mAnimSheepIdle.play(null, 0);
-        }
-
-        private playSheepJump(cb: Function): void {
-            this.kGrpSheepCatch.visible = this.kGrpSheepIdle.visible = false;
-            this.kGrpSheepJump.visible = true;
-            this.mAnimSheepJump.play(null, 1, () => {
-                this.playSheepIdle();
-                cb && cb();
-            }, this);
-        }
-
-        /** 点击0 */
-        private onTouch0(): void {
-            XDFSoundManager.play("sound_choise_mp3");
-            if (this.kGrpOption0.name == this.mCurrentHint) {
-                this.mPlayTimes++;
-                egret.Tween.removeTweens(this.kImgBar);
-                this.showCorrect(() => {
-                    if (this.mHintArr.length == 0) {
-                        // finish
-                        this.kComRestart.visible = true;
-                        this.kComRestart.playActionGoodJob();
-                    } else {
-                        // next
-                        this.hint();
-                    }
-                })
-            } else {
-                // TODO: err 
-                this.showErr();
-            }
-        }
-
-        /** 点击1 */
-        private onTouch1(): void {
-            XDFSoundManager.play("sound_choise_mp3");
-            if (this.kGrpOption1.name == this.mCurrentHint) {
-                this.mPlayTimes++;
-                egret.Tween.removeTweens(this.kImgBar);
-                this.showCorrect(() => {
-                    if (this.mHintArr.length == 0) {
-                        // finish
-                        this.kComRestart.visible = true;
-                        this.kComRestart.playActionGoodJob();
-                    } else {
-                        // next
-                        this.hint();
-                    }
-                })
-
-            } else {
-                this.showErr();
-            }
-        }
-
-        private showCorrect(cb: Function): void {
-            XDFSoundManager.play("sound_start_mp3");
-            this.playSheepCatch(() => {
-                cb && cb();
-            })
-        }
-
-        private showErr(): void {
-            XDFSoundManager.play("sound_die_mp3");
-            this.playSheepJump(() => {
-                XDFSoundManager.play(`sound_${this.mCurrentHint}_mp3`);
-            })
+        /** 时间终止 */
+        private onTimeOut(): void {
+            this.reset();
+            this.kComRestart.visible = true;
+            this.kComRestart.playActionTimeOut();
         }
     }
 } 

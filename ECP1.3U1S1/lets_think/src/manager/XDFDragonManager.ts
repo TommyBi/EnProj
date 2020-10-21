@@ -41,6 +41,12 @@ namespace XDFFrame {
         }
         private name: string;
         private armatureDisplay: dragonBones.EgretArmatureDisplay;
+        public set visible(b) {
+            this.armatureDisplay.visible = b;
+        }
+        public get visible(): boolean {
+            return this.armatureDisplay && this.armatureDisplay.visible;
+        }
         private cb: { cbf: Function, thisObj: any } = { cbf: null, thisObj: null };
         public createAnim(textureCount: number) {
             // 当前默认都是放在了资源配置文件中，新东方的需求就到这了，异步可以作为动态创建组的方式去加载，有时间继续写
@@ -76,7 +82,7 @@ namespace XDFFrame {
          */
         public play(armatureName: string = null, times: number = -1, cb?: Function, thisObj?: any): void {
             this.armatureDisplay.animation.play(armatureName, times);
-            if (this.cb && thisObj) {
+            if (this.cb && cb && thisObj) {
                 this.cb.cbf = cb;
                 this.cb.thisObj = thisObj;
             }

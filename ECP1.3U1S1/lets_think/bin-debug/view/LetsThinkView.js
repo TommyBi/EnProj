@@ -14,6 +14,7 @@ var game;
         __extends(LetsThinkView, _super);
         function LetsThinkView() {
             var _this = _super.call(this) || this;
+            _this.mSkinType = 0;
             _this.mWords = ["aaa", "bbb", "ccc", "ddd"];
             _this.skinName = "LetsThinkSkin";
             return _this;
@@ -24,6 +25,7 @@ var game;
             this.init();
         };
         LetsThinkView.prototype.init = function () {
+            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             for (var i = 0; i < this.mWords.length; i++) {
                 var com = new game.ThinkComponent(i, this.mWords[i]);
                 com.scaleX = com.scaleY = this.mWords.length > 3 ? 0.7 : 1;

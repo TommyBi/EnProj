@@ -35,6 +35,10 @@ var game;
             this.kGrpVideo.addChild(this.mVideo);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         };
+        /** 设置滑动条的皮肤 */
+        VideoComponent.prototype.setSkinType = function (skinType) {
+            this.kComPro.setSkinType(skinType);
+        };
         /** 播放的视频索引 */
         VideoComponent.prototype.play = function (idx) {
             this.kRect.alpha = 1;

@@ -31,6 +31,10 @@ var game;
             this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
             this.init();
         };
+        VideoProBarComponent.prototype.setSkinType = function (type) {
+            if (type > 0)
+                this.kImgProBtn.source = "img_pro_icon" + type + "_png";
+        };
         VideoProBarComponent.prototype.reset = function (time) {
             this.kImgProBtn.x = 0;
             this.kImgBar.width = this.kImgProBtn.x;

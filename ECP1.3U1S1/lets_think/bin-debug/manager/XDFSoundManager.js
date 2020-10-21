@@ -95,6 +95,7 @@ var Sound = (function () {
             return;
         }
         if (RES.getRes(this.url)) {
+            console.log("this.url:", this.url);
             this._currentSound = RES.getRes(this.url);
             this._currentChannel = this._currentSound.play(startTime, times);
             if (mute) {

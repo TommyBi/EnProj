@@ -8,14 +8,14 @@ namespace game {
 
         private mIdx: number;
         private mArr: string[] = [
-            "Mom! This shirt is too small.",
-            "Take off your shirt, Tony.",
-            "These pants are too small.",
-            "Take off your pants.",
-            "I need new clothes.",
-            "Put on your shirt.",
-            "Put on your pants.",
-            "These are for you."
+            "I have a dog.",
+            "I have a cat.",
+            "They don't like each other.",
+            "I dont't like that dog.",
+            "I dont't like that cat.",
+            "Good job,you guys!",
+            "I like this dog.",
+            "I like this cat."
         ];
 
         public constructor() {
@@ -32,12 +32,12 @@ namespace game {
 
         }
 
-        private light(): void {
-            this.klbl.textColor = 0xfc9c00;
+         private light(): void {
+            this.klbl.textColor = 0xe66b27;
         }
 
         private normal(): void {
-            this.klbl.textColor = 0xffffff;
+            this.klbl.textColor = 0x561108;
         }
 
         private setData(idx: number): void {

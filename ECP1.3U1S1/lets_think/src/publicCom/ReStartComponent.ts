@@ -32,7 +32,7 @@ namespace game {
             this.hideAll();
             if (!this.mAnimStart) {
                 this.mAnimStart = XDFFrame.DBFactory.createAnim("db_start");
-                this.mAnimStart.setProtery({ parent: this.kGrpStart, scaleX: 2, scaleY: 2 });
+                this.mAnimStart.setProtery({ parent: this.kGrpStart, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpStart.visible = true;
             XDFSoundManager.play("sound_start_mp3");
@@ -43,7 +43,7 @@ namespace game {
             this.hideAll();
             if (!this.mAnimTimeOut) {
                 this.mAnimTimeOut = XDFFrame.DBFactory.createAnim("db_timeOut");
-                this.mAnimTimeOut.setProtery({ parent: this.kGrpTimeOut, scaleX: 2, scaleY: 2 });
+                this.mAnimTimeOut.setProtery({ parent: this.kGrpTimeOut, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpTimeOut.visible = true;
             XDFSoundManager.play("sound_die_mp3");
@@ -53,8 +53,8 @@ namespace game {
         public playActionGoodJob(): void {
             this.hideAll();
             if (!this.mAnimGoodJob) {
-                this.mAnimGoodJob = XDFFrame.DBFactory.createAnim("db_goodJob", 4);
-                this.mAnimGoodJob.setProtery({ parent: this.kGrpGoodJob, scaleX: 0.7, scaleY: 0.7 });
+                this.mAnimGoodJob = XDFFrame.DBFactory.createAnim("db_goodJob");
+                this.mAnimGoodJob.setProtery({ parent: this.kGrpGoodJob, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpGoodJob.visible = true;
             XDFSoundManager.play("sound_start_mp3");

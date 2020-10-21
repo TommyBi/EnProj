@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="TimeBarComponentSkin" width="733" height="200" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="kGrpMain" touchChildren="false" touchEnabled="false" touchThrough="true" scaleX="1" scaleY="1" horizontalCenter="-31.5" verticalCenter="16">
+		<e:Image source="img_lp_bar_bg_png" x="37.83" y="0"/>
+		<e:Image id="kImgBar" source="img_bar_png" x="204.6" y="270" scale9Grid="26,2,163,13" height="40" width="520"/>
+		<e:Image source="img_lp_scale_png" x="202.13" y="269.75" width="500"/>
+		<e:Image source="img_lp_bar_frame_png" x="37.83" y="1.43"/>
+		<e:Image source="img_lp_bar_clock_png" x="68.64" y="194.96" scaleX="0.15" scaleY="0.15"/>
+	</e:Group>
+</e:Skin>
