@@ -16,12 +16,23 @@ var game;
             var _this = _super.call(this) || this;
             _this.mCurHintIdx = 0;
             _this.mHintArr = [];
+            _this.mIsFinish = false;
             _this.mSmokeAnimShowPos = [
                 [1274, 400], [1724, 400], [1290, 885], [1724, 885]
             ];
             _this.skinName = "LookStickViewSkin";
             return _this;
         }
+        Object.defineProperty(LookStickView.prototype, "canSelect", {
+            get: function () {
+                return this.touchEnabled;
+            },
+            set: function (b) {
+                this.touchEnabled = b;
+            },
+            enumerable: true,
+            configurable: true
+        });
         ;
         LookStickView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
@@ -55,11 +66,13 @@ var game;
             // 结果反馈
             this.kComAnswer.visible = false;
             this.kComReplay.visible = false;
+            this.mIsFinish = false;
         };
         /** 提示下一个 */
         LookStickView.prototype.next = function () {
             if (this.mHintArr.length <= 0) {
                 // 完成
+                this.mIsFinish = true;
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playGood(null);
                 this.kComReplay.visible = true;
@@ -120,12 +133,20 @@ var game;
         };
         LookStickView.prototype.onMatch = function (touch) {
             var _this = this;
+            if (this.kComAnswer.visible)
+                return;
+            if (this.mIsFinish)
+                return;
             if (touch == this.mCurHintIdx) {
                 // 正确
                 // play anim
                 this["kGrpOption" + this.mCurHintIdx].visible = false;
                 this.playSmokeAnim(this.mCurHintIdx);
-                this.next();
+                this.canSelect = false;
+                XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
+                    _this.canSelect = true;
+                    _this.next();
+                });
             }
             else {
                 // 错误

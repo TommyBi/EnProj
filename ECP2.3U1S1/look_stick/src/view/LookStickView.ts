@@ -33,9 +33,17 @@ namespace game {
         private mAnimSmoke: XDFFrame.DBAnim;
         private mCurHintIdx: number = 0;
         private mHintArr: number[] = [];
+        private mIsFinish: boolean = false;
         private mSmokeAnimShowPos = [
             [1274, 400], [1724, 400], [1290, 885], [1724, 885]
         ]
+
+        private set canSelect(b: boolean) {
+            this.touchEnabled = b;
+        }
+        private get canSelect(): boolean {
+            return this.touchEnabled;
+        }
 
         constructor() {
             super();
@@ -82,12 +90,15 @@ namespace game {
             // 结果反馈
             this.kComAnswer.visible = false;
             this.kComReplay.visible = false;
+
+            this.mIsFinish = false;
         }
 
         /** 提示下一个 */
         private next(): void {
             if (this.mHintArr.length <= 0) {
                 // 完成
+                this.mIsFinish = true;
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playGood(null);
                 this.kComReplay.visible = true;
@@ -150,12 +161,18 @@ namespace game {
         }
 
         private onMatch(touch: number): void {
+            if (this.kComAnswer.visible) return;
+            if (this.mIsFinish) return;
             if (touch == this.mCurHintIdx) {
                 // 正确
                 // play anim
                 this[`kGrpOption${this.mCurHintIdx}`].visible = false;
                 this.playSmokeAnim(this.mCurHintIdx);
-                this.next();
+                this.canSelect = false;
+                XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", () => {
+                    this.canSelect = true;
+                    this.next();
+                });
             } else {
                 // 错误
                 this.kComAnswer.visible = true;
