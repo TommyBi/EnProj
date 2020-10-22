@@ -106,6 +106,9 @@ var XDFFrame;
                 this.cb.thisObj = null;
             }
         };
+        DBAnim.prototype.stop = function () {
+            this.armatureDisplay.animation.stop();
+        };
         return DBAnim;
     }());
     XDFFrame.DBAnim = DBAnim;

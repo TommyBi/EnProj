@@ -118,7 +118,7 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 5, , 6]);
+                        _a.trys.push([0, 8, , 9]);
                         return [4 /*yield*/, RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/")];
                     case 1:
                         _a.sent();
@@ -128,15 +128,24 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("public")];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, this.loadTheme()];
+                        return [4 /*yield*/, RES.loadGroup("db")];
                     case 4:
                         _a.sent();
-                        return [3 /*break*/, 6];
+                        return [4 /*yield*/, RES.loadGroup("sound")];
                     case 5:
+                        _a.sent();
+                        return [4 /*yield*/, RES.loadGroup("stick_say")];
+                    case 6:
+                        _a.sent();
+                        return [4 /*yield*/, this.loadTheme()];
+                    case 7:
+                        _a.sent();
+                        return [3 /*break*/, 9];
+                    case 8:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 9];
+                    case 9: return [2 /*return*/];
                 }
             });
         });
@@ -159,8 +168,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var letsSingView = new game.LetsSingView();
-        XDFFrame.LayerManager.UI_View.addChild(letsSingView);
+        var stickSayView = new game.StickSayView();
+        XDFFrame.LayerManager.UI_View.addChild(stickSayView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

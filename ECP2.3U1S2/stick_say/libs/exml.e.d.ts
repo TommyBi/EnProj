@@ -28,6 +28,8 @@ declare class VideoProBarSkin extends eui.Skin{
 }
 declare class LetsSingViewSkin extends eui.Skin{
 }
+declare class StickSayViewSkin extends eui.Skin{
+}
 declare class LetsThinkSkin extends eui.Skin{
 }
 declare class ThinkComponentSkin extends eui.Skin{

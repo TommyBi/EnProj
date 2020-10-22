@@ -95,5 +95,9 @@ namespace XDFFrame {
                 this.cb.thisObj = null;
             }
         }
+
+        public stop(): void {
+            this.armatureDisplay.animation.stop();
+        }
     }
 }
