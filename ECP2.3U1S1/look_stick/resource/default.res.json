@@ -9,7 +9,7 @@
 			"name":"loading"
 		},
 		{
-			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png",
+			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png,img_start_png",
 			"name":"public"
 		},
 		{
@@ -21,7 +21,7 @@
 			"name":"sound"
 		},
 		{
-			"keys":"img_stick_bg_png,img_stick_bg1_png,img_stick_bg2_png,img_stick_bg3_png,img_stick_cat_png,img_stick_dog_png,img_stick_happy_png,img_stick_o_s_0_png,img_stick_o_s_1_png,img_stick_o_s_2_png,img_stick_o_s_3_png,img_stick_option_shadow_0_png,img_stick_option_shadow_1_png,img_stick_option_shadow_2_png,img_stick_option_shadow_3_png,img_stick_sad_png,img_stick_shadow_0_png,img_stick_shadow_1_png,img_stick_shadow_2_png,img_stick_shadow_3_png,img_stick_words_bg_png,img_stick_option_0_png,img_stick_option_1_png,img_stick_option_2_png,img_stick_option_3_png",
+			"keys":"img_stick_bg_png,img_stick_bg1_png,img_stick_bg2_png,img_stick_bg3_png,img_stick_cat_png,img_stick_dog_png,img_stick_happy_png,img_stick_o_s_0_png,img_stick_o_s_1_png,img_stick_o_s_2_png,img_stick_o_s_3_png,img_stick_option_shadow_0_png,img_stick_option_shadow_1_png,img_stick_option_shadow_2_png,img_stick_option_shadow_3_png,img_stick_sad_png,img_stick_shadow_0_png,img_stick_shadow_1_png,img_stick_shadow_2_png,img_stick_shadow_3_png,img_stick_words_bg_png,img_stick_option_0_png,img_stick_option_1_png,img_stick_option_2_png,img_stick_option_3_png,img_stick_line_png,img_head_01_png,img_head_02_png,img_head_03_png,img_head_04_png,img_head_05_png,img_head_06_png,img_head_07_png,img_head_08_png",
 			"name":"look_stick"
 		}
 	],
@@ -535,6 +535,56 @@
 			"name":"img_stick_option_3_png",
 			"type":"image",
 			"url":"assets/img/look_stick/img_stick_option_3.png"
+		},
+		{
+			"name":"img_stick_line_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_stick_line.png"
+		},
+		{
+			"name":"img_head_01_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_01.png"
+		},
+		{
+			"name":"img_head_02_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_02.png"
+		},
+		{
+			"name":"img_head_03_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_03.png"
+		},
+		{
+			"name":"img_head_04_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_04.png"
+		},
+		{
+			"name":"img_head_05_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_05.png"
+		},
+		{
+			"name":"img_head_06_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_06.png"
+		},
+		{
+			"name":"img_head_07_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_07.png"
+		},
+		{
+			"name":"img_head_08_png",
+			"type":"image",
+			"url":"assets/img/look_stick/img_head_08.png"
+		},
+		{
+			"name":"img_start_png",
+			"type":"image",
+			"url":"assets/img/public/img_start.png"
 		}
 	]
 }

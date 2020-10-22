@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ReplayComponentSkin" width="200" height="200" xmlns:e="http://ns.egret.com/eui">
+<e:Skin class="ReplayComponentSkin" width="200" height="200" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
     <e:Group id="kGrpReplay" width="200" height="200" horizontalCenter="0" y="0">
         <e:Image id="kImgReplay" source="img_replay_j_png"
                   anchorOffsetX="100" anchorOffsetY="103.5" x="100" y="100.5"/>
+			<e:Image id="kImgStart" anchorOffsetX="100" anchorOffsetY="115" x="100" y="112.5" source="img_start_png"/>
     </e:Group>
 </e:Skin>

@@ -17,18 +17,20 @@ var game;
             _this.mCurHintIdx = 0;
             _this.mHintArr = [];
             _this.mIsFinish = false;
+            _this.mIsStart = false; // 是否开始游戏了
             _this.mSmokeAnimShowPos = [
                 [1274, 400], [1724, 400], [1290, 885], [1724, 885]
             ];
+            _this._canSelect = false;
             _this.skinName = "LookStickViewSkin";
             return _this;
         }
         Object.defineProperty(LookStickView.prototype, "canSelect", {
             get: function () {
-                return this.touchEnabled;
+                return this._canSelect;
             },
             set: function (b) {
-                this.touchEnabled = b;
+                this._canSelect = b;
             },
             enumerable: true,
             configurable: true
@@ -46,16 +48,20 @@ var game;
                 this["kGrp" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this["onSelect" + i], this);
             }
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventReplay, this.onReStart, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.eventStart, this.onStart, this);
             this.mAnimSmoke = XDFFrame.DBFactory.createAnim("db_stick_smoke");
             this.mAnimSmoke.setProtery({ x: 0, y: 0, parent: this.kGrpSmokeAnim, scaleX: 1, scaleY: 1 });
             this.reset();
-            this.next();
+            this.kComReplay.visible = true;
+            this.kComReplay.showStart();
         };
         LookStickView.prototype.reset = function () {
             for (var i = 0; i < 4; i++) {
                 this["kGrpOption" + i].visible = this["kImgHintTarFrame" + i].visible = true; // 选项、hint
                 egret.Tween.removeTweens(this["kImgFrame" + i]);
                 egret.Tween.removeTweens(this["kImgHintTarFrame" + i]);
+                this["kGrpHead" + i].visible = false;
+                this["kGrpTar" + this.mCurHintIdx].visible = true;
             }
             // 娃娃脸呼吸
             egret.Tween.removeTweens(this.kImgHappy);
@@ -80,7 +86,6 @@ var game;
             }
             else {
                 // 没完成
-                console.log("下一个");
                 this.mCurHintIdx = this.mHintArr.shift();
                 this.hint();
             }
@@ -133,6 +138,10 @@ var game;
         };
         LookStickView.prototype.onMatch = function (touch) {
             var _this = this;
+            if (!this.mIsStart)
+                return;
+            if (!this.canSelect)
+                return;
             if (this.kComAnswer.visible)
                 return;
             if (this.mIsFinish)
@@ -141,6 +150,8 @@ var game;
                 // 正确
                 // play anim
                 this["kGrpOption" + this.mCurHintIdx].visible = false;
+                this["kGrpTar" + this.mCurHintIdx].visible = false;
+                this["kGrpHead" + this.mCurHintIdx].visible = true;
                 this.playSmokeAnim(this.mCurHintIdx);
                 this.canSelect = false;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
@@ -160,6 +171,13 @@ var game;
         /** 重新开始 */
         LookStickView.prototype.onReStart = function () {
             this.reset();
+            this.next();
+        };
+        /** 开始游戏 */
+        LookStickView.prototype.onStart = function () {
+            this.mIsStart = true;
+            this.kComReplay.visible = false;
+            this.canSelect = true;
             this.next();
         };
         /** 初始化播放顺序 */

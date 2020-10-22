@@ -7,6 +7,8 @@ namespace game {
         public kImgPicHead2: eui.Image;
         public kImgHintTarFrame2: eui.Image;
         public kImgHappy: eui.Image;
+        public kGrpHead0: eui.Group;
+        public kGrpHead2: eui.Group;
         public kGrpTar1: eui.Group;
         public kImgPicHead1: eui.Image;
         public kImgHintTarFrame1: eui.Image;
@@ -14,6 +16,8 @@ namespace game {
         public kImgPicHead3: eui.Image;
         public kImgHintTarFrame3: eui.Image;
         public kImgSad: eui.Image;
+        public kGrpHead1: eui.Group;
+        public kGrpHead3: eui.Group;
         public kGrp0: eui.Group;
         public kGrpOption0: eui.Group;
         public kImgFrame0: eui.Image;
@@ -34,15 +38,17 @@ namespace game {
         private mCurHintIdx: number = 0;
         private mHintArr: number[] = [];
         private mIsFinish: boolean = false;
+        private mIsStart: boolean = false;// 是否开始游戏了
         private mSmokeAnimShowPos = [
             [1274, 400], [1724, 400], [1290, 885], [1724, 885]
         ]
 
+        private _canSelect: boolean = false;
         private set canSelect(b: boolean) {
-            this.touchEnabled = b;
+            this._canSelect = b;
         }
         private get canSelect(): boolean {
-            return this.touchEnabled;
+            return this._canSelect;
         }
 
         constructor() {
@@ -63,12 +69,14 @@ namespace game {
                 this[`kGrp${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this[`onSelect${i}`], this);
             }
             XDFFrame.EventCenter.addEventListenr(EventConst.eventReplay, this.onReStart, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.eventStart, this.onStart, this);
 
             this.mAnimSmoke = XDFFrame.DBFactory.createAnim("db_stick_smoke");
             this.mAnimSmoke.setProtery({ x: 0, y: 0, parent: this.kGrpSmokeAnim, scaleX: 1, scaleY: 1 });
 
             this.reset();
-            this.next();
+            this.kComReplay.visible = true;
+            this.kComReplay.showStart();
         }
 
         private reset(): void {
@@ -76,6 +84,8 @@ namespace game {
                 this[`kGrpOption${i}`].visible = this[`kImgHintTarFrame${i}`].visible = true;   // 选项、hint
                 egret.Tween.removeTweens(this[`kImgFrame${i}`]);
                 egret.Tween.removeTweens(this[`kImgHintTarFrame${i}`]);
+                this[`kGrpHead${i}`].visible = false;
+                this[`kGrpTar${this.mCurHintIdx}`].visible = true;
             }
 
             // 娃娃脸呼吸
@@ -105,7 +115,6 @@ namespace game {
                 this.kComReplay.showReplay();
             } else {
                 // 没完成
-                console.log("下一个");
                 this.mCurHintIdx = this.mHintArr.shift();
                 this.hint();
             }
@@ -161,12 +170,16 @@ namespace game {
         }
 
         private onMatch(touch: number): void {
+            if (!this.mIsStart) return;
+            if (!this.canSelect) return;
             if (this.kComAnswer.visible) return;
             if (this.mIsFinish) return;
             if (touch == this.mCurHintIdx) {
                 // 正确
                 // play anim
                 this[`kGrpOption${this.mCurHintIdx}`].visible = false;
+                this[`kGrpTar${this.mCurHintIdx}`].visible = false;
+                this[`kGrpHead${this.mCurHintIdx}`].visible = true;
                 this.playSmokeAnim(this.mCurHintIdx);
                 this.canSelect = false;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", () => {
@@ -186,6 +199,14 @@ namespace game {
         /** 重新开始 */
         private onReStart(): void {
             this.reset();
+            this.next();
+        }
+
+        /** 开始游戏 */
+        private onStart(): void {
+            this.mIsStart = true;
+            this.kComReplay.visible = false;
+            this.canSelect = true;
             this.next();
         }
 
