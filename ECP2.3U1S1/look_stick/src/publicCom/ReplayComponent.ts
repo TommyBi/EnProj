@@ -24,7 +24,6 @@ namespace game {
 
         private init(): void {
             egret.Tween.removeTweens(this.kGrpReplay);
-            this.kImgReplay.y = 0;
         }
 
         /** 重新开始 */

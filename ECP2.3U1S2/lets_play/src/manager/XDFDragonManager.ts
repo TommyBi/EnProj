@@ -21,8 +21,8 @@ namespace XDFFrame {
         public constructor() { }
 
         /** 创建骨骼动画 */
-        public static createAnim(name: string, textureCount: number = 1): DBAnim {
-            if (!this.cache[name]) {
+        public static createAnim(name: string, textureCount: number = 1, useCache: boolean = false): DBAnim {
+            if (!useCache || !this.cache[name]) {
                 let anim = new DBAnim(name);
                 anim.createAnim(textureCount);
                 this.cache[name] = anim;

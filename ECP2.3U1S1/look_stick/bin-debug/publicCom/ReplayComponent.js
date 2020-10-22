@@ -31,7 +31,6 @@ var game;
         };
         ReplayComponent.prototype.init = function () {
             egret.Tween.removeTweens(this.kGrpReplay);
-            this.kImgReplay.y = 0;
         };
         /** 重新开始 */
         ReplayComponent.prototype.onRePlay = function () {

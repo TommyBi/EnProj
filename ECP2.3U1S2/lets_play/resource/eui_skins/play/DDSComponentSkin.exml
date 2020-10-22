@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="DDSComponentSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+<e:Skin class="DDSComponentSkin" width="270" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
 	<e:Group id="kGrpMain" horizontalCenter="0" verticalCenter="0" touchChildren="false" touchEnabled="false" touchThrough="true">
-		<e:Group id="kGrpAnim" horizontalCenter="0" bottom="0"/>
-		<e:Image id="kImg" x="0" top="0" source="img_lp_option0_png" scaleX="0.5" scaleY="0.5"/>
+		<e:Group id="kGrpAnim" horizontalCenter="0" y="300"/>
+		<e:Image id="kImg" source="img_lp_option0_png" scaleX="0.5" scaleY="0.5" anchorOffsetX="270" anchorOffsetY="270" horizontalCenter="0" y="70"/>
 	</e:Group>
 </e:Skin>

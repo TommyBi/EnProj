@@ -13,7 +13,7 @@
 			"name":"public"
 		},
 		{
-			"keys":"db_goodJob_tex_png,db_goodJob_tex_json,db_goodJob_ske_json,db_idle_ske_json,db_idle_tex_png,db_idle_tex_json,db_light_tex_png,db_light_tex_json,db_light_ske_json,db_right_tex_json,db_right_ske_json,db_right_tex_png,db_start_ske_json,db_start_tex_png,db_start_tex_json,db_timeOut_tex_json,db_timeOut_ske_json,db_timeOut_tex_png,db_wrong_ske_json,db_wrong_tex_0_json,db_wrong_tex_0_png,db_wrong_tex_1_json,db_wrong_tex_1_png,db_wrong_tex_2_json,db_wrong_tex_2_png,db_wrong_tex_3_json,db_wrong_tex_3_png,db_wrong_tex_4_json,db_wrong_tex_4_png,db_wrong_tex_5_json,db_wrong_tex_5_png,db_wrong_tex_6_json,db_wrong_tex_6_png,db_wrong_tex_7_json,db_wrong_tex_7_png,db_wrong_tex_8_json,db_wrong_tex_8_png",
+			"keys":"db_goodJob_tex_png,db_goodJob_tex_json,db_goodJob_ske_json,db_idle_ske_json,db_idle_tex_png,db_idle_tex_json,db_light_tex_png,db_light_tex_json,db_light_ske_json,db_right_tex_json,db_right_ske_json,db_right_tex_png,db_start_ske_json,db_start_tex_png,db_start_tex_json,db_timeOut_tex_json,db_timeOut_ske_json,db_timeOut_tex_png,db_wrong_ske_json,db_wrong_tex_0_json,db_wrong_tex_0_png,db_wrong_tex_1_json,db_wrong_tex_1_png,db_wrong_tex_2_json,db_wrong_tex_2_png,db_wrong_tex_3_json,db_wrong_tex_3_png,db_wrong_tex_4_json,db_wrong_tex_4_png,db_wrong_tex_5_json,db_wrong_tex_5_png,db_wrong_tex_6_json,db_wrong_tex_6_png,db_wrong_tex_7_json,db_wrong_tex_7_png,db_wrong_tex_8_json,db_wrong_tex_8_png,db_hammer_err_tex_png,db_hammer_err_tex_json,db_hammer_err_ske_json,db_hammer_right_tex_png,db_hammer_right_tex_json,db_hammer_right_ske_json,db_mouse_down_ske_json,db_mouse_down_tex_json,db_mouse_down_tex_png,db_mouse_hit_ske_json,db_mouse_hit_tex_json,db_mouse_hit_tex_png,db_mouse_up_ske_json,db_mouse_up_tex_png,db_mouse_up_tex_json,db_hammer_hit_ske_json,db_hammer_hit_tex_json,db_hammer_hit_tex_png",
 			"name":"db"
 		},
 		{
@@ -605,6 +605,96 @@
 			"name":"img_lp_wordPanel_png",
 			"type":"image",
 			"url":"assets/img/lets_play/img_lp_wordPanel.png"
+		},
+		{
+			"name":"db_hammer_err_tex_png",
+			"type":"image",
+			"url":"assets/db/db_hammer_err/db_hammer_err_tex.png"
+		},
+		{
+			"name":"db_hammer_err_tex_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_err/db_hammer_err_tex.json"
+		},
+		{
+			"name":"db_hammer_err_ske_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_err/db_hammer_err_ske.json"
+		},
+		{
+			"name":"db_hammer_right_tex_png",
+			"type":"image",
+			"url":"assets/db/db_hammer_right/db_hammer_right_tex.png"
+		},
+		{
+			"name":"db_hammer_right_tex_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_right/db_hammer_right_tex.json"
+		},
+		{
+			"name":"db_hammer_right_ske_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_right/db_hammer_right_ske.json"
+		},
+		{
+			"name":"db_mouse_down_ske_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_down/db_mouse_down_ske.json"
+		},
+		{
+			"name":"db_mouse_down_tex_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_down/db_mouse_down_tex.json"
+		},
+		{
+			"name":"db_mouse_down_tex_png",
+			"type":"image",
+			"url":"assets/db/db_mouse_down/db_mouse_down_tex.png"
+		},
+		{
+			"name":"db_mouse_hit_ske_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_hit/db_mouse_hit_ske.json"
+		},
+		{
+			"name":"db_mouse_hit_tex_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_hit/db_mouse_hit_tex.json"
+		},
+		{
+			"name":"db_mouse_hit_tex_png",
+			"type":"image",
+			"url":"assets/db/db_mouse_hit/db_mouse_hit_tex.png"
+		},
+		{
+			"name":"db_mouse_up_ske_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_up/db_mouse_up_ske.json"
+		},
+		{
+			"name":"db_mouse_up_tex_png",
+			"type":"image",
+			"url":"assets/db/db_mouse_up/db_mouse_up_tex.png"
+		},
+		{
+			"name":"db_mouse_up_tex_json",
+			"type":"json",
+			"url":"assets/db/db_mouse_up/db_mouse_up_tex.json"
+		},
+		{
+			"name":"db_hammer_hit_ske_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_hit/db_hammer_hit_ske.json"
+		},
+		{
+			"name":"db_hammer_hit_tex_json",
+			"type":"json",
+			"url":"assets/db/db_hammer_hit/db_hammer_hit_tex.json"
+		},
+		{
+			"name":"db_hammer_hit_tex_png",
+			"type":"image",
+			"url":"assets/db/db_hammer_hit/db_hammer_hit_tex.png"
 		}
 	]
 }

@@ -131,7 +131,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("db")];
                     case 4:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("lets_think")];
+                        return [4 /*yield*/, RES.loadGroup("look_stick")];
                     case 5:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];
@@ -165,8 +165,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var letsThinkView = new game.LetsThinkView();
-        XDFFrame.LayerManager.UI_View.addChild(letsThinkView);
+        var lookStickView = new game.LookStickView();
+        XDFFrame.LayerManager.UI_View.addChild(lookStickView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

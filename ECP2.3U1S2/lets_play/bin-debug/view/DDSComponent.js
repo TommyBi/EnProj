@@ -23,15 +23,60 @@ var game;
         DDSComponent.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
             // 初始化动画
-            this.mAnimRight = XDFFrame.DBFactory.createAnim("db_right");
-            this.mAnimRight.setProtery({ x: 70, y: -20, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimErr = XDFFrame.DBFactory.createAnim("db_wrong", 9);
-            this.mAnimErr.setProtery({ x: 50, y: 30, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
-            this.mAnimRoleIdle.setProtery({ x: 50, y: 50, parent: this.kGrpAnim, scaleX: 0.25, scaleY: 0.25 });
+            this.mAnimMouseDown = XDFFrame.DBFactory.createAnim("db_mouse_down");
+            this.mAnimMouseDown.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimMouseUp = XDFFrame.DBFactory.createAnim("db_mouse_up");
+            this.mAnimMouseUp.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimMouseHit = XDFFrame.DBFactory.createAnim("db_mouse_hit");
+            this.mAnimMouseHit.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
             this.init();
         };
         DDSComponent.prototype.init = function () {
+            this.kGrpAnim.visible = this.mAnimMouseUp.visible = this.mAnimMouseDown.visible = this.mAnimMouseHit.visible = false;
+            this.kImg.scaleX = this.kImg.scaleY = 0;
+        };
+        /** 设置图片 */
+        DDSComponent.prototype.formateImg = function (idx) {
+            this.kImg.source = "img_lp_option" + idx + "_png";
+        };
+        /** 老鼠动画 */
+        DDSComponent.prototype.playMouseAnim = function (type, cb, thisOBj) {
+            var _this = this;
+            switch (type) {
+                case "down":
+                    this.kGrpAnim.visible = this.mAnimMouseDown.visible = true;
+                    this.mAnimMouseUp.visible = this.mAnimMouseHit.visible = false;
+                    this.mAnimMouseDown.play(null, 1, cb, thisOBj);
+                    this.showImg(false);
+                    this.kGrpAnim.visible = false;
+                    break;
+                case "up":
+                    this.kGrpAnim.visible = this.mAnimMouseUp.visible = true;
+                    this.mAnimMouseDown.visible = this.mAnimMouseHit.visible = false;
+                    this.mAnimMouseUp.play(null, 1, function () {
+                        _this.showImg(true);
+                        cb && cb.call(thisOBj);
+                    }, this);
+                case "hit":
+                    this.kGrpAnim.visible = this.mAnimMouseHit.visible = true;
+                    this.mAnimMouseDown.visible = this.mAnimMouseUp.visible = false;
+                    this.mAnimMouseHit.play(null, 1, function () {
+                        cb && cb.call(thisOBj);
+                    });
+                    break;
+            }
+        };
+        /** 是否是要去显示 */
+        DDSComponent.prototype.showImg = function (showAction) {
+            egret.Tween.removeTweens(this.kImg);
+            if (showAction) {
+                this.kImg.scaleX = this.kImg.scaleY = 0;
+                egret.Tween.get(this.kImg).to({ scaleX: 0.5, scaleY: 0.5 }, 300);
+            }
+            else {
+                this.kImg.scaleX = this.kImg.scaleY = 0.5;
+                egret.Tween.get(this.kImg).to({ scaleX: 0, scaleY: 0 }, 300);
+            }
         };
         return DDSComponent;
     }(eui.Component));

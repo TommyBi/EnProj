@@ -91,8 +91,8 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let letsThinkView = new game.LetsThinkView();
-        XDFFrame.LayerManager.UI_View.addChild(letsThinkView);
+        let lookStickView = new game.LookStickView();
+        XDFFrame.LayerManager.UI_View.addChild(lookStickView);
     }
 
     private async loadMusic() {

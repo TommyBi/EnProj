@@ -13,14 +13,15 @@
 			<e:Image x="0" anchorOffsetX="0" source="img_lp_wordPanel_png" scaleX="2" scaleY="2" top="0" scale9Grid="126,25,257,117" width="500"/>
 			<e:Label id="kLabelDesc" text="Chickens give us eggs" verticalCenter="58" size="60" bold="true" textColor="0x561721" horizontalCenter="0"/>
 		</e:Group>
-		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
-		<game:DDSComponent id="kCom0" x="168.69" y="210" skinName="DDSComponentSkin"/>
-		<game:DDSComponent x="899.91" y="210" skinName="DDSComponentSkin" id="kCom1"/>
+		<game:DDSComponent id="kCom0" x="168.69" y="267.57" skinName="DDSComponentSkin"/>
+		<game:DDSComponent x="899.91" y="270.6" skinName="DDSComponentSkin" id="kCom1"/>
 		<game:DDSComponent x="537.19" y="540" skinName="DDSComponentSkin" id="kCom2"/>
 		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>
+		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
 	</e:Group>
 	<e:Group x="0" y="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true">
 		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="0"/>
 		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="1680"/>
 	</e:Group>
+	<e:Group id="kGrpAnimHummer" width="200" height="200" x="96" y="421" touchChildren="false" touchEnabled="false" touchThrough="true"/>
 </e:Skin>

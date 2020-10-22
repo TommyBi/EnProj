@@ -27,9 +27,10 @@ var XDFFrame;
             configurable: true
         });
         /** 创建骨骼动画 */
-        DBFactory.createAnim = function (name, textureCount) {
+        DBFactory.createAnim = function (name, textureCount, useCache) {
             if (textureCount === void 0) { textureCount = 1; }
-            if (!this.cache[name]) {
+            if (useCache === void 0) { useCache = false; }
+            if (!useCache || !this.cache[name]) {
                 var anim = new DBAnim(name);
                 anim.createAnim(textureCount);
                 this.cache[name] = anim;

@@ -6,13 +6,14 @@ namespace game {
         public kCom1: game.DDSComponent;
         public kCom2: game.DDSComponent;
         public kComRestart: game.ReStartComponent;
+        public kGrpAnimHummer: eui.Group;
 
         private mOptionCount: number = 3;
         private mCurShowArr: number[] = []; // 当前显示的序列
         private mHintWords: string[] = [    // 目标提示文本
-            "I like dogs.",
-            "I don't like dogs.",
-            "I like cats.",
+            "Sheep give us wool.",
+            "Chickens give us eggs.",
+            "Cows give us milk.",
         ]
         private mHintQueue: number[] = [];  // 当前已经提示过得队列
         private mCurHintIdx: number = 0;    // 当前正在提示的队列索引
@@ -24,6 +25,9 @@ namespace game {
                 this[`kCom${i}`].touchEnabled = b;
             }
         }
+        private mAnimHammerHit: XDFFrame.DBAnim;
+        private mAnimHammerRight: XDFFrame.DBAnim;
+        private mAnimHammerErr: XDFFrame.DBAnim;
 
         constructor() {
             super();
@@ -34,11 +38,20 @@ namespace game {
             super.createChildren();
             // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(EventConst.startComPlayGame, this.onStart, this);
-            XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
+            //XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
             for (let i = 0; i < this.mOptionCount; i++) {
                 this[`kCom${i}`].touchChildren = false;
                 this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this[`onChoise${i}`], this);
             }
+
+            this.mAnimHammerErr = XDFFrame.DBFactory.createAnim("db_hammer_err");
+            this.mAnimHammerErr.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimHammerHit = XDFFrame.DBFactory.createAnim("db_hammer_hit");
+            this.mAnimHammerHit.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimHammerRight = XDFFrame.DBFactory.createAnim("db_hammer_right");
+            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimHammerErr.visible = this.mAnimHammerHit.visible = this.mAnimHammerRight.visible = false;
+            this.kGrpAnimHummer.visible = false;
 
             this.init();
         }
@@ -74,9 +87,6 @@ namespace game {
             // 隐藏结束组件
             this.kComRestart.visible = false;
 
-            // 随机显示的位置
-            this.calShowOrder();
-
             // 开始
             this.canSelect = false;
             this.next();
@@ -89,8 +99,9 @@ namespace game {
             for (let i = 0; i < this.mCurShowArr.length; i++) {
                 // format img
                 this[`kCom${i}`].visible = true;
-                // this[`kCom${i}`].source = `img_lp_option${this.mCurShowArr[i]}_png`;
                 this[`kCom${i}`].name = this.mCurShowArr[i];
+                this[`kCom${i}`].formateImg(this.mCurShowArr[i]);
+                this[`kCom${i}`].playMouseAnim("up", null, null);
             }
         }
         /** 生产随机队列 */
@@ -117,10 +128,27 @@ namespace game {
                 this.kComRestart.playActionGoodJob();
                 return;
             };
+            // 随机显示的位置
             this.canSelect = true;
             this.mCurHintIdx = this.mHintQueue.shift();
             this.playHintAction();
+            this.calShowOrder();
             this.kComBar.play();
+        }
+
+        /** 重新提示 */
+        private repeatHint(): void {
+            let finishDownCount = 0;
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kCom${i}`].playMouseAnim("down", () => {
+                    finishDownCount++;
+                    if (finishDownCount >= this.mOptionCount) {
+                        this.playHintAction();
+                        this.calShowOrder();
+                        this.canSelect = true;
+                    }
+                }, this);
+            }
         }
 
         private playHintAction(): void {
@@ -130,39 +158,44 @@ namespace game {
             this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
         }
 
-        private onChoise0(): void {
-            this.judge(0);
+        private onChoise0(e: egret.TouchEvent): void {
+            this.judge(0, e);
         }
-        private onChoise1(): void {
-            this.judge(1);
+        private onChoise1(e: egret.TouchEvent): void {
+            this.judge(1, e);
         }
-        private onChoise2(): void {
-            this.judge(2);
+        private onChoise2(e: egret.TouchEvent): void {
+            this.judge(2, e);
         }
 
-        private judge(num: number): void {
+        private judge(num: number, e: egret.TouchEvent): void {
             if (this[`kCom${num}`].name == String(this.mCurHintIdx)) {
-                this.onSelectRight();
+                this.onSelectRight(e);
             } else {
-                this.onSelectErr();
+                this[`kCom${num}`].playMouseAnim("hit", null, null);
+                this.onSelectErr(e);
             }
         }
 
         /** 选择正确 */
-        private onSelectRight(): void {
+        private onSelectRight(e: egret.TouchEvent): void {
             this.kComBar.reset();
             this.canSelect = false;
             XDFSoundManager.play("sound_ding_mp3");
             XDFSoundManager.play("sound_lp_choise_right_mp3");
-            // TODO: com hide
-            this.next();
+            this.playHammerAnim("right", () => {
+                this.next();
+            }, e);
         }
 
         /** 选择错误 */
-        private onSelectErr(): void {
+        private onSelectErr(e: egret.TouchEvent): void {
             this.canSelect = false;
             XDFSoundManager.play("sound_lp_dds_err_mp3");
             this.canSelect = true;
+            this.playHammerAnim("err", () => {
+                this.repeatHint();
+            }, e)
         }
 
         /** 时间终止 */
@@ -170,6 +203,56 @@ namespace game {
             this.reset();
             this.kComRestart.visible = true;
             this.kComRestart.playActionTimeOut();
+        }
+
+        private playHammerAnim(type: string, cb: Function, e?: egret.TouchEvent): void {
+            switch (type) {
+                case "hit":
+                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
+                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
+                    this.mAnimHammerHit.play(null, 1, cb, this);
+                    break;
+                case "right":
+                    this.kGrpAnimHummer.x = e.stageX;
+                    this.kGrpAnimHummer.y = e.stageY;
+                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
+                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
+                    this.mAnimHammerHit.play(null, 1, () => {
+                        this.kGrpAnimHummer.visible = this.mAnimHammerRight.visible = true;
+                        this.mAnimHammerErr.visible = this.mAnimHammerHit.visible = false;
+                        this.mAnimHammerRight.play(null, 1, () => {
+                            this.kGrpAnimHummer.visible = false;
+                            let downFinishCount = 0;
+                            for (let i = 0; i < this.mCurShowArr.length; i++) {
+                                // format img
+                                this[`kCom${i}`].visible = true;
+                                this[`kCom${i}`].name = this.mCurShowArr[i];
+                                this[`kCom${i}`].formateImg(this.mCurShowArr[i]);
+                                this[`kCom${i}`].playMouseAnim("down", () => {
+                                    downFinishCount++;
+                                    if (downFinishCount == this.mOptionCount) {
+                                        cb && cb();
+                                    }
+                                }, this);
+                            }
+                        }, this);
+                    }, this);
+                    break;
+                case "err":
+                    this.kGrpAnimHummer.x = e.stageX;
+                    this.kGrpAnimHummer.y = e.stageY;
+                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
+                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
+                    this.mAnimHammerHit.play(null, 1, () => {
+                        this.kGrpAnimHummer.visible = this.mAnimHammerErr.visible = true;
+                        this.mAnimHammerHit.visible = this.mAnimHammerRight.visible = false;
+                        this.mAnimHammerErr.play(null, 1, () => {
+                            this.kGrpAnimHummer.visible = false;
+                            cb && cb();
+                        }, this);
+                    }, this)
+                    break;
+            }
         }
     }
 } 
