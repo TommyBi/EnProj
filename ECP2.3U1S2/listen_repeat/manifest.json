@@ -40,10 +40,11 @@
 		"bin-debug/publicCom/videoPlayer/CaptionPlayerCom.js",
 		"bin-debug/view/LetsChantView.js",
 		"bin-debug/view/LetsPlayView.js",
+		"bin-debug/view/LetsSingView.js",
 		"bin-debug/view/LetsThinkView.js",
 		"bin-debug/view/LetsWatchView.js",
 		"bin-debug/view/ListenRepeatView.js",
-		"bin-debug/view/MainView.js",
-		"bin-debug/view/VideoPlayer.js"
+		"bin-debug/view/LookStickView.js",
+		"bin-debug/view/MainView.js"
 	]
 }

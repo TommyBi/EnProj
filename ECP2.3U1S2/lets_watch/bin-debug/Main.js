@@ -159,8 +159,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var letsSingView = new game.LetsSingView();
-        XDFFrame.LayerManager.UI_View.addChild(letsSingView);
+        var letsWatchView = new game.LetsWatchView();
+        XDFFrame.LayerManager.UI_View.addChild(letsWatchView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

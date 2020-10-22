@@ -105,6 +105,7 @@ var game;
             var _this = this;
             if (this.mIsRolling)
                 return;
+            XDFSoundManager.play("sound_think_choise_mp3");
             egret.Tween.removeTweens(this.kGrpMain);
             egret.Tween.get(this.kGrpMain).to({ scaleX: 0 }, 200).call(function () {
                 if (_this.mIsBack) {

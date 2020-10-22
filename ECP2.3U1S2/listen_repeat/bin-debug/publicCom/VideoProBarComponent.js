@@ -32,7 +32,8 @@ var game;
             this.init();
         };
         VideoProBarComponent.prototype.setSkinType = function (type) {
-            this.kImgProBtn.source = "img_pro_icon" + type + "_png";
+            if (type > 0)
+                this.kImgProBtn.source = "img_pro_icon" + type + "_png";
         };
         VideoProBarComponent.prototype.reset = function (time) {
             this.kImgProBtn.x = 0;

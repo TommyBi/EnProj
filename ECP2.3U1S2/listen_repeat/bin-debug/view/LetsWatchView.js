@@ -23,6 +23,7 @@ var game;
             this.init();
         };
         LetsWatchView.prototype.init = function () {
+            this.kComVideo.setSkinType(1);
             this.kComVideo.play("video");
         };
         return LetsWatchView;

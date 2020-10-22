@@ -8,14 +8,14 @@ namespace game {
 
         private mIdx: number;
         private mArr: string[] = [
-            "I have a dog.",
-            "I have a cat.",
-            "They don't like each other.",
-            "I dont't like that dog.",
-            "I dont't like that cat.",
-            "Good job,you guys!",
-            "I like this dog.",
-            "I like this cat."
+            "Cows do nothing.",
+            "That's not true.",
+            "Cows give us milk.",
+            "Chickens do nothing.",
+            "Chickens give us eggs.",
+            "Sheep do nothing.",
+            "Sheep give us eggs.",
+            "All the animals work very hard."
         ];
 
         public constructor() {

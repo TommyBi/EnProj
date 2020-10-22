@@ -24,9 +24,7 @@ var game;
         ReplayComponent.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
-            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplayBtn, this);
-            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplayBtn, this);
-            // mouse.enable(this.stage);
+            this.kImgStart.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onReStart, this);
             this.init();
         };
         ReplayComponent.prototype.init = function () {
@@ -37,12 +35,29 @@ var game;
             egret.Tween.removeTweens(this.kImgReplay);
             XDFFrame.EventCenter.sendEvent(game.EventConst.eventReplay);
         };
+        /** 开始 */
+        ReplayComponent.prototype.onReStart = function () {
+            egret.Tween.removeTweens(this.kImgStart);
+            XDFFrame.EventCenter.sendEvent(game.EventConst.eventStart);
+        };
         ReplayComponent.prototype.showReplay = function () {
+            this.kImgReplay.visible = true;
+            this.kImgStart.visible = false;
             egret.Tween.removeTweens(this.kImgReplay);
             this.kImgReplay.scaleX = this.kImgReplay.scaleY = 1;
-            this.kImgReplay.source = "img_replay_j_png";
-            this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut);
+        };
+        /** 显示开始组件 */
+        ReplayComponent.prototype.showStart = function () {
+            egret.Tween.removeTweens(this.kImgStart);
+            this.kImgReplay.visible = false;
+            this.kImgStart.visible = true;
+            this.kImgStart.scaleX = this.kImgStart.scaleY = 1;
+            egret.Tween.get(this.kImgStart, { loop: true })
                 .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
                 .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
                 .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)

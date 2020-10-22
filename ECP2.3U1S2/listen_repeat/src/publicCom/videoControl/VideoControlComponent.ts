@@ -42,16 +42,11 @@ namespace game {
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
 
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            // mouse.enable(this.stage);
+        }
 
+        public setSkinType(type: number): void {
+            this.kComPro.setSkinType(type);
         }
 
         /** 播放的视频索引 */
@@ -119,12 +114,5 @@ namespace game {
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mVideo.length);
         }
-
-        // private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
-        // private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
-        // private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
-        // private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
-        // private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
-        // private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
     }
 }

@@ -46,15 +46,10 @@ var game;
             this.kGrpVideo.addChild(this.mVideo);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            // mouse.enable(this.stage);
+        };
+        VideoControlComponent.prototype.setSkinType = function (type) {
+            this.kComPro.setSkinType(type);
         };
         /** 播放的视频索引 */
         VideoControlComponent.prototype.play = function (name) {

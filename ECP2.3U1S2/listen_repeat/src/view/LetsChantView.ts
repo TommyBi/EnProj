@@ -13,6 +13,7 @@ namespace game {
         }
 
         private init(): void {
+            this.kComVideo.setSkinType(1);
             this.kComVideo.play("video");
         }
     }
