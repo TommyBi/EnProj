@@ -13,7 +13,7 @@
 			"name":"public"
 		},
 		{
-			"keys":"img_hint_panel_0_png,img_hint_panel_1_png,img_hint_panel_2_png,img_ss_bg_png,img_ss_bg0_png,img_ss_bg1_png,img_ss_bg2_png,img_ss_body_0_png,img_ss_body_1_png,img_ss_body_2_png,img_ss_btn_0_png,img_ss_btn_1_png,img_ss_btn_2_png,img_ss_head_0_png,img_ss_head_1_png,img_ss_head_2_png,img_ss_head_mask0_png,img_ss_head_mask1_png,img_ss_head_mask2_png,img_ss_head_mask_l0_png,img_ss_head_mask_l1_png,img_ss_head_mask_l2_png",
+			"keys":"img_hint_panel_0_png,img_hint_panel_1_png,img_hint_panel_2_png,img_ss_bg_png,img_ss_bg0_png,img_ss_bg1_png,img_ss_bg2_png,img_ss_body_0_png,img_ss_body_1_png,img_ss_body_2_png,img_ss_btn_0_png,img_ss_btn_1_png,img_ss_btn_2_png,img_ss_head_0_png,img_ss_head_1_png,img_ss_head_2_png,img_ss_head_mask0_png,img_ss_head_mask1_png,img_ss_head_mask2_png,img_ss_head_mask_l0_png,img_ss_head_mask_l1_png,img_ss_head_mask_l2_png,img_panel_png",
 			"name":"stick_say"
 		},
 		{
@@ -21,7 +21,7 @@
 			"name":"sound"
 		},
 		{
-			"keys":"db_role_0_tex_png,db_role_0_ske_json,db_role_0_tex_json,db_role_1_tex_png,db_role_1_ske_json,db_role_1_tex_json,db_role_2_tex_png,db_role_2_tex_json,db_role_2_ske_json",
+			"keys":"db_role_0_tex_png,db_role_0_ske_json,db_role_0_tex_json,db_role_1_tex_png,db_role_1_ske_json,db_role_1_tex_json,db_role_2_tex_png,db_role_2_tex_json,db_role_2_ske_json,db_word_flag_tex_png,db_word_flag_ske_json,db_word_flag_tex_json",
 			"name":"db"
 		}
 	],
@@ -525,6 +525,26 @@
 			"name":"img_stick_bg4_png",
 			"type":"image",
 			"url":"assets/img/public/img_stick_bg4.png"
+		},
+		{
+			"name":"db_word_flag_tex_png",
+			"type":"image",
+			"url":"assets/db/db_word_flag/db_word_flag_tex.png"
+		},
+		{
+			"name":"db_word_flag_ske_json",
+			"type":"json",
+			"url":"assets/db/db_word_flag/db_word_flag_ske.json"
+		},
+		{
+			"name":"db_word_flag_tex_json",
+			"type":"json",
+			"url":"assets/db/db_word_flag/db_word_flag_tex.json"
+		},
+		{
+			"name":"img_panel_png",
+			"type":"image",
+			"url":"assets/img/stick_say/img_panel.png"
 		}
 	]
 }

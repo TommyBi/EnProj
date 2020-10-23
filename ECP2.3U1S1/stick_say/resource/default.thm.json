@@ -20,7 +20,11 @@
 		"resource/eui_skins/public/ReStartComponentSkin.exml",
 		"resource/eui_skins/public/TimeBarComponentSkin.exml",
 		"resource/eui_skins/play/LetsPlaySkin.exml",
+		"resource/eui_skins/public/FlagComSkin.exml",
+		"resource/eui_skins/public/PreWordsComSkin.exml",
+		"resource/eui_skins/public/WordsPanelComSkin.exml",
 		"resource/eui_skins/sing/LetsSingViewSkin.exml",
+		"resource/eui_skins/stick/StickSayViewSkin.exml",
 		"resource/eui_skins/think/LetsThinkSkin.exml",
 		"resource/eui_skins/think/ThinkComponentSkin.exml",
 		"resource/eui_skins/watch/LetsWatchSkin.exml"

@@ -11,6 +11,7 @@ var game;
         EventConst.startComPlayGame = "startComPlayGame";
         EventConst.timeBarOut = "timeBarOut";
         EventConst.eventStart = "eventStart";
+        EventConst.touchFlag = "touchFlag";
         return EventConst;
     }());
     game.EventConst = EventConst;

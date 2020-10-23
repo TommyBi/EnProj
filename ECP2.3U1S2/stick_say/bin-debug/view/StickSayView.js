@@ -43,12 +43,29 @@ var game;
             }
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventReplay, this.onReStart, this);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventStart, this.onStart, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.touchFlag, this.onChangeWordsPanelAction, this);
             this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0");
             this.mAnimRole0.setProtery({ x: 320, y: 210, parent: this.kGrpAnim0, scaleX: 0.7, scaleY: 0.7 });
             this.mAnimRole1 = XDFFrame.DBFactory.createAnim("db_role_1");
             this.mAnimRole1.setProtery({ x: 700, y: 220, parent: this.kGrpAnim1, scaleX: 0.6, scaleY: 0.6 });
             this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
             this.mAnimRole2.setProtery({ x: 400, y: 480, parent: this.kGrpAnim2, scaleX: 1, scaleY: 1 });
+            // 单词
+            this.kComWordsPanel.setData([
+                {
+                    words: "chicken",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_0_mp3",
+                }, {
+                    words: "sheep",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_1_mp3",
+                }, {
+                    words: "corw",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_2_mp3",
+                }
+            ]);
             this.reset();
             this.mLock_startGame = true;
             this.kComReplay.visible = true;
@@ -179,6 +196,10 @@ var game;
                     this.produceOrderArr(arr, tarCount);
                 }
             }
+        };
+        /** 是否开始显示单词 */
+        StickSayView.prototype.onChangeWordsPanelAction = function () {
+            this.kComWordsPanel.playAction();
         };
         return StickSayView;
     }(eui.Component));

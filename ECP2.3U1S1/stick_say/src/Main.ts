@@ -66,7 +66,8 @@ class Main extends eui.UILayer {
             await RES.loadGroup("preload");
             await RES.loadGroup("public");
             await RES.loadGroup("db");
-            await RES.loadGroup("look_stick");
+            await RES.loadGroup("sound");
+            await RES.loadGroup("stick_say");
             await this.loadTheme();
         }
         catch (e) {
@@ -91,8 +92,8 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let lookStickView = new game.LookStickView();
-        XDFFrame.LayerManager.UI_View.addChild(lookStickView);
+        let stickSayView = new game.StickSayView();
+        XDFFrame.LayerManager.UI_View.addChild(stickSayView);
     }
 
     private async loadMusic() {

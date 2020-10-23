@@ -1,14 +1,14 @@
 namespace game {
     export class StickSayView extends eui.Component {
-        public kImgMask2: eui.Image;
         public kImgMask0: eui.Image;
+        public kImgMaskLine0: eui.Image;
         public kGrpAnim0: eui.Group;
         public kGrpAnim1: eui.Group;
-        public kGrpAnim2: eui.Group;
         public kImgMask1: eui.Image;
-        public kImgMaskLine2: eui.Image;
         public kImgMaskLine1: eui.Image;
-        public kImgMaskLine0: eui.Image;
+        public kImgMask2: eui.Image;
+        public kImgMaskLine2: eui.Image;
+        public kGrpAnim2: eui.Group;
         public kImgDesc0: eui.Image;
         public kImgDesc1: eui.Image;
         public kImgDesc2: eui.Image;
@@ -19,6 +19,7 @@ namespace game {
         public kBtn2: eui.Image;
         public kComReplay: game.ReplayComponent;
         public kComAnswer: game.AnswerComponent;
+        public kComWordsPanel: game.WordsPanelCom;
 
         public mAnimRole0: XDFFrame.DBAnim;
         public mAnimRole1: XDFFrame.DBAnim;
@@ -53,6 +54,7 @@ namespace game {
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventReplay, this.onReStart, this);
             XDFFrame.EventCenter.addEventListenr(EventConst.eventStart, this.onStart, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.touchFlag, this.onChangeWordsPanelAction, this);
 
             this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0");
             this.mAnimRole0.setProtery({ x: 320, y: 210, parent: this.kGrpAnim0, scaleX: 0.7, scaleY: 0.7 });
@@ -60,6 +62,23 @@ namespace game {
             this.mAnimRole1.setProtery({ x: 700, y: 220, parent: this.kGrpAnim1, scaleX: 0.6, scaleY: 0.6 });
             this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
             this.mAnimRole2.setProtery({ x: 400, y: 480, parent: this.kGrpAnim2, scaleX: 1, scaleY: 1 });
+
+            // 单词
+            this.kComWordsPanel.setData([
+                {
+                    words: "chicken",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_0_mp3",
+                }, {
+                    words: "sheep",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_1_mp3",
+                }, {
+                    words: "corw",
+                    imgSrc: "img_start_png",
+                    soundSrc: "sound_words_2_mp3",
+                }
+            ])
 
             this.reset();
             this.mLock_startGame = true;
@@ -197,6 +216,9 @@ namespace game {
             }
         }
 
-
+        /** 是否开始显示单词 */
+        private onChangeWordsPanelAction(): void {
+            this.kComWordsPanel.playAction();
+        }
     }
 } 

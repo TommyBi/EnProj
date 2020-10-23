@@ -60,6 +60,18 @@ var XDFFrame;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(DBAnim.prototype, "x", {
+            get: function () { return this.armatureDisplay.x; },
+            set: function (n) { this.armatureDisplay.x = n; },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DBAnim.prototype, "y", {
+            get: function () { return this.armatureDisplay.y; },
+            set: function (n) { this.armatureDisplay.y = n; },
+            enumerable: true,
+            configurable: true
+        });
         DBAnim.prototype.createAnim = function (textureCount) {
             // 当前默认都是放在了资源配置文件中，新东方的需求就到这了，异步可以作为动态创建组的方式去加载，有时间继续写
             var dragonbonesData = RES.getRes(this.name + "_ske_json");
@@ -105,6 +117,9 @@ var XDFFrame;
                 this.cb.cbf = null;
                 this.cb.thisObj = null;
             }
+        };
+        DBAnim.prototype.stop = function () {
+            this.armatureDisplay.animation.stop();
         };
         return DBAnim;
     }());

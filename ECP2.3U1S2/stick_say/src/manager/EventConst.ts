@@ -5,5 +5,6 @@ namespace game {
         public static startComPlayGame = "startComPlayGame";
         public static timeBarOut = "timeBarOut";
         public static eventStart = "eventStart";
+        public static touchFlag = "touchFlag";
     }
 }
