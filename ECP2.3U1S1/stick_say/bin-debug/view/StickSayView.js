@@ -219,7 +219,13 @@ var game;
             });
         };
         /** 点击是否要触发收回 */
-        StickSayView.prototype.onTouch = function () {
+        StickSayView.prototype.onTouch = function (e) {
+            if (e.target.name == "flag")
+                return;
+            if (this.kComWordsPanel.visible) {
+                if (e.stageX > 278)
+                    this.onChangeWordsPanelAction();
+            }
         };
         return StickSayView;
     }(eui.Component));

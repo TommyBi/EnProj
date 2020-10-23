@@ -51,7 +51,7 @@
 	<e:Image source="img_ss_body_other1_png" x="966.7" y="448.02" scaleX="0.4" scaleY="0.4"/>
 	<e:Image source="img_ss_body_other0_png" x="730" y="256" scaleX="0.4" scaleY="0.4"/>
 	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" verticalCenter="0" x="0"/>
-	<game:FlagCom skinName="FlagComSkin" top="0" left="-20" locked="true"/>
+	<game:FlagCom skinName="FlagComSkin" top="0" left="-20" touchChildren="false" touchEnabled="true" name="flag"/>
 	<game:AnswerComponent id="kComAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" locked="true"/>
 	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" y="855" x="1691.03" locked="true"/>
 </e:Skin>

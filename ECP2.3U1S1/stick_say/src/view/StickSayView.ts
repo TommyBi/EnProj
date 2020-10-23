@@ -248,8 +248,11 @@ namespace game {
         }
 
         /** 点击是否要触发收回 */
-        private onTouch(): void {
-            
+        private onTouch(e: egret.TouchEvent): void {
+            if (e.target.name == "flag") return;
+            if (this.kComWordsPanel.visible) {
+                if (e.stageX > 278) this.onChangeWordsPanelAction();
+            }
         }
     }
 } 
