@@ -25,7 +25,6 @@ namespace game {
                 this[`kCom${i}`].touchEnabled = b;
             }
         }
-        private mAnimHammerHit: XDFFrame.DBAnim;
         private mAnimHammerRight: XDFFrame.DBAnim;
         private mAnimHammerErr: XDFFrame.DBAnim;
 
@@ -38,7 +37,7 @@ namespace game {
             super.createChildren();
             // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(EventConst.startComPlayGame, this.onStart, this);
-            //XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
             for (let i = 0; i < this.mOptionCount; i++) {
                 this[`kCom${i}`].touchChildren = false;
                 this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this[`onChoise${i}`], this);
@@ -46,11 +45,9 @@ namespace game {
 
             this.mAnimHammerErr = XDFFrame.DBFactory.createAnim("db_hammer_err");
             this.mAnimHammerErr.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimHammerHit = XDFFrame.DBFactory.createAnim("db_hammer_hit");
-            this.mAnimHammerHit.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
             this.mAnimHammerRight = XDFFrame.DBFactory.createAnim("db_hammer_right");
-            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimHammerErr.visible = this.mAnimHammerHit.visible = this.mAnimHammerRight.visible = false;
+            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 1, scaleY: 1 });
+            this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
             this.kGrpAnimHummer.visible = false;
 
             this.init();
@@ -62,7 +59,7 @@ namespace game {
             this.kComRestart.playActionStart();
             // 默认不显示待选的选项
             for (let i = 0; i < this.mOptionCount; i++) {
-                this[`kCom${i}`].visible = false;
+                this[`kCom${i}`].setMouseShowState(false);
             }
             this.kLabelDesc.text = "";
         }
@@ -71,7 +68,7 @@ namespace game {
         private reset(): void {
             // 默认不显示待选的选项`
             for (let i = 0; i < this.mOptionCount; i++) {
-                this[`kCom${i}`].visible = false;
+                this[`kCom${i}`].setMouseShowState(false);
             }
             this.kLabelDesc.text = "";
             this.kComBar.reset();
@@ -98,7 +95,6 @@ namespace game {
             this.produceOrderArr();
             for (let i = 0; i < this.mCurShowArr.length; i++) {
                 // format img
-                this[`kCom${i}`].visible = true;
                 this[`kCom${i}`].name = this.mCurShowArr[i];
                 this[`kCom${i}`].formateImg(this.mCurShowArr[i]);
                 this[`kCom${i}`].playMouseAnim("up", null, null);
@@ -131,9 +127,10 @@ namespace game {
             // 随机显示的位置
             this.canSelect = true;
             this.mCurHintIdx = this.mHintQueue.shift();
-            this.playHintAction();
-            this.calShowOrder();
-            this.kComBar.play();
+            this.playHintAction(() => {
+                this.calShowOrder();
+                this.kComBar.play();
+            });
         }
 
         /** 重新提示 */
@@ -143,17 +140,19 @@ namespace game {
                 this[`kCom${i}`].playMouseAnim("down", () => {
                     finishDownCount++;
                     if (finishDownCount >= this.mOptionCount) {
-                        this.playHintAction();
-                        this.calShowOrder();
-                        this.canSelect = true;
+                        this.playHintAction(() => {
+                            this.calShowOrder();
+                            this.canSelect = true;
+                        });
                     }
                 }, this);
             }
         }
 
-        private playHintAction(): void {
+        private playHintAction(cb: Function): void {
             XDFSoundManager.play(`sound_lp_dds_option${this.mCurHintIdx}_mp3`, 0, 1, 1, `sound_lp_dds_option${this.mCurHintIdx}_mp3`, () => {
                 this.canSelect = true;
+                cb && cb();
             });
             this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
         }
@@ -170,6 +169,11 @@ namespace game {
 
         private judge(num: number, e: egret.TouchEvent): void {
             if (this[`kCom${num}`].name == String(this.mCurHintIdx)) {
+                this[`kCom${num}`].playMouseAnim("hit", () => {
+                    for (let i = 0; i < this.mOptionCount; i++) {
+                        this[`kCom${i}`].playMouseAnim("down");
+                    }
+                }, this);
                 this.onSelectRight(e);
             } else {
                 this[`kCom${num}`].playMouseAnim("hit", null, null);
@@ -206,51 +210,28 @@ namespace game {
         }
 
         private playHammerAnim(type: string, cb: Function, e?: egret.TouchEvent): void {
+            this.kGrpAnimHummer.visible = true;
             switch (type) {
-                case "hit":
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, cb, this);
-                    break;
                 case "right":
                     this.kGrpAnimHummer.x = e.stageX;
                     this.kGrpAnimHummer.y = e.stageY;
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, () => {
-                        this.kGrpAnimHummer.visible = this.mAnimHammerRight.visible = true;
-                        this.mAnimHammerErr.visible = this.mAnimHammerHit.visible = false;
-                        this.mAnimHammerRight.play(null, 1, () => {
-                            this.kGrpAnimHummer.visible = false;
-                            let downFinishCount = 0;
-                            for (let i = 0; i < this.mCurShowArr.length; i++) {
-                                // format img
-                                this[`kCom${i}`].visible = true;
-                                this[`kCom${i}`].name = this.mCurShowArr[i];
-                                this[`kCom${i}`].formateImg(this.mCurShowArr[i]);
-                                this[`kCom${i}`].playMouseAnim("down", () => {
-                                    downFinishCount++;
-                                    if (downFinishCount == this.mOptionCount) {
-                                        cb && cb();
-                                    }
-                                }, this);
-                            }
-                        }, this);
+                    this.mAnimHammerRight.visible = true;
+                    this.mAnimHammerErr.visible = false;
+                    this.mAnimHammerRight.play(null, 1, () => {
+                        this.kGrpAnimHummer.visible = false;
+                        let downFinishCount = 0;
+                        cb && cb();
                     }, this);
                     break;
                 case "err":
                     this.kGrpAnimHummer.x = e.stageX;
                     this.kGrpAnimHummer.y = e.stageY;
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, () => {
-                        this.kGrpAnimHummer.visible = this.mAnimHammerErr.visible = true;
-                        this.mAnimHammerHit.visible = this.mAnimHammerRight.visible = false;
-                        this.mAnimHammerErr.play(null, 1, () => {
-                            this.kGrpAnimHummer.visible = false;
-                            cb && cb();
-                        }, this);
-                    }, this)
+                    this.mAnimHammerErr.visible = true;
+                    this.mAnimHammerRight.visible = false;
+                    this.mAnimHammerErr.play(null, 1, () => {
+                        this.kGrpAnimHummer.visible = false;
+                        cb && cb();
+                    }, this);
                     break;
             }
         }

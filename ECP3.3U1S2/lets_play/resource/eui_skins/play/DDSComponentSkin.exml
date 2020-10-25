@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DDSComponentSkin" width="270" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="kGrpMain" horizontalCenter="0" verticalCenter="0" touchChildren="false" touchEnabled="false" touchThrough="true" width="270" height="300">
+		<e:Image source="img_lp_hole_png" scaleX="0.35" scaleY="0.35" x="26" horizontalCenter="-45.5" y="292.88"/>
+		<e:Group id="kGrpAnim" horizontalCenter="0" y="350"/>
+		<e:Image id="kImg" source="img_lp_option0_png" scaleX="0.5" scaleY="0.5" anchorOffsetX="270" anchorOffsetY="270" horizontalCenter="0" y="70" width="540" height="540"/>
+		<e:Group id="kGrpAnimMask" x="-14.76" y="78.08">
+			<e:Image source="img_lp_hole_png" scaleX="0.35" scaleY="0.35" x="-148.77" y="123.47"/>
+			<e:Image id="kImgMask" source="img_mask_png" y="0" scaleX="1" scaleY="1" scale9Grid="0,0,1,1" width="300" height="250" x="18"/>
+		</e:Group>
+	</e:Group>
+</e:Skin>

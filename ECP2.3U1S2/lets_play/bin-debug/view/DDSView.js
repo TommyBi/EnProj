@@ -43,18 +43,16 @@ var game;
             _super.prototype.createChildren.call(this);
             // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(game.EventConst.startComPlayGame, this.onStart, this);
-            //XDFFrame.EventCenter.addEventListenr(EventConst.timeBarOut, this.onTimeOut, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.timeBarOut, this.onTimeOut, this);
             for (var i = 0; i < this.mOptionCount; i++) {
                 this["kCom" + i].touchChildren = false;
                 this["kCom" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this["onChoise" + i], this);
             }
             this.mAnimHammerErr = XDFFrame.DBFactory.createAnim("db_hammer_err");
             this.mAnimHammerErr.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimHammerHit = XDFFrame.DBFactory.createAnim("db_hammer_hit");
-            this.mAnimHammerHit.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
             this.mAnimHammerRight = XDFFrame.DBFactory.createAnim("db_hammer_right");
-            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
-            this.mAnimHammerErr.visible = this.mAnimHammerHit.visible = this.mAnimHammerRight.visible = false;
+            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 1, scaleY: 1 });
+            this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
             this.kGrpAnimHummer.visible = false;
             this.init();
         };
@@ -64,7 +62,7 @@ var game;
             this.kComRestart.playActionStart();
             // 默认不显示待选的选项
             for (var i = 0; i < this.mOptionCount; i++) {
-                this["kCom" + i].visible = false;
+                this["kCom" + i].setMouseShowState(false);
             }
             this.kLabelDesc.text = "";
         };
@@ -72,7 +70,7 @@ var game;
         DDSView.prototype.reset = function () {
             // 默认不显示待选的选项`
             for (var i = 0; i < this.mOptionCount; i++) {
-                this["kCom" + i].visible = false;
+                this["kCom" + i].setMouseShowState(false);
             }
             this.kLabelDesc.text = "";
             this.kComBar.reset();
@@ -95,7 +93,6 @@ var game;
             this.produceOrderArr();
             for (var i = 0; i < this.mCurShowArr.length; i++) {
                 // format img
-                this["kCom" + i].visible = true;
                 this["kCom" + i].name = this.mCurShowArr[i];
                 this["kCom" + i].formateImg(this.mCurShowArr[i]);
                 this["kCom" + i].playMouseAnim("up", null, null);
@@ -118,6 +115,7 @@ var game;
         };
         /** 下一步 */
         DDSView.prototype.next = function () {
+            var _this = this;
             if (this.mHintQueue.length <= 0) {
                 // 完成
                 this.reset();
@@ -129,9 +127,10 @@ var game;
             // 随机显示的位置
             this.canSelect = true;
             this.mCurHintIdx = this.mHintQueue.shift();
-            this.playHintAction();
-            this.calShowOrder();
-            this.kComBar.play();
+            this.playHintAction(function () {
+                _this.calShowOrder();
+                _this.kComBar.play();
+            });
         };
         /** 重新提示 */
         DDSView.prototype.repeatHint = function () {
@@ -141,17 +140,19 @@ var game;
                 this["kCom" + i].playMouseAnim("down", function () {
                     finishDownCount++;
                     if (finishDownCount >= _this.mOptionCount) {
-                        _this.playHintAction();
-                        _this.calShowOrder();
-                        _this.canSelect = true;
+                        _this.playHintAction(function () {
+                            _this.calShowOrder();
+                            _this.canSelect = true;
+                        });
                     }
                 }, this);
             }
         };
-        DDSView.prototype.playHintAction = function () {
+        DDSView.prototype.playHintAction = function (cb) {
             var _this = this;
             XDFSoundManager.play("sound_lp_dds_option" + this.mCurHintIdx + "_mp3", 0, 1, 1, "sound_lp_dds_option" + this.mCurHintIdx + "_mp3", function () {
                 _this.canSelect = true;
+                cb && cb();
             });
             this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
         };
@@ -165,7 +166,13 @@ var game;
             this.judge(2, e);
         };
         DDSView.prototype.judge = function (num, e) {
+            var _this = this;
             if (this["kCom" + num].name == String(this.mCurHintIdx)) {
+                this["kCom" + num].playMouseAnim("hit", function () {
+                    for (var i = 0; i < _this.mOptionCount; i++) {
+                        _this["kCom" + i].playMouseAnim("down");
+                    }
+                }, this);
                 this.onSelectRight(e);
             }
             else {
@@ -202,50 +209,27 @@ var game;
         };
         DDSView.prototype.playHammerAnim = function (type, cb, e) {
             var _this = this;
+            this.kGrpAnimHummer.visible = true;
             switch (type) {
-                case "hit":
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, cb, this);
-                    break;
                 case "right":
                     this.kGrpAnimHummer.x = e.stageX;
                     this.kGrpAnimHummer.y = e.stageY;
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, function () {
-                        _this.kGrpAnimHummer.visible = _this.mAnimHammerRight.visible = true;
-                        _this.mAnimHammerErr.visible = _this.mAnimHammerHit.visible = false;
-                        _this.mAnimHammerRight.play(null, 1, function () {
-                            _this.kGrpAnimHummer.visible = false;
-                            var downFinishCount = 0;
-                            for (var i = 0; i < _this.mCurShowArr.length; i++) {
-                                // format img
-                                _this["kCom" + i].visible = true;
-                                _this["kCom" + i].name = _this.mCurShowArr[i];
-                                _this["kCom" + i].formateImg(_this.mCurShowArr[i]);
-                                _this["kCom" + i].playMouseAnim("down", function () {
-                                    downFinishCount++;
-                                    if (downFinishCount == _this.mOptionCount) {
-                                        cb && cb();
-                                    }
-                                }, _this);
-                            }
-                        }, _this);
+                    this.mAnimHammerRight.visible = true;
+                    this.mAnimHammerErr.visible = false;
+                    this.mAnimHammerRight.play(null, 1, function () {
+                        _this.kGrpAnimHummer.visible = false;
+                        var downFinishCount = 0;
+                        cb && cb();
                     }, this);
                     break;
                 case "err":
                     this.kGrpAnimHummer.x = e.stageX;
                     this.kGrpAnimHummer.y = e.stageY;
-                    this.kGrpAnimHummer.visible = this.mAnimHammerHit.visible = true;
-                    this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
-                    this.mAnimHammerHit.play(null, 1, function () {
-                        _this.kGrpAnimHummer.visible = _this.mAnimHammerErr.visible = true;
-                        _this.mAnimHammerHit.visible = _this.mAnimHammerRight.visible = false;
-                        _this.mAnimHammerErr.play(null, 1, function () {
-                            _this.kGrpAnimHummer.visible = false;
-                            cb && cb();
-                        }, _this);
+                    this.mAnimHammerErr.visible = true;
+                    this.mAnimHammerRight.visible = false;
+                    this.mAnimHammerErr.play(null, 1, function () {
+                        _this.kGrpAnimHummer.visible = false;
+                        cb && cb();
                     }, this);
                     break;
             }

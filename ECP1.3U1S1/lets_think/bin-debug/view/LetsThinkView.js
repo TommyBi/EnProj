@@ -15,7 +15,7 @@ var game;
         function LetsThinkView() {
             var _this = _super.call(this) || this;
             _this.mSkinType = 0;
-            _this.mWords = ["aaa", "bbb", "ccc", "ddd"];
+            _this.mWords = ["shirt", "pants"];
             _this.skinName = "LetsThinkSkin";
             return _this;
         }

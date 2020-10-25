@@ -5,7 +5,7 @@ namespace game {
         public kGrpCom: eui.Group;
 
         private mSkinType: number = 0;
-        private mWords: string[] = ["aaa", "bbb", "ccc", "ddd"];
+        private mWords: string[] = ["shirt", "pants"];
         constructor() {
             super();
             this.skinName = "LetsThinkSkin";

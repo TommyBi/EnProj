@@ -44,6 +44,7 @@
 		"bin-debug/view/LetsThinkView.js",
 		"bin-debug/view/LetsWatchView.js",
 		"bin-debug/view/ListenRepeatView.js",
-		"bin-debug/view/MainView.js"
+		"bin-debug/view/MainView.js",
+		"bin-debug/view/ThinkComPictureBook.js"
 	]
 }
