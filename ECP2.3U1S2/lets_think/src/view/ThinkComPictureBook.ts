@@ -29,7 +29,7 @@ namespace game {
         private init(): void {
             this.mIsRolling = false;
             this.mIsBack = true;
-            this.kImgCard.source = `img_think_shadow_png`;
+            this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
         }
 
         /** 翻滚 */
@@ -43,7 +43,7 @@ namespace game {
                     this.kImgCard.source = `img_think_pic${this.mIdx}_png`;
                 } else {
                     this.mIsBack = true;
-                    this.kImgCard.source = `img_think_shadow_png`;
+                    this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
                 }
 
                 egret.Tween.get(this.kGrpMain).to({ scaleX: 1 }, 200);

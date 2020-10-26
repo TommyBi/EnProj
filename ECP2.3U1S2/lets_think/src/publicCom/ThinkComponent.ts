@@ -84,7 +84,7 @@ namespace game {
 
             this.mIsBack = true;
             this.kImgSound.visible = this.kGrpWord.visible = false;
-            this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;;
+            this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
             this.kLabelWord.text = this.mWord;
             this.kGrpWordStatic.visible = false;
             this.kGrpWord.visible = false;
