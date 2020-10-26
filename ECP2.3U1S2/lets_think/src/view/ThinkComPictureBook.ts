@@ -12,10 +12,12 @@ namespace game {
         private mIsRolling: boolean = false;
         private mIsBack: boolean = true;
         private mIdx: number = 0;
-        public constructor(idx: number) {
+        private mSkinType: number = 0;
+        public constructor(idx: number, skinType: number) {
             super();
             this.skinName = "ThinkComPictureBookSkin";
             this.mIdx = idx;
+            this.mSkinType = skinType;
         }
 
         protected createChildren() {

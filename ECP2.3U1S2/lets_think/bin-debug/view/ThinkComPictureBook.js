@@ -16,13 +16,15 @@ var game;
      */
     var ThinkComPictureBook = (function (_super) {
         __extends(ThinkComPictureBook, _super);
-        function ThinkComPictureBook(idx) {
+        function ThinkComPictureBook(idx, skinType) {
             var _this = _super.call(this) || this;
             _this.mIsRolling = false;
             _this.mIsBack = true;
             _this.mIdx = 0;
+            _this.mSkinType = 0;
             _this.skinName = "ThinkComPictureBookSkin";
             _this.mIdx = idx;
+            _this.mSkinType = skinType;
             return _this;
         }
         ThinkComPictureBook.prototype.createChildren = function () {

@@ -56,12 +56,14 @@ namespace game {
                 });
             }
         }
+        private mSkinType: number = 0;
 
-        public constructor(idx: number, word: string) {
+        public constructor(idx: number, word: string, skinType: number) {
             super();
             this.skinName = "ThinkComponentSkin";
             this.mIdx = idx;
             this.mWord = word;
+            this.mSkinType = skinType;
         }
 
         protected createChildren() {
@@ -82,7 +84,7 @@ namespace game {
 
             this.mIsBack = true;
             this.kImgSound.visible = this.kGrpWord.visible = false;
-            this.kImgCard.source = `img_think_shadow_png`;
+            this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;;
             this.kLabelWord.text = this.mWord;
             this.kGrpWordStatic.visible = false;
             this.kGrpWord.visible = false;
@@ -117,7 +119,7 @@ namespace game {
                 } else {
                     this.mIsBack = true;
                     this.kImgSound.visible = this.kGrpWord.visible = this.kGrpWordStatic.visible = false;
-                    this.kImgCard.source = `img_think_shadow_png`;
+                    this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
                 }
 
                 egret.Tween.get(this.kGrpMain).to({ scaleX: 1 }, 200);

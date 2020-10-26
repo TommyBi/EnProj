@@ -16,7 +16,7 @@ var game;
      */
     var ThinkComponent = (function (_super) {
         __extends(ThinkComponent, _super);
-        function ThinkComponent(idx, word) {
+        function ThinkComponent(idx, word, skinType) {
             var _this = _super.call(this) || this;
             _this.mIsRolling = false; // 是否正在翻滚
             _this.mIsMoving = false; // 是否正在移动过程中
@@ -24,9 +24,11 @@ var game;
             _this.mWord = "";
             _this._show = false; // 当前是否正在显示think组件
             _this.mIsBack = true; // 当前卡牌是否是背面
+            _this.mSkinType = 0;
             _this.skinName = "ThinkComponentSkin";
             _this.mIdx = idx;
             _this.mWord = word;
+            _this.mSkinType = skinType;
             return _this;
         }
         Object.defineProperty(ThinkComponent.prototype, "isShow", {
@@ -82,7 +84,8 @@ var game;
             this.kImgArrow.scaleX = 1;
             this.mIsBack = true;
             this.kImgSound.visible = this.kGrpWord.visible = false;
-            this.kImgCard.source = "img_think_shadow_png";
+            this.kImgCard.source = "img_think_bg" + this.mSkinType + "_png";
+            ;
             this.kLabelWord.text = this.mWord;
             this.kGrpWordStatic.visible = false;
             this.kGrpWord.visible = false;
@@ -118,7 +121,7 @@ var game;
                 else {
                     _this.mIsBack = true;
                     _this.kImgSound.visible = _this.kGrpWord.visible = _this.kGrpWordStatic.visible = false;
-                    _this.kImgCard.source = "img_think_shadow_png";
+                    _this.kImgCard.source = "img_think_bg" + _this.mSkinType + "_png";
                 }
                 egret.Tween.get(_this.kGrpMain).to({ scaleX: 1 }, 200);
             });
