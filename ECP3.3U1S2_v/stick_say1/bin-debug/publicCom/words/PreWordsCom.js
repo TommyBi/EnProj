@@ -30,10 +30,8 @@ var game;
             this.kImgWords.source = cfg.imgSrc;
             this.kLabelWords.text = cfg.words;
             this.mSoundSrc = cfg.soundSrc;
-            if (this.kImgWords.width > 180) {
-                this.kImgWords.height = 180 / this.kImgWords.width * this.kImgWords.height;
-                this.kImgWords.width = 180;
-            }
+            this.kImgWords.height = 180 / this.kImgWords.width * this.kImgWords.height;
+            this.kImgWords.width = 180;
         };
         PreWordsCom.prototype.onPlaySound = function () {
             XDFSoundManager.play(this.mSoundSrc);

@@ -27,6 +27,7 @@ namespace game {
             for (let i = 0; i < cfg.length; i++) {
                 let wordsCom = new PreWordsCom();
                 this.kGrpWords.addChild(wordsCom);
+                wordsCom.height = cfg.length >= 3 ? 275 : 300;
                 wordsCom.setData(cfg[i]);
             }
         }

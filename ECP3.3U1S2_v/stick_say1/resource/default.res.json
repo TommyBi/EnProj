@@ -13,11 +13,11 @@
 			"name":"public"
 		},
 		{
-			"keys":"sound_goodjob_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3,sound_think_choise_mp3,sound_ss_option0_mp3,sound_ss_option1_mp3,sound_ss_option2_mp3",
+			"keys":"sound_goodjob_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3,sound_think_choise_mp3,sound_ss_option0_mp3,sound_ss_option1_mp3,sound_ss_option2_mp3,sound_words_candy_mp3,sound_words_mask_mp3,sound_words_tomato_mp3",
 			"name":"sound"
 		},
 		{
-			"keys":"db_role_0_ske_json,db_role_0_tex_2_json,db_role_0_tex_1_json,db_role_0_tex_0_json,db_role_0_tex_1_png,db_role_0_tex_0_png,db_role_0_tex_2_png,db_role_1_tex_0_json,db_role_1_tex_1_json,db_role_1_ske_json,db_role_1_tex_1_png,db_role_1_tex_4_json,db_role_1_tex_0_png,db_role_1_tex_2_png,db_role_1_tex_3_png,db_role_1_tex_4_png,db_role_1_tex_2_json,db_role_1_tex_3_json,db_role_2_tex_2_json,db_role_2_tex_0_png,db_role_2_tex_1_png,db_role_2_tex_2_png,db_role_2_tex_1_json,db_role_2_tex_0_json,db_role_2_ske_json",
+			"keys":"db_role_0_ske_json,db_role_0_tex_2_json,db_role_0_tex_1_json,db_role_0_tex_0_json,db_role_0_tex_1_png,db_role_0_tex_0_png,db_role_0_tex_2_png,db_role_1_ske_json,db_role_2_ske_json,db_word_flag_ske_json,db_word_flag_tex_json,db_word_flag_tex_png,db_role_0_tex_3_json,db_role_0_tex_3_png,db_role_0_tex_4_json,db_role_0_tex_4_png,db_role_1_tex_json,db_role_1_tex_png,db_role_2_tex_json,db_role_2_tex_png",
 			"name":"db"
 		},
 		{
@@ -377,89 +377,9 @@
 			"url":"assets/db/db_role_0/db_role_0_tex_2.png"
 		},
 		{
-			"name":"db_role_1_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_role_1/db_role_1_tex_0.json"
-		},
-		{
-			"name":"db_role_1_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_role_1/db_role_1_tex_1.json"
-		},
-		{
 			"name":"db_role_1_ske_json",
 			"type":"json",
 			"url":"assets/db/db_role_1/db_role_1_ske.json"
-		},
-		{
-			"name":"db_role_1_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_role_1/db_role_1_tex_1.png"
-		},
-		{
-			"name":"db_role_1_tex_4_json",
-			"type":"json",
-			"url":"assets/db/db_role_1/db_role_1_tex_4.json"
-		},
-		{
-			"name":"db_role_1_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_role_1/db_role_1_tex_0.png"
-		},
-		{
-			"name":"db_role_1_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_role_1/db_role_1_tex_2.png"
-		},
-		{
-			"name":"db_role_1_tex_3_png",
-			"type":"image",
-			"url":"assets/db/db_role_1/db_role_1_tex_3.png"
-		},
-		{
-			"name":"db_role_1_tex_4_png",
-			"type":"image",
-			"url":"assets/db/db_role_1/db_role_1_tex_4.png"
-		},
-		{
-			"name":"db_role_1_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_role_1/db_role_1_tex_2.json"
-		},
-		{
-			"name":"db_role_1_tex_3_json",
-			"type":"json",
-			"url":"assets/db/db_role_1/db_role_1_tex_3.json"
-		},
-		{
-			"name":"db_role_2_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_2.json"
-		},
-		{
-			"name":"db_role_2_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_0.png"
-		},
-		{
-			"name":"db_role_2_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_1.png"
-		},
-		{
-			"name":"db_role_2_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_2.png"
-		},
-		{
-			"name":"db_role_2_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_1.json"
-		},
-		{
-			"name":"db_role_2_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_0.json"
 		},
 		{
 			"name":"db_role_2_ske_json",
@@ -575,6 +495,76 @@
 			"name":"img_word_tomato_png",
 			"type":"image",
 			"url":"assets/img/stick_say1/img_word_tomato.png"
+		},
+		{
+			"name":"db_word_flag_ske_json",
+			"type":"json",
+			"url":"assets/db/db_word_flag/db_word_flag_ske.json"
+		},
+		{
+			"name":"db_word_flag_tex_json",
+			"type":"json",
+			"url":"assets/db/db_word_flag/db_word_flag_tex.json"
+		},
+		{
+			"name":"db_word_flag_tex_png",
+			"type":"image",
+			"url":"assets/db/db_word_flag/db_word_flag_tex.png"
+		},
+		{
+			"name":"sound_words_candy_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_words_candy.mp3"
+		},
+		{
+			"name":"sound_words_mask_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_words_mask.mp3"
+		},
+		{
+			"name":"sound_words_tomato_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_words_tomato.mp3"
+		},
+		{
+			"name":"db_role_0_tex_3_json",
+			"type":"json",
+			"url":"assets/db/db_role_0/db_role_0_tex_3.json"
+		},
+		{
+			"name":"db_role_0_tex_3_png",
+			"type":"image",
+			"url":"assets/db/db_role_0/db_role_0_tex_3.png"
+		},
+		{
+			"name":"db_role_0_tex_4_json",
+			"type":"json",
+			"url":"assets/db/db_role_0/db_role_0_tex_4.json"
+		},
+		{
+			"name":"db_role_0_tex_4_png",
+			"type":"image",
+			"url":"assets/db/db_role_0/db_role_0_tex_4.png"
+		},
+		{
+			"name":"db_role_1_tex_json",
+			"type":"json",
+			"url":"assets/db/db_role_1/db_role_1_tex.json"
+		},
+		{
+			"name":"db_role_1_tex_png",
+			"type":"image",
+			"url":"assets/db/db_role_1/db_role_1_tex.png"
+		},
+		{
+			"name":"db_role_2_tex_json",
+			"type":"json",
+			"url":"assets/db/db_role_2/db_role_2_tex.json"
+		},
+		{
+			"name":"db_role_2_tex_png",
+			"type":"image",
+			"url":"assets/db/db_role_2/db_role_2_tex.png"
 		}
 	]
 }

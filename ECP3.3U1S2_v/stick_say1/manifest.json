@@ -49,6 +49,7 @@
 		"bin-debug/view/ListenRepeatView.js",
 		"bin-debug/view/LookStickView.js",
 		"bin-debug/view/MainView.js",
+		"bin-debug/view/StickSay1View.js",
 		"bin-debug/view/StickSay2View.js",
 		"bin-debug/view/StickSayView.js"
 	]
