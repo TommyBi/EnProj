@@ -17,9 +17,9 @@ var game;
             _this.mOptionCount = 3;
             _this.mCurShowArr = []; // 当前显示的序列
             _this.mHintWords = [
-                "Sheep give us wool.",
-                "Chickens give us eggs.",
-                "Cows give us milk.",
+                "People throw tomatoes at each other.",
+                "Kids in costumes get lots of candy.",
+                "Everyone wears a mask and a costume.",
             ];
             _this.mHintQueue = []; // 当前已经提示过得队列
             _this.mCurHintIdx = 0; // 当前正在提示的队列索引

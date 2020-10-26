@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="ReStartComponentSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Group id="kGrpResult" horizontalCenter="0" verticalCenter="0">
-		<e:Group id="kGrpGoodJob" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
-		<e:Group id="kGrpTimeOut" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" x="10" y="10"/>
-		<e:Group id="kGrpStart" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" x="20" y="20"/>
-	</e:Group>
-</e:Skin>

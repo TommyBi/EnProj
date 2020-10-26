@@ -60,6 +60,7 @@ var game;
                 this["mAnimRole" + i].visible = false;
                 this["kImgMask" + i].visible = true;
                 this["kImgMaskLine" + i].visible = true;
+                this["kImgOption" + i].visible = true;
                 egret.Tween.removeTweens(this["kImgMaskLine" + i]);
             }
             this.kComAnswer.visible = false;
@@ -124,6 +125,8 @@ var game;
                 this["kGrpDesc" + this.mCurHint].visible = true;
                 // hide mask
                 this["kImgMask" + this.mCurHint].visible = this["kImgMaskLine" + this.mCurHint].visible = false;
+                // hide option
+                this["kImgOption" + this.mCurHint].visible = false;
                 egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
                 this.mLock_sound_select = true;
                 XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3");

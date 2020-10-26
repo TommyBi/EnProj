@@ -17,7 +17,7 @@
 			"name":"db"
 		},
 		{
-			"keys":"img_lp_bg_png,img_lp_bar_clock_png,img_lp_bar_frame_png,img_bar_png,img_lp_bar_bg_png,img_lp_option0_png,img_lp_option1_png,img_lp_option2_png,img_lp_scale_png,img_lp_bg1_png,img_lp_bg2_png,img_lp_bg3_png,img_lp_bg4_png,img_lp_wordPanel_png,img_lp_star_big_png,img_lp_star_small_png,img_lp_hole_png",
+			"keys":"img_lp_bg_png,img_lp_bar_clock_png,img_lp_bar_frame_png,img_bar_png,img_lp_bar_bg_png,img_lp_option0_png,img_lp_option1_png,img_lp_option2_png,img_lp_scale_png,img_lp_wordPanel_png,img_lp_star_big_png,img_lp_star_small_png,img_lp_hole_png",
 			"name":"letsPlay"
 		},
 		{
@@ -580,26 +580,6 @@
 			"name":"sound_lp_dds_option2_mp3",
 			"type":"sound",
 			"url":"assets/sound/sound_lp_dds_option2.mp3"
-		},
-		{
-			"name":"img_lp_bg1_png",
-			"type":"image",
-			"url":"assets/img/lets_play/img_lp_bg1.png"
-		},
-		{
-			"name":"img_lp_bg2_png",
-			"type":"image",
-			"url":"assets/img/lets_play/img_lp_bg2.png"
-		},
-		{
-			"name":"img_lp_bg3_png",
-			"type":"image",
-			"url":"assets/img/lets_play/img_lp_bg3.png"
-		},
-		{
-			"name":"img_lp_bg4_png",
-			"type":"image",
-			"url":"assets/img/lets_play/img_lp_bg4.png"
 		},
 		{
 			"name":"img_lp_wordPanel_png",

@@ -134,7 +134,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("sound")];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("stick_say2")];
+                        return [4 /*yield*/, RES.loadGroup("stick_say1")];
                     case 6:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];

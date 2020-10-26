@@ -11,9 +11,9 @@ namespace game {
         private mOptionCount: number = 3;
         private mCurShowArr: number[] = []; // 当前显示的序列
         private mHintWords: string[] = [    // 目标提示文本
-            "Sheep give us wool.",
-            "Chickens give us eggs.",
-            "Cows give us milk.",
+            "People throw tomatoes at each other.",
+            "Kids in costumes get lots of candy.",
+            "Everyone wears a mask and a costume.",
         ]
         private mHintQueue: number[] = [];  // 当前已经提示过得队列
         private mCurHintIdx: number = 0;    // 当前正在提示的队列索引

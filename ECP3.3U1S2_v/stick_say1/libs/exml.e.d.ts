@@ -34,7 +34,7 @@ declare class WordsPanelComSkin extends eui.Skin{
 }
 declare class LetsSingViewSkin extends eui.Skin{
 }
-declare class StickSay2ViewSkin extends eui.Skin{
+declare class StickSay1ViewSkin extends eui.Skin{
 }
 declare class StickSayViewSkin extends eui.Skin{
 }
