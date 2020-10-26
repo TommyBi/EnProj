@@ -58,6 +58,6 @@
 			</e:Group>
 		</e:Group>
 	</e:Group>
-	<game:AnswerComponent id="kAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0"/>
-	<game:ReplayComponent id="kReplay" width="20" height="20" horizontalCenter="528" verticalCenter="316"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin"/>
+	<game:ReplayComponent id="kReplay" horizontalCenter="528" verticalCenter="419" skinName="ReplayComponentSkin"/>
 </e:Skin>

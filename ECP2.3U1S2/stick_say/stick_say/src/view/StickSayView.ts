@@ -20,10 +20,12 @@ namespace game {
         public kComReplay: game.ReplayComponent;
         public kComAnswer: game.AnswerComponent;
         public kComWordsPanel: game.WordsPanelCom;
+        public kGrpSmokeAnim: eui.Group;
 
         public mAnimRole0: XDFFrame.DBAnim;
         public mAnimRole1: XDFFrame.DBAnim;
         public mAnimRole2: XDFFrame.DBAnim;
+        public mAnimSmoke: XDFFrame.DBAnim;
         private mHintArr: number[] = [];
         private mCurHint: number = 0;
         private mLock_sound_select: boolean = false;// 操作锁 - 是否正在播放选中的声音
@@ -36,6 +38,18 @@ namespace game {
                 this.mLock_isFinish ||
                 this.kComAnswer.visible;
         }
+        private mSmokeAnimPos: any[] = [
+            {
+                x: 700,
+                y: 240,
+            }, {
+                x: 1380,
+                y: 360,
+            }, {
+                x: 720,
+                y: 700,
+            }
+        ];
 
         constructor() {
             super();
@@ -62,6 +76,9 @@ namespace game {
             this.mAnimRole1.setProtery({ x: 700, y: 220, parent: this.kGrpAnim1, scaleX: 0.6, scaleY: 0.6 });
             this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
             this.mAnimRole2.setProtery({ x: 400, y: 480, parent: this.kGrpAnim2, scaleX: 1, scaleY: 1 });
+
+            this.mAnimSmoke = XDFFrame.DBFactory.createAnim("db_stick_smoke");
+            this.mAnimSmoke.setProtery({ x: 400, y: 480, parent: this.kGrpSmokeAnim, scaleX: 1, scaleY: 1 });
 
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
             // 单词
@@ -184,6 +201,9 @@ namespace game {
                 this[`kImgMask${this.mCurHint}`].visible = this[`kImgMaskLine${this.mCurHint}`].visible = false;
                 egret.Tween.removeTweens(this[`kImgMaskLine${this.mCurHint}`]);
                 this.mLock_sound_select = true;
+                this.mAnimSmoke.x = this.mSmokeAnimPos[this.mCurHint].x;
+                this.mAnimSmoke.y = this.mSmokeAnimPos[this.mCurHint].y;
+                this.mAnimSmoke.play(null, 1);
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", () => {
                     this.mLock_sound_select = false;
                     this.next();

@@ -13,7 +13,7 @@
 			"name":"public"
 		},
 		{
-			"keys":"img_think_arrow_png,img_think_bg_png,img_think_name_bg_png,img_think_pic0_png,img_think_pic1_png,img_think_shadow_png,img_think_sound_png,img_think_pic2_png",
+			"keys":"img_think_arrow_png,img_think_bg_png,img_think_name_bg_png,img_think_pic0_png,img_think_pic1_png,img_think_shadow_png,img_think_sound_png,img_think_pic2_png,img_think_sound的副本_png",
 			"name":"lets_think"
 		},
 		{
@@ -351,6 +351,11 @@
 			"name":"img_think_pic2_png",
 			"type":"image",
 			"url":"assets/img/lets_think/img_think_pic2.png"
+		},
+		{
+			"name":"img_think_sound的副本_png",
+			"type":"image",
+			"url":"assets/img/lets_think/img_think_sound的副本.png"
 		}
 	]
 }

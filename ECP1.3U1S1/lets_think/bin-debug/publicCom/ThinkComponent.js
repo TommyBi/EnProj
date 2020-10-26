@@ -98,7 +98,7 @@ var game;
         };
         /** 播放声音 */
         ThinkComponent.prototype.onPlaySound = function () {
-            XDFSoundManager.play("sound_thinkCard_" + 0 + "_mp3");
+            XDFSoundManager.play("sound_thinkCard_" + this.mIdx + "_mp3");
         };
         /** 翻滚 */
         ThinkComponent.prototype.onTouchToll = function () {

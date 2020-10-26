@@ -32,7 +32,8 @@ var game;
                 // 需要发音的翻卡游戏
                 for (var i = 0; i < this.mWords.length; i++) {
                     var com = new game.ThinkComponent(i, this.mWords[i]);
-                    com.scaleX = com.scaleY = this.mWords.length > 3 ? 0.7 : 1;
+                    com.scaleX = com.scaleY = this.mWords.length >= 3 ? 0.8 : 1;
+                    com.width = this.mWords.length >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             }
@@ -40,6 +41,8 @@ var game;
                 // 不需要发音的翻卡游戏
                 for (var i = 0; i < this.mPictureCount; i++) {
                     var com = new game.ThinkComPictureBook(i);
+                    com.scaleX = com.scaleY = this.mPictureCount >= 3 ? 0.8 : 1;
+                    com.width = this.mPictureCount >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             }

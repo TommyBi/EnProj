@@ -14,7 +14,7 @@ namespace game {
             "Chickens do nothing.",
             "Chickens give us eggs.",
             "Sheep do nothing.",
-            "Sheep give us eggs.",
+            "Sheep give us wool.",
             "All the animals work very hard."
         ];
 

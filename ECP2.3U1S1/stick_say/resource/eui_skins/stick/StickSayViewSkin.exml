@@ -2,7 +2,7 @@
 <e:Skin class="StickSayViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_1_png"/>
 	<e:Image source="img_ss_bg_png" anchorOffsetX="0" anchorOffsetY="0" horizontalCenter="0" verticalCenter="0" locked="true" x="0" y="-110"/>
-	<e:Group left="10" bottom="10" x="490" y="522" locked="true">
+	<e:Group left="10" bottom="10" x="490" y="522">
 		<e:Group id="kGrpBtn0" x="0" y="0" touchChildren="false" touchEnabled="true" touchThrough="false">
 		<e:Image source="img_ss_btn_0_png" scaleX="0.5" scaleY="0.5" horizontalCenter="4" verticalCenter="4.5"/>
 		</e:Group>
@@ -19,17 +19,18 @@
 		<e:VerticalLayout/>
 		</e:layout>
 	</e:Group>
+	<e:Image source="img_ss_body_other0_png" x="730" y="256" scaleX="0.4" scaleY="0.4"/>
 	<e:Group id="kGrpAnim0" left="0" right="0" top="0" bottom="0" x="480" y="215" touchChildren="false" touchEnabled="false" touchThrough="true"/>
 	<e:Group id="kGrpAnim1" left="0" right="0" top="0" bottom="0" x="480" y="215" touchChildren="false" touchEnabled="false" touchThrough="true"/>
 	<e:Group id="kGrpAnim2" left="0" right="0" top="0" bottom="0" x="480" y="215" touchEnabled="false" touchThrough="true" touchChildren="false"/>
 	<e:Group id="kGrpAnim3" left="0" right="0" top="0" bottom="0" x="480" y="215" touchChildren="false" touchEnabled="false" touchThrough="true"/>
-	<e:Group id="kGrpTar1" x="1156.18" y="54.54" locked="true">
+	<e:Group id="kGrpTar1" x="1156.18" y="54.54">
 		<e:Image source="img_ss_body_1_png" x="0" y="8.46" scaleX="0.5" scaleY="0.5"/>
 		<e:Image id="kImgMask1" source="img_ss_head_mask1_png" x="63.98" y="-4" scaleX="0.55" scaleY="0.55"/>
 		<e:Image id="kImgMaskLine1" source="img_ss_head_mask_l1_png" x="130.37" y="3.31" anchorOffsetX="0" scaleX="0.57" scaleY="0.57"/>
 		<e:Image id="kImgDesc1" source="img_hint_panel_1_png" anchorOffsetX="50" anchorOffsetY="108" x="346" y="102"/>
 	</e:Group>
-	<e:Group id="kGrpTar2" x="370.51" y="75.53" locked="true">
+	<e:Group id="kGrpTar2" x="370.51" y="75.53">
 		<e:Image source="img_ss_body_2_png" scaleX="0.8" scaleY="0.8" x="68.24" y="0"/>
 		<e:Image id="kImgMaskLine2" source="img_ss_head_mask_l2_png" scaleY="0.5" anchorOffsetX="0" width="542.96" anchorOffsetY="0" height="513.3" scaleX="0.5" x="73.33" y="12.03"/>
 		<e:Image id="kImgMask2" source="img_ss_head_mask2_png" anchorOffsetX="0" anchorOffsetY="0" x="33.33" y="-3.03" scaleX="0.8" scaleY="0.8"/>
@@ -49,7 +50,6 @@
 	</e:Group>
 	<e:Group id="kGrpSmokeAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true"/>
 	<e:Image source="img_ss_body_other1_png" x="966.7" y="448.02" scaleX="0.4" scaleY="0.4"/>
-	<e:Image source="img_ss_body_other0_png" x="730" y="256" scaleX="0.4" scaleY="0.4"/>
 	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" verticalCenter="0" x="0" visible="false"/>
 	<game:FlagCom skinName="FlagComSkin" top="0" left="-20" touchChildren="false" touchEnabled="true" name="flag"/>
 	<game:AnswerComponent id="kComAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" locked="true"/>

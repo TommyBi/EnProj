@@ -11,9 +11,9 @@ namespace game {
             "I have a dog.",
             "I have a cat.",
             "They don't like each other.",
-            "I dont't like that dog.",
-            "I dont't like that cat.",
-            "Good job,you guys!",
+            "I don't like that dog.",
+            "I don't like that cat.",
+            "Good job, you guys!",
             "I like this dog.",
             "I like this cat."
         ];

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSay1ViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0" locked="true" />
+	<e:Image source="img_ss_bg_png"  fillMode="repeat" left="0" right="0" top="0" bottom="0"/>
+	<e:Image id="kImgMask0" source="img_ss_mask_0_png" x="395.62" y="-10.92" scaleX="0.2" scaleY="0.2"  locked="true"/>
+	<e:Image id="kImgMaskLine0" source="img_ss_mask_line_0_png" x="397.34" y="-397.8"  locked="true"/>
+	<e:Image id="kImgMask1" source="img_ss_mask_0_png" x="395.62" y="-294.25" scaleX="0.2" scaleY="0.2"  locked="true"/>
+	<e:Image id="kImgMaskLine1" source="img_ss_mask_line_1_png" x="4.64" y="-479.09"  locked="true"/>
+	<e:Image id="kImgMask2" source="img_ss_mask_0_png" x="395.62" y="-294.25" scaleX="0.2" scaleY="0.2"  locked="true"/>
+	<e:Image id="kImgMaskLine2" source="img_ss_mask_line_2_png" x="206.37" y="119.18"  locked="true"/>
+	<e:Group x="7.57" bottom="20">
+		<e:Image id="kImgOption0" source="img_ss_option_0_png" x="10" y="0" scaleX="0.4" scaleY="0.4" />
+		<e:Image id="kImgOption1" source="img_ss_option_1_png" x="7" y="213.51" scaleX="0.4" scaleY="0.4" />
+		<e:Image id="kImgOption2" source="img_ss_option_2_png" x="0" y="400.85" scaleX="0.4" scaleY="0.4" />
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="center" verticalAlign="middle"  gap="10"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false"
+	         touchThrough="true" >
+	</e:Group>
+	<game:AnswerComponent id="kComAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0"
+	                      skinName="AnswerComponentSkin" visible="false" />
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="289" bottom="65" visible="false" />
+	<e:Image source="img_ss_bg_0_png" x="668" y="696"/>
+	<e:Group id="kGrpDesc0" x="1009.41" y="527.36">
+		<e:Label text="Kids in costumes get lots of candy." x="0" y="0" textColor="0x000000" strokeColor="0xffffff" size="50"
+		         anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" />
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="right" />
+		</e:layout>
+	</e:Group>
+	<e:Group id="kGrpDesc1" x="589.11" y="404.02">
+		<e:Label text="Everyone wears" x="0" y="0" textColor="0x000000" stroke="4" strokeColor="0xFFFFFF" size="50"
+		         anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" />
+		<e:Label text="a mask and" x="10" y="10" textColor="0x000000" stroke="4" strokeColor="0xFFFFFF" size="50"
+		         anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" />
+		<e:Label text="a costume." x="20" y="20" textColor="0x000000" stroke="4" strokeColor="0xFFFFFF" size="50"
+		         anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" />
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="left" />
+		</e:layout>
+	</e:Group>
+	<e:Group id="kGrpDesc2" horizontalCenter="25" bottom="15">
+		<e:Label text="People throw tomatoes at each other." x="0" y="0" textColor="0x000000" stroke="4"
+		         strokeColor="0xFFFFFF" size="49" anchorOffsetY="0" anchorOffsetX="0" textAlign="center"
+		         verticalAlign="middle" />
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="left" />
+		</e:layout>
+	</e:Group>
+</e:Skin>

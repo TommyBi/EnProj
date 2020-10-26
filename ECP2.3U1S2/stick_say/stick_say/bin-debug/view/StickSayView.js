@@ -19,6 +19,18 @@ var game;
             _this.mLock_sound_select = false; // 操作锁 - 是否正在播放选中的声音
             _this.mLock_startGame = true; // 操作锁 - 是否开始了游戏
             _this.mLock_isFinish = false; // 操作锁 - 是否已经完成了一局
+            _this.mSmokeAnimPos = [
+                {
+                    x: 700,
+                    y: 240,
+                }, {
+                    x: 1380,
+                    y: 360,
+                }, {
+                    x: 720,
+                    y: 700,
+                }
+            ];
             _this.skinName = "StickSayViewSkin";
             return _this;
         }
@@ -50,6 +62,8 @@ var game;
             this.mAnimRole1.setProtery({ x: 700, y: 220, parent: this.kGrpAnim1, scaleX: 0.6, scaleY: 0.6 });
             this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
             this.mAnimRole2.setProtery({ x: 400, y: 480, parent: this.kGrpAnim2, scaleX: 1, scaleY: 1 });
+            this.mAnimSmoke = XDFFrame.DBFactory.createAnim("db_stick_smoke");
+            this.mAnimSmoke.setProtery({ x: 400, y: 480, parent: this.kGrpSmokeAnim, scaleX: 1, scaleY: 1 });
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onClick, this);
             // 单词
             this.kComWordsPanel.setData([
@@ -166,6 +180,9 @@ var game;
                 this["kImgMask" + this.mCurHint].visible = this["kImgMaskLine" + this.mCurHint].visible = false;
                 egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
                 this.mLock_sound_select = true;
+                this.mAnimSmoke.x = this.mSmokeAnimPos[this.mCurHint].x;
+                this.mAnimSmoke.y = this.mSmokeAnimPos[this.mCurHint].y;
+                this.mAnimSmoke.play(null, 1);
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
                     _this.mLock_sound_select = false;
                     _this.next();

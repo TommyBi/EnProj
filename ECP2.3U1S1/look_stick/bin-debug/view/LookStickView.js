@@ -61,7 +61,7 @@ var game;
                 egret.Tween.removeTweens(this["kImgFrame" + i]);
                 egret.Tween.removeTweens(this["kImgHintTarFrame" + i]);
                 this["kGrpHead" + i].visible = false;
-                this["kGrpTar" + this.mCurHintIdx].visible = true;
+                this["kGrpTar" + i].visible = true;
             }
             // 娃娃脸呼吸
             egret.Tween.removeTweens(this.kImgHappy);

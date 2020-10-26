@@ -48,11 +48,11 @@ namespace game {
             }
             // 初始化动画
             this.mAnimRoleRight = XDFFrame.DBFactory.createAnim("db_right");
-            this.mAnimRoleRight.setProtery({ x: 70, y: -20, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleRight.setProtery({ x: 70, y: 10, parent: this.kGrpRoleAnim, scaleX: 0.76, scaleY: 0.76 });
             this.mAnimRoleErr = XDFFrame.DBFactory.createAnim("db_wrong", 9);
-            this.mAnimRoleErr.setProtery({ x: 50, y: 30, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleErr.setProtery({ x: 50, y: 60, parent: this.kGrpRoleAnim, scaleX: 0.76, scaleY: 0.76 });
             this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
-            this.mAnimRoleIdle.setProtery({ x: 50, y: 50, parent: this.kGrpRoleAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimRoleIdle.setProtery({ x: 50, y: 80, parent: this.kGrpRoleAnim, scaleX: 0.4, scaleY: 0.4 });
             this.mAnimRoleErr.visible = this.mAnimRoleIdle.visible = this.mAnimRoleRight.visible = false;
 
             this.init();

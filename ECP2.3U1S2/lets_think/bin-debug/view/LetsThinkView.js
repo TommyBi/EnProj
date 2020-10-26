@@ -14,8 +14,8 @@ var game;
         __extends(LetsThinkView, _super);
         function LetsThinkView() {
             var _this = _super.call(this) || this;
-            _this.mSkinType = 1; // 表示 背景类型
-            _this.mShowModel = 0; // 表示 翻卡的模式 0：常规发音版翻卡游戏 1：绘本故事版翻卡游戏
+            _this.mSkinType = 1; // 表示 背景类型 0、1、2 
+            _this.mShowModel = 1; // 表示 翻卡的模式 0：常规发音版翻卡游戏 1：绘本故事版翻卡游戏
             _this.mWords = ["chicken", "cow", "sheep"];
             _this.mPictureCount = 3;
             _this.skinName = "LetsThinkSkin";
@@ -32,7 +32,8 @@ var game;
                 // 需要发音的翻卡游戏
                 for (var i = 0; i < this.mWords.length; i++) {
                     var com = new game.ThinkComponent(i, this.mWords[i]);
-                    com.scaleX = com.scaleY = this.mWords.length > 3 ? 0.7 : 1;
+                    com.scaleX = com.scaleY = this.mWords.length >= 3 ? 0.8 : 1;
+                    com.width = this.mWords.length >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             }
@@ -40,6 +41,8 @@ var game;
                 // 不需要发音的翻卡游戏
                 for (var i = 0; i < this.mPictureCount; i++) {
                     var com = new game.ThinkComPictureBook(i);
+                    com.scaleX = com.scaleY = this.mPictureCount >= 3 ? 0.8 : 1;
+                    com.width = this.mPictureCount >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             }

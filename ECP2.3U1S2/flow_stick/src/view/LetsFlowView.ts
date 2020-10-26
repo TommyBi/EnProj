@@ -53,11 +53,11 @@ module game {
 			XDFFrame.EventCenter.addEventListenr(EventConst.eventReplay, this.onReplay, this);
 
 			this.purple_road = XDFFrame.DBFactory.createAnim("purple_road");
-			this.purple_road.setProtery({ x: -55, y: -40, parent: this.kRoadGp, scaleX: 1.06, scaleY: 1 });
+			this.purple_road.setProtery({ x: -54, y: -40, parent: this.kRoadGp, scaleX: 1.06, scaleY: 1 });
 			this.yellow_road = XDFFrame.DBFactory.createAnim("yellow_road");
-			this.yellow_road.setProtery({ x: -30, y: 50, parent: this.kRoadGp, scaleX: 1.15, scaleY: 1 });
+			this.yellow_road.setProtery({ x: -29, y: 50, parent: this.kRoadGp, scaleX: 1.17, scaleY: 1 });
 			this.blue_road = XDFFrame.DBFactory.createAnim("blue_road");
-			this.blue_road.setProtery({ x: 45, y: -120, parent: this.kRoadGp, scaleX: 1.55, scaleY: 1.3 });
+			this.blue_road.setProtery({ x: 46, y: -120, parent: this.kRoadGp, scaleX: 1.55, scaleY: 1.3 });
 
 			// this.purple_road.play("normal", 1, () => { }, this);
 			// this.yellow_road.play("normal", 1, () => { }, this);

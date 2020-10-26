@@ -21,7 +21,7 @@
 			"name":"sound"
 		},
 		{
-			"keys":"db_role_0_tex_png,db_role_0_ske_json,db_role_0_tex_json,db_role_1_tex_png,db_role_1_ske_json,db_role_1_tex_json,db_role_2_tex_png,db_role_2_tex_json,db_role_2_ske_json,db_word_flag_tex_png,db_word_flag_ske_json,db_word_flag_tex_json",
+			"keys":"db_role_0_tex_png,db_role_0_ske_json,db_role_0_tex_json,db_role_1_tex_png,db_role_1_ske_json,db_role_1_tex_json,db_role_2_tex_png,db_role_2_tex_json,db_role_2_ske_json,db_word_flag_tex_png,db_word_flag_ske_json,db_word_flag_tex_json,db_stick_smoke_ske_json,db_stick_smoke_tex_json,db_stick_smoke_tex_png",
 			"name":"db"
 		}
 	],
@@ -560,6 +560,21 @@
 			"name":"img_ss_1_png",
 			"type":"image",
 			"url":"assets/img/stick_say/img_ss_1.png"
+		},
+		{
+			"name":"db_stick_smoke_ske_json",
+			"type":"json",
+			"url":"assets/db/db_stick_smoke/db_stick_smoke_ske.json"
+		},
+		{
+			"name":"db_stick_smoke_tex_json",
+			"type":"json",
+			"url":"assets/db/db_stick_smoke/db_stick_smoke_tex.json"
+		},
+		{
+			"name":"db_stick_smoke_tex_png",
+			"type":"image",
+			"url":"assets/db/db_stick_smoke/db_stick_smoke_tex.png"
 		}
 	]
 }

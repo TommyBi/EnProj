@@ -48,6 +48,10 @@ namespace XDFFrame {
             return this.armatureDisplay && this.armatureDisplay.visible;
         }
         private cb: { cbf: Function, thisObj: any } = { cbf: null, thisObj: null };
+        public set x(n: number) { this.armatureDisplay.x = n; }
+        public get x(): number { return this.armatureDisplay.x; }
+        public set y(n: number) { this.armatureDisplay.y = n; }
+        public get y(): number { return this.armatureDisplay.y; }
         public createAnim(textureCount: number) {
             // 当前默认都是放在了资源配置文件中，新东方的需求就到这了，异步可以作为动态创建组的方式去加载，有时间继续写
             let dragonbonesData = RES.getRes(`${this.name}_ske_json`);

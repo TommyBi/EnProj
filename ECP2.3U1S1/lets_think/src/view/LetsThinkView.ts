@@ -24,13 +24,16 @@ namespace game {
                 // 需要发音的翻卡游戏
                 for (let i = 0; i < this.mWords.length; i++) {
                     let com = new ThinkComponent(i, this.mWords[i]);
-                    com.scaleX = com.scaleY = this.mWords.length > 3 ? 0.7 : 1;
+                    com.scaleX = com.scaleY = this.mWords.length >= 3 ? 0.8 : 1;
+                    com.width = this.mWords.length >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             } else {
                 // 不需要发音的翻卡游戏
                 for (let i = 0; i < this.mPictureCount; i++) {
                     let com = new ThinkComPictureBook(i);
+                    com.scaleX = com.scaleY = this.mPictureCount >= 3 ? 0.8 : 1;
+                    com.width = this.mPictureCount >= 3 ? 569 : 769;
                     this.kGrpCom.addChild(com);
                 }
             }

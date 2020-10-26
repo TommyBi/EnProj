@@ -33,6 +33,7 @@ var game;
             this.mVideo.height = 540; //设置视频高
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
+            this.kImgMaskPrePlay.visible = true;
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
         };
         /** 设置滑动条的皮肤 */
@@ -42,6 +43,7 @@ var game;
         /** 播放的视频索引 */
         VideoComponent.prototype.play = function (idx) {
             this.kRect.alpha = 1;
+            this.kImgMaskPrePlay.visible = false;
             egret.Tween.removeTweens(this.kRect);
             this.mVideo.load("resource/assets/video/" + idx + ".mp4");
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
