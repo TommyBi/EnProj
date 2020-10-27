@@ -134,7 +134,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("sound")];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("stick_say")];
+                        return [4 /*yield*/, RES.loadGroup("follow_say")];
                     case 6:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];
@@ -168,8 +168,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var stickSayView = new game.StickSayView();
-        XDFFrame.LayerManager.UI_View.addChild(stickSayView);
+        var followView = new game.FollowSayView();
+        XDFFrame.LayerManager.UI_View.addChild(followView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

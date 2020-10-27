@@ -54,9 +54,9 @@ namespace game {
             }
 
             this.mAnimHammerErr = XDFFrame.DBFactory.createAnim("db_hammer_err", 2);
-            this.mAnimHammerErr.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimHammerErr.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.4, scaleY: 0.4 });
             this.mAnimHammerRight = XDFFrame.DBFactory.createAnim("db_hammer_right");
-            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 1, scaleY: 1 });
+            this.mAnimHammerRight.setProtery({ x: 0, y: 0, parent: this.kGrpAnimHummer, scaleX: 0.9, scaleY: 0.9 });
             this.mAnimHammerErr.visible = this.mAnimHammerRight.visible = false;
             this.kGrpAnimHummer.visible = false;
 

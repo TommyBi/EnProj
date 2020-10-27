@@ -74,12 +74,11 @@ var game;
         };
         StickSay1View.prototype.reset = function () {
             for (var i = 0; i < 3; i++) {
-                this["mAnimRole" + i].visible = false;
-                this["kImgOption" + i].visible = true;
                 this["kImgMask" + i].visible = true;
                 this["kImgMaskLine" + i].visible = false;
                 this["kImgMaskLineBig" + i].visible = false;
                 egret.Tween.removeTweens(this["kImgMaskLine" + i]);
+                egret.Tween.removeTweens(this["kImgMaskLineBig" + i]);
             }
             this.kComAnswer.visible = false;
             this.kComReplay.visible = false;
@@ -110,19 +109,27 @@ var game;
         };
         /** 提示 */
         StickSay1View.prototype.hint = function () {
-            // sound
-            XDFSoundManager.play("sound_desc_" + this.mCurHint + "_mp3");
-            // play anim
-            this["mAnimRole" + this.mCurHint].play(null, 0);
-            // show desc
-            this["kImgDesc" + this.mCurHint].scaleX = this["kImgDesc" + this.mCurHint].scaleY = 0;
-            this["kImgDesc" + this.mCurHint].visible = true;
-            egret.Tween.get(this["kImgDesc" + this.mCurHint]).to({ scaleX: 1.5, scaleY: 1.5 }, 500, egret.Ease.backOut);
-            // head mask line
-            this["kImgMask" + this.mCurHint].visible = this["kImgMaskLine" + this.mCurHint].visible = true;
+            // 提示音
+            XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3");
+            // 播放提示动画
+            this["mAnimRole" + this.mCurHint].play();
+            // 显示提示效果
             egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
-            this["kImgMaskLine" + this.mCurHint].alpha = 1;
+            egret.Tween.removeTweens(this["kImgMaskLineBig" + this.mCurHint]);
             egret.Tween.get(this["kImgMaskLine" + this.mCurHint], { loop: true })
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut);
+            egret.Tween.get(this["kImgMaskLineBig" + this.mCurHint])
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
@@ -147,19 +154,13 @@ var game;
             XDFSoundManager.play("sound_think_choise_mp3");
             if (touch == this.mCurHint) {
                 // 正确
-                // play anim
-                this["kGrpTar" + this.mCurHint].visible = false;
-                this["mAnimRole" + this.mCurHint].visible = true;
-                this["mAnimRole" + this.mCurHint].play(null, 1);
-                this["kGrpBtn" + this.mCurHint].visible = false;
-                // hide desc
-                this["kImgDesc" + this.mCurHint].visible = false;
-                // hide head
-                this["kImgMask" + this.mCurHint].visible = this["kImgMaskLine" + this.mCurHint].visible = false;
                 egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
+                egret.Tween.removeTweens(this["kImgMaskLineBig" + this.mCurHint]);
+                this["kImgMask" + this.mCurHint].visible = false;
                 this.mLock_sound_select = true;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
                     _this.mLock_sound_select = false;
+                    _this["kImgMaskLineBig$" + _this.mCurHint].visible = false;
                     _this.next();
                 });
             }
@@ -168,7 +169,7 @@ var game;
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
                     _this.kComAnswer.visible = false;
-                    XDFSoundManager.play("sound_desc_" + _this.mCurHint + "_mp3");
+                    XDFSoundManager.play("sound_ss_option" + _this.mCurHint + "_mp3");
                 });
             }
         };

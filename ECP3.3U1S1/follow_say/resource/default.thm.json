@@ -17,6 +17,7 @@
 		"resource/eui_skins/public/AnswerComponentSkin.exml",
 		"resource/eui_skins/LookStickViewSkin.exml",
 		"resource/eui_skins/MainViewSkin.exml",
+		"resource/eui_skins/play/FollowSayViewSkin.exml",
 		"resource/eui_skins/public/ReStartComponentSkin.exml",
 		"resource/eui_skins/public/TimeBarComponentSkin.exml",
 		"resource/eui_skins/play/LetsPlaySkin.exml",

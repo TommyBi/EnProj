@@ -67,7 +67,7 @@ class Main extends eui.UILayer {
             await RES.loadGroup("public");
             await RES.loadGroup("db");
             await RES.loadGroup("sound");
-            await RES.loadGroup("stick_say");
+            await RES.loadGroup("follow_say");
             await this.loadTheme();
         }
         catch (e) {
@@ -92,8 +92,8 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let stickSayView = new game.StickSayView();
-        XDFFrame.LayerManager.UI_View.addChild(stickSayView);
+        let followView = new game.FollowSayView();
+        XDFFrame.LayerManager.UI_View.addChild(followView);
     }
 
     private async loadMusic() {

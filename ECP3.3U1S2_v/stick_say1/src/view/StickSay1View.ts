@@ -4,11 +4,11 @@ namespace game {
         public kGrpDesc0: eui.Group;
         public kImgMask0: eui.Image;
         public kImgMaskLine0: eui.Image;
-        public kImgMaskLineBig1: eui.Image;
+        public kImgMaskLineBig2: eui.Image;
         public kGrpDesc2: eui.Group;
         public kImgMask2: eui.Image;
         public kImgMaskLine2: eui.Image;
-        public kImgMaskLineBig2: eui.Image;
+        public kImgMaskLineBig1: eui.Image;
         public kGrpDesc1: eui.Group;
         public kImgMask1: eui.Image;
         public kImgMaskLine1: eui.Image;
@@ -16,8 +16,8 @@ namespace game {
         public kComAnswer: game.AnswerComponent;
         public kComReplay: game.ReplayComponent;
         public kImgOption0: eui.Image;
-        public kImgOption1: eui.Image;
         public kImgOption2: eui.Image;
+        public kImgOption1: eui.Image;
         public kComWordsPanel: game.WordsPanelCom;
 
         public mAnimRole0: XDFFrame.DBAnim;
@@ -87,12 +87,11 @@ namespace game {
 
         private reset(): void {
             for (let i = 0; i < 3; i++) {
-                this[`mAnimRole${i}`].visible = false;
-                this[`kImgOption${i}`].visible = true;
                 this[`kImgMask${i}`].visible = true;
                 this[`kImgMaskLine${i}`].visible = false;
                 this[`kImgMaskLineBig${i}`].visible = false;
                 egret.Tween.removeTweens(this[`kImgMaskLine${i}`]);
+                egret.Tween.removeTweens(this[`kImgMaskLineBig${i}`]);
             }
 
             this.kComAnswer.visible = false;
@@ -126,19 +125,27 @@ namespace game {
 
         /** 提示 */
         private hint(): void {
-            // sound
-            XDFSoundManager.play(`sound_desc_${this.mCurHint}_mp3`);
-            // play anim
-            this[`mAnimRole${this.mCurHint}`].play(null, 0);
-            // show desc
-            this[`kImgDesc${this.mCurHint}`].scaleX = this[`kImgDesc${this.mCurHint}`].scaleY = 0;
-            this[`kImgDesc${this.mCurHint}`].visible = true;
-            egret.Tween.get(this[`kImgDesc${this.mCurHint}`]).to({ scaleX: 1.5, scaleY: 1.5 }, 500, egret.Ease.backOut);
-            // head mask line
-            this[`kImgMask${this.mCurHint}`].visible = this[`kImgMaskLine${this.mCurHint}`].visible = true;
+            // 提示音
+            XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`);
+            // 播放提示动画
+            this[`mAnimRole${this.mCurHint}`].play();
+            // 显示提示效果
             egret.Tween.removeTweens(this[`kImgMaskLine${this.mCurHint}`]);
-            this[`kImgMaskLine${this.mCurHint}`].alpha = 1;
+            egret.Tween.removeTweens(this[`kImgMaskLineBig${this.mCurHint}`]);
             egret.Tween.get(this[`kImgMaskLine${this.mCurHint}`], { loop: true })
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+            egret.Tween.get(this[`kImgMaskLineBig${this.mCurHint}`])
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
+                .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
@@ -163,19 +170,13 @@ namespace game {
             XDFSoundManager.play("sound_think_choise_mp3");
             if (touch == this.mCurHint) {
                 // 正确
-                // play anim
-                this[`kGrpTar${this.mCurHint}`].visible = false;
-                this[`mAnimRole${this.mCurHint}`].visible = true;
-                this[`mAnimRole${this.mCurHint}`].play(null, 1);
-                this[`kGrpBtn${this.mCurHint}`].visible = false;
-                // hide desc
-                this[`kImgDesc${this.mCurHint}`].visible = false;
-                // hide head
-                this[`kImgMask${this.mCurHint}`].visible = this[`kImgMaskLine${this.mCurHint}`].visible = false;
                 egret.Tween.removeTweens(this[`kImgMaskLine${this.mCurHint}`]);
+                egret.Tween.removeTweens(this[`kImgMaskLineBig${this.mCurHint}`]);
+                this[`kImgMask${this.mCurHint}`].visible = false;
                 this.mLock_sound_select = true;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", () => {
                     this.mLock_sound_select = false;
+                    this[`kImgMaskLineBig$${this.mCurHint}`].visible = false;
                     this.next();
                 });
             } else {
@@ -183,7 +184,7 @@ namespace game {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
                     this.kComAnswer.visible = false;
-                    XDFSoundManager.play(`sound_desc_${this.mCurHint}_mp3`);
+                    XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`);
                 })
             }
         }

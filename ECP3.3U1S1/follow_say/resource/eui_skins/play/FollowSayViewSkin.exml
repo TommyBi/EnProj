@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FollowSayViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0" locked="true" />
+	<e:Rect fillColor="0xffffff" left="200" right="200" top="0" bottom="0" />
+	<e:Image source="img_fs_bg1_png" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="109.5" scaleX="0.3" scaleY="0.3"
+	         width="3486.67" height="2331.66" horizontalCenter="46" />
+	<e:Group left="0" right="0" top="0" bottom="0" id="kGrpAnimLine" touchChildren="false" touchEnabled="false"
+	         touchThrough="true" locked="true" >
+	</e:Group>
+	<e:Group x="300" top="14">
+		<e:Image source="img_fs_bg3_png" x="0" y="0" scaleX="0.5" scaleY="0.5" />
+		<e:Image id="kImgFrameLine0" source="img_fs_frame_line_yellow_png" x="10" y="10" scaleX="0.5" scaleY="0.5" />
+		<e:Label text="I always go" x="56" y="33" textColor="0x000000" size="50" />
+		<e:Label id="kLabel0" text="swimming" y="33" size="50" textColor="0x155dbe" horizontalCenter="121.5" />
+		<e:Group id="kGrpRoleAnim0" x="21" y="120" width="258" height="204"></e:Group>
+		<e:Group x="320.27" y="120" id="kGrpRoleAnim1" width="258" height="204"></e:Group>
+	</e:Group>
+	<e:Group x="960" top="14">
+		<e:Image source="img_fs_bg2_png" x="0" y="0" scaleX="0.5" scaleY="0.5" />
+		<e:Image id="kImgFrameLine1" source="img_fs_frame_line_purple_png" x="12" y="10" scaleX="0.5" scaleY="0.5" />
+		<e:Label id="kLabel1" text="plants" y="36" size="40" textColor="0x155DBE" horizontalCenter="186.5" />
+		<e:Label text="My house is made of" x="28.2" y="36" size="40" textColor="0x000000" />
+		<e:Group y="120" id="kGrpRoleAnim2" width="258" height="204" scaleX="1" scaleY="1" x="48"></e:Group>
+		<e:Group y="120" id="kGrpRoleAnim3" width="258" height="204" scaleX="1" scaleY="1" x="339"></e:Group>
+	</e:Group>
+	<e:Group id="kGrpOption0" x="1114" y="1011" touchChildren="false" touchEnabled="true" touchThrough="false" anchorOffsetX="114" anchorOffsetY="42" width="228" height="84" name="option">
+		<e:Image id="kImgWordsBg0" source="img_fs_bg4_png" x="0" y="0" scaleX="0.35" scaleY="0.3" touchEnabled="false"/>
+		<e:Label id="kLabelDesc0" text="swimming" size="40" textColor="0x000000" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="kGrpOption1" x="508" y="1011" touchChildren="false" touchEnabled="true" touchThrough="false" anchorOffsetX="114" anchorOffsetY="42" width="228" height="84" name="option">
+		<e:Image id="kImgWordsBg1" source="img_fs_bg4_png" x="0" y="0" scaleX="0.35" scaleY="0.3" touchEnabled="false"/>
+		<e:Label id="kLabelDesc1" text="sledding" size="40" textColor="0x000000" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="kGrpOption2" x="803" y="1011" touchChildren="false" touchEnabled="true" touchThrough="false" anchorOffsetX="114" anchorOffsetY="42" width="228" height="84" name="option">
+		<e:Image id="kImgWordsBg2" source="img_fs_bg4_png" x="0" y="0" scaleX="0.35" scaleY="0.3" touchEnabled="false"/>
+		<e:Label id="kLabelDesc2" text="snow" size="40" textColor="0x000000" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+	</e:Group>
+	<e:Group id="kGrpOption3" x="1407" y="1011" touchChildren="false" touchEnabled="true" touchThrough="false" anchorOffsetX="114" anchorOffsetY="42" width="228" height="84" name="option">
+		<e:Image id="kImgWordsBg3" source="img_fs_bg4_png" x="0" y="0" scaleX="0.35" scaleY="0.3" touchEnabled="false"/>
+		<e:Label id="kLabelDesc3" text="plants" size="40" textColor="0x000000" horizontalCenter="0" verticalCenter="0" touchEnabled="false"/>
+	</e:Group>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" x="0" y="0" scaleX="1" scaleY="1" touchChildren="false" touchEnabled="false"/>
+	<game:ReplayComponent id="kComReplay" x="1512" y="866" skinName="ReplayComponentSkin" scaleX="1" scaleY="1"/>
+</e:Skin>

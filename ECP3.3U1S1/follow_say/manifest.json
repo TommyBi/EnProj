@@ -11,7 +11,7 @@
 		"libs/mouse/mouse.js"
 	],
 	"game": [
-		"bin-debug/publicCom/FlagCom.js",
+		"bin-debug/publicCom/ReplayComponent.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
@@ -30,8 +30,8 @@
 		"bin-debug/manager/XDFSoundManager.js",
 		"bin-debug/publicCom/AnswerComponent.js",
 		"bin-debug/publicCom/DialogComponent.js",
+		"bin-debug/publicCom/FlagCom.js",
 		"bin-debug/DragonFun.js",
-		"bin-debug/publicCom/ReplayComponent.js",
 		"bin-debug/publicCom/ReStartComponent.js",
 		"bin-debug/publicCom/ThinkComponent.js",
 		"bin-debug/publicCom/TimeBarComponent.js",
@@ -41,6 +41,7 @@
 		"bin-debug/publicCom/videoPlayer/CaptionPlayerCom.js",
 		"bin-debug/publicCom/words/PreWordsCom.js",
 		"bin-debug/publicCom/words/WordsPanelCom.js",
+		"bin-debug/view/FollowSayView.js",
 		"bin-debug/view/LetsChantView.js",
 		"bin-debug/view/LetsPlayView.js",
 		"bin-debug/view/LetsSingView.js",

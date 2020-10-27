@@ -8,6 +8,8 @@ declare class LookStickViewSkin extends eui.Skin{
 }
 declare class MainViewSkin extends eui.Skin{
 }
+declare class FollowSayViewSkin extends eui.Skin{
+}
 declare class LetsPlaySkin extends eui.Skin{
 }
 declare class AnswerComponentSkin extends eui.Skin{

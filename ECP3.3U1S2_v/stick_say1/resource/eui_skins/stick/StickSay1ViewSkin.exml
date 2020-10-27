@@ -3,6 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0" />
 	<e:Image source="img_ss_bg_png"  left="0" right="0" top="0" bottom="0"/>
+	<e:Image source="img_ss_picture_png" x="1551.82" y="584.48" scaleX="-0.5" scaleY="0.5" locked="true"/>
 	<e:Group x="1076.42" y="26">
 		<e:Group x="0" y="0">
 			<e:Image source="img_ss_bg_0_png" scaleX="1.6" scaleY="1.6" horizontalCenter="-2.5" verticalCenter="6.5"/>
@@ -46,20 +47,19 @@
 		</e:Group>
 	</e:Group>
 	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false"
-	         touchThrough="true" >
+	         touchThrough="true"  locked="true">
 	</e:Group>
 	<game:AnswerComponent id="kComAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0"
-	                      skinName="AnswerComponentSkin" visible="false"  locked="true"/>
-	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="289" bottom="65" visible="false"  locked="true"/>
+	                      skinName="AnswerComponentSkin"  locked="true"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" x="1689" y="845.0000000000001" scaleX="1" scaleY="1"/>
 	<e:Group x="7.57" bottom="20">
 		<e:Image id="kImgOption0" source="img_ss_option_0_png" x="10" y="0" scaleX="0.4" scaleY="0.4"/>
-		<e:Image id="kImgOption1" source="img_ss_option_1_png" x="7" y="213.51" scaleX="0.4" scaleY="0.4"/>
 		<e:Image id="kImgOption2" source="img_ss_option_2_png" x="0" y="400.85" scaleX="0.4" scaleY="0.4"/>
+		<e:Image id="kImgOption1" source="img_ss_option_1_png" x="7" y="213.51" scaleX="0.4" scaleY="0.4"/>
 		<e:layout>
 		<e:VerticalLayout horizontalAlign="center" verticalAlign="middle" gap="10"/>
 		</e:layout>
 	</e:Group>
-	<e:Image source="img_ss_picture_png" x="1551.82" y="584.48" scaleX="-0.5" scaleY="0.5"/>
 	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" verticalCenter="0" x="0" visible="false"/>
 	<game:FlagCom skinName="FlagComSkin" left="-20" top="0" name="flag"/>
 </e:Skin>
