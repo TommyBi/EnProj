@@ -9,12 +9,12 @@
 	</e:Group>
 	<e:Image source="img_lp_bg3_png" x="239.76" y="117.94"/>
 	<e:Group width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
-		<e:Group horizontalCenter="0" top="-76">
+		<e:Group horizontalCenter="0" top="-91">
 			<e:Image x="0" anchorOffsetX="0" source="img_lp_wordPanel_png" scaleX="2" scaleY="2" top="0" scale9Grid="126,25,257,117" width="500"/>
 			<e:Label id="kLabelDesc" text="Chickens give us eggs" verticalCenter="58" size="60" bold="true" textColor="0x561721" horizontalCenter="0"/>
 		</e:Group>
-		<game:DDSComponent id="kCom0" x="168.69" y="267.57" skinName="DDSComponentSkin"/>
-		<game:DDSComponent x="899.91" y="270.6" skinName="DDSComponentSkin" id="kCom1"/>
+		<game:DDSComponent id="kCom0" x="168.69" y="270" skinName="DDSComponentSkin"/>
+		<game:DDSComponent x="899.91" y="270" skinName="DDSComponentSkin" id="kCom1"/>
 		<game:DDSComponent x="537.19" y="540" skinName="DDSComponentSkin" id="kCom2"/>
 		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
 	</e:Group>

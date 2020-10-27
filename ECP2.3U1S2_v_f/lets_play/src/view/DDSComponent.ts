@@ -22,11 +22,11 @@ namespace game {
             super.createChildren();
             // 初始化动画
             this.mAnimMouseDown = XDFFrame.DBFactory.createAnim("db_mouse_down");
-            this.mAnimMouseDown.setProtery({ x: 0, y: -20, parent: this.kGrpAnim, scaleX: 0.45, scaleY: 0.45 });
+            this.mAnimMouseDown.setProtery({ x: 0, y: -20, parent: this.kGrpAnim, scaleX: 0.4, scaleY: 0.4 });
             this.mAnimMouseUp = XDFFrame.DBFactory.createAnim("db_mouse_up");
-            this.mAnimMouseUp.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimMouseUp.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 0.45, scaleY: 0.45 });
             this.mAnimMouseHit = XDFFrame.DBFactory.createAnim("db_mouse_hit");
-            this.mAnimMouseHit.setProtery({ x: 0, y: -50, parent: this.kGrpAnim, scaleX: 0.45, scaleY: 0.45 })
+            this.mAnimMouseHit.setProtery({ x: 0, y: -50, parent: this.kGrpAnim, scaleX: 0.4, scaleY: 0.4 })
             this.kGrpAnim.mask = this.kGrpAnimMask;
             this.init();
         }
@@ -80,9 +80,9 @@ namespace game {
             egret.Tween.removeTweens(this.kImg);
             if (showAction) {
                 this.kImg.scaleX = this.kImg.scaleY = 0;
-                egret.Tween.get(this.kImg).to({ scaleX: 0.5, scaleY: 0.5 }, 200, egret.Ease.cubicInOut);
+                egret.Tween.get(this.kImg).to({ scaleX: 0.45, scaleY: 0.45 }, 200, egret.Ease.cubicInOut);
             } else {
-                this.kImg.scaleX = this.kImg.scaleY = 0.5;
+                this.kImg.scaleX = this.kImg.scaleY = 0.45;
                 egret.Tween.get(this.kImg).to({ scaleX: 0, scaleY: 0 }, 200, egret.Ease.cubicInOut);
             }
         }
