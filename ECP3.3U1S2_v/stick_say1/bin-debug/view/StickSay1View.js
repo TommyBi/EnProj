@@ -19,6 +19,7 @@ var game;
             _this.mLock_sound_select = false; // 操作锁 - 是否正在播放选中的声音
             _this.mLock_startGame = true; // 操作锁 - 是否开始了游戏
             _this.mLock_isFinish = false; // 操作锁 - 是否已经完成了一局
+            _this.mLock_isPlayHintSound = false; // 操作锁 - 是否正在播放提示选项的声音
             _this.skinName = "StickSay1ViewSkin";
             return _this;
         }
@@ -27,6 +28,7 @@ var game;
                 return this.mLock_sound_select ||
                     this.mLock_startGame ||
                     this.mLock_isFinish ||
+                    this.mLock_isPlayHintSound ||
                     this.kComAnswer.visible;
             },
             enumerable: true,
@@ -46,11 +48,11 @@ var game;
             XDFFrame.EventCenter.addEventListenr(game.EventConst.touchFlag, this.onChangeWordsPanelAction, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
             this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0", 5);
-            this.mAnimRole0.setProtery({ x: 1330, y: 800, parent: this.kGrpAnim, scaleX: 0.65, scaleY: 0.65 });
+            this.mAnimRole0.setProtery({ x: 1400, y: 230, parent: this.kGrpAnim, scaleX: 0.5, scaleY: 0.5 });
             this.mAnimRole1 = XDFFrame.DBFactory.createAnim("db_role_1");
-            this.mAnimRole1.setProtery({ x: 1320, y: 320, parent: this.kGrpAnim, scaleX: 1, scaleY: 1 });
+            this.mAnimRole1.setProtery({ x: 630, y: 720, parent: this.kGrpAnim, scaleX: 0.85, scaleY: 0.9 });
             this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
-            this.mAnimRole2.setProtery({ x: 600, y: 300, parent: this.kGrpAnim, scaleX: 1.8, scaleY: 1.8 });
+            this.mAnimRole2.setProtery({ x: 600, y: 200, parent: this.kGrpAnim, scaleX: 1.8, scaleY: 1.8 });
             // 单词
             this.kComWordsPanel.setData([
                 {
@@ -109,13 +111,19 @@ var game;
         };
         /** 提示 */
         StickSay1View.prototype.hint = function () {
+            var _this = this;
             // 提示音
-            XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3");
+            this.mLock_isPlayHintSound = true;
+            XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3", 0, 1, 1, "sound_ss_option" + this.mCurHint + "_mp3", function () {
+                _this.mLock_isPlayHintSound = false;
+            });
             // 播放提示动画
             this["mAnimRole" + this.mCurHint].play();
             // 显示提示效果
+            this["kImgMaskLine" + this.mCurHint].visible = this["kImgMaskLineBig" + this.mCurHint].visible = true;
             egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
             egret.Tween.removeTweens(this["kImgMaskLineBig" + this.mCurHint]);
+            this["kImgMaskLine" + this.mCurHint].alpha = this["kImgMaskLineBig" + this.mCurHint].alpha = 1;
             egret.Tween.get(this["kImgMaskLine" + this.mCurHint], { loop: true })
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
@@ -156,11 +164,14 @@ var game;
                 // 正确
                 egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
                 egret.Tween.removeTweens(this["kImgMaskLineBig" + this.mCurHint]);
+                this["kImgMaskLine" + this.mCurHint].alpha = 0;
+                this["kImgMaskLineBig" + this.mCurHint].alpha = 1;
                 this["kImgMask" + this.mCurHint].visible = false;
                 this.mLock_sound_select = true;
+                this["kImgOption" + this.mCurHint].visible = false;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
                     _this.mLock_sound_select = false;
-                    _this["kImgMaskLineBig$" + _this.mCurHint].visible = false;
+                    _this["kImgMaskLineBig" + _this.mCurHint].visible = false;
                     _this.next();
                 });
             }
