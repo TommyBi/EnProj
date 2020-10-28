@@ -227,6 +227,7 @@ namespace game {
 
                 // play mAnim
                 this[`mAnimLine${this.mCurHint}`].visible = true;
+                this.mLock_sound_select = true;
                 this[`mAnimLine${this.mCurHint}`].play(null, 1, () => {
                     XDFSoundManager.play(`sound_desc_${this.mCurHint}_mp3`, 0, 1, 1, `sound_desc_${this.mCurHint}_mp3`, () => {
                         this.mLock_sound_select = false;
@@ -243,6 +244,7 @@ namespace game {
                 }
             } else {
                 // 错误
+                XDFSoundManager.play("sound_choise_wrong_mp3");
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
                     this.kComAnswer.visible = false;

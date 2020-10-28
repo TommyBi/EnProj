@@ -201,6 +201,7 @@ var game;
                 this["kImgWordsBg" + this.mCurHint].source = "img_fs_bg6_png";
                 // play mAnim
                 this["mAnimLine" + this.mCurHint].visible = true;
+                this.mLock_sound_select = true;
                 this["mAnimLine" + this.mCurHint].play(null, 1, function () {
                     XDFSoundManager.play("sound_desc_" + _this.mCurHint + "_mp3", 0, 1, 1, "sound_desc_" + _this.mCurHint + "_mp3", function () {
                         _this.mLock_sound_select = false;
@@ -217,6 +218,7 @@ var game;
             }
             else {
                 // 错误
+                XDFSoundManager.play("sound_choise_wrong_mp3");
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
                     _this.kComAnswer.visible = false;

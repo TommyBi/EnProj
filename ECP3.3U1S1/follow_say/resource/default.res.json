@@ -13,7 +13,7 @@
 			"name":"public"
 		},
 		{
-			"keys":"sound_desc_0_mp3,sound_desc_1_mp3,sound_desc_2_mp3,sound_goodjob_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3,sound_desc_3_mp3",
+			"keys":"sound_desc_0_mp3,sound_desc_1_mp3,sound_desc_2_mp3,sound_goodjob_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3,sound_desc_3_mp3,sound_choise_wrong_mp3",
 			"name":"sound"
 		},
 		{
@@ -655,6 +655,11 @@
 			"name":"img_fs_point_png",
 			"type":"image",
 			"url":"assets/img/follow_say/img_fs_point.png"
+		},
+		{
+			"name":"sound_choise_wrong_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_choise_wrong.mp3"
 		}
 	]
 }
