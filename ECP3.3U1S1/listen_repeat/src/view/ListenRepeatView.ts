@@ -12,6 +12,8 @@ namespace game {
         public kComVideo: game.VideoComponent;
 
         private mCurPlayIdx: number; // 当前正在播放的索引
+        private mTotalCount: number = 6; // 总的数量
+        private mSkinType: number = 2;  // 皮肤类型
 
         constructor() {
             super();
@@ -22,15 +24,18 @@ namespace game {
             super.createChildren();
 
             for (let i = 0; i < 8; i++) {
-                this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
-                this[`kCom${i}`].setData(i);
+                this[`kCom${i}`].visible = this[`kCom${i}`].includeInLayout = i < 6;
+                if (this[`kCom${i}`].visible) {
+                    this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+                    this[`kCom${i}`].setData(i);
+                }
             }
 
             this.init();
         }
 
         private init(): void {
-            this.kComVideo.setSkinType(1);
+            this.kComVideo.setSkinType(this.mSkinType);
             this.mCurPlayIdx = -1;
         }
 
