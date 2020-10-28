@@ -54,14 +54,14 @@ var game;
                 }
             }, this);
             // 初始化动画
-            this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0", 8);
-            this.mAnimRole0.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim0, scaleX: 0.6, scaleY: 0.6 });
+            this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0");
+            this.mAnimRole0.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim0, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimRole1 = XDFFrame.DBFactory.createAnim("db_role_1");
-            this.mAnimRole1.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim1, scaleX: 0.6, scaleY: 0.6 });
-            this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2", 8);
-            this.mAnimRole2.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim2, scaleX: 0.6, scaleY: 0.6 });
-            this.mAnimRole3 = XDFFrame.DBFactory.createAnim("db_role_3", 8);
-            this.mAnimRole3.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim3, scaleX: 0.6, scaleY: 0.6 });
+            this.mAnimRole1.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim1, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
+            this.mAnimRole2.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim2, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole3 = XDFFrame.DBFactory.createAnim("db_role_3");
+            this.mAnimRole3.setProtery({ x: 129, y: 102, parent: this.kGrpRoleAnim3, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimLine0 = XDFFrame.DBFactory.createAnim("db_line_0", 3);
             this.mAnimLine0.setProtery({ x: 960, y: 660, parent: this.kGrpAnimLine, scaleX: 0.9, scaleY: 1 });
             this.mAnimLine1 = XDFFrame.DBFactory.createAnim("db_line_1", 4);

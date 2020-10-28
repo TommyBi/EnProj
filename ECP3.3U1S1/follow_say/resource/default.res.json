@@ -17,11 +17,11 @@
 			"name":"sound"
 		},
 		{
-			"keys":"db_role_0_tex_4_json,db_role_0_ske_json,db_role_0_tex_3_json,db_role_0_tex_2_json,db_role_0_tex_1_json,db_role_0_tex_0_json,db_role_0_tex_1_png,db_role_0_tex_0_png,db_role_0_tex_2_png,db_role_0_tex_3_png,db_role_0_tex_4_png,db_role_1_ske_json,db_role_2_tex_3_json,db_role_2_tex_2_json,db_role_2_tex_0_png,db_role_2_tex_1_png,db_role_2_tex_3_png,db_role_2_tex_2_png,db_role_2_tex_4_json,db_role_2_tex_4_png,db_role_2_tex_1_json,db_role_2_tex_0_json,db_role_2_ske_json,db_role_3_tex_6_json,db_role_3_tex_0_png,db_role_3_tex_1_png,db_role_3_tex_3_png,db_role_3_tex_2_png,db_role_3_tex_6_png,db_role_3_tex_7_png,db_role_3_tex_5_png,db_role_3_tex_4_png,db_role_3_tex_7_json,db_role_3_tex_0_json,db_role_3_tex_1_json,db_role_3_tex_2_json,db_role_3_tex_3_json,db_role_3_tex_4_json,db_role_3_tex_5_json,db_role_3_ske_json,db_line_0_ske_json,db_line_0_tex_0_json,db_line_0_tex_0_png,db_line_0_tex_1_json,db_line_0_tex_1_png,db_line_0_tex_2_json,db_line_0_tex_2_png,db_line_1_ske_json,db_line_1_tex_0_json,db_line_1_tex_0_png,db_line_1_tex_1_json,db_line_1_tex_1_png,db_line_1_tex_2_json,db_line_1_tex_2_png,db_line_1_tex_3_json,db_line_1_tex_3_png,db_line_2_ske_json,db_line_2_tex_0_json,db_line_2_tex_0_png,db_line_2_tex_1_json,db_line_2_tex_1_png,db_line_2_tex_2_json,db_line_2_tex_2_png,db_line_2_tex_3_json,db_line_2_tex_3_png,db_line_3_ske_json,db_line_3_tex_0_json,db_line_3_tex_0_png,db_line_3_tex_1_json,db_line_3_tex_1_png,db_line_3_tex_2_json,db_line_3_tex_2_png,db_line_3_tex_3_json,db_line_3_tex_3_png,db_role_0_tex_5_json,db_role_0_tex_5_png,db_role_0_tex_6_json,db_role_0_tex_6_png,db_role_0_tex_7_json,db_role_0_tex_7_png,db_role_1_tex_json,db_role_1_tex_png,db_role_2_tex_5_json,db_role_2_tex_5_png,db_role_2_tex_6_json,db_role_2_tex_6_png,db_role_2_tex_7_json,db_role_2_tex_7_png",
+			"keys":"db_role_0_ske_json,db_role_1_ske_json,db_role_2_ske_json,db_role_3_ske_json,db_line_0_ske_json,db_line_0_tex_0_json,db_line_0_tex_0_png,db_line_0_tex_1_json,db_line_0_tex_1_png,db_line_0_tex_2_json,db_line_0_tex_2_png,db_line_1_ske_json,db_line_1_tex_0_json,db_line_1_tex_0_png,db_line_1_tex_1_json,db_line_1_tex_1_png,db_line_1_tex_2_json,db_line_1_tex_2_png,db_line_1_tex_3_json,db_line_1_tex_3_png,db_line_2_ske_json,db_line_2_tex_0_json,db_line_2_tex_0_png,db_line_2_tex_1_json,db_line_2_tex_1_png,db_line_2_tex_2_json,db_line_2_tex_2_png,db_line_2_tex_3_json,db_line_2_tex_3_png,db_line_3_ske_json,db_line_3_tex_0_json,db_line_3_tex_0_png,db_line_3_tex_1_json,db_line_3_tex_1_png,db_line_3_tex_2_json,db_line_3_tex_2_png,db_line_3_tex_3_json,db_line_3_tex_3_png,db_role_1_tex_json,db_role_1_tex_png,db_role_0_tex_json,db_role_0_tex_png,db_role_2_tex_json,db_role_2_tex_png,db_role_3_tex_json,db_role_3_tex_png",
 			"name":"db"
 		},
 		{
-			"keys":"img_fs_bg1_png,img_fs_bg2_png,img_fs_bg3_png,img_fs_bg4_png,img_fs_bg5_png,img_fs_bg6_png,img_fs_frame_line_purple_png,img_fs_frame_line_red_png,img_fs_frame_line_yellow_png,img_fs_anim0_png,img_fs_anim1_png,img_fs_anim2_png,img_fs_anim3_png",
+			"keys":"img_fs_bg1_png,img_fs_bg2_png,img_fs_bg3_png,img_fs_bg4_png,img_fs_bg5_png,img_fs_bg6_png,img_fs_frame_line_purple_png,img_fs_frame_line_red_png,img_fs_frame_line_yellow_png,img_fs_anim0_png,img_fs_anim1_png,img_fs_anim2_png,img_fs_anim3_png,img_fs_point_png",
 			"name":"follow_say"
 		}
 	],
@@ -352,59 +352,9 @@
 			"url":"assets/img/public/img_stick_bg4.png"
 		},
 		{
-			"name":"db_role_0_tex_4_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_4.json"
-		},
-		{
 			"name":"db_role_0_ske_json",
 			"type":"json",
 			"url":"assets/db/db_role_0/db_role_0_ske.json"
-		},
-		{
-			"name":"db_role_0_tex_3_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_3.json"
-		},
-		{
-			"name":"db_role_0_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_2.json"
-		},
-		{
-			"name":"db_role_0_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_1.json"
-		},
-		{
-			"name":"db_role_0_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_0.json"
-		},
-		{
-			"name":"db_role_0_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_1.png"
-		},
-		{
-			"name":"db_role_0_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_0.png"
-		},
-		{
-			"name":"db_role_0_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_2.png"
-		},
-		{
-			"name":"db_role_0_tex_3_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_3.png"
-		},
-		{
-			"name":"db_role_0_tex_4_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_4.png"
 		},
 		{
 			"name":"db_role_1_ske_json",
@@ -412,139 +362,9 @@
 			"url":"assets/db/db_role_1/db_role_1_ske.json"
 		},
 		{
-			"name":"db_role_2_tex_3_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_3.json"
-		},
-		{
-			"name":"db_role_2_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_2.json"
-		},
-		{
-			"name":"db_role_2_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_0.png"
-		},
-		{
-			"name":"db_role_2_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_1.png"
-		},
-		{
-			"name":"db_role_2_tex_3_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_3.png"
-		},
-		{
-			"name":"db_role_2_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_2.png"
-		},
-		{
-			"name":"db_role_2_tex_4_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_4.json"
-		},
-		{
-			"name":"db_role_2_tex_4_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_4.png"
-		},
-		{
-			"name":"db_role_2_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_1.json"
-		},
-		{
-			"name":"db_role_2_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_0.json"
-		},
-		{
 			"name":"db_role_2_ske_json",
 			"type":"json",
 			"url":"assets/db/db_role_2/db_role_2_ske.json"
-		},
-		{
-			"name":"db_role_3_tex_6_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_6.json"
-		},
-		{
-			"name":"db_role_3_tex_0_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_0.png"
-		},
-		{
-			"name":"db_role_3_tex_1_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_1.png"
-		},
-		{
-			"name":"db_role_3_tex_3_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_3.png"
-		},
-		{
-			"name":"db_role_3_tex_2_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_2.png"
-		},
-		{
-			"name":"db_role_3_tex_6_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_6.png"
-		},
-		{
-			"name":"db_role_3_tex_7_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_7.png"
-		},
-		{
-			"name":"db_role_3_tex_5_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_5.png"
-		},
-		{
-			"name":"db_role_3_tex_4_png",
-			"type":"image",
-			"url":"assets/db/db_role_3/db_role_3_tex_4.png"
-		},
-		{
-			"name":"db_role_3_tex_7_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_7.json"
-		},
-		{
-			"name":"db_role_3_tex_0_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_0.json"
-		},
-		{
-			"name":"db_role_3_tex_1_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_1.json"
-		},
-		{
-			"name":"db_role_3_tex_2_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_2.json"
-		},
-		{
-			"name":"db_role_3_tex_3_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_3.json"
-		},
-		{
-			"name":"db_role_3_tex_4_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_4.json"
-		},
-		{
-			"name":"db_role_3_tex_5_json",
-			"type":"json",
-			"url":"assets/db/db_role_3/db_role_3_tex_5.json"
 		},
 		{
 			"name":"db_role_3_ske_json",
@@ -727,36 +547,6 @@
 			"url":"assets/db/db_line_3/db_line_3_tex_3.png"
 		},
 		{
-			"name":"db_role_0_tex_5_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_5.json"
-		},
-		{
-			"name":"db_role_0_tex_5_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_5.png"
-		},
-		{
-			"name":"db_role_0_tex_6_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_6.json"
-		},
-		{
-			"name":"db_role_0_tex_6_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_6.png"
-		},
-		{
-			"name":"db_role_0_tex_7_json",
-			"type":"json",
-			"url":"assets/db/db_role_0/db_role_0_tex_7.json"
-		},
-		{
-			"name":"db_role_0_tex_7_png",
-			"type":"image",
-			"url":"assets/db/db_role_0/db_role_0_tex_7.png"
-		},
-		{
 			"name":"db_role_1_tex_json",
 			"type":"json",
 			"url":"assets/db/db_role_1/db_role_1_tex.json"
@@ -765,36 +555,6 @@
 			"name":"db_role_1_tex_png",
 			"type":"image",
 			"url":"assets/db/db_role_1/db_role_1_tex.png"
-		},
-		{
-			"name":"db_role_2_tex_5_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_5.json"
-		},
-		{
-			"name":"db_role_2_tex_5_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_5.png"
-		},
-		{
-			"name":"db_role_2_tex_6_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_6.json"
-		},
-		{
-			"name":"db_role_2_tex_6_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_6.png"
-		},
-		{
-			"name":"db_role_2_tex_7_json",
-			"type":"json",
-			"url":"assets/db/db_role_2/db_role_2_tex_7.json"
-		},
-		{
-			"name":"db_role_2_tex_7_png",
-			"type":"image",
-			"url":"assets/db/db_role_2/db_role_2_tex_7.png"
 		},
 		{
 			"name":"img_fs_bg1_png",
@@ -860,6 +620,41 @@
 			"name":"img_fs_anim3_png",
 			"type":"image",
 			"url":"assets/img/follow_say/img_fs_anim3.png"
+		},
+		{
+			"name":"db_role_0_tex_json",
+			"type":"json",
+			"url":"assets/db/db_role_0/db_role_0_tex.json"
+		},
+		{
+			"name":"db_role_0_tex_png",
+			"type":"image",
+			"url":"assets/db/db_role_0/db_role_0_tex.png"
+		},
+		{
+			"name":"db_role_2_tex_json",
+			"type":"json",
+			"url":"assets/db/db_role_2/db_role_2_tex.json"
+		},
+		{
+			"name":"db_role_2_tex_png",
+			"type":"image",
+			"url":"assets/db/db_role_2/db_role_2_tex.png"
+		},
+		{
+			"name":"db_role_3_tex_json",
+			"type":"json",
+			"url":"assets/db/db_role_3/db_role_3_tex.json"
+		},
+		{
+			"name":"db_role_3_tex_png",
+			"type":"image",
+			"url":"assets/db/db_role_3/db_role_3_tex.png"
+		},
+		{
+			"name":"img_fs_point_png",
+			"type":"image",
+			"url":"assets/img/follow_say/img_fs_point.png"
 		}
 	]
 }
