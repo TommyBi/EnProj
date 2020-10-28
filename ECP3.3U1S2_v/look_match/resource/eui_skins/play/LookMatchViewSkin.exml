@@ -1,3 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="LookMatchViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui">
+<e:Skin class="LookMatchViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Image source="img_lm_bg_png" horizontalCenter="-140" verticalCenter="0" locked="true"/>
+	<e:Group x="182" y="28">
+		<e:Image source="img_lm_num0_png" x="0" y="16" scaleX="0.5" scaleY="0.5"/>
+		<e:Image source="img_lm_option0_png" x="130" y="4" scaleX="0.4" scaleY="0.4"/>
+		<e:Image id="kImgMask0" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+	</e:Group>
+	<e:Group id="kGrpStart0" width="100" height="100" x="568" y="110" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="182" verticalCenter="0">
+		<e:Image x="0" y="16" scaleX="0.5" scaleY="0.5" source="img_lm_num1_png"/>
+		<e:Image x="130" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option1_png"/>
+		<e:Image id="kImgMask1" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+	</e:Group>
+	<e:Group id="kGrpStart1" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="0" horizontalCenter="-338">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="182" verticalCenter="364">
+		<e:Image x="0" y="16" scaleX="0.5" scaleY="0.5" source="img_lm_num2_png"/>
+		<e:Image x="130" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option2_png"/>
+		<e:Image id="kImgMask2" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+	</e:Group>
+	<e:Group id="kGrpStart2" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="364" horizontalCenter="-338">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group id="kGrpTar0" width="100" height="100" x="884" y="110" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="978" y="84">
+		<e:Image source="img_lm_bg3_png" x="0" y="-4" scaleX="0.4" scaleY="0.4"/>
+		<e:Label text="Kids in costumes get lots of candy" textColor="0x000000" size="38" horizontalCenter="0" verticalCenter="0" width="400" bold="true"/>
+	</e:Group>
+	<e:Group id="kGrpTar2" width="100" height="100" x="876" touchChildren="false" touchEnabled="true" touchThrough="false" y="490">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="980" verticalCenter="0.5">
+		<e:Image x="0" y="-4" scaleX="0.4" scaleY="0.4" source="img_lm_bg4_png"/>
+		<e:Label text="Everyone wears a mask and a costume." textColor="0x000000" size="38" horizontalCenter="0" verticalCenter="0" width="430" bold="true"/>
+	</e:Group>
+	<e:Group id="kGrpTar1" width="100" height="100" x="876" touchChildren="false" touchEnabled="true" touchThrough="false" y="846">
+		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="980" verticalCenter="356.5">
+		<e:Image x="0" y="-4" scaleX="0.4" scaleY="0.4" source="img_lm_bg5_png"/>
+		<e:Label text="People throw tomatoes at each other." textColor="0x000000" size="38" horizontalCenter="0" verticalCenter="0" width="420" bold="true"/>
+	</e:Group>
+	<e:Image source="img_lm_bg1_png" x="1492" verticalCenter="0"/>
+	<e:Group x="1532" verticalCenter="0">
+		<e:Group id="kGrpPen0" x="0" y="0" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_pencil_bg_png" x="0" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="kImgPen0" source="img_lm_pencil_0_png" x="28" y="40" scaleX="0.4" scaleY="0.4" touchEnabled="false"/>
+		</e:Group>
+		<e:Group id="kGrpPen1" x="10" y="10" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_pencil_bg_png" x="0" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="kImgPen1" x="28" y="40" scaleX="0.4" scaleY="0.4" source="img_lm_pencil_1_png" touchEnabled="false"/>
+		</e:Group>
+		<e:Group id="kGrpPen2" x="20" y="20" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_pencil_bg_png" x="0" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="kImgPen2" x="28" y="40" scaleX="0.4" scaleY="0.4" source="img_lm_pencil_2_png" touchEnabled="false"/>
+		</e:Group>
+		<e:Group id="kGrpPen3" x="30" y="30" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Image source="img_lm_pencil_bg_png" x="0" y="0" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="kImgPen3" x="28" y="40" scaleX="0.4" scaleY="0.4" source="img_lm_pencil_3_png" touchEnabled="false"/>
+		</e:Group>
+		<e:layout>
+		<e:VerticalLayout gap="50"/>
+		</e:layout>
+	</e:Group>
+	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="0" anchorOffsetY="234" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="50" bottom="50" visible="false"/>
+	<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
+	<e:Image id="kImgArrow" source="img_lm_arr0_png" x="676" y="264" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleX="0.5" scaleY="0.5"/>
 </e:Skin>

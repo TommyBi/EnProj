@@ -11,7 +11,7 @@
 		"libs/mouse/mouse.js"
 	],
 	"game": [
-		"bin-debug/publicCom/ReStartComponent.js",
+		"bin-debug/publicCom/ReplayComponent.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
@@ -24,6 +24,7 @@
 		"bin-debug/manager/EventConst.js",
 		"bin-debug/manager/LayerManager.js",
 		"bin-debug/manager/MovieClipComponent.js",
+		"bin-debug/manager/UtilsFunc.js",
 		"bin-debug/manager/XDFDragonManager.js",
 		"bin-debug/manager/XDFEventManager.js",
 		"bin-debug/manager/XDFLogoComponent.js",
@@ -31,8 +32,8 @@
 		"bin-debug/publicCom/AnswerComponent.js",
 		"bin-debug/publicCom/DialogComponent.js",
 		"bin-debug/publicCom/FlagCom.js",
-		"bin-debug/publicCom/ReplayComponent.js",
 		"bin-debug/DragonFun.js",
+		"bin-debug/publicCom/ReStartComponent.js",
 		"bin-debug/publicCom/ThinkComponent.js",
 		"bin-debug/publicCom/TimeBarComponent.js",
 		"bin-debug/publicCom/VideoComponent.js",

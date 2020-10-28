@@ -21,7 +21,7 @@
 			"name":"db"
 		},
 		{
-			"keys":"img_lm_bg_png,img_lm_bg1_png,img_lm_bg2_png,img_lm_bg3_png,img_lm_bg4_png,img_lm_bg5_png,img_lm_frame_png,img_lm_num0_png,img_lm_num1_png,img_lm_num2_png,img_lm_option0_png,img_lm_option1_png,img_lm_option2_png,img_lm_pencil_0_png,img_lm_pencil_1_png,img_lm_pencil_2_png,img_lm_pencil_3_png,img_lm_pencil_bg_png,img_lm_point_png",
+			"keys":"img_lm_bg_png,img_lm_bg1_png,img_lm_bg2_png,img_lm_bg3_png,img_lm_bg4_png,img_lm_bg5_png,img_lm_frame_png,img_lm_num0_png,img_lm_num1_png,img_lm_num2_png,img_lm_option0_png,img_lm_option1_png,img_lm_option2_png,img_lm_pencil_0_png,img_lm_pencil_1_png,img_lm_pencil_2_png,img_lm_pencil_3_png,img_lm_pencil_bg_png,img_lm_point_png,img_lm_arr0_png,img_lm_arr1_png,img_lm_arr2_png,img_lm_arr3_png",
 			"name":"look_match"
 		}
 	],
@@ -565,6 +565,26 @@
 			"name":"img_lm_point_png",
 			"type":"image",
 			"url":"assets/img/look_match/img_lm_point.png"
+		},
+		{
+			"name":"img_lm_arr0_png",
+			"type":"image",
+			"url":"assets/img/look_match/img_lm_arr0.png"
+		},
+		{
+			"name":"img_lm_arr1_png",
+			"type":"image",
+			"url":"assets/img/look_match/img_lm_arr1.png"
+		},
+		{
+			"name":"img_lm_arr2_png",
+			"type":"image",
+			"url":"assets/img/look_match/img_lm_arr2.png"
+		},
+		{
+			"name":"img_lm_arr3_png",
+			"type":"image",
+			"url":"assets/img/look_match/img_lm_arr3.png"
 		}
 	]
 }
