@@ -69,8 +69,10 @@
 		<e:VerticalLayout gap="50"/>
 		</e:layout>
 	</e:Group>
+	<e:Image id="kImgArrow2" source="img_lm_arr0_png" x="706" y="294" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100"/>
+	<e:Image id="kImgArrow0" source="img_lm_arr0_png" x="686" y="274" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100"/>
+	<e:Image id="kImgArrow1" source="img_lm_arr0_png" x="696" y="284" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100"/>
 	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="0" anchorOffsetY="234" visible="false"/>
 	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="50" bottom="50" visible="false"/>
 	<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
-	<e:Image id="kImgArrow" source="img_lm_arr0_png" x="676" y="264" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100"/>
 </e:Skin>

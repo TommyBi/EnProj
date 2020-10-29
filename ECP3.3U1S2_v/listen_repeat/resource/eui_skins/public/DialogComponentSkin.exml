@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="DialogComponentSkin" width="710" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Rect top="-10" bottom="-10" left="-10" right="-10" strokeColor="0xffffff" strokeWeight="3" ellipseWidth="20" ellipseHeight="20" fillColor="0xb3cb37"/>
-	<e:Label id="klbl" text="I need new clothesI need new clothesI need new clothesI need new clothes" horizontalCenter="0.5" verticalCenter="2" size="47" textColor="0x561108" fontFamily="Arial" bold="true" strokeColor="0xffffff" width="700" verticalAlign="middle" textAlign="center"/>
+	<e:Group horizontalCenter="0" verticalCenter="0" width="695">
+		<e:Rect strokeColor="0xffffff" strokeWeight="3" ellipseWidth="20" ellipseHeight="20" fillColor="0xb3cb37" left="-5" right="-5" top="5" bottom="5"/>
+		<e:Label id="klbl" text="Everyone wears a mask and a costume." size="47" textColor="0x561108" fontFamily="Arial" bold="true" strokeColor="0xffffff" width="560" textAlign="center" verticalAlign="middle" top="20" bottom="20" horizontalCenter="0"/>
+	</e:Group>
 </e:Skin>

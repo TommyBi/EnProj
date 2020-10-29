@@ -65,6 +65,7 @@ var game;
             this.mCurPenIdx = -1;
             this.kComAnswer.visible = false;
             this.kComReplay.visible = true;
+            this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
             this.kComReplay.showStart();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
         };
@@ -77,11 +78,11 @@ var game;
             }
             this.kImgPen.visible = false;
             this.mCurSelectIdx = -1;
-            this.kImgArrow.visible = false;
         };
         LookMatchView.prototype.onReStart = function () {
             this.kComReplay.visible = false;
             this.kComAnswer.visible = false;
+            this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
             this.onReset();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
             this.next();
@@ -109,15 +110,18 @@ var game;
             this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
-            this.kImgArrow.visible = true;
-            this.kImgArrow.x = this["kGrpStart" + this.mCurSelectIdx].x + 50;
-            this.kImgArrow.y = this["kGrpStart" + this.mCurSelectIdx].y + 50;
-            // 计算夹角
-            var dtX = Math.abs(this.kImgPen.x - this.kImgArrow.x);
-            var dtY = Math.abs(this.kImgPen.y - this.kImgArrow.y);
+            this["kImgArrow" + this.mCurSelectIdx].visible = true;
+            this["kImgArrow" + this.mCurSelectIdx].x = this["kGrpStart" + this.mCurSelectIdx].x + 50;
+            this["kImgArrow" + this.mCurSelectIdx].y = this["kGrpStart" + this.mCurSelectIdx].y + 50;
+            // 计算长度
+            var dtX = Math.abs(this.kImgPen.x - this["kImgArrow" + this.mCurSelectIdx].x);
+            var dtY = Math.abs(this.kImgPen.y - this["kImgArrow" + this.mCurSelectIdx].y);
             var length = Math.sqrt(dtX * dtX + dtY * dtY);
-            console.log("dtx: " + dtX + ",  dty: " + dtY + "  length: " + length);
-            this.kImgArrow.width = length > 150 ? length : 150;
+            this["kImgArrow" + this.mCurSelectIdx].width = length > 150 ? length : 150;
+            // 计算夹角
+            var angle = 360 * Math.atan(dtY / dtX) / (2 * Math.PI);
+            console.log("dtx: " + dtX + ",  dty: " + dtY + "  length: " + length + " angle: " + angle);
+            this["kImgArrow" + this.mCurSelectIdx].rotation = this.kImgPen.y < this["kImgArrow" + this.mCurSelectIdx].y ? -angle : angle;
         };
         LookMatchView.prototype.onTouchEnd = function (e) {
             var _this = this;
@@ -128,6 +132,7 @@ var game;
             var idx = this.getTargetPoint(e.stageX, e.stageY);
             if (idx == -1) {
                 // 没有匹配项
+                this.kImgPen.visible = this["kImgArrow" + this.mCurSelectIdx].visible = false;
             }
             else {
                 // 判断是不是对应的匹配项
@@ -140,7 +145,7 @@ var game;
                     this.kComAnswer.visible = true;
                     this.kComAnswer.playErr(function () {
                         _this.kComAnswer.visible = false;
-                        _this.kImgPen.visible = _this.kImgArrow.visible = false;
+                        _this.kImgPen.visible = _this["kImgArrow" + _this.mCurSelectIdx].visible = false;
                         XDFSoundManager.play("sound_ss_option" + _this.mCurHint + "_mp3");
                     });
                 }

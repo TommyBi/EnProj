@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DialogComponentSkin" width="710" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group horizontalCenter="0" verticalCenter="0">
+		<e:Rect strokeColor="0xffffff" strokeWeight="3" ellipseWidth="20" ellipseHeight="20" fillColor="0xb3cb37" left="-5" right="-5" top="5" bottom="5"/>
+		<e:Label id="klbl" text="I need new clothes" size="47" textColor="0x561108" fontFamily="Arial" bold="true" strokeColor="0xffffff" width="690" textAlign="center" x="5" verticalAlign="middle" top="20" bottom="20"/>
+	</e:Group>
+</e:Skin>

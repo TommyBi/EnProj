@@ -20,7 +20,9 @@ namespace game {
         public kImgPen: eui.Image;
         public kComReplay: game.ReplayComponent;
         public kComAnswer: game.AnswerComponent;
-        public kImgArrow: eui.Image;
+        public kImgArrow2: eui.Image;
+        public kImgArrow0: eui.Image;
+        public kImgArrow1: eui.Image;
 
         private mCurSelectIdx = -1;         // 当前选中的起始位置
         private mHintOrder: number[] = [];  // 提示的顺序
@@ -74,6 +76,7 @@ namespace game {
             this.mCurPenIdx = -1;
             this.kComAnswer.visible = false;
             this.kComReplay.visible = true;
+            this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
             this.kComReplay.showStart();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
         }
@@ -87,12 +90,12 @@ namespace game {
             }
             this.kImgPen.visible = false;
             this.mCurSelectIdx = -1;
-            this.kImgArrow.visible = false;
         }
 
         private onReStart(): void {
             this.kComReplay.visible = false;
             this.kComAnswer.visible = false;
+            this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
             this.onReset();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
             this.next();
@@ -119,16 +122,19 @@ namespace game {
             this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
-            this.kImgArrow.visible = true;
-            this.kImgArrow.x = this[`kGrpStart${this.mCurSelectIdx}`].x + 50;
-            this.kImgArrow.y = this[`kGrpStart${this.mCurSelectIdx}`].y + 50;
+            this[`kImgArrow${this.mCurSelectIdx}`].visible = true;
+            this[`kImgArrow${this.mCurSelectIdx}`].x = this[`kGrpStart${this.mCurSelectIdx}`].x + 50;
+            this[`kImgArrow${this.mCurSelectIdx}`].y = this[`kGrpStart${this.mCurSelectIdx}`].y + 50;
 
-            // 计算夹角
-            let dtX = Math.abs(this.kImgPen.x - this.kImgArrow.x);
-            let dtY = Math.abs(this.kImgPen.y - this.kImgArrow.y);
+            // 计算长度
+            let dtX = Math.abs(this.kImgPen.x - this[`kImgArrow${this.mCurSelectIdx}`].x);
+            let dtY = Math.abs(this.kImgPen.y - this[`kImgArrow${this.mCurSelectIdx}`].y);
             let length = Math.sqrt(dtX * dtX + dtY * dtY);
-            console.log(`dtx: ${dtX},  dty: ${dtY}  length: ${length}`);
-            this.kImgArrow.width = length > 150 ? length : 150;
+            this[`kImgArrow${this.mCurSelectIdx}`].width = length > 150 ? length : 150;
+            // 计算夹角
+            let angle = 360 * Math.atan(dtY / dtX) / (2 * Math.PI);
+            console.log(`dtx: ${dtX},  dty: ${dtY}  length: ${length} angle: ${angle}`);
+            this[`kImgArrow${this.mCurSelectIdx}`].rotation = this.kImgPen.y < this[`kImgArrow${this.mCurSelectIdx}`].y ? -angle : angle;
 
         }
 
@@ -138,6 +144,7 @@ namespace game {
             let idx = this.getTargetPoint(e.stageX, e.stageY);
             if (idx == -1) {
                 // 没有匹配项
+                this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
             } else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
@@ -148,7 +155,7 @@ namespace game {
                     this.kComAnswer.visible = true;
                     this.kComAnswer.playErr(() => {
                         this.kComAnswer.visible = false;
-                        this.kImgPen.visible = this.kImgArrow.visible = false;
+                        this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
                         XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`);
                     });
                 }

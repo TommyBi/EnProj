@@ -18,12 +18,21 @@ var game;
         function DialogComponent() {
             var _this = _super.call(this) || this;
             _this.mArr = [
-                "It’s La Tomatina in Spain.",
+                "It's La Tomatina in Spain.",
                 "People throw tomatoes at each other.",
-                "It‘s HallowWeen in the U.S",
-                "Kits in costumes get lots of candy.",
-                "It‘s the Carnival of Venice in Italy.",
+                "it's Halloween in the U.S.",
+                "Kids in costumes get lots of candy.",
+                "It's the Carnival of Venice in Italy.",
                 "Everyone wears a mask and a costume."
+            ];
+            // [690, 47]
+            _this.mSizeCfg = [
+                [690, 94],
+                [600, 94],
+                [690, 94],
+                [490, 94],
+                [420, 94],
+                [560, 94],
             ];
             _this.skinName = "DialogComponentSkin";
             return _this;
@@ -42,7 +51,14 @@ var game;
         };
         DialogComponent.prototype.setData = function (idx) {
             this.mIdx = idx;
-            this.klbl.text = this.mArr[idx];
+            if (this.mIdx == -1) {
+                this.klbl.text = "";
+            }
+            else {
+                this.klbl.text = this.mArr[idx];
+                this.klbl.width = this.mSizeCfg[idx][0];
+                this.klbl.height = this.mSizeCfg[idx][1];
+            }
         };
         return DialogComponent;
     }(eui.Component));

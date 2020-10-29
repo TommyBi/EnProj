@@ -6,14 +6,23 @@ namespace game {
 
         public klbl: eui.Label;
 
-        private mIdx: number;
+        public mIdx: number;
         private mArr: string[] = [
-            "It’s La Tomatina in Spain.",
+            "It's La Tomatina in Spain.",
             "People throw tomatoes at each other.",
-            "It‘s HallowWeen in the U.S",
-            "Kits in costumes get lots of candy.",
-            "It‘s the Carnival of Venice in Italy.",
+            "it's Halloween in the U.S.",
+            "Kids in costumes get lots of candy.",
+            "It's the Carnival of Venice in Italy.",
             "Everyone wears a mask and a costume."
+        ];
+        // [690, 47]
+        private mSizeCfg: any[] = [
+            [690, 94],
+            [600, 94],
+            [690, 94],
+            [490, 94],
+            [420, 94],
+            [560, 94],
         ];
 
         public constructor() {
@@ -40,7 +49,13 @@ namespace game {
 
         private setData(idx: number): void {
             this.mIdx = idx;
-            this.klbl.text = this.mArr[idx];
+            if (this.mIdx == -1) {
+                this.klbl.text = "";
+            } else {
+                this.klbl.text = this.mArr[idx];
+                this.klbl.width = this.mSizeCfg[idx][0];
+                this.klbl.height = this.mSizeCfg[idx][1];
+            }
         }
     }
 
