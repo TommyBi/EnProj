@@ -133,7 +133,6 @@ namespace game {
             this[`kImgArrow${this.mCurSelectIdx}`].width = length > 150 ? length : 150;
             // 计算夹角
             let angle = 360 * Math.atan(dtY / dtX) / (2 * Math.PI);
-            console.log(`dtx: ${dtX},  dty: ${dtY}  length: ${length} angle: ${angle}`);
             this[`kImgArrow${this.mCurSelectIdx}`].rotation = this.kImgPen.y < this[`kImgArrow${this.mCurSelectIdx}`].y ? -angle : angle;
 
         }
@@ -145,6 +144,7 @@ namespace game {
             if (idx == -1) {
                 // 没有匹配项
                 this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
+                this.mCurSelectIdx == -1;
             } else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
@@ -205,7 +205,8 @@ namespace game {
         private selectPen(idx: number, e: egret.TouchEvent): void {
             this.mCurPenIdx = idx;
             this.kImgPen.source = `img_lm_pencil_${this.mCurPenIdx}_png`;
-            this.kImgPen.visible = true;
+            this[`kImgArrow${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
+            // this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         }
