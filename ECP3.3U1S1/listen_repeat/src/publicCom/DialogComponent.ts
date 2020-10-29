@@ -6,16 +6,19 @@ namespace game {
 
         public klbl: eui.Label;
 
-        private mIdx: number;
+        public mIdx: number;
         private mArr: string[] = [
-            "Cows do nothing.",
-            "That's not true.",
-            "Cows give us milk.",
-            "Chickens do nothing.",
-            "Chickens give us eggs.",
-            "Sheep do nothing.",
-            "Sheep give us wool.",
-            "All the animals work very hard."
+            "I live in a cold place.",
+            "I dress very warmly.",
+            "I live in a hot place.",
+            "I dress very lightly.",
+            "My house is made of snow.",
+            "My house is made of plants.",
+            "I always go sledding.",
+            "I always go swimming.",
+            "I have a dream.",
+            "Someday i want to swim.",
+            "Someday i want to ski."
         ];
 
         public constructor() {
@@ -42,7 +45,11 @@ namespace game {
 
         private setData(idx: number): void {
             this.mIdx = idx;
-            this.klbl.text = this.mArr[idx];
+            if (this.mIdx == -1) {
+                this.klbl.text = "";
+            } else {
+                this.klbl.text = this.mArr[idx];
+            }
         }
     }
 

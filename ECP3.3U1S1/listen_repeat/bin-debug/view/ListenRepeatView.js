@@ -14,29 +14,84 @@ var game;
         __extends(ListenRepeatView, _super);
         function ListenRepeatView() {
             var _this = _super.call(this) || this;
+            _this.mSkinType = 2; // 皮肤类型
+            _this.mTotalCount = 11; // 总的对话数量
+            _this._mCurPage = 0;
+            _this.mPageCfg = [[0, 5], [6, 10]]; // 页面配置
             _this.skinName = "ListenRepeatViewSkin";
             return _this;
         }
+        Object.defineProperty(ListenRepeatView.prototype, "mCurPage", {
+            get: function () { return this._mCurPage; } // 当前页面
+            ,
+            set: function (n) {
+                this._mCurPage = n;
+                this.changePage();
+            },
+            enumerable: true,
+            configurable: true
+        });
         ;
         ListenRepeatView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
-            for (var i = 0; i < 8; i++) {
-                this["kCom" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
-                this["kCom" + i].setData(i);
-            }
+            this.kImgBtnNext.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onNextPage, this);
+            this.kImgBtnPre.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPrePage, this);
             this.init();
         };
         ListenRepeatView.prototype.init = function () {
-            this.kComVideo.setSkinType(1);
+            this.kComVideo.setSkinType(this.mSkinType);
             this.mCurPlayIdx = -1;
+            this.mCurPage = 0;
+        };
+        /** 切换页签 */
+        ListenRepeatView.prototype.changePage = function () {
+            var cfg = this.mPageCfg[this.mCurPage];
+            for (var i = 0; i < 8; i++) {
+                this["kCom" + i].visible = this["kCom" + i].includeInLayout = i < (cfg[1] - cfg[0] + 1);
+                if (this["kCom" + i].visible) {
+                    this["kCom" + i].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+                    this["kCom" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
+                    this["kCom" + i].setData(cfg[0] + i);
+                }
+                else {
+                    this["kCom" + i].setData(-1);
+                }
+            }
+            if (this.mCurPage >= this.mPageCfg.length - 1) {
+                this.kImgBtnNext.visible = false;
+            }
+            else {
+                this.kImgBtnNext.visible = true;
+            }
+            if (this.mCurPage == 0) {
+                this.kImgBtnPre.visible = false;
+            }
+            else {
+                this.kImgBtnPre.visible = true;
+            }
+        };
+        ListenRepeatView.prototype.onNextPage = function () {
+            if (this.mCurPage >= this.mPageCfg.length - 1) {
+                // 已经是最后一页
+                return;
+            }
+            else {
+                this.mCurPage++;
+            }
+        };
+        ListenRepeatView.prototype.onPrePage = function () {
+            if (this.mCurPage <= 0)
+                return;
+            this.mCurPage--;
         };
         ListenRepeatView.prototype.onTouch = function (e) {
-            this.mCurPlayIdx = Number(e.target.name);
+            var tar = e.target;
+            this.mCurPlayIdx = tar.mIdx;
             for (var i = 0; i < 8; i++) {
-                if (this.mCurPlayIdx == i) {
-                    egret.log("选中:", e.target.name);
+                var com = this["kCom" + i];
+                if (com.mIdx == this.mCurPlayIdx) {
                     this["kCom" + i].light();
-                    this.kComVideo.play(i);
+                    this.kComVideo.play(this.mCurPlayIdx);
                 }
                 else {
                     this["kCom" + i].normal();

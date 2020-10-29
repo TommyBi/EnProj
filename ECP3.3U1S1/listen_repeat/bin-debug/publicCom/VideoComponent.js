@@ -45,6 +45,7 @@ var game;
             this.kRect.alpha = 1;
             this.kImgMaskPrePlay.visible = false;
             egret.Tween.removeTweens(this.kRect);
+            egret.log("load idx: ", idx);
             this.mVideo.load("resource/assets/video/" + idx + ".mp4");
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);

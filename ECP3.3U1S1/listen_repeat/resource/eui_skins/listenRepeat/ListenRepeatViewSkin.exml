@@ -19,4 +19,6 @@
 		<game:VideoComponent id="kComVideo" skinName="VideoComponentSkin" x="191.61" y="71.79"/>
 		<e:Image source="img_tv_png" x="0" y="0" anchorOffsetY="0" height="632.11" touchEnabled="false" scale9Grid="893,653,107,26" anchorOffsetX="0" width="926.85"/>
 	</e:Group>
+	<e:Image id="kImgBtnNext" source="img_btn_play_n_png" y="316.76" scaleX="0.5" scaleY="0.5" right="280"/>
+	<e:Image id="kImgBtnPre" source="img_btn_play_n_png" y="318.76" scaleX="-0.5" scaleY="0.5" left="280"/>
 </e:Skin>
