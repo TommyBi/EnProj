@@ -78,4 +78,3 @@ var game;
     game.VideoComponent = VideoComponent;
     __reflect(VideoComponent.prototype, "game.VideoComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=VideoComponent.js.map

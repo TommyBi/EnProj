@@ -31,4 +31,3 @@ var game;
     game.LetsWatchView = LetsWatchView;
     __reflect(LetsWatchView.prototype, "game.LetsWatchView");
 })(game || (game = {}));
-//# sourceMappingURL=LetsWatchView.js.map

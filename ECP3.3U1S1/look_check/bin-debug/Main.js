@@ -122,22 +122,14 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/")];
                     case 1:
                         _a.sent();
-                        // await RES.loadGroup("loading");
                         return [4 /*yield*/, RES.loadGroup("preload")];
                     case 2:
-                        // await RES.loadGroup("loading");
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("sound")];
                     case 3:
                         _a.sent();
-                        // DragonFun.resetDragon("loading");
-                        // const loadingView = new LoadingUI();
-                        // this.stage.addChild(loadingView);
                         return [4 /*yield*/, this.loadTheme()];
                     case 4:
-                        // DragonFun.resetDragon("loading");
-                        // const loadingView = new LoadingUI();
-                        // this.stage.addChild(loadingView);
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("public")];
                     case 5:
@@ -145,7 +137,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("db")];
                     case 6:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("letsPlay")];
+                        return [4 /*yield*/, RES.loadGroup("look_check")];
                     case 7:
                         _a.sent();
                         return [3 /*break*/, 9];

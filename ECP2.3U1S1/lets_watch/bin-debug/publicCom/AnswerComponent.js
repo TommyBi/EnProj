@@ -83,4 +83,3 @@ var game;
     game.AnswerComponent = AnswerComponent;
     __reflect(AnswerComponent.prototype, "game.AnswerComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=AnswerComponent.js.map

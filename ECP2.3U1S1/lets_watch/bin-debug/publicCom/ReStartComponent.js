@@ -69,4 +69,3 @@ var game;
     game.ReStartComponent = ReStartComponent;
     __reflect(ReStartComponent.prototype, "game.ReStartComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=ReStartComponent.js.map

@@ -63,18 +63,12 @@ class Main extends eui.UILayer {
     private async loadResource() {
         try {
             await RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/");
-            // await RES.loadGroup("loading");
             await RES.loadGroup("preload");
             await RES.loadGroup("sound");
-            // DragonFun.resetDragon("loading");
-            // const loadingView = new LoadingUI();
-            // this.stage.addChild(loadingView);
             await this.loadTheme();
             await RES.loadGroup("public");
             await RES.loadGroup("db");
-            await RES.loadGroup("look_match");
-            // DragonFun.resetDragon("preload");
-            // this.stage.removeChild(loadingView);
+            await RES.loadGroup("look_check");
         }
         catch (e) {
             console.error(e);
@@ -98,8 +92,8 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let LetsPlayView = new game.LetsPlayView();
-        XDFFrame.LayerManager.UI_View.addChild(LetsPlayView);
+        let lookCheckView = new game.LookCheckView();
+        XDFFrame.LayerManager.UI_View.addChild(lookCheckView);
     }
 
     private async loadMusic() {

@@ -38,4 +38,3 @@ var XDFFrame;
     XDFFrame.EventCenter = EventCenter;
     __reflect(EventCenter.prototype, "XDFFrame.EventCenter");
 })(XDFFrame || (XDFFrame = {}));
-//# sourceMappingURL=EventCenter.js.map

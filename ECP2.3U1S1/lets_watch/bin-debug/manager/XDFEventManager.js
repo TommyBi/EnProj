@@ -43,4 +43,3 @@ var XDFEventManager = (function (_super) {
     return XDFEventManager;
 }(egret.EventDispatcher));
 __reflect(XDFEventManager.prototype, "XDFEventManager");
-//# sourceMappingURL=XDFEventManager.js.map

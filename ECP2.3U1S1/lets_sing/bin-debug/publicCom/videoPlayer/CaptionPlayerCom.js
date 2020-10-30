@@ -84,6 +84,7 @@ var game;
                 console.log("视频尚未加载完成");
             }
             else {
+                this.mIsPlaying = true;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
