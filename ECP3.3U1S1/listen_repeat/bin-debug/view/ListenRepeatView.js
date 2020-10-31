@@ -39,6 +39,7 @@ var game;
             this.init();
         };
         ListenRepeatView.prototype.init = function () {
+            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             this.kComVideo.setSkinType(this.mSkinType);
             this.mCurPlayIdx = -1;
             this.mCurPage = 0;
@@ -56,6 +57,10 @@ var game;
                 else {
                     this["kCom" + i].setData(-1);
                 }
+            }
+            if (this.mPageCfg.length == 1) {
+                this.kImgBtnPre.visible = this.kImgBtnNext.visible = false;
+                return;
             }
             if (this.mCurPage >= this.mPageCfg.length - 1) {
                 this.kImgBtnNext.visible = false;

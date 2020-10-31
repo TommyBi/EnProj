@@ -31,7 +31,7 @@ var game;
         ReStartComponent.prototype.playActionStart = function () {
             this.hideAll();
             if (!this.mAnimStart) {
-                this.mAnimStart = XDFFrame.DBFactory.createAnim("db_start");
+                this.mAnimStart = XDFFrame.DBFactory.createAnim("db_start", 3);
                 this.mAnimStart.setProtery({ parent: this.kGrpStart, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpStart.visible = true;
@@ -41,7 +41,7 @@ var game;
         ReStartComponent.prototype.playActionTimeOut = function () {
             this.hideAll();
             if (!this.mAnimTimeOut) {
-                this.mAnimTimeOut = XDFFrame.DBFactory.createAnim("db_timeOut");
+                this.mAnimTimeOut = XDFFrame.DBFactory.createAnim("db_timeOut", 2);
                 this.mAnimTimeOut.setProtery({ parent: this.kGrpTimeOut, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpTimeOut.visible = true;
@@ -51,7 +51,7 @@ var game;
         ReStartComponent.prototype.playActionGoodJob = function () {
             this.hideAll();
             if (!this.mAnimGoodJob) {
-                this.mAnimGoodJob = XDFFrame.DBFactory.createAnim("db_goodJob");
+                this.mAnimGoodJob = XDFFrame.DBFactory.createAnim("db_goodJob", 3);
                 this.mAnimGoodJob.setProtery({ parent: this.kGrpGoodJob, scaleX: 1.2, scaleY: 1.2 });
             }
             this.kGrpGoodJob.visible = true;
