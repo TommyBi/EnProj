@@ -4,5 +4,7 @@ namespace game {
         public static eventReplay = "eventReplay";
         public static startComPlayGame = "startComPlayGame";
         public static timeBarOut = "timeBarOut";
+        public static eventStart = "eventStart";
+        public static lookCheckSelectResult = "lookCheckSelectResult";
     }
 }

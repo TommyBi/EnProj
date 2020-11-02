@@ -168,8 +168,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var LetsPlayView = new game.LetsPlayView();
-        XDFFrame.LayerManager.UI_View.addChild(LetsPlayView);
+        var lookCheckView = new game.LookCheckView();
+        XDFFrame.LayerManager.UI_View.addChild(lookCheckView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

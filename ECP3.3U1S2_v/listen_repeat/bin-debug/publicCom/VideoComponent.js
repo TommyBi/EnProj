@@ -43,7 +43,7 @@ var game;
         /** 播放的视频索引 */
         VideoComponent.prototype.play = function (idx) {
             this.kRect.alpha = 1;
-            this.kImgMaskPrePlay.visible = false;
+            this.kImgMaskPrePlay.visible = true;
             egret.Tween.removeTweens(this.kRect);
             egret.log("load idx: ", idx);
             this.mVideo.load("resource/assets/video/" + idx + ".mp4");
@@ -54,6 +54,7 @@ var game;
         VideoComponent.prototype.onLoad = function () {
             this.mVideo.play(0, false);
             this.kRect.alpha = 1;
+            this.kImgMaskPrePlay.visible = false;
             egret.Tween.get(this.kRect).to({ alpha: 0 }, 500, egret.Ease.cubicOut);
             //获取视频长度
             console.log("获取视频长度: " + this.mVideo.length);

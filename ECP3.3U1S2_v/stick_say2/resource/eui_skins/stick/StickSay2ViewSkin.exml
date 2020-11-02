@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="StickSay2ViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0"/>
-	<e:Group scaleX="1.77" scaleY="1.77" horizontalCenter="0" verticalCenter="0">
-		<e:Image source="img_ss_bg_png" x="0" y="0"/>
-		<e:Image id="kImgMask0" source="img_ss_mask_0_png" x="491.31" y="82.35"/>
+	<e:Image source="img_ss_bg_png" scaleX="1.77" scaleY="1.77" horizontalCenter="0" verticalCenter="0"/>
+	<e:Rect width="330.93" fillColor="0xE39E4B" top="0" bottom="0" anchorOffsetX="0" x="244.44"/>
+	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true"/>
+	<e:Group scaleX="1.77" scaleY="1.77" horizontalCenter="0" verticalCenter="0" width="810" height="610">
+		<e:Image id="kImgMask0" source="img_ss_mask_0_png" x="494.31" y="82.35"/>
 		<e:Image id="kImgMaskLine0" source="img_ss_mask_line_0_png" x="492.85" y="80.34"/>
 		<e:Image id="kImgMask1" source="img_ss_mask_1_png" x="271.89" y="32.44"/>
 		<e:Image id="kImgMaskLine1" source="img_ss_mask_line_1_png" x="270.42" y="34.41"/>
@@ -18,9 +20,7 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true"/>
-	<game:AnswerComponent id="kComAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
-	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="289" bottom="65" visible="false"/>
+	<e:Rect width="280.6" x="1396.91" fillColor="0xe39e4b" anchorOffsetX="0" top="0" bottom="0"/>
 	<e:Group id="kGrpDesc0" x="1009.41" y="527.36" locked="true">
 		<e:Label text="Kids in costumes" x="0" y="0" textColor="0x000000" stroke="4" strokeColor="0xffffff" size="50" anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle"/>
 		<e:Label text="get lots of" x="10" y="10" textColor="0x000000" stroke="4" strokeColor="0xFFFFFF" size="50" anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle"/>
@@ -43,4 +43,6 @@
 		<e:VerticalLayout horizontalAlign="left"/>
 		</e:layout>
 	</e:Group>
+	<game:AnswerComponent id="kComAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="289" bottom="65" visible="false"/>
 </e:Skin>

@@ -14,10 +14,10 @@ var game;
         __extends(ListenRepeatView, _super);
         function ListenRepeatView() {
             var _this = _super.call(this) || this;
-            _this.mSkinType = 2; // 皮肤类型
-            _this.mTotalCount = 11; // 总的对话数量
+            _this.mSkinType = 0; // 皮肤类型
+            _this.mTotalCount = 8; // 总的对话数量
             _this._mCurPage = 0;
-            _this.mPageCfg = [[0, 5], [6, 10]]; // 页面配置
+            _this.mPageCfg = [[0, 7]]; // 页面配置
             _this.skinName = "ListenRepeatViewSkin";
             return _this;
         }
@@ -39,6 +39,7 @@ var game;
             this.init();
         };
         ListenRepeatView.prototype.init = function () {
+            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             this.kComVideo.setSkinType(this.mSkinType);
             this.mCurPlayIdx = -1;
             this.mCurPage = 0;
@@ -56,6 +57,10 @@ var game;
                 else {
                     this["kCom" + i].setData(-1);
                 }
+            }
+            if (this.mPageCfg.length == 1) {
+                this.kImgBtnPre.visible = this.kImgBtnNext.visible = false;
+                return;
             }
             if (this.mCurPage >= this.mPageCfg.length - 1) {
                 this.kImgBtnNext.visible = false;

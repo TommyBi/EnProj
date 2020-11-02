@@ -1,6 +1,7 @@
 namespace game {
     export class ListenRepeatView extends eui.Component {
 
+        public kImgBg: eui.Image;
         public kCom0: game.DialogComponent;
         public kCom1: game.DialogComponent;
         public kCom2: game.DialogComponent;
@@ -15,15 +16,15 @@ namespace game {
 
         private mCurPlayIdx: number; // 当前正在播放的索引
 
-        private mSkinType: number = 2;      // 皮肤类型
-        private mTotalCount: number = 11;   // 总的对话数量
+        private mSkinType: number = 0;      // 皮肤类型
+        private mTotalCount: number = 8;   // 总的对话数量
         private _mCurPage: number = 0;
         private get mCurPage(): number { return this._mCurPage; }// 当前页面
         private set mCurPage(n: number) {
             this._mCurPage = n;
             this.changePage();
         }
-        private mPageCfg: any = [[0, 5], [6, 10]];     // 页面配置
+        private mPageCfg: any[] = [[0, 7]];     // 页面配置
 
         constructor() {
             super();
@@ -38,6 +39,7 @@ namespace game {
         }
 
         private init(): void {
+            this.kImgBg.source = `img_bg_${this.mSkinType}_png`;
             this.kComVideo.setSkinType(this.mSkinType);
             this.mCurPlayIdx = -1;
             this.mCurPage = 0;
@@ -55,6 +57,11 @@ namespace game {
                 } else {
                     this[`kCom${i}`].setData(-1);
                 }
+            }
+
+            if (this.mPageCfg.length == 1) {
+                this.kImgBtnPre.visible = this.kImgBtnNext.visible = false;
+                return;
             }
 
             if (this.mCurPage >= this.mPageCfg.length - 1) {

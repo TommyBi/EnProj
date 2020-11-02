@@ -68,7 +68,6 @@ namespace game {
         private reset(): void {
             for (let i = 0; i < 3; i++) {
                 this[`kGrpDesc${i}`].visible = false;
-                this[`mAnimRole${i}`].visible = false;
                 this[`kImgMask${i}`].visible = true;
                 this[`kImgMaskLine${i}`].visible = true;
                 this[`kImgOption${i}`].visible = true;
@@ -133,7 +132,6 @@ namespace game {
             if (touch == this.mCurHint) {
                 // 正确
                 // play anim
-                this[`mAnimRole${this.mCurHint}`].visible = true;
                 this[`mAnimRole${this.mCurHint}`].play(null, 4);
                 // show desc
                 this[`kGrpDesc${this.mCurHint}`].visible = true;

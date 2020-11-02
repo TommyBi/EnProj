@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSayViewNewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Image source="img_stick_bg_png" anchorOffsetX="0" width="1616.06" anchorOffsetY="0" height="1091.07" verticalCenter="0" horizontalCenter="0" locked="true"/>
+	<e:Image id="kImgFrame0" source="img_frame_png" x="350" y="550" scaleX="0.2" scaleY="0.2"/>
+	<e:Image source="img_frame_png" x="482" y="548" id="kImgFrame1" scaleX="0.2" scaleY="0.2"/>
+	<e:Image source="img_frame_png" x="600" y="548" id="kImgFrame2" scaleX="0.2" scaleY="0.2"/>
+	<e:Image source="img_frame_png" x="728" y="546" id="kImgFrame3" scaleX="0.2" scaleY="0.2"/>
+	<e:Image id="kImgBodyBtn0" source="img_role_l_0_png" x="203.39" y="590.43" scaleX="0.5" scaleY="0.5"/>
+	<e:Image id="kImgBodyBtn1" source="img_role_l_1_png" x="370.67" y="590.67" scaleX="0.5" scaleY="0.5"/>
+	<e:Image id="kImgBodyBtn2" source="img_role_l_2_png" x="584.5" y="590.59" scaleX="0.5" scaleY="0.5"/>
+	<e:Image id="kImgBodyBtn3" source="img_role_l_3_png" x="769.24" y="586" scaleX="0.5" scaleY="0.5"/>
+	<e:Image id="kImgBody0" source="img_role_b_0_png" y="428" scaleX="0.5" scaleY="0.5" horizontalCenter="358"/>
+	<e:Image id="kImgBody1" y="428" scaleX="0.5" scaleY="0.5" horizontalCenter="356" source="img_role_b_1_png"/>
+	<e:Image id="kImgBody2" y="446" scaleX="0.48" scaleY="0.48" horizontalCenter="346" source="img_role_b_2_png"/>
+	<e:Image id="kImgBody3" y="428" scaleX="0.5" scaleY="0.5" horizontalCenter="356" source="img_role_b_3_png"/>
+	<e:Image id="kImgCoat0" source="img_coat_0_png" x="1168" y="636" scaleX="0.7" scaleY="0.7"/>
+	<e:Image id="kImgCoat1" source="img_coat_1_png" x="1236" y="904" scaleX="0.7" scaleY="0.7"/>
+	<e:Image id="kImgCoat2" source="img_coat_2_png" x="1214" y="496" scaleX="0.7" scaleY="0.7"/>
+	<e:Image id="kImgCoat3" source="img_coat_3_png" x="1208" y="972" scaleX="0.7" scaleY="0.7"/>
+	<e:Image source="img_coat_0_png" x="312" y="324" scaleX="0.4" scaleY="0.4" locked="true"/>
+	<e:Image source="img_coat_1_png" x="480" y="392" scaleX="0.4" scaleY="0.4" locked="true"/>
+	<e:Image source="img_coat_2_png" x="584" y="400" scaleX="0.4" scaleY="0.4" locked="true"/>
+	<e:Image source="img_coat_3_png" x="704" y="416" scaleX="0.4" scaleY="0.4" locked="true"/>
+	<e:Image id="kImgPanel" source="img_hint_panel_0_png" x="1072" y="268" scaleX="2" scaleY="2"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" locked="true" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" bottom="50" right="173" locked="true" visible="false"/>
+</e:Skin>

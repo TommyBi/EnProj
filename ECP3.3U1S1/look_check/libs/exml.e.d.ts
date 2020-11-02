@@ -2,7 +2,9 @@ declare class MainViewSkin extends eui.Skin{
 }
 declare class LetsPlaySkin extends eui.Skin{
 }
-declare class LookMatchViewSkin extends eui.Skin{
+declare class LookCheckPreComSkin extends eui.Skin{
+}
+declare class LookCheckViewSkin extends eui.Skin{
 }
 declare class AnswerComponentSkin extends eui.Skin{
 }

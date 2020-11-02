@@ -2,10 +2,10 @@
 <e:Skin class="LookCheckViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:game="game.*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image source="img_lc_bg_png" anchorOffsetX="0" width="1920.92" anchorOffsetY="0" height="1489.03" horizontalCenter="0" verticalCenter="0"/>
 	<e:Group id="kGrpCom" verticalCenter="0" horizontalCenter="0">
-		<game:LookCheckPreCom skinName="LookCheckPreComSkin" x="0" y="0"/>
-		<game:LookCheckPreCom skinName="LookCheckPreComSkin" x="0" y="0"/>
 		<e:layout>
 			<e:VerticalLayout gap="0"/>
 		</e:layout>
 	</e:Group>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" y="830" x="1670" visible="false"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
 </e:Skin>

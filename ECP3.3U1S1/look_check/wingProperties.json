@@ -2,7 +2,7 @@
     "resourcePlugin": {
         "configs": [
             {
-                "configPath": "resource/eui_skins/default.res.json",
+                "configPath": "resource/default.res.json",
                 "relativePath": "resource/"
             }
         ],
