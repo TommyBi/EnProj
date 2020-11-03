@@ -18,14 +18,14 @@ var game;
         function DialogComponent() {
             var _this = _super.call(this) || this;
             _this.mArr = [
-                "Mom! This shirt is too small.",
-                "Take off your shirt, Tony.",
-                "These pants are too small.",
-                "Take off your pants.",
-                "I need new clothes.",
-                "Put on your shirt.",
-                "Put on your pants.",
-                "These are for you."
+                "I have a dog.",
+                "I have a cat.",
+                "They don't like each other.",
+                "I dont't like that dog.",
+                "I dont't like that cat.",
+                "Good job,you guys!",
+                "I like this dog.",
+                "I like this cat."
             ];
             _this.skinName = "DialogComponentSkin";
             return _this;
@@ -37,10 +37,10 @@ var game;
         DialogComponent.prototype.init = function () {
         };
         DialogComponent.prototype.light = function () {
-            this.klbl.textColor = 0xfc9c00;
+            this.klbl.textColor = 0xe66b27;
         };
         DialogComponent.prototype.normal = function () {
-            this.klbl.textColor = 0xffffff;
+            this.klbl.textColor = 0x561108;
         };
         DialogComponent.prototype.setData = function (idx) {
             this.mIdx = idx;

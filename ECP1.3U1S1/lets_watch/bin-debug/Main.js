@@ -118,28 +118,25 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 6, , 7]);
+                        _a.trys.push([0, 5, , 6]);
                         return [4 /*yield*/, RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/")];
                     case 1:
                         _a.sent();
                         return [4 /*yield*/, RES.loadGroup("preload")];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("sound")];
+                        return [4 /*yield*/, this.loadTheme()];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, this.loadTheme()];
+                        return [4 /*yield*/, RES.loadGroup("public")];
                     case 4:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("public")];
+                        return [3 /*break*/, 6];
                     case 5:
-                        _a.sent();
-                        return [3 /*break*/, 7];
-                    case 6:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 7];
-                    case 7: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });

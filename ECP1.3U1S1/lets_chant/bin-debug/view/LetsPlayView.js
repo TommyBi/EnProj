@@ -14,161 +14,204 @@ var game;
         __extends(LetsPlayView, _super);
         function LetsPlayView() {
             var _this = _super.call(this) || this;
-            _this.mPlayTimes = 0;
-            _this.mHintArr = [];
-            _this.mCurrentHint = "";
+            _this.mOptionCount = 4;
+            _this.mCurShowArr = []; // 当前显示的序列
+            _this.mHintWords = [
+                "I like dogs.",
+                "I don't like dogs.",
+                "I like cats.",
+                "I don't like cats."
+            ];
+            _this.mHintQueue = []; // 当前已经提示过得队列
+            _this.mCurHintIdx = 0; // 当前正在提示的队列索引
+            _this._canSelect = false;
             _this.skinName = "LetsPlaySkin";
             return _this;
         }
+        Object.defineProperty(LetsPlayView.prototype, "canSelect", {
+            get: function () { return this._canSelect; },
+            set: function (b) {
+                this._canSelect = b;
+                for (var i = 0; i < this.mOptionCount; i++) {
+                    this["kImgOption" + i].touchEnabled = b;
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
         ;
         LetsPlayView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
+            // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(game.EventConst.startComPlayGame, this.onStart, this);
-            this.kGrpOption0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch0, this);
-            this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch1, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.timeBarOut, this.onTimeOut, this);
+            for (var i = 0; i < this.mOptionCount; i++) {
+                this["kImgOption" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this["onChoise" + i], this);
+            }
+            // 初始化动画
+            this.mAnimRoleRight = XDFFrame.DBFactory.createAnim("db_right");
+            this.mAnimRoleRight.setProtery({ x: 70, y: -20, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleErr = XDFFrame.DBFactory.createAnim("db_wrong", 9);
+            this.mAnimRoleErr.setProtery({ x: 50, y: 30, parent: this.kGrpRoleAnim, scaleX: 0.95, scaleY: 0.95 });
+            this.mAnimRoleIdle = XDFFrame.DBFactory.createAnim("db_idle");
+            this.mAnimRoleIdle.setProtery({ x: 50, y: 50, parent: this.kGrpRoleAnim, scaleX: 0.5, scaleY: 0.5 });
+            this.mAnimRoleErr.visible = this.mAnimRoleIdle.visible = this.mAnimRoleRight.visible = false;
             this.init();
         };
         LetsPlayView.prototype.init = function () {
-            egret.Tween.removeTweens(this.kImgBar);
-            this.kImgBar.width = 520;
+            this.kComBar.reset();
             this.kComRestart.visible = true;
             this.kComRestart.playActionStart();
-            this.kImgHint.mask = this.kImgMask;
-            // init DBAnim
-            this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
-            this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch");
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
-            this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump");
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
-            this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepIdle.visible = true;
-            this.mAnimSheepIdle.play(null, 0);
+            // 默认不显示待选的选项
+            for (var i = 0; i < this.mOptionCount; i++) {
+                this["kImgOption" + i].visible = false;
+            }
+            this.kGrpRoleAnim.visible = false;
+            this.kLabelDesc.text = "";
         };
+        /** 重置到初始化状态 */
+        LetsPlayView.prototype.reset = function () {
+            // 默认不显示待选的选项
+            for (var i = 0; i < this.mOptionCount; i++) {
+                this["kImgOption" + i].visible = false;
+            }
+            this.kGrpRoleAnim.visible = false;
+            this.kLabelDesc.text = "";
+            this.kComBar.reset();
+        };
+        /** 开始游戏 */
         LetsPlayView.prototype.onStart = function () {
+            // 提示队列
+            for (var i = 0; i < this.mOptionCount; i++) {
+                this.mHintQueue.push(i);
+            }
+            // 隐藏结束组件
             this.kComRestart.visible = false;
-            this.prepareOder();
-            this.hint();
+            // 随机显示的位置
+            this.calShowOrder();
+            // 显示npc动画
+            this.kGrpRoleAnim.visible = true;
+            this.palyRoleAnim("idle");
+            // 开始
+            this.canSelect = false;
+            this.next();
         };
-        LetsPlayView.prototype.playCountDown = function () {
+        /** 切换角色动画显示 */
+        LetsPlayView.prototype.palyRoleAnim = function (type, cb) {
+            switch (type) {
+                case "idle":
+                    this.mAnimRoleIdle.visible = true;
+                    this.mAnimRoleErr.visible = this.mAnimRoleRight.visible = false;
+                    this.mAnimRoleIdle.play(null, 0);
+                    break;
+                case "right":
+                    this.mAnimRoleRight.visible = true;
+                    this.mAnimRoleErr.visible = this.mAnimRoleIdle.visible = false;
+                    this.mAnimRoleRight.play(null, 1, cb, this);
+                    break;
+                case "err":
+                    this.mAnimRoleErr.visible = true;
+                    this.mAnimRoleRight.visible = this.mAnimRoleIdle.visible = false;
+                    this.mAnimRoleErr.play(null, 1, cb, this);
+                    break;
+            }
+        };
+        /** 初始化播放顺序 */
+        LetsPlayView.prototype.calShowOrder = function () {
+            this.mCurShowArr = [];
+            this.produceOrderArr();
+            for (var i = 0; i < this.mCurShowArr.length; i++) {
+                // format img
+                this["kImgOption" + i].visible = true;
+                this["kImgOption" + i].source = "img_lp_option" + this.mCurShowArr[i] + "_png";
+                this["kImgOption" + i].name = this.mCurShowArr[i];
+            }
+        };
+        /** 生产随机队列 */
+        LetsPlayView.prototype.produceOrderArr = function () {
+            if (this.mCurShowArr.length < 4) {
+                var idx = Util.randomNum(0, 3);
+                if (this.mCurShowArr.indexOf(idx) == -1) {
+                    this.mCurShowArr.push(idx);
+                    if (this.mCurShowArr.length < 4) {
+                        this.produceOrderArr();
+                    }
+                }
+                else {
+                    this.produceOrderArr();
+                }
+            }
+        };
+        /** 下一步 */
+        LetsPlayView.prototype.next = function () {
+            if (this.mHintQueue.length <= 0) {
+                // 完成
+                this.reset();
+                this.kComRestart.visible = true;
+                this.kComRestart.playActionGoodJob();
+                return;
+            }
+            ;
+            this.mCurHintIdx = this.mHintQueue.shift();
+            this.playHintAction();
+            this.kComBar.play();
+        };
+        LetsPlayView.prototype.playHintAction = function () {
             var _this = this;
-            egret.Tween.removeTweens(this.kImgBar);
-            this.kImgBar.width = 520;
-            egret.Tween.get(this.kImgBar).to({ width: 0 }, 8000).call(function () {
-                _this.kComRestart.visible = true;
-                _this.kComRestart.playActionTimeOut();
-                XDFSoundManager.play("sound_die_mp3");
+            XDFSoundManager.play("sound_lp_option" + this.mCurHintIdx + "_mp3", 0, 1, 1, "sound_lp_option" + this.mCurHintIdx + "_mp3", function () {
+                _this.canSelect = true;
+            });
+            this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
+        };
+        LetsPlayView.prototype.onChoise0 = function () {
+            this.judge(0);
+        };
+        LetsPlayView.prototype.onChoise1 = function () {
+            this.judge(1);
+        };
+        LetsPlayView.prototype.onChoise2 = function () {
+            this.judge(2);
+        };
+        LetsPlayView.prototype.onChoise3 = function () {
+            this.judge(3);
+        };
+        LetsPlayView.prototype.judge = function (num) {
+            if (this["kImgOption" + num].name == String(this.mCurHintIdx)) {
+                // TODO: correct
+                this.onSelectRight();
+            }
+            else {
+                // TODO: err
+                this.onSelectErr();
+            }
+        };
+        /** 选择正确 */
+        LetsPlayView.prototype.onSelectRight = function () {
+            var _this = this;
+            this.kComBar.reset();
+            this.canSelect = false;
+            XDFSoundManager.play("sound_ding_mp3");
+            XDFSoundManager.play("sound_lp_choise_right_mp3");
+            this.palyRoleAnim("right", function () {
+                _this.palyRoleAnim("idle");
+                _this.next();
             });
         };
-        LetsPlayView.prototype.prepareOder = function () {
-            if (this.mPlayTimes % 2 == 0) {
-                this.mHintArr = ["shirt", "pants"];
-            }
-            else {
-                this.mHintArr = ["pants", "shirt"];
-            }
-        };
-        LetsPlayView.prototype.hint = function () {
-            if (this.mPlayTimes % 2 == 0) {
-                this.kGrpOption0.name = "shirt";
-                this.kImgOption0.source = "img_lp_shirt_png";
-                this.kGrpOption1.name = "pants";
-                this.kImgOption1.source = "img_lp_pants_png";
-            }
-            else {
-                this.kGrpOption1.name = "shirt";
-                this.kImgOption1.source = "img_lp_shirt_png";
-                this.kGrpOption0.name = "pants";
-                this.kImgOption0.source = "img_lp_pants_png";
-            }
-            this.mCurrentHint = this.mHintArr.shift();
-            XDFSoundManager.play("sound_" + this.mCurrentHint + "_mp3");
-            this.kImgHint.source = "img_lp_hint_" + this.mCurrentHint + "_png";
-            this.playCountDown();
-        };
-        LetsPlayView.prototype.playSheepCatch = function (cb) {
+        /** 选择错误 */
+        LetsPlayView.prototype.onSelectErr = function () {
             var _this = this;
-            this.kGrpSheepIdle.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepCatch.visible = true;
-            this.mAnimSheepCatch.play(null, 1, function () {
-                _this.kGrpSheepCatch.visible = false;
-                _this.playSheepIdle();
-                cb && cb();
-            }, this);
-        };
-        LetsPlayView.prototype.playSheepIdle = function () {
-            this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
-            this.kGrpSheepIdle.visible = true;
-            this.mAnimSheepIdle.play(null, 0);
-        };
-        LetsPlayView.prototype.playSheepJump = function (cb) {
-            var _this = this;
-            this.kGrpSheepCatch.visible = this.kGrpSheepIdle.visible = false;
-            this.kGrpSheepJump.visible = true;
-            this.mAnimSheepJump.play(null, 1, function () {
-                _this.playSheepIdle();
-                cb && cb();
-            }, this);
-        };
-        /** 点击0 */
-        LetsPlayView.prototype.onTouch0 = function () {
-            var _this = this;
-            XDFSoundManager.play("sound_choise_mp3");
-            if (this.kGrpOption0.name == this.mCurrentHint) {
-                this.mPlayTimes++;
-                egret.Tween.removeTweens(this.kImgBar);
-                this.showCorrect(function () {
-                    if (_this.mHintArr.length == 0) {
-                        // finish
-                        _this.kComRestart.visible = true;
-                        _this.kComRestart.playActionGoodJob();
-                    }
-                    else {
-                        // next
-                        _this.hint();
-                    }
-                });
-            }
-            else {
-                // TODO: err 
-                this.showErr();
-            }
-        };
-        /** 点击1 */
-        LetsPlayView.prototype.onTouch1 = function () {
-            var _this = this;
-            XDFSoundManager.play("sound_choise_mp3");
-            if (this.kGrpOption1.name == this.mCurrentHint) {
-                this.mPlayTimes++;
-                egret.Tween.removeTweens(this.kImgBar);
-                this.showCorrect(function () {
-                    if (_this.mHintArr.length == 0) {
-                        // finish
-                        _this.kComRestart.visible = true;
-                        _this.kComRestart.playActionGoodJob();
-                    }
-                    else {
-                        // next
-                        _this.hint();
-                    }
-                });
-            }
-            else {
-                this.showErr();
-            }
-        };
-        LetsPlayView.prototype.showCorrect = function (cb) {
-            XDFSoundManager.play("sound_start_mp3");
-            this.playSheepCatch(function () {
-                cb && cb();
+            this.canSelect = false;
+            XDFSoundManager.play("sound_lp_choise_err_mp3");
+            this.palyRoleAnim("err", function () {
+                _this.palyRoleAnim("idle");
+                _this.canSelect = true;
             });
         };
-        LetsPlayView.prototype.showErr = function () {
-            var _this = this;
-            XDFSoundManager.play("sound_die_mp3");
-            this.playSheepJump(function () {
-                XDFSoundManager.play("sound_" + _this.mCurrentHint + "_mp3");
-            });
+        /** 时间终止 */
+        LetsPlayView.prototype.onTimeOut = function () {
+            this.reset();
+            this.kComRestart.visible = true;
+            this.kComRestart.playActionTimeOut();
         };
         return LetsPlayView;
     }(eui.Component));

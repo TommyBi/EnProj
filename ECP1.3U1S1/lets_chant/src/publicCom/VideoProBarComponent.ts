@@ -24,6 +24,11 @@ namespace game {
             this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
             this.init();
         }
+
+        public setSkinType(type: number): void {
+            if (type > 0) this.kImgProBtn.source = `img_pro_icon${type}_png`;
+        }
+
         public reset(time: number): void {
             this.kImgProBtn.x = 0;
             this.kImgBar.width = this.kImgProBtn.x;

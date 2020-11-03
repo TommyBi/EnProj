@@ -7,10 +7,6 @@
 		{
 			"keys":"sound_ding_mp3,sound_do_say_mp3,sound_put_on_pants_mp3,sound_put_on_shirt_mp3,sound_put_on_mp3,sound_take_off_pants_mp3,sound_take_off_shirt_mp3,sound_take_off_mp3,sound_goodjob_mp3,sound_oopstryagain_mp3",
 			"name":"sound"
-		},
-		{
-			"keys":"bar_bot_png,bar_move_png,bar_top_png,loading_ske_json,loading_tex_json,loading_tex_png,num_fnt",
-			"name":"loading"
 		}
 	],
 	"resources":[

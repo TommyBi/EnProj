@@ -7,18 +7,12 @@ namespace game {
         public kGrpVideo: eui.Group;
         public kComPro: game.VideoProBarComponent;
         public kGrpControl: eui.Group;
-        public kImgCaption: eui.Image;
         public kImgPlay: eui.Image;
         public kImgRePlay: eui.Image;
 
         private mVideo: egret.Video;
         private mLength: number = 0;// 当前视频长度
         private _mIsPlayCaption: boolean = false;// 是否开启麦克风
-        private get mIsPlayCaption(): boolean { return this._mIsPlayCaption; }
-        private set mIsPlayCaption(b: boolean) {
-            this._mIsPlayCaption = b;
-            this.kImgCaption.source = b ? "img_micro_enable_png" : "img_micro_forbid_png";
-        }
 
         private _mIsPlaying: boolean = false;// 是否正在播放
         private get mIsPlaying(): boolean { return this._mIsPlaying; }
@@ -41,7 +35,7 @@ namespace game {
             this.mVideo = new egret.Video();
             this.mVideo.x = 0;                       //设置视频坐标x
             this.mVideo.y = 0;                       //设置视频坐标y
-            this.mVideo.width = 1920;                 //设置视频宽
+            this.mVideo.width = 1440;                 //设置视频宽
             this.mVideo.height = 1080;                //设置视频高
             this.mVideo.fullscreen = false;          //设置是否全屏（暂不支持移动设备）
             this.mVideo.volume = 0.1;
@@ -52,12 +46,14 @@ namespace game {
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
 
-            this.kImgCaption.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onChangeCaptionShowState, this);
-
             this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.showControl, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+        }
+
+        public setSkinType(type: number): void {
+            this.kComPro.setSkinType(type);
         }
 
         /** 播放的视频索引 */
@@ -71,7 +67,6 @@ namespace game {
         private onLoad(): void {
             this.mLength = this.mVideo.length;
             this.kGrpControl.visible = true;
-            this.mIsPlayCaption = false;
             this.mIsPlaying = false;
             this.mVideo.play(1);
             egret.Tween.get(this).wait(200).call(() => {
@@ -91,7 +86,6 @@ namespace game {
                 console.log("视频尚未加载完成");
             } else {
                 this.mVideo.play(e.data * this.mVideo.length);
-                if (this.mIsPlayCaption) XDFSoundManager.play("sound_bg_mp3", e.data * this.mVideo.length, 1, 1);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
         }
@@ -102,9 +96,9 @@ namespace game {
             if (!this.mIsPlaying) {
                 if (this.mVideo) {
                     this.mIsPlaying = true;
-                    this.mVideo.play(this.kComPro.schedule * this.mVideo.length);
-                    this.kComPro.updateProPos(this.mVideo.length - this.kComPro.schedule * this.mVideo.length);
-                    if (this.mIsPlayCaption) XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
+                    let startTime = this.kComPro.schedule * this.mVideo.length;
+                    this.mVideo.play(startTime);
+                    this.kComPro.updateProPos(this.mVideo.length - startTime);
                 } else {
                     this.mIsPlaying = false;
                 }
@@ -118,26 +112,12 @@ namespace game {
             this.mVideo.pause();
             this.kComPro.pause();
             this.mIsPlaying = false;
-            XDFSoundManager.stop("sound_bg_mp3");
         }
 
         /** 重新开始 */
         private onRestart(): void {
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mVideo.length);
-            if (this.mIsPlayCaption) XDFSoundManager.play("sound_bg_mp3", 0, 1, 1);
-        }
-
-        /** 切换显示字幕视频 */
-        private onChangeCaptionShowState(): void {
-            if (this.mVideo.length = 0) return;
-            if (!this.mIsPlayCaption) {
-                this.mIsPlayCaption = true;
-                XDFSoundManager.play("sound_bg_mp3", this.kComPro.schedule * this.mVideo.length, 1, 1);
-            } else {
-                this.mIsPlayCaption = false;
-                XDFSoundManager.stop("sound_bg_mp3");
-            }
         }
 
         private showControl(): void {

@@ -9,6 +9,8 @@ var game;
         EventConst.eventFinishVideoProgress = "eventFinishVideoProgress";
         EventConst.eventReplay = "eventReplay";
         EventConst.startComPlayGame = "startComPlayGame";
+        EventConst.timeBarOut = "timeBarOut";
+        EventConst.eventStart = "eventStart";
         return EventConst;
     }());
     game.EventConst = EventConst;

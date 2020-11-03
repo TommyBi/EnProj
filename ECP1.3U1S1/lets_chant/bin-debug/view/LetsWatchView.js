@@ -14,6 +14,7 @@ var game;
         __extends(LetsWatchView, _super);
         function LetsWatchView() {
             var _this = _super.call(this) || this;
+            _this.mSkinType = 2;
             _this.skinName = "LetsWatchSkin";
             return _this;
         }
@@ -23,6 +24,8 @@ var game;
             this.init();
         };
         LetsWatchView.prototype.init = function () {
+            this.kComVideo.setSkinType(this.mSkinType);
+            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             this.kComVideo.play("video");
         };
         return LetsWatchView;

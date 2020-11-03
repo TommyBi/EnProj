@@ -64,7 +64,6 @@ class Main extends eui.UILayer {
         try {
             await RES.loadConfig("default.res.json", window.__math2_res_config__ || "resource/");
             await RES.loadGroup("preload", 0);
-            await RES.loadGroup("sound");
             await this.loadTheme();
         }
         catch (e) {
