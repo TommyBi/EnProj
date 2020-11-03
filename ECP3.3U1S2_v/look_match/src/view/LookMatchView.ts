@@ -24,10 +24,11 @@ namespace game {
         public kImgArrow0: eui.Image;
         public kImgArrow1: eui.Image;
 
+        private mIsLock: boolean = false;   // 是否上锁
         private mCurSelectIdx = -1;         // 当前选中的起始位置
         private mHintOrder: number[] = [];  // 提示的顺序
         private mCurHint: number = -1;      // 当前正在提示的内容
-        private _mCurPenIdx: number = -1;     // 当前选择的笔
+        private _mCurPenIdx: number = -1;   // 当前选择的笔
         private set mCurPenIdx(n: number) {
             this._mCurPenIdx = n;
             if (this._mCurPenIdx == -1) {
@@ -108,6 +109,7 @@ namespace game {
         }
 
         private onTouchBegin(e: egret.TouchEvent): void {
+            if (this.mIsLock) return;
             if (this.mCurPenIdx == -1) return;
             if (this.mCurSelectIdx == -1) {
                 let idx = this.getTargetPoint(e.stageX, e.stageY);
@@ -118,6 +120,7 @@ namespace game {
         }
 
         private onMove(e: egret.TouchEvent): void {
+            if (this.mIsLock) return;
             if (this.mCurSelectIdx == -1) return;
             this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
@@ -131,6 +134,7 @@ namespace game {
             let dtY = Math.abs(this.kImgPen.y - this[`kImgArrow${this.mCurSelectIdx}`].y);
             let length = Math.sqrt(dtX * dtX + dtY * dtY);
             this[`kImgArrow${this.mCurSelectIdx}`].width = length > 150 ? length : 150;
+            this[`kImgArrow${this.mCurSelectIdx}`].width += 30
             // 计算夹角
             let angle = 360 * Math.atan(dtY / dtX) / (2 * Math.PI);
             this[`kImgArrow${this.mCurSelectIdx}`].rotation = this.kImgPen.y < this[`kImgArrow${this.mCurSelectIdx}`].y ? -angle : angle;
@@ -138,6 +142,7 @@ namespace game {
         }
 
         private onTouchEnd(e: egret.TouchEvent): void {
+            if (this.mIsLock) return;
             if (this.mCurPenIdx == -1) return;
             if (this.mCurSelectIdx == -1) return;
             let idx = this.getTargetPoint(e.stageX, e.stageY);
@@ -148,6 +153,8 @@ namespace game {
             } else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
+                    this.mIsLock = true;
+                    this.kImgPen.visible = false;
                     XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "sound_stick_right_mp3", () => {
                         this.next();
                     });
@@ -191,7 +198,9 @@ namespace game {
                 this.kComReplay.showReplay();
             } else {
                 this.mCurHint = this.mHintOrder.shift();
-                XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`);
+                XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`, 0, 1, 1, `sound_ss_option${this.mCurHint}_mp3`, () => {
+                    this.mIsLock = false;
+                });
                 this.onReset();
                 this[`kImgMask${this.mCurHint}`].alpha = 1;
                 egret.Tween.get(this[`kImgMask${this.mCurHint}`], { loop: true })
@@ -203,10 +212,10 @@ namespace game {
         }
 
         private selectPen(idx: number, e: egret.TouchEvent): void {
+            if (this.mIsLock) return;
             this.mCurPenIdx = idx;
             this.kImgPen.source = `img_lm_pencil_${this.mCurPenIdx}_png`;
             this[`kImgArrow${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
-            // this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         }

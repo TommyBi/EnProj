@@ -90,4 +90,3 @@ var game;
     game.DDSComponent = DDSComponent;
     __reflect(DDSComponent.prototype, "game.DDSComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=DDSComponent.js.map

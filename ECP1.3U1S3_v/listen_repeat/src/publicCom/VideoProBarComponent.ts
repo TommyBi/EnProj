@@ -26,7 +26,7 @@ namespace game {
         }
 
         public setSkinType(type: number): void {
-            this.kImgProBtn.source = `img_pro_icon${type}_png`;
+            this.kImgProBtn.source = type > 0 ? `img_pro_icon${type}_png` : `img_pro_icon_png`;
         }
 
         public reset(time: number): void {

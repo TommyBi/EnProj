@@ -5,10 +5,6 @@
 			"name":"preload"
 		},
 		{
-			"keys":"",
-			"name":"loading"
-		},
-		{
 			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png",
 			"name":"public"
 		},

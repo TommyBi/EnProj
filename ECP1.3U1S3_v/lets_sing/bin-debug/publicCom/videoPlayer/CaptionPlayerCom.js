@@ -68,8 +68,8 @@ var game;
             this.mLength = this.mVideo.length;
             this.kGrpControl.visible = true;
             this.mIsPlaying = false;
-            this.mVideo.play(1);
-            egret.Tween.get(this).wait(200).call(function () {
+            this.mVideo.play(0);
+            egret.Tween.get(this).wait(1).call(function () {
                 _this.mVideo.pause();
             });
         };

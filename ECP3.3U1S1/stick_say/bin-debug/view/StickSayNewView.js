@@ -46,30 +46,32 @@ var game;
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventStart, this.onStart, this);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.touchFlag, this.onChangeWordsPanelAction, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
-            this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0", 2);
-            this.mAnimRole0.setProtery({ x: 875, y: 320, parent: this.kGrpAnim, scaleX: 0.35, scaleY: 0.35 });
-            this.mAnimRole1 = XDFFrame.DBFactory.createAnim("db_role_1", 2);
-            this.mAnimRole1.setProtery({ x: 1530, y: 305, parent: this.kGrpAnim, scaleX: 0.3, scaleY: 0.3 });
-            this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2", 2);
-            this.mAnimRole2.setProtery({ x: 645, y: 780, parent: this.kGrpAnim, scaleX: 0.4, scaleY: 0.4 });
-            this.mAnimRole3 = XDFFrame.DBFactory.createAnim("db_role_3", 2);
-            this.mAnimRole3.setProtery({ x: 1250, y: 800, parent: this.kGrpAnim, scaleX: 0.6, scaleY: 0.6 });
-            this.mAnimSmoke = XDFFrame.DBFactory.createAnim("db_stick_smoke");
-            this.mAnimSmoke.setProtery({ x: 0, y: 0, parent: this.kGrpAnim, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole0 = XDFFrame.DBFactory.createAnim("db_role_0");
+            this.mAnimRole0.setProtery({ x: 1500, y: 800, parent: this.kGrpAnim, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole1 = XDFFrame.DBFactory.createAnim("db_role_1");
+            this.mAnimRole1.setProtery({ x: 650, y: 800, parent: this.kGrpAnim, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole2 = XDFFrame.DBFactory.createAnim("db_role_2");
+            this.mAnimRole2.setProtery({ x: 700, y: 300, parent: this.kGrpAnim, scaleX: 1.5, scaleY: 1.5 });
+            this.mAnimRole3 = XDFFrame.DBFactory.createAnim("db_role_3");
+            this.mAnimRole3.setProtery({ x: 1550, y: 350, parent: this.kGrpAnim, scaleX: 1.5, scaleY: 1.5 });
             // 单词
             this.kComWordsPanel.setData([
                 {
-                    words: "raincoat",
+                    words: "swim",
                     imgSrc: "img_words_0_png",
                     soundSrc: "sound_words_0_mp3",
                 }, {
-                    words: "sunglasses",
+                    words: "sled",
                     imgSrc: "img_words_1_png",
                     soundSrc: "sound_words_1_mp3",
                 }, {
-                    words: "sandals",
+                    words: "snow",
                     imgSrc: "img_words_2_png",
                     soundSrc: "sound_words_2_mp3",
+                }, {
+                    words: "plant",
+                    imgSrc: "img_words_2_png",
+                    soundSrc: "sound_words_3_mp3",
                 }
             ]);
             this.reset();
@@ -79,11 +81,9 @@ var game;
         };
         StickSayNewView.prototype.reset = function () {
             for (var i = 0; i < 4; i++) {
-                this["kGrpBtn" + i].visible = this["kGrpBtn" + i].includeInLayout = true;
-                this["kImgMask" + i].visible = true;
-                this["kImgMaskLine" + i].alpha = 0;
-                this["kImgDesc" + i].scaleX = this["kImgDesc" + i].scaleY = 0;
-                this["mAnimRole" + i].visible = false;
+                this["kGrpBtn" + i].visible = true;
+                this["kGrpMask" + i].visible = true;
+                this["kImgMask" + i].alpha = 0;
             }
             this.kComAnswer.visible = false;
             this.kComReplay.visible = false;
@@ -115,14 +115,15 @@ var game;
         /** 提示 */
         StickSayNewView.prototype.hint = function () {
             // sound
-            XDFSoundManager.play("sound_desc_" + this.mCurHint + "_mp3");
+            XDFSoundManager.play("sound_" + this.mCurHint + "_mp3");
             // show desc
-            this["kImgMaskLine" + this.mCurHint].alpha = 0;
-            egret.Tween.get(this["kImgMaskLine" + this.mCurHint], { loop: true })
+            this["kImgMask" + this.mCurHint].alpha = 0;
+            egret.Tween.get(this["kImgMask" + this.mCurHint], { loop: true })
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                 .to({ alpha: 1 }, 300, egret.Ease.cubicInOut);
+            this["mAnimRole" + this.mCurHint].play(null, 3);
         };
         StickSayNewView.prototype.onSelect0 = function () {
             this.onMatch(0);
@@ -143,23 +144,10 @@ var game;
             XDFSoundManager.play("sound_think_choise_mp3");
             if (touch == this.mCurHint) {
                 // 正确
-                // 显示提示板
-                egret.Tween.removeTweens(this["kImgDesc" + this.mCurHint]);
-                egret.Tween.get(this["kImgDesc" + this.mCurHint]).to({
-                    scaleX: 2, scaleY: 2
-                }, 300, egret.Ease.backOut);
                 // 播放动画
-                this["mAnimRole" + this.mCurHint].visible = true;
-                this["mAnimRole" + this.mCurHint].play(null, 1);
-                // 清理重置蒙版和蒙版效果
-                this["kImgMask" + this.mCurHint].visible = false;
-                egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
-                this["kImgMaskLine" + this.mCurHint].alpha = 0;
+                this["kGrpMask" + this.mCurHint].visible = false;
+                egret.Tween.removeTweens(this["kImgMask" + this.mCurHint]);
                 this["kGrpBtn" + this.mCurHint].visible = false;
-                // 播放烟雾
-                this.mAnimSmoke.x = this.mSmokeAnimPos[this.mCurHint].x;
-                this.mAnimSmoke.y = this.mSmokeAnimPos[this.mCurHint].y;
-                this.mAnimSmoke.play(null, 1);
                 this.mLock_sound_select = true;
                 XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
                     _this.mLock_sound_select = false;
@@ -171,7 +159,7 @@ var game;
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
                     _this.kComAnswer.visible = false;
-                    XDFSoundManager.play("sound_desc_" + _this.mCurHint + "_mp3");
+                    XDFSoundManager.play("sound_" + _this.mCurHint + "_mp3");
                 });
             }
         };

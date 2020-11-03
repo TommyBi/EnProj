@@ -35,4 +35,3 @@ var game;
     game.LetsThinkView = LetsThinkView;
     __reflect(LetsThinkView.prototype, "game.LetsThinkView");
 })(game || (game = {}));
-//# sourceMappingURL=LetsThinkView.js.map

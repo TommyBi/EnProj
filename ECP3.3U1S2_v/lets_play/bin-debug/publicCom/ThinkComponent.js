@@ -127,4 +127,3 @@ var game;
     game.ThinkComponent = ThinkComponent;
     __reflect(ThinkComponent.prototype, "game.ThinkComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=ThinkComponent.js.map

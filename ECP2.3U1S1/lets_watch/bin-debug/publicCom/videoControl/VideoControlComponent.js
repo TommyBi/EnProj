@@ -125,3 +125,4 @@ var game;
     game.VideoControlComponent = VideoControlComponent;
     __reflect(VideoControlComponent.prototype, "game.VideoControlComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=VideoControlComponent.js.map

@@ -5,10 +5,6 @@
 			"name":"preload"
 		},
 		{
-			"keys":"bar_bot_png,bar_move_png,bar_top_png,loading_ske_json,loading_tex_json,loading_tex_png,num_fnt",
-			"name":"loading"
-		},
-		{
 			"keys":"img_bg_1_png,img_goodjob_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_mask_png,img_start_png",
 			"name":"public"
 		},
@@ -19,10 +15,6 @@
 		{
 			"keys":"sound_think_choise_mp3,sound_goodjob_mp3,sound_lp_option0_mp3,sound_lp_option1_mp3,sound_lp_option2_mp3,sound_lp_option3_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3",
 			"name":"sound"
-		},
-		{
-			"keys":"",
-			"name":"look_stick"
 		},
 		{
 			"keys":"img_flow_12_png,img_flow_2_png,img_flow_3_png,img_flow_4_png,img_flow_5_png,img_flow_6_png,img_flow_7_png,img_flow_8_png,img_flow_9_png,img_flow_10_png,img_flow_11_png,img_flow_13_png,img_flow_16_png,img_flow_14_png,img_flow_15_png,img_flow_bg2_png,img_flow_bg1_png,Sheep_mp3,Chickens_mp3,Cows_mp3,purple_road_tex_png,yellow_road_ske_json,yellow_road_tex_json,yellow_road_tex_png,blue_road_ske_json,blue_road_tex_json,blue_road_tex_png,purple_road_ske_json,purple_road_tex_json",

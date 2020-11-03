@@ -14,6 +14,7 @@ var game;
         __extends(LookMatchView, _super);
         function LookMatchView() {
             var _this = _super.call(this) || this;
+            _this.mIsLock = false; // 是否上锁
             _this.mCurSelectIdx = -1; // 当前选中的起始位置
             _this.mHintOrder = []; // 提示的顺序
             _this.mCurHint = -1; // 当前正在提示的内容
@@ -93,6 +94,8 @@ var game;
             this.next();
         };
         LookMatchView.prototype.onTouchBegin = function (e) {
+            if (this.mIsLock)
+                return;
             if (this.mCurPenIdx == -1)
                 return;
             if (this.mCurSelectIdx == -1) {
@@ -105,6 +108,8 @@ var game;
             }
         };
         LookMatchView.prototype.onMove = function (e) {
+            if (this.mIsLock)
+                return;
             if (this.mCurSelectIdx == -1)
                 return;
             this.kImgPen.visible = true;
@@ -118,12 +123,15 @@ var game;
             var dtY = Math.abs(this.kImgPen.y - this["kImgArrow" + this.mCurSelectIdx].y);
             var length = Math.sqrt(dtX * dtX + dtY * dtY);
             this["kImgArrow" + this.mCurSelectIdx].width = length > 150 ? length : 150;
+            this["kImgArrow" + this.mCurSelectIdx].width += 30;
             // 计算夹角
             var angle = 360 * Math.atan(dtY / dtX) / (2 * Math.PI);
             this["kImgArrow" + this.mCurSelectIdx].rotation = this.kImgPen.y < this["kImgArrow" + this.mCurSelectIdx].y ? -angle : angle;
         };
         LookMatchView.prototype.onTouchEnd = function (e) {
             var _this = this;
+            if (this.mIsLock)
+                return;
             if (this.mCurPenIdx == -1)
                 return;
             if (this.mCurSelectIdx == -1)
@@ -137,6 +145,8 @@ var game;
             else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
+                    this.mIsLock = true;
+                    this.kImgPen.visible = false;
                     XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "sound_stick_right_mp3", function () {
                         _this.next();
                     });
@@ -171,6 +181,7 @@ var game;
             return -1;
         };
         LookMatchView.prototype.next = function () {
+            var _this = this;
             if (this.mHintOrder.length <= 0) {
                 // 结束游戏
                 this.onReset();
@@ -181,7 +192,9 @@ var game;
             }
             else {
                 this.mCurHint = this.mHintOrder.shift();
-                XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3");
+                XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3", 0, 1, 1, "sound_ss_option" + this.mCurHint + "_mp3", function () {
+                    _this.mIsLock = false;
+                });
                 this.onReset();
                 this["kImgMask" + this.mCurHint].alpha = 1;
                 egret.Tween.get(this["kImgMask" + this.mCurHint], { loop: true })
@@ -192,10 +205,11 @@ var game;
             }
         };
         LookMatchView.prototype.selectPen = function (idx, e) {
+            if (this.mIsLock)
+                return;
             this.mCurPenIdx = idx;
             this.kImgPen.source = "img_lm_pencil_" + this.mCurPenIdx + "_png";
             this["kImgArrow" + this.mCurHint].source = "img_lm_arr" + this.mCurPenIdx + "_png";
-            // this.kImgPen.visible = true;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         };

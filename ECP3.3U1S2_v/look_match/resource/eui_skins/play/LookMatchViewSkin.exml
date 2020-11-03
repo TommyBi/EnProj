@@ -72,7 +72,7 @@
 	<e:Image id="kImgArrow2" source="img_lm_arr0_png" x="706" y="294" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
 	<e:Image id="kImgArrow0" source="img_lm_arr0_png" x="686" y="329" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
 	<e:Image id="kImgArrow1" source="img_lm_arr0_png" x="709" y="402" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
-	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="0" anchorOffsetY="234" visible="false"/>
+	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="23" anchorOffsetY="208"/>
 	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="50" bottom="50" visible="false"/>
 	<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
 </e:Skin>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:tween="egret.tween.*">
+	<w:Declarations>
+	</w:Declarations>
+	<e:Image horizontalCenter="0" verticalCenter="0"  source="img_bg_1_png" locked="true"/>
+	<e:Group id="kGp" x="240" y="0" width="1440" height="1080" locked="true">
+		<e:Image source="bg_jpg" left="0" right="0" top="0" bottom="0"/>
+		<e:Image source="bg2_png" y="394.15" scaleX="0.6" scaleY="0.6" horizontalCenter="33"/>
+		<e:Image source="bgg_png" x="-152" y="0" scaleX="1.6" scaleY="1.6" visible="false"/>
+		<e:Group width="1920" height="1080" touchEnabled="false" horizontalCenter="0" verticalCenter="0">
+			<e:Image id="kBird1" source="bird_png" x="78" y="124" scaleX="1.3" scaleY="1.3"/>
+			<e:Image id="kBird2" source="bird_png" x="1765.12" y="352" scaleX="-1"/>
+			<e:Image verticalCenter="0" source="img_bg_1_png" y="0" scaleX="1" scaleY="1" fillMode="clip" anchorOffsetX="0" width="236" left="0"/>
+			<e:Image source="img_bg_1_png" y="0" scaleX="1" scaleY="1" fillMode="clip" anchorOffsetX="0" width="236" right="0"/>
+		</e:Group>
+		<e:Group y="63.3" horizontalCenter="0"/>
+		<game:PlayItem id="kItem1" width="350" height="350" x="144" y="45"/>
+		<game:PlayItem id="kItem2" width="350" height="350" x="528" y="45"/>
+		<game:PlayItem id="kItem3" width="350" height="350" x="912" y="45"/>
+		<e:Image id="kImg1" source="clothes1_png" x="379.42" y="466.84" scaleX="1.5" scaleY="1.5" visible="false"/>
+		<e:Image id="kImg2" source="clothes2_png" x="642.21" y="485.28" scaleX="1.5" scaleY="1.5" visible="false"/>
+		<e:Image id="kImg3" source="clothes3_png" x="895.97" y="471.6" scaleX="1.5" scaleY="1.5" visible="false"/>
+		<e:Group id="kAnimGp" width="1440" height="1080" touchEnabled="false" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image source="jia1_png" x="400" y="453" scaleX="1.5" scaleY="1.5"/>
+		<e:Image source="jia2_png" x="720" y="455" scaleX="1.5" scaleY="1.5"/>
+		<e:Image source="jia3_png" x="1005" y="445" scaleX="1.5" scaleY="1.5"/>
+	</e:Group>
+	<game:ReStartComponent id="kRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<game:TimeBarComponent id="kTimeBar" skinName="TimeBarComponentSkin" left="0" bottom="-13" scaleX="0.9" scaleY="0.9" locked="true"/>
+</e:Skin>

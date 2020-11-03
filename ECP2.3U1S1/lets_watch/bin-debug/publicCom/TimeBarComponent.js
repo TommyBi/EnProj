@@ -46,3 +46,4 @@ var game;
     game.TimeBarComponent = TimeBarComponent;
     __reflect(TimeBarComponent.prototype, "game.TimeBarComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=TimeBarComponent.js.map

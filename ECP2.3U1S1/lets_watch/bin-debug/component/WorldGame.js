@@ -30,3 +30,4 @@ var WorldGame = (function (_super) {
     return WorldGame;
 }(eui.Component));
 __reflect(WorldGame.prototype, "WorldGame", ["eui.UIComponent", "egret.DisplayObject"]);
+//# sourceMappingURL=WorldGame.js.map

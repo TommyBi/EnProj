@@ -1,15 +1,11 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json,mc_cloud_json,mc_cloud_png,mc_action0_png,mc_action0_json,mc_action1_png,mc_action1_json,mc_action2_png,mc_action2_json,mc_action3_png,mc_action3_json,mc_flag_json,mc_flag_png,mc_good_enter_json,mc_good_enter_png,mc_good_star_json,mc_good_star_png",
+			"keys":"description_json,_xdf_logo__png,pp_game_config_json",
 			"name":"preload"
 		},
 		{
-			"keys":"bar_bot_png,bar_move_png,bar_top_png,loading_ske_json,loading_tex_json,loading_tex_png,num_fnt",
-			"name":"loading"
-		},
-		{
-			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png",
+			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png,img_pro_icon2_png",
 			"name":"public"
 		},
 		{
@@ -24,134 +20,14 @@
 			"url":"config/description.json"
 		},
 		{
-			"name":"font_TTF",
-			"type":"bin",
-			"url":"assets/font.TTF"
-		},
-		{
 			"name":"_xdf_logo__png",
 			"type":"image",
 			"url":"assets/_xdf_logo_.png"
 		},
 		{
-			"name":"bar_bot_png",
-			"type":"image",
-			"url":"assets/loadingImg/bar_bot.png"
-		},
-		{
-			"name":"bar_move_png",
-			"type":"image",
-			"url":"assets/loadingImg/bar_move.png"
-		},
-		{
-			"name":"bar_top_png",
-			"type":"image",
-			"url":"assets/loadingImg/bar_top.png"
-		},
-		{
-			"name":"loading_ske_json",
-			"type":"json",
-			"url":"assets/loadingImg/loading_ske.json"
-		},
-		{
-			"name":"loading_tex_json",
-			"type":"json",
-			"url":"assets/loadingImg/loading_tex.json"
-		},
-		{
-			"name":"loading_tex_png",
-			"type":"image",
-			"url":"assets/loadingImg/loading_tex.png"
-		},
-		{
-			"name":"num_fnt",
-			"type":"font",
-			"url":"assets/loadingImg/num.fnt"
-		},
-		{
 			"name":"pp_game_config_json",
 			"type":"json",
 			"url":"assets/pp_game_config.json"
-		},
-		{
-			"name":"mc_cloud_json",
-			"type":"json",
-			"url":"assets/mc/mc_cloud/mc_cloud.json"
-		},
-		{
-			"name":"mc_cloud_png",
-			"type":"image",
-			"url":"assets/mc/mc_cloud/mc_cloud.png"
-		},
-		{
-			"name":"mc_action0_png",
-			"type":"image",
-			"url":"assets/mc/mc_action0/mc_action0.png"
-		},
-		{
-			"name":"mc_action0_json",
-			"type":"json",
-			"url":"assets/mc/mc_action0/mc_action0.json"
-		},
-		{
-			"name":"mc_action1_png",
-			"type":"image",
-			"url":"assets/mc/mc_action1/mc_action1.png"
-		},
-		{
-			"name":"mc_action1_json",
-			"type":"json",
-			"url":"assets/mc/mc_action1/mc_action1.json"
-		},
-		{
-			"name":"mc_action2_png",
-			"type":"image",
-			"url":"assets/mc/mc_action2/mc_action2.png"
-		},
-		{
-			"name":"mc_action2_json",
-			"type":"json",
-			"url":"assets/mc/mc_action2/mc_action2.json"
-		},
-		{
-			"name":"mc_action3_png",
-			"type":"image",
-			"url":"assets/mc/mc_action3/mc_action3.png"
-		},
-		{
-			"name":"mc_action3_json",
-			"type":"json",
-			"url":"assets/mc/mc_action3/mc_action3.json"
-		},
-		{
-			"name":"mc_flag_json",
-			"type":"json",
-			"url":"assets/mc/mc_flag/mc_flag.json"
-		},
-		{
-			"name":"mc_flag_png",
-			"type":"image",
-			"url":"assets/mc/mc_flag/mc_flag.png"
-		},
-		{
-			"name":"mc_good_enter_json",
-			"type":"json",
-			"url":"assets/mc/mc_good_enter/mc_good_enter.json"
-		},
-		{
-			"name":"mc_good_enter_png",
-			"type":"image",
-			"url":"assets/mc/mc_good_enter/mc_good_enter.png"
-		},
-		{
-			"name":"mc_good_star_json",
-			"type":"json",
-			"url":"assets/mc/mc_good_star/mc_good_star.json"
-		},
-		{
-			"name":"mc_good_star_png",
-			"type":"image",
-			"url":"assets/mc/mc_good_star/mc_good_star.png"
 		},
 		{
 			"name":"img_bg_0_png",
@@ -279,101 +155,6 @@
 			"url":"assets/img/public/img_mask.png"
 		},
 		{
-			"name":"sound_bg_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_bg.mp3"
-		},
-		{
-			"name":"sound_choise_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_choise.mp3"
-		},
-		{
-			"name":"sound_die_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_die.mp3"
-		},
-		{
-			"name":"sound_ding_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_ding.mp3"
-		},
-		{
-			"name":"sound_do_say_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_do_say.mp3"
-		},
-		{
-			"name":"sound_goodjob_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_goodjob.mp3"
-		},
-		{
-			"name":"sound_lp_choise_err_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_choise_err.mp3"
-		},
-		{
-			"name":"sound_lp_choise_right_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_choise_right.mp3"
-		},
-		{
-			"name":"sound_lp_option0_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_option0.mp3"
-		},
-		{
-			"name":"sound_lp_option1_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_option1.mp3"
-		},
-		{
-			"name":"sound_lp_option2_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_option2.mp3"
-		},
-		{
-			"name":"sound_oopstryagain_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_oopstryagain.mp3"
-		},
-		{
-			"name":"sound_select_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_select.mp3"
-		},
-		{
-			"name":"sound_start_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_start.mp3"
-		},
-		{
-			"name":"sound_thinkCard_0_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_thinkCard_0.mp3"
-		},
-		{
-			"name":"sound_thinkCard_1_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_thinkCard_1.mp3"
-		},
-		{
-			"name":"sound_thinkCard_2_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_thinkCard_2.mp3"
-		},
-		{
-			"name":"sound_thinkCard_3_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_thinkCard_3.mp3"
-		},
-		{
-			"name":"sound_lp_option3_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_option3.mp3"
-		},
-		{
 			"name":"img_tv_png",
 			"type":"image",
 			"url":"assets/img/public/img_tv.png"
@@ -387,6 +168,11 @@
 			"name":"img_listenVideo_mask_png",
 			"type":"image",
 			"url":"assets/img/listen_repeat/img_listenVideo_mask.png"
+		},
+		{
+			"name":"img_pro_icon2_png",
+			"type":"image",
+			"url":"assets/img/public/img_pro_icon2.png"
 		}
 	]
 }

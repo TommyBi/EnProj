@@ -157,4 +157,3 @@ var game;
     game.CaptionPlayerCom = CaptionPlayerCom;
     __reflect(CaptionPlayerCom.prototype, "game.CaptionPlayerCom", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
-//# sourceMappingURL=CaptionPlayerCom.js.map

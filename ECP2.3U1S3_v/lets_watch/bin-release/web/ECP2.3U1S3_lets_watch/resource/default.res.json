@@ -1,0 +1,58 @@
+{
+	"groups": [
+		{
+			"keys": "description_json",
+			"name": "preload"
+		},
+		{
+			"keys": "",
+			"name": "loading"
+		},
+		{
+			"keys": "img_pro_line_bg_png,img_pro_line_png,img_pause_png,img_play_png,img_rePlay_png,img_pro_icon1_png,img_bg_1_png",
+			"name": "public"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/img/public/img_pro_line_bg.png",
+			"type": "image",
+			"name": "img_pro_line_bg_png"
+		},
+		{
+			"url": "assets/img/public/img_pro_line.png",
+			"type": "image",
+			"name": "img_pro_line_png"
+		},
+		{
+			"url": "assets/img/public/img_pause.png",
+			"type": "image",
+			"name": "img_pause_png"
+		},
+		{
+			"url": "assets/img/public/img_play.png",
+			"type": "image",
+			"name": "img_play_png"
+		},
+		{
+			"url": "assets/img/public/img_rePlay.png",
+			"type": "image",
+			"name": "img_rePlay_png"
+		},
+		{
+			"url": "assets/img/public/img_pro_icon1.png",
+			"type": "image",
+			"name": "img_pro_icon1_png"
+		},
+		{
+			"url": "assets/img/public/img_bg_1.png",
+			"type": "image",
+			"name": "img_bg_1_png"
+		}
+	]
+}

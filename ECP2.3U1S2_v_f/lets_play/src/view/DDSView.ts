@@ -200,7 +200,7 @@ namespace game {
             this.kComBar.stop();
             this.canSelect = false;
             XDFSoundManager.play("sound_ding_mp3");
-            XDFSoundManager.play("sound_lp_choise_right_mp3");
+            // XDFSoundManager.play("sound_lp_choise_right_mp3");
             this.playHammerAnim("right", () => {
                 this.next();
             }, e);

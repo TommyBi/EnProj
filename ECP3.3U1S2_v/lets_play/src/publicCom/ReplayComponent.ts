@@ -45,29 +45,6 @@ namespace game {
                 .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
         }
 
-        // /** 鼠标移到重放按钮 */
-        // private onMoveOverReplayBtn(): void {
-        //     if (this.kImgReplay.source != "img_replay_d_png") {
-        //         this.kImgReplay.source = "img_replay_d_png";
-        //         egret.Tween.removeTweens(this.kImgReplay);
-        //         egret.Tween.removeTweens(this.kGrpReplay);
-        //         this.kGrpReplay.y = 0;
-        //         egret.Tween.get(this.kGrpReplay, { loop: true })
-        //             .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-        //     }
-        // }
-
-        // /** 鼠标移出重放按钮 */
-        // private onMoveOutReplayBtn(): void {
-        //     if (this.kImgReplay.source != "img_replay_j_png") this.kImgReplay.source = "img_replay_j_png";
-        //     egret.Tween.removeTweens(this.kGrpReplay);
-        //     this.kGrpReplay.y = 0;
-        //     this.showReplay();
-        // }
-
     }
 
 }

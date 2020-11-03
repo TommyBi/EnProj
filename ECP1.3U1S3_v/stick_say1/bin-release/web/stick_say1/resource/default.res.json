@@ -13,7 +13,7 @@
 			"name":"db"
 		},
 		{
-			"keys":"sound_choise_mp3,sound_die_mp3,sound_ding_mp3,sound_goodjob_mp3,sound_oopstryagain_mp3,sound_select_mp3,sound_start_mp3,sound_lp_dds_err_mp3,sound_lp_dds_option0_mp3,sound_lp_dds_option1_mp3,sound_lp_dds_option2_mp3,sound_desc_0_mp3,sound_desc_1_mp3,sound_desc_2_mp3,sound_stick_right_mp3,sound_think_choise_mp3,sound_words_0_mp3,sound_words_1_mp3,sound_words_2_mp3,sound_desc_3_mp3",
+			"keys":"sound_choise_mp3,sound_die_mp3,sound_ding_mp3,sound_goodjob_mp3,sound_oopstryagain_mp3,sound_select_mp3,sound_start_mp3,sound_desc_0_mp3,sound_desc_1_mp3,sound_desc_2_mp3,sound_stick_right_mp3,sound_think_choise_mp3,sound_words_0_mp3,sound_words_1_mp3,sound_words_2_mp3,sound_desc_3_mp3",
 			"name":"sound"
 		},
 		{
@@ -211,26 +211,6 @@
 			"name":"img_pro_icon1_png",
 			"type":"image",
 			"url":"assets/img/public/img_pro_icon1.png"
-		},
-		{
-			"name":"sound_lp_dds_err_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_dds_err.mp3"
-		},
-		{
-			"name":"sound_lp_dds_option0_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_dds_option0.mp3"
-		},
-		{
-			"name":"sound_lp_dds_option1_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_dds_option1.mp3"
-		},
-		{
-			"name":"sound_lp_dds_option2_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_lp_dds_option2.mp3"
 		},
 		{
 			"name":"img_hint_panel_0_png",
