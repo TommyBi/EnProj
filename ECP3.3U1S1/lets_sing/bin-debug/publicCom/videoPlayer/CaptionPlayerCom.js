@@ -52,6 +52,7 @@ var game;
             this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.showControl, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.videoPlayFinish, this.onPlayOver, this);
         };
         CaptionPlayerCom.prototype.setSkinType = function (type) {
             this.kComPro.setSkinType(type);
@@ -68,8 +69,8 @@ var game;
             this.mLength = this.mVideo.length;
             this.kGrpControl.visible = true;
             this.mIsPlaying = false;
-            this.mVideo.play(1);
-            egret.Tween.get(this).wait(200).call(function () {
+            this.mVideo.play(0);
+            egret.Tween.get(this).wait(1).call(function () {
                 _this.mVideo.pause();
             });
         };
@@ -87,6 +88,11 @@ var game;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        };
+        CaptionPlayerCom.prototype.onPlayOver = function () {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         };
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */

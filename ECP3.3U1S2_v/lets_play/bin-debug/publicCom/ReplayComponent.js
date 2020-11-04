@@ -54,3 +54,4 @@ var game;
     game.ReplayComponent = ReplayComponent;
     __reflect(ReplayComponent.prototype, "game.ReplayComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=ReplayComponent.js.map

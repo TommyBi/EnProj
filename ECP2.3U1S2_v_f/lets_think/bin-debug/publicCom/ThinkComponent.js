@@ -74,7 +74,7 @@ var game;
             this.kImgArrow0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onShowWord, this);
             this.kImgSound.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlaySound, this);
             this.kGrpBg.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchToll, this);
-            this.kGrpWord.mask = this.kImgMask;
+            this.kGrpWord.mask = this.kMask;
             this.init();
         };
         ThinkComponent.prototype.init = function () {

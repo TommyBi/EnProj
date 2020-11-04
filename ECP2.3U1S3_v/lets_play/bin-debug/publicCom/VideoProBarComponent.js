@@ -104,3 +104,4 @@ var game;
     game.VideoProBarComponent = VideoProBarComponent;
     __reflect(VideoProBarComponent.prototype, "game.VideoProBarComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=VideoProBarComponent.js.map

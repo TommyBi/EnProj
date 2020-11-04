@@ -325,3 +325,4 @@ var game;
     game.MainView = MainView;
     __reflect(MainView.prototype, "game.MainView");
 })(game || (game = {}));
+//# sourceMappingURL=MainView.js.map

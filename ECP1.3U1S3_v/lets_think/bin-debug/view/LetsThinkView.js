@@ -33,7 +33,15 @@ var game;
                 for (var i = 0; i < this.mWords.length; i++) {
                     var com = new game.ThinkComponent(i, this.mWords[i], this.mSkinType);
                     com.scaleX = com.scaleY = this.mWords.length >= 3 ? 0.8 : 1;
-                    com.width = this.mWords.length >= 3 ? 560 : 769;
+                    if (this.mWords.length > 3) {
+                        com.width = 510;
+                    }
+                    else if (this.mWords.length == 3) {
+                        com.width = 560;
+                    }
+                    else {
+                        com.width = 769;
+                    }
                     this.kGrpCom.addChild(com);
                 }
             }
@@ -42,7 +50,15 @@ var game;
                 for (var i = 0; i < this.mPictureCount; i++) {
                     var com = new game.ThinkComPictureBook(i, this.mSkinType);
                     com.scaleX = com.scaleY = this.mPictureCount >= 3 ? 0.8 : 1;
-                    com.width = this.mPictureCount >= 3 ? 560 : 769;
+                    if (this.mPictureCount > 3) {
+                        com.width = 510;
+                    }
+                    else if (this.mPictureCount == 3) {
+                        com.width = 560;
+                    }
+                    else {
+                        com.width = 769;
+                    }
                     this.kGrpCom.addChild(com);
                 }
             }

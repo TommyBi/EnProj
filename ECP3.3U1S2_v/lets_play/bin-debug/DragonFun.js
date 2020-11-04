@@ -188,3 +188,4 @@ var DragonFun = (function (_super) {
     return DragonFun;
 }(eui.Component));
 __reflect(DragonFun.prototype, "DragonFun", ["eui.UIComponent", "egret.DisplayObject"]);
+//# sourceMappingURL=DragonFun.js.map

@@ -30,6 +30,7 @@
 		"bin-debug/manager/XDFSoundManager.js",
 		"bin-debug/publicCom/AnswerComponent.js",
 		"bin-debug/publicCom/DialogComponent.js",
+		"bin-debug/publicCom/publicInterFace.js",
 		"bin-debug/publicCom/ReplayComponent.js",
 		"bin-debug/publicCom/ReStartComponent.js",
 		"bin-debug/publicCom/TimeBarComponent.js",

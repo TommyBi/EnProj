@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="LookCheckPreComSkin" width="1600" height="420" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="kImg" source="img_lc_panel_0_png" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image id="kImg" horizontalCenter="0" verticalCenter="0" source="img_lc_panel_1_png"/>
 	<e:Group id="kGrp0" x="604.82" y="76.21" width="900" touchChildren="false" touchEnabled="true" touchThrough="false" height="110">
-		<e:Label id="kLabel0" text="I always go sledding." y="30.5" textColor="0x000000" bold="true" x="147.74" size="50"/>
+		<e:Label id="kLabel0" text="I always go sledding." y="30.5" textColor="0x000000" bold="true" x="147.74" size="55"/>
 		<e:Image id="kImgCheck0" source="img_lc_check_png" x="0" y="-17"/>
 	</e:Group>
 	<e:Group id="kGrp1" x="607.56" y="213.64" width="900" touchChildren="false" touchEnabled="true" touchThrough="false" height="110">
 		<e:Image id="kImgCheck1" source="img_lc_check_png" x="0" y="-13"/>
-		<e:Label id="kLabel1" text="I always go sledding." y="30.5" textColor="0x000000" bold="true" size="50" x="145"/>
+		<e:Label id="kLabel1" text="I always go sledding." y="30.5" textColor="0x000000" bold="true" size="55" x="145"/>
 	</e:Group>
 	<e:Group id="kGrpAnim" width="452" height="354" x="124.61" y="25.15" anchorOffsetX="0" anchorOffsetY="0"/>
 	<e:Image id="kImgLine" source="img_lc_frame_png" horizontalCenter="0" verticalCenter="0" touchEnabled="false" locked="true"/>

@@ -44,3 +44,4 @@ var Data = (function (_super) {
     return Data;
 }(egret.Event));
 __reflect(Data.prototype, "Data");
+//# sourceMappingURL=ChangeNum.js.map

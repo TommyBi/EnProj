@@ -1,6 +1,8 @@
 namespace game {
     export class ListenRepeatView extends eui.Component {
 
+        public kComVideo: game.VideoComponent;
+        public kGrpDialog: eui.Group;
         public kCom0: game.DialogComponent;
         public kCom1: game.DialogComponent;
         public kCom2: game.DialogComponent;
@@ -9,7 +11,6 @@ namespace game {
         public kCom5: game.DialogComponent;
         public kCom6: game.DialogComponent;
         public kCom7: game.DialogComponent;
-        public kComVideo: game.VideoComponent;
         public kImgBtnNext: eui.Image;
         public kImgBtnPre: eui.Image;
 
@@ -48,6 +49,7 @@ namespace game {
             let cfg = this.mPageCfg[this.mCurPage];
             for (let i = 0; i < 8; i++) {
                 this[`kCom${i}`].visible = this[`kCom${i}`].includeInLayout = i < (cfg[1] - cfg[0] + 1);
+                this.kGrpDialog.height = this.kGrpDialog.height > 400 ? 400 : this.kGrpDialog.height;
                 if (this[`kCom${i}`].visible) {
                     this[`kCom${i}`].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
                     this[`kCom${i}`].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);

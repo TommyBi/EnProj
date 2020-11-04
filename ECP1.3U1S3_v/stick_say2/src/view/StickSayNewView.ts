@@ -110,9 +110,9 @@ namespace game {
                 this[`kImgBodyBtn${i}`].alpha = i == this.mSelectIdx ? 1 : 0.5;
                 this[`kImgFrame${i}`].alpha = 1;
                 egret.Tween.get(this[`kImgFrame${i}`], { loop: true })
-                    .to({ alpha: 0.5 }, 300, egret.Ease.cubicInOut)
+                    .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                     .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
-                    .to({ alpha: 0.5 }, 300, egret.Ease.cubicInOut)
+                    .to({ alpha: 0 }, 300, egret.Ease.cubicInOut)
                     .to({ alpha: 1 }, 300, egret.Ease.cubicInOut)
             }
             this[`kImgBody${this.mSelectIdx}`].visible = true;

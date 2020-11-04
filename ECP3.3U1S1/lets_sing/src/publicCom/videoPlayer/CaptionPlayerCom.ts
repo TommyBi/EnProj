@@ -50,6 +50,7 @@ namespace game {
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.videoPlayFinish, this.onPlayOver, this);
         }
 
         public setSkinType(type: number): void {
@@ -68,8 +69,8 @@ namespace game {
             this.mLength = this.mVideo.length;
             this.kGrpControl.visible = true;
             this.mIsPlaying = false;
-            this.mVideo.play(1);
-            egret.Tween.get(this).wait(200).call(() => {
+            this.mVideo.play(0);
+            egret.Tween.get(this).wait(1).call(() => {
                 this.mVideo.pause();
             })
         }
@@ -88,6 +89,12 @@ namespace game {
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        }
+
+        private onPlayOver(): void {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         }
 
         /** ----- 右下角三个控制按钮 ----- */

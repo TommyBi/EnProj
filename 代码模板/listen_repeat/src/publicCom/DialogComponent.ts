@@ -8,14 +8,17 @@ namespace game {
 
         public mIdx: number;
         private mArr: string[] = [
-            "It's rainy.",
-            "I'm wearing a raincoat.",
-            "I'm wearing boots.",
-            "It's hot.",
-            "I'm wearing sunglasses.",
-            "I'm wearing sandals.",
-            "It's hot and rainy.",
-            "What are you wearing today?"
+            "I live in a cold place.",
+            "I dress very warmly.",
+            "I live in a hot place.",
+            "I dress very lightly.",
+            "My house is made of snow.",
+            "My house is made of plants.",
+            "I always go sledding.",
+            "I always go swimming.",
+            "I have a dream.",
+            "Someday i want to swim.",
+            "Someday i want to ski."
         ];
 
         public constructor() {

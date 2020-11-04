@@ -175,3 +175,4 @@ var Sound = (function () {
     return Sound;
 }());
 __reflect(Sound.prototype, "Sound");
+//# sourceMappingURL=XDFSoundManager.js.map

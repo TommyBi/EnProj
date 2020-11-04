@@ -48,13 +48,13 @@ var game;
                     this.kImgArrow.scaleX = -1;
                     this.kGrpWordStatic.visible = false;
                     this.kGrpWord.visible = true;
-                    egret.Tween.get(this.kGrpWord).to({ x: 13 }, 500, egret.Ease.cubicInOut).call(function () {
+                    egret.Tween.get(this.kGrpWord).to({ x: 9 }, 500, egret.Ease.cubicInOut).call(function () {
                         _this.mIsMoving = false;
                     });
                 }
                 else {
                     // 隐藏
-                    this.kGrpWord.x = 13;
+                    this.kGrpWord.x = 9;
                     this.mIsMoving = true;
                     this._show = false;
                     this.kImgArrow.scaleX = 1;
@@ -74,7 +74,7 @@ var game;
             this.kImgArrow0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onShowWord, this);
             this.kImgSound.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlaySound, this);
             this.kGrpBg.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchToll, this);
-            this.kGrpWord.mask = this.kImgMask;
+            this.kGrpWord.mask = this.kMask;
             this.init();
         };
         ThinkComponent.prototype.init = function () {

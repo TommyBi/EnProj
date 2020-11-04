@@ -30,3 +30,4 @@ var game;
     game.VideoPlayer = VideoPlayer;
     __reflect(VideoPlayer.prototype, "game.VideoPlayer");
 })(game || (game = {}));
+//# sourceMappingURL=VideoPlayer.js.map

@@ -21,6 +21,7 @@
 		"resource/eui_skins/public/TimeBarComponentSkin.exml",
 		"resource/eui_skins/play/LetsPlaySkin.exml",
 		"resource/eui_skins/think/LetsThinkSkin.exml",
+		"resource/eui_skins/think/ThinkComPictureBookSkin.exml",
 		"resource/eui_skins/think/ThinkComponentSkin.exml",
 		"resource/eui_skins/watch/LetsWatchSkin.exml"
 	],

@@ -17,7 +17,7 @@ var game;
             _this.mSkinType = 2; // 表示 背景类型 0、1、2 
             _this.mShowModel = 0; // 表示 翻卡的模式 0：常规发音版翻卡游戏 1：绘本故事版翻卡游戏
             _this.mWords = ["mask", "tomato", "candy"];
-            _this.mPictureCount = 3;
+            _this.mPictureCount = 4;
             _this.skinName = "LetsThinkSkin";
             return _this;
         }
@@ -33,7 +33,15 @@ var game;
                 for (var i = 0; i < this.mWords.length; i++) {
                     var com = new game.ThinkComponent(i, this.mWords[i], this.mSkinType);
                     com.scaleX = com.scaleY = this.mWords.length >= 3 ? 0.8 : 1;
-                    com.width = this.mWords.length >= 3 ? 560 : 769;
+                    if (this.mWords.length > 3) {
+                        com.width = 510;
+                    }
+                    else if (this.mWords.length == 3) {
+                        com.width = 560;
+                    }
+                    else {
+                        com.width = 769;
+                    }
                     this.kGrpCom.addChild(com);
                 }
             }
@@ -42,7 +50,15 @@ var game;
                 for (var i = 0; i < this.mPictureCount; i++) {
                     var com = new game.ThinkComPictureBook(i, this.mSkinType);
                     com.scaleX = com.scaleY = this.mPictureCount >= 3 ? 0.8 : 1;
-                    com.width = this.mPictureCount >= 3 ? 560 : 769;
+                    if (this.mPictureCount > 3) {
+                        com.width = 510;
+                    }
+                    else if (this.mPictureCount == 3) {
+                        com.width = 560;
+                    }
+                    else {
+                        com.width = 769;
+                    }
                     this.kGrpCom.addChild(com);
                 }
             }

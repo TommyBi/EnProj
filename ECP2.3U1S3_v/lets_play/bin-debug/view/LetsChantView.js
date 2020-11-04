@@ -31,3 +31,4 @@ var game;
     game.LetsChantView = LetsChantView;
     __reflect(LetsChantView.prototype, "game.LetsChantView");
 })(game || (game = {}));
+//# sourceMappingURL=LetsChantView.js.map

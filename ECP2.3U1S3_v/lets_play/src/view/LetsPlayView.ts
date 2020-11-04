@@ -155,6 +155,7 @@ module game {
 				this.lostAnim.visible = false;
 				this.currentAnim.visible = true;
 				this.currentAnim.play(null, 0);
+				this.playSound(this.currentIndex, () => { })
 			}, this);
 		}
 		onNext() {

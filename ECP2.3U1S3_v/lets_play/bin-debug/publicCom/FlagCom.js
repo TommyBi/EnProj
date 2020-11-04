@@ -36,3 +36,4 @@ var game;
     game.FlagCom = FlagCom;
     __reflect(FlagCom.prototype, "game.FlagCom", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=FlagCom.js.map

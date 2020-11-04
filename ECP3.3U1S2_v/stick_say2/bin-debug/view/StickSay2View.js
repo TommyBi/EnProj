@@ -127,8 +127,8 @@ var game;
                 this["kImgOption" + this.mCurHint].visible = false;
                 egret.Tween.removeTweens(this["kImgMaskLine" + this.mCurHint]);
                 this.mLock_sound_select = true;
-                XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3");
-                XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
+                XDFSoundManager.play("sound_stick_right_mp3");
+                XDFSoundManager.play("sound_ss_option" + this.mCurHint + "_mp3", 0, 1, 1, "sound_ss_option" + this.mCurHint + "_mp3", function () {
                     _this.mLock_sound_select = false;
                     _this.next();
                 });

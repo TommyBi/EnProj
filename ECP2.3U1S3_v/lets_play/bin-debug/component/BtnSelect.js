@@ -42,3 +42,4 @@ var game;
     game.BtnSelect = BtnSelect;
     __reflect(BtnSelect.prototype, "game.BtnSelect", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=BtnSelect.js.map

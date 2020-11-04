@@ -236,3 +236,4 @@ var game;
     game.StickSayView = StickSayView;
     __reflect(StickSayView.prototype, "game.StickSayView");
 })(game || (game = {}));
+//# sourceMappingURL=StickSayView.js.map

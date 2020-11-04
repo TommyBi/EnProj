@@ -34,6 +34,10 @@ var game;
                     x: 950,
                     y: 600,
                 }];
+            _this.mLock_desc_sound = false; // 提示音播放锁
+            _this.mLock_anim_mouse = false; // 老鼠动画播放时的锁
+            _this.mLock_anim_hammer = false; // 锤子动画播放时的锁
+            _this.mLock_start = false; // 是否开始了的锁
             _this.skinName = "DDSViewSkin";
             return _this;
         }
@@ -44,6 +48,13 @@ var game;
                 for (var i = 0; i < this.mOptionCount; i++) {
                     this["kCom" + i].touchEnabled = b;
                 }
+            },
+            enumerable: true,
+            configurable: true
+        });
+        Object.defineProperty(DDSView.prototype, "mIsLock", {
+            get: function () {
+                return this.mLock_desc_sound || this.mLock_anim_mouse || this.mLock_anim_hammer || this.mLock_start;
             },
             enumerable: true,
             configurable: true
@@ -94,18 +105,23 @@ var game;
             // 隐藏结束组件
             this.kComRestart.visible = false;
             // 开始
+            this.mLock_start = false;
             this.canSelect = false;
             this.next();
         };
         /** 初始化播放顺序 */
         DDSView.prototype.calShowOrder = function () {
+            var _this = this;
             this.mCurShowArr = [];
             this.produceOrderArr();
             for (var i = 0; i < this.mCurShowArr.length; i++) {
                 // format img
                 this["kCom" + i].name = this.mCurShowArr[i];
                 this["kCom" + i].formateImg(this.mCurShowArr[i]);
-                this["kCom" + i].playMouseAnim("up", null, null);
+                this.mLock_anim_mouse = true;
+                this["kCom" + i].playMouseAnim("up", function () {
+                    _this.mLock_anim_mouse = false;
+                }, this);
             }
         };
         /** 生产随机队列 */
@@ -147,9 +163,11 @@ var game;
             var _this = this;
             var finishDownCount = 0;
             for (var i = 0; i < this.mOptionCount; i++) {
+                this.mLock_anim_mouse = true;
                 this["kCom" + i].playMouseAnim("down", function () {
                     finishDownCount++;
                     if (finishDownCount >= _this.mOptionCount) {
+                        _this.mLock_anim_mouse = false;
                         _this.playHintAction(function () {
                             _this.calShowOrder();
                             _this.canSelect = true;
@@ -160,8 +178,10 @@ var game;
         };
         DDSView.prototype.playHintAction = function (cb) {
             var _this = this;
+            this.mLock_desc_sound = true;
             XDFSoundManager.play("sound_lp_dds_option" + this.mCurHintIdx + "_mp3", 0, 1, 1, "sound_lp_dds_option" + this.mCurHintIdx + "_mp3", function () {
                 _this.canSelect = true;
+                _this.mLock_desc_sound = false;
                 cb && cb();
             });
             this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
@@ -177,10 +197,15 @@ var game;
         };
         DDSView.prototype.judge = function (num, e) {
             var _this = this;
+            if (this.mIsLock)
+                return;
             if (this["kCom" + num].name == String(this.mCurHintIdx)) {
+                this.mLock_anim_mouse = true;
                 this["kCom" + num].playMouseAnim("hit", function () {
                     for (var i = 0; i < _this.mOptionCount; i++) {
-                        _this["kCom" + i].playMouseAnim("down");
+                        _this["kCom" + i].playMouseAnim("down", function () {
+                            _this.mLock_anim_mouse = false;
+                        }, _this);
                     }
                 }, this);
                 this.kGrpAnimHummer.x = this.mPosHammer[num].x;
@@ -188,7 +213,10 @@ var game;
                 this.onSelectRight(e);
             }
             else {
-                this["kCom" + num].playMouseAnim("hit", null, null);
+                this.mLock_anim_mouse = true;
+                this["kCom" + num].playMouseAnim("hit", function () {
+                    _this.mLock_anim_mouse = false;
+                }, this);
                 this.kGrpAnimHummer.x = this.mPosHammer[num].x;
                 this.kGrpAnimHummer.y = this.mPosHammer[num].y;
                 this.onSelectErr(e);
@@ -200,8 +228,9 @@ var game;
             this.kComBar.stop();
             this.canSelect = false;
             XDFSoundManager.play("sound_ding_mp3");
-            XDFSoundManager.play("sound_lp_choise_right_mp3");
+            this.mLock_anim_hammer = true;
             this.playHammerAnim("right", function () {
+                _this.mLock_anim_hammer = false;
                 _this.next();
             }, e);
         };
@@ -211,15 +240,29 @@ var game;
             this.canSelect = false;
             XDFSoundManager.play("sound_lp_dds_err_mp3");
             this.canSelect = true;
+            this.mLock_anim_hammer = true;
             this.playHammerAnim("err", function () {
+                _this.mLock_anim_hammer = false;
                 _this.repeatHint();
             }, e);
         };
         /** 时间终止 */
         DDSView.prototype.onTimeOut = function () {
+            var _this = this;
             this.reset();
             this.kComRestart.visible = true;
             this.kComRestart.playActionTimeOut();
+            this.mLock_start = true;
+            var finishDownCount = 0;
+            this.mLock_anim_mouse = true;
+            for (var i = 0; i < this.mOptionCount; i++) {
+                this["kCom" + i].playMouseAnim("down", function () {
+                    finishDownCount++;
+                    if (finishDownCount >= _this.mOptionCount) {
+                        _this.mLock_anim_mouse = false;
+                    }
+                }, this);
+            }
         };
         DDSView.prototype.playHammerAnim = function (type, cb, e) {
             var _this = this;

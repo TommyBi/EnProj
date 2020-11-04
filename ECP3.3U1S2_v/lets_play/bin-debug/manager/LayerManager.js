@@ -64,3 +64,4 @@ var XDFFrame;
     XDFFrame.LayerManager = LayerManager;
     __reflect(LayerManager.prototype, "XDFFrame.LayerManager");
 })(XDFFrame || (XDFFrame = {}));
+//# sourceMappingURL=LayerManager.js.map

@@ -42,3 +42,4 @@ var game;
     game.PreWordsCom = PreWordsCom;
     __reflect(PreWordsCom.prototype, "game.PreWordsCom", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=PreWordsCom.js.map

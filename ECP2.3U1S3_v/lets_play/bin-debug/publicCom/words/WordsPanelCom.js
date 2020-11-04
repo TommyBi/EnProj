@@ -81,3 +81,4 @@ var game;
     game.WordsPanelCom = WordsPanelCom;
     __reflect(WordsPanelCom.prototype, "game.WordsPanelCom", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=WordsPanelCom.js.map

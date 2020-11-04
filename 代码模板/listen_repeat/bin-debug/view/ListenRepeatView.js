@@ -14,10 +14,10 @@ var game;
         __extends(ListenRepeatView, _super);
         function ListenRepeatView() {
             var _this = _super.call(this) || this;
-            _this.mSkinType = 0; // 皮肤类型
-            _this.mTotalCount = 8; // 总的对话数量
+            _this.mSkinType = 2; // 皮肤类型
+            _this.mTotalCount = 11; // 总的对话数量
             _this._mCurPage = 0;
-            _this.mPageCfg = [[0, 7]]; // 页面配置
+            _this.mPageCfg = [[0, 5], [6, 10]]; // 页面配置
             _this.skinName = "ListenRepeatViewSkin";
             return _this;
         }

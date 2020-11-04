@@ -10,7 +10,7 @@ namespace game {
         private mArr: string[] = [
             "It's La Tomatina in Spain.",
             "People throw tomatoes at each other.",
-            "it's Halloween in the U.S.",
+            "It's Halloween in the U.S.",
             "Kids in costumes get lots of candy.",
             "It's the Carnival of Venice in Italy.",
             "Everyone wears a mask and a costume."

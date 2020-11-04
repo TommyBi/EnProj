@@ -67,6 +67,7 @@ var game;
             this.kComAnswer.visible = false;
             this.kComReplay.visible = true;
             this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
+            this.kImgArrowStatic0.visible = this.kImgArrowStatic1.visible = this.kImgArrowStatic2.visible = false;
             this.kComReplay.showStart();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
         };
@@ -84,6 +85,7 @@ var game;
             this.kComReplay.visible = false;
             this.kComAnswer.visible = false;
             this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
+            this.kImgArrowStatic0.visible = this.kImgArrowStatic1.visible = this.kImgArrowStatic2.visible = false;
             this.onReset();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
             this.next();
@@ -137,16 +139,16 @@ var game;
             if (this.mCurSelectIdx == -1)
                 return;
             var idx = this.getTargetPoint(e.stageX, e.stageY);
+            this.kImgPen.visible = this["kImgArrow" + this.mCurSelectIdx].visible = false;
             if (idx == -1) {
                 // 没有匹配项
-                this.kImgPen.visible = this["kImgArrow" + this.mCurSelectIdx].visible = false;
                 this.mCurSelectIdx == -1;
             }
             else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
                     this.mIsLock = true;
-                    this.kImgPen.visible = false;
+                    this["kImgArrowStatic" + this.mCurSelectIdx].visible = true;
                     XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "sound_stick_right_mp3", function () {
                         _this.next();
                     });
@@ -155,7 +157,6 @@ var game;
                     this.kComAnswer.visible = true;
                     this.kComAnswer.playErr(function () {
                         _this.kComAnswer.visible = false;
-                        _this.kImgPen.visible = _this["kImgArrow" + _this.mCurSelectIdx].visible = false;
                         XDFSoundManager.play("sound_ss_option" + _this.mCurHint + "_mp3");
                     });
                 }
@@ -210,6 +211,7 @@ var game;
             this.mCurPenIdx = idx;
             this.kImgPen.source = "img_lm_pencil_" + this.mCurPenIdx + "_png";
             this["kImgArrow" + this.mCurHint].source = "img_lm_arr" + this.mCurPenIdx + "_png";
+            this["kImgArrowStatic" + this.mCurHint].source = "img_lm_arr" + this.mCurPenIdx + "_png";
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         };

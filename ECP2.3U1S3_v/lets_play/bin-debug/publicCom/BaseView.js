@@ -166,3 +166,4 @@ var game;
     game.BaseView = BaseView;
     __reflect(BaseView.prototype, "game.BaseView", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=BaseView.js.map

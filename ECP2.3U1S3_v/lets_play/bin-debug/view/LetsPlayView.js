@@ -135,6 +135,7 @@ var game;
                 _this.lostAnim.visible = false;
                 _this.currentAnim.visible = true;
                 _this.currentAnim.play(null, 0);
+                _this.playSound(_this.currentIndex, function () { });
             }, this);
         };
         LetsPlayView.prototype.onNext = function () {
@@ -198,3 +199,4 @@ var game;
     game.LetsPlayView = LetsPlayView;
     __reflect(LetsPlayView.prototype, "game.LetsPlayView");
 })(game || (game = {}));
+//# sourceMappingURL=LetsPlayView.js.map

@@ -34,3 +34,4 @@ var game;
     game.PlayItem = PlayItem;
     __reflect(PlayItem.prototype, "game.PlayItem", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=PlayItem.js.map

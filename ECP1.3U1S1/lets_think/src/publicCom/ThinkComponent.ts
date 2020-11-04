@@ -12,11 +12,11 @@ namespace game {
         public kImgNameBg: eui.Image;
         public kImgArrow: eui.Image;
         public kLabelWord: eui.Label;
-        public kImgMask: eui.Image;
-        public kImgSound: eui.Image;
-        public kGrpWordStatic: eui.Group;// 也是没脾气了，因为自动对齐，下面的组件会压住上面的组件，哎无奈之举
+        public kMask: eui.Rect;
+        public kGrpWordStatic: eui.Group;
         public kImgNameBg0: eui.Image;
         public kImgArrow0: eui.Image;
+        public kImgSound: eui.Image;
 
         private mIsRolling: boolean = false;// 是否正在翻滚
         private mIsMoving: boolean = false; // 是否正在移动过程中
@@ -56,12 +56,14 @@ namespace game {
                 });
             }
         }
+        private mSkinType: number = 0;
 
-        public constructor(idx: number, word: string) {
+        public constructor(idx: number, word: string, skinType: number) {
             super();
             this.skinName = "ThinkComponentSkin";
             this.mIdx = idx;
             this.mWord = word;
+            this.mSkinType = skinType;
         }
 
         protected createChildren() {
@@ -70,7 +72,7 @@ namespace game {
             this.kImgArrow0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onShowWord, this);
             this.kImgSound.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlaySound, this);
             this.kGrpBg.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchToll, this);
-            this.kGrpWord.mask = this.kImgMask;
+            this.kGrpWord.mask = this.kMask;
             this.init();
         }
 
@@ -82,7 +84,7 @@ namespace game {
 
             this.mIsBack = true;
             this.kImgSound.visible = this.kGrpWord.visible = false;
-            this.kImgCard.source = `img_think_shadow_png`;
+            this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
             this.kLabelWord.text = this.mWord;
             this.kGrpWordStatic.visible = false;
             this.kGrpWord.visible = false;
@@ -117,7 +119,7 @@ namespace game {
                 } else {
                     this.mIsBack = true;
                     this.kImgSound.visible = this.kGrpWord.visible = this.kGrpWordStatic.visible = false;
-                    this.kImgCard.source = `img_think_shadow_png`;
+                    this.kImgCard.source = `img_think_bg${this.mSkinType}_png`;
                 }
 
                 egret.Tween.get(this.kGrpMain).to({ scaleX: 1 }, 200);

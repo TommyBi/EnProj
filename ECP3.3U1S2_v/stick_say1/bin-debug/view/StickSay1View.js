@@ -79,6 +79,7 @@ var game;
                 this["kImgMask" + i].visible = true;
                 this["kImgMaskLine" + i].visible = false;
                 this["kImgMaskLineBig" + i].visible = false;
+                this["kImgOption" + i].visible = true;
                 egret.Tween.removeTweens(this["kImgMaskLine" + i]);
                 egret.Tween.removeTweens(this["kImgMaskLineBig" + i]);
             }

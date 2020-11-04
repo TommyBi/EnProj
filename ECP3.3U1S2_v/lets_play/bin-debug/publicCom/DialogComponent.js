@@ -51,3 +51,4 @@ var game;
     game.DialogComponent = DialogComponent;
     __reflect(DialogComponent.prototype, "game.DialogComponent", ["eui.UIComponent", "egret.DisplayObject"]);
 })(game || (game = {}));
+//# sourceMappingURL=DialogComponent.js.map

@@ -42,11 +42,11 @@ var game;
             this.kComRestart.playActionStart();
             this.kImgHint.mask = this.kImgMask;
             // init DBAnim
-            this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle");
+            this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle", 3);
             this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.4, scaleY: 1.4 });
-            this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch");
+            this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch", 2);
             this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.4, scaleY: 1.4 });
-            this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump");
+            this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump", 3);
             this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.4, scaleY: 1.4 });
             this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepIdle.visible = true;

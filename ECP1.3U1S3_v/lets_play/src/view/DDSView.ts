@@ -38,6 +38,14 @@ namespace game {
             y: 600,
         }]
 
+        private mLock_desc_sound: boolean = false;  // 提示音播放锁
+        private mLock_anim_mouse: boolean = false;  // 老鼠动画播放时的锁
+        private mLock_anim_hammer: boolean = false; // 锤子动画播放时的锁
+        private mLock_start: boolean = false;       // 是否开始了的锁
+        private get mIsLock(): boolean {
+            return this.mLock_desc_sound || this.mLock_anim_mouse || this.mLock_anim_hammer || this.mLock_start;
+        }
+
         constructor() {
             super();
             this.skinName = "DDSViewSkin";
@@ -95,6 +103,7 @@ namespace game {
             this.kComRestart.visible = false;
 
             // 开始
+            this.mLock_start = false;
             this.canSelect = false;
             this.next();
         }
@@ -107,7 +116,10 @@ namespace game {
                 // format img
                 this[`kCom${i}`].name = this.mCurShowArr[i];
                 this[`kCom${i}`].formateImg(this.mCurShowArr[i]);
-                this[`kCom${i}`].playMouseAnim("up", null, null);
+                this.mLock_anim_mouse = true;
+                this[`kCom${i}`].playMouseAnim("up", () => {
+                    this.mLock_anim_mouse = false;
+                }, this);
             }
         }
         /** 生产随机队列 */
@@ -147,9 +159,11 @@ namespace game {
         private repeatHint(): void {
             let finishDownCount = 0;
             for (let i = 0; i < this.mOptionCount; i++) {
+                this.mLock_anim_mouse = true;
                 this[`kCom${i}`].playMouseAnim("down", () => {
                     finishDownCount++;
                     if (finishDownCount >= this.mOptionCount) {
+                        this.mLock_anim_mouse = false;
                         this.playHintAction(() => {
                             this.calShowOrder();
                             this.canSelect = true;
@@ -160,8 +174,10 @@ namespace game {
         }
 
         private playHintAction(cb: Function): void {
+            this.mLock_desc_sound = true;
             XDFSoundManager.play(`sound_lp_dds_option${this.mCurHintIdx}_mp3`, 0, 1, 1, `sound_lp_dds_option${this.mCurHintIdx}_mp3`, () => {
                 this.canSelect = true;
+                this.mLock_desc_sound = false;
                 cb && cb();
             });
             this.kLabelDesc.text = this.mHintWords[this.mCurHintIdx];
@@ -178,17 +194,24 @@ namespace game {
         }
 
         private judge(num: number, e: egret.TouchEvent): void {
+            if (this.mIsLock) return;
             if (this[`kCom${num}`].name == String(this.mCurHintIdx)) {
+                this.mLock_anim_mouse = true;
                 this[`kCom${num}`].playMouseAnim("hit", () => {
                     for (let i = 0; i < this.mOptionCount; i++) {
-                        this[`kCom${i}`].playMouseAnim("down");
+                        this[`kCom${i}`].playMouseAnim("down", () => {
+                            this.mLock_anim_mouse = false;
+                        }, this);
                     }
                 }, this);
                 this.kGrpAnimHummer.x = this.mPosHammer[num].x;
                 this.kGrpAnimHummer.y = this.mPosHammer[num].y;
                 this.onSelectRight(e);
             } else {
-                this[`kCom${num}`].playMouseAnim("hit", null, null);
+                this.mLock_anim_mouse = true;
+                this[`kCom${num}`].playMouseAnim("hit", () => {
+                    this.mLock_anim_mouse = false;
+                }, this);
                 this.kGrpAnimHummer.x = this.mPosHammer[num].x;
                 this.kGrpAnimHummer.y = this.mPosHammer[num].y;
                 this.onSelectErr(e);
@@ -200,8 +223,9 @@ namespace game {
             this.kComBar.stop();
             this.canSelect = false;
             XDFSoundManager.play("sound_ding_mp3");
-            XDFSoundManager.play("sound_lp_choise_right_mp3");
+            this.mLock_anim_hammer = true;
             this.playHammerAnim("right", () => {
+                this.mLock_anim_hammer = false;
                 this.next();
             }, e);
         }
@@ -211,7 +235,9 @@ namespace game {
             this.canSelect = false;
             XDFSoundManager.play("sound_lp_dds_err_mp3");
             this.canSelect = true;
+            this.mLock_anim_hammer = true;
             this.playHammerAnim("err", () => {
+                this.mLock_anim_hammer = false;
                 this.repeatHint();
             }, e)
         }
@@ -221,6 +247,17 @@ namespace game {
             this.reset();
             this.kComRestart.visible = true;
             this.kComRestart.playActionTimeOut();
+            this.mLock_start = true;
+            let finishDownCount = 0;
+            this.mLock_anim_mouse = true;
+            for (let i = 0; i < this.mOptionCount; i++) {
+                this[`kCom${i}`].playMouseAnim("down", () => {
+                    finishDownCount++;
+                    if (finishDownCount >= this.mOptionCount) {
+                        this.mLock_anim_mouse = false;
+                    }
+                }, this);
+            }
         }
 
         private playHammerAnim(type: string, cb: Function, e?: egret.TouchEvent): void {

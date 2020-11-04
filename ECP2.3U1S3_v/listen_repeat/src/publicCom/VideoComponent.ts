@@ -42,7 +42,7 @@ namespace game {
 
         /** 播放的视频索引 */
         public play(idx: number): void {
-            this.kImgMaskPrePlay.visible = true;
+            this.kImgMaskPrePlay.visible = false;
             this.kRect.alpha = 1;
             egret.Tween.removeTweens(this.kRect);
             this.mVideo.load(`resource/assets/video/${idx}.mp4`);
@@ -52,7 +52,6 @@ namespace game {
 
         /** 加载成功 */
         private onLoad(): void {
-            this.kImgMaskPrePlay.visible = false;
             this.mVideo.play(0, false);
             this.kRect.alpha = 1;
             egret.Tween.get(this.kRect).to({ alpha: 0 }, 500, egret.Ease.cubicOut);

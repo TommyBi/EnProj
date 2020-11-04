@@ -3,27 +3,27 @@
 	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
 	<e:Image source="img_lm_bg_png" horizontalCenter="-140" verticalCenter="0" locked="true"/>
 	<e:Group x="182" y="28">
-		<e:Image source="img_lm_num0_png" x="0" y="16" scaleX="0.5" scaleY="0.5"/>
-		<e:Image source="img_lm_option0_png" x="130" y="4" scaleX="0.4" scaleY="0.4"/>
-		<e:Image id="kImgMask0" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+		<e:Image source="img_lm_num0_png" x="0" y="0" scaleX="0.3" scaleY="0.3"/>
+		<e:Image source="img_lm_option0_png" x="70" y="4" scaleX="0.4" scaleY="0.4"/>
+		<e:Image id="kImgMask0" source="img_lm_frame_png" x="66" y="0" scaleX="0.4" scaleY="0.4"/>
 	</e:Group>
-	<e:Group id="kGrpStart0" width="100" height="100" x="568" y="110" touchChildren="false" touchEnabled="true" touchThrough="false">
+	<e:Group id="kGrpStart0" width="100" height="100" x="500" y="110" touchChildren="false" touchEnabled="true" touchThrough="false">
 		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
 	</e:Group>
 	<e:Group x="182" verticalCenter="0">
-		<e:Image x="0" y="16" scaleX="0.5" scaleY="0.5" source="img_lm_num1_png"/>
-		<e:Image x="130" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option1_png"/>
-		<e:Image id="kImgMask1" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+		<e:Image x="0" scaleX="0.3" scaleY="0.3" source="img_lm_num1_png"/>
+		<e:Image x="70" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option1_png"/>
+		<e:Image id="kImgMask1" source="img_lm_frame_png" x="66" y="0" scaleX="0.4" scaleY="0.4"/>
 	</e:Group>
-	<e:Group id="kGrpStart1" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="0" horizontalCenter="-338">
+	<e:Group id="kGrpStart1" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="0" x="500">
 		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
 	</e:Group>
 	<e:Group x="182" verticalCenter="364">
-		<e:Image x="0" y="16" scaleX="0.5" scaleY="0.5" source="img_lm_num2_png"/>
-		<e:Image x="130" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option2_png"/>
-		<e:Image id="kImgMask2" source="img_lm_frame_png" x="126" y="0" scaleX="0.4" scaleY="0.4"/>
+		<e:Image x="0" y="0" scaleX="0.3" scaleY="0.3" source="img_lm_num2_png"/>
+		<e:Image x="70" y="4" scaleX="0.4" scaleY="0.4" source="img_lm_option2_png"/>
+		<e:Image id="kImgMask2" source="img_lm_frame_png" x="66" y="0" scaleX="0.4" scaleY="0.4"/>
 	</e:Group>
-	<e:Group id="kGrpStart2" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="364" horizontalCenter="-338">
+	<e:Group id="kGrpStart2" width="100" height="100" touchChildren="false" touchEnabled="true" touchThrough="false" verticalCenter="364" x="500">
 		<e:Image source="img_lm_point_png" scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0"/>
 	</e:Group>
 	<e:Group id="kGrpTar0" width="100" height="100" x="884" y="110" touchChildren="false" touchEnabled="true" touchThrough="false">
@@ -69,9 +69,12 @@
 		<e:VerticalLayout gap="50"/>
 		</e:layout>
 	</e:Group>
-	<e:Image id="kImgArrow2" source="img_lm_arr0_png" x="706" y="294" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
-	<e:Image id="kImgArrow0" source="img_lm_arr0_png" x="686" y="329" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
-	<e:Image id="kImgArrow1" source="img_lm_arr0_png" x="709" y="402" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5"/>
+	<e:Image id="kImgArrow2" source="img_lm_arr0_png" x="706" y="294" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
+	<e:Image id="kImgArrow0" source="img_lm_arr0_png" x="686" y="329" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
+	<e:Image id="kImgArrow1" source="img_lm_arr0_png" x="709" y="402" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
+	<e:Image id="kImgArrowStatic2" source="img_lm_arr0_png" x="550" y="906" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="-44" anchorOffsetX="50" width="1153.74"/>
+	<e:Image id="kImgArrowStatic1" source="img_lm_arr0_png" x="548" y="538" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="43.5" anchorOffsetX="50" width="1153.74"/>
+	<e:Image source="img_lm_arr0_png" x="549.32" y="160" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="0" anchorOffsetX="36.66" width="845.74" id="kImgArrowStatic0"/>
 	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="23" anchorOffsetY="208"/>
 	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="50" bottom="50" visible="false"/>
 	<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>

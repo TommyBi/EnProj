@@ -48,6 +48,7 @@ var game;
             var cfg = this.mPageCfg[this.mCurPage];
             for (var i = 0; i < 8; i++) {
                 this["kCom" + i].visible = this["kCom" + i].includeInLayout = i < (cfg[1] - cfg[0] + 1);
+                this.kGrpDialog.height = this.kGrpDialog.height > 400 ? 400 : this.kGrpDialog.height;
                 if (this["kCom" + i].visible) {
                     this["kCom" + i].removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
                     this["kCom" + i].addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);

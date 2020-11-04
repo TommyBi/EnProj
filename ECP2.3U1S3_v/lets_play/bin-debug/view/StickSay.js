@@ -176,3 +176,4 @@ var game;
     game.StickSay = StickSay;
     __reflect(StickSay.prototype, "game.StickSay");
 })(game || (game = {}));
+//# sourceMappingURL=StickSay.js.map

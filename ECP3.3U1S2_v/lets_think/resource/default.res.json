@@ -9,7 +9,7 @@
 			"name":"public"
 		},
 		{
-			"keys":"img_think_arrow_png,img_think_name_bg_png,img_think_pic0_png,img_think_pic1_png,img_think_shadow_png,img_think_pic2_png,img_think_bg0_png,img_think_bg1_png,img_think_bg2_png,img_think_sound0_png,img_think_sound1_png,img_think_sound2_png",
+			"keys":"img_think_arrow_png,img_think_name_bg_png,img_think_pic0_png,img_think_pic1_png,img_think_shadow_png,img_think_bg0_png,img_think_bg1_png,img_think_bg2_png,img_think_sound0_png,img_think_sound1_png,img_think_sound2_png,img_think_pic2_png",
 			"name":"lets_think"
 		},
 		{
@@ -209,16 +209,6 @@
 			"url":"assets/sound/sound_think_choise.mp3"
 		},
 		{
-			"name":"sound_thinkCard_2_mp3",
-			"type":"sound",
-			"url":"assets/sound/sound_thinkCard_2.mp3"
-		},
-		{
-			"name":"img_think_pic2_png",
-			"type":"image",
-			"url":"assets/img/lets_think/img_think_pic2.png"
-		},
-		{
 			"name":"img_think_bg0_png",
 			"type":"image",
 			"url":"assets/img/lets_think/img_think_bg0.png"
@@ -247,6 +237,16 @@
 			"name":"img_think_sound2_png",
 			"type":"image",
 			"url":"assets/img/lets_think/img_think_sound2.png"
+		},
+		{
+			"name":"img_think_pic2_png",
+			"type":"image",
+			"url":"assets/img/lets_think/img_think_pic2.png"
+		},
+		{
+			"name":"sound_thinkCard_2_mp3",
+			"type":"sound",
+			"url":"assets/sound/sound_thinkCard_2.mp3"
 		}
 	]
 }

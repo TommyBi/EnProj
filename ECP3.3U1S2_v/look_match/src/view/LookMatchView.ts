@@ -17,12 +17,16 @@ namespace game {
         public kImgPen2: eui.Image;
         public kGrpPen3: eui.Group;
         public kImgPen3: eui.Image;
-        public kImgPen: eui.Image;
-        public kComReplay: game.ReplayComponent;
-        public kComAnswer: game.AnswerComponent;
         public kImgArrow2: eui.Image;
         public kImgArrow0: eui.Image;
         public kImgArrow1: eui.Image;
+        public kImgPen: eui.Image;
+        public kComReplay: game.ReplayComponent;
+        public kComAnswer: game.AnswerComponent;
+        public kImgArrowStatic2: eui.Image;
+        public kImgArrowStatic1: eui.Image;
+        public kImgArrowStatic0: eui.Image;
+
 
         private mIsLock: boolean = false;   // 是否上锁
         private mCurSelectIdx = -1;         // 当前选中的起始位置
@@ -78,6 +82,7 @@ namespace game {
             this.kComAnswer.visible = false;
             this.kComReplay.visible = true;
             this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
+            this.kImgArrowStatic0.visible = this.kImgArrowStatic1.visible = this.kImgArrowStatic2.visible = false;
             this.kComReplay.showStart();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
         }
@@ -97,6 +102,7 @@ namespace game {
             this.kComReplay.visible = false;
             this.kComAnswer.visible = false;
             this.kImgArrow0.visible = this.kImgArrow1.visible = this.kImgArrow2.visible = false;
+            this.kImgArrowStatic0.visible = this.kImgArrowStatic1.visible = this.kImgArrowStatic2.visible = false;
             this.onReset();
             this.mHintOrder = XDFFrame.utilFunc.calShowOrder(3);
             this.next();
@@ -146,15 +152,15 @@ namespace game {
             if (this.mCurPenIdx == -1) return;
             if (this.mCurSelectIdx == -1) return;
             let idx = this.getTargetPoint(e.stageX, e.stageY);
+            this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
             if (idx == -1) {
                 // 没有匹配项
-                this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
                 this.mCurSelectIdx == -1;
             } else {
                 // 判断是不是对应的匹配项
                 if (idx == this.mCurSelectIdx) {
                     this.mIsLock = true;
-                    this.kImgPen.visible = false;
+                    this[`kImgArrowStatic${this.mCurSelectIdx}`].visible = true;
                     XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "sound_stick_right_mp3", () => {
                         this.next();
                     });
@@ -162,7 +168,6 @@ namespace game {
                     this.kComAnswer.visible = true;
                     this.kComAnswer.playErr(() => {
                         this.kComAnswer.visible = false;
-                        this.kImgPen.visible = this[`kImgArrow${this.mCurSelectIdx}`].visible = false;
                         XDFSoundManager.play(`sound_ss_option${this.mCurHint}_mp3`);
                     });
                 }
@@ -216,6 +221,7 @@ namespace game {
             this.mCurPenIdx = idx;
             this.kImgPen.source = `img_lm_pencil_${this.mCurPenIdx}_png`;
             this[`kImgArrow${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
+            this[`kImgArrowStatic${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         }

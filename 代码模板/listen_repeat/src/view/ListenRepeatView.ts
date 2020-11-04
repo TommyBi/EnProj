@@ -16,15 +16,15 @@ namespace game {
 
         private mCurPlayIdx: number; // 当前正在播放的索引
 
-        private mSkinType: number = 0;      // 皮肤类型
-        private mTotalCount: number = 8;   // 总的对话数量
+        private mSkinType: number = 2;      // 皮肤类型
+        private mTotalCount: number = 11;   // 总的对话数量
         private _mCurPage: number = 0;
         private get mCurPage(): number { return this._mCurPage; }// 当前页面
         private set mCurPage(n: number) {
             this._mCurPage = n;
             this.changePage();
         }
-        private mPageCfg: any[] = [[0, 7]];     // 页面配置
+        private mPageCfg: any[] = [[0, 5], [6, 10]];     // 页面配置
 
         constructor() {
             super();

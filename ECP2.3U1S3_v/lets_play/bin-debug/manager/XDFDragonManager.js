@@ -126,3 +126,4 @@ var XDFFrame;
     XDFFrame.DBAnim = DBAnim;
     __reflect(DBAnim.prototype, "XDFFrame.DBAnim");
 })(XDFFrame || (XDFFrame = {}));
+//# sourceMappingURL=XDFDragonManager.js.map

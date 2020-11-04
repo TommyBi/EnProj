@@ -14,9 +14,9 @@
 		<game:DDSComponent x="567.49" y="521.82" skinName="DDSComponentSkin" id="kCom2"/>
 		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
 	</e:Group>
-	<e:Group x="0" y="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true">
-		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="0"/>
-		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="1680"/>
+	<e:Group x="0" y="0" touchChildren="false" touchEnabled="false" touchThrough="true">
+		<e:Image y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="0" source="img_bg_2_png"/>
+		<e:Image y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="1680" source="img_bg_2_png"/>
 	</e:Group>
 	<e:Group id="kGrpAnimHummer" width="200" height="200" x="96" y="421" touchChildren="false" touchEnabled="false" touchThrough="true"/>
 	<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>

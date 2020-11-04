@@ -12,11 +12,11 @@ namespace game {
         public kImgNameBg: eui.Image;
         public kImgArrow: eui.Image;
         public kLabelWord: eui.Label;
-        public kImgMask: eui.Image;
-        public kImgSound: eui.Image;
-        public kGrpWordStatic: eui.Group;// 也是没脾气了，因为自动对齐，下面的组件会压住上面的组件，哎无奈之举
+        public kMask: eui.Rect;
+        public kGrpWordStatic: eui.Group;
         public kImgNameBg0: eui.Image;
         public kImgArrow0: eui.Image;
+        public kImgSound: eui.Image;
 
         private mIsRolling: boolean = false;// 是否正在翻滚
         private mIsMoving: boolean = false; // 是否正在移动过程中
@@ -72,7 +72,7 @@ namespace game {
             this.kImgArrow0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onShowWord, this);
             this.kImgSound.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPlaySound, this);
             this.kGrpBg.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchToll, this);
-            this.kGrpWord.mask = this.kImgMask;
+            this.kGrpWord.mask = this.kMask;
             this.init();
         }
 

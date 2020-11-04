@@ -159,3 +159,4 @@ var MovieClipResLoader = (function () {
     return MovieClipResLoader;
 }());
 __reflect(MovieClipResLoader.prototype, "MovieClipResLoader");
+//# sourceMappingURL=MovieClipComponent.js.map
