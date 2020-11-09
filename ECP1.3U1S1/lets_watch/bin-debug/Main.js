@@ -125,10 +125,10 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("preload")];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, this.loadTheme()];
+                        return [4 /*yield*/, RES.loadGroup("public")];
                     case 3:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("public")];
+                        return [4 /*yield*/, this.loadTheme()];
                     case 4:
                         _a.sent();
                         return [3 /*break*/, 6];
@@ -159,8 +159,8 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var LetsWatchView = new game.LetsWatchView();
-        XDFFrame.LayerManager.UI_View.addChild(LetsWatchView);
+        var letsWatchView = new game.LetsWatchView();
+        XDFFrame.LayerManager.UI_View.addChild(letsWatchView);
     };
     Main.prototype.loadMusic = function () {
         return __awaiter(this, void 0, void 0, function () {

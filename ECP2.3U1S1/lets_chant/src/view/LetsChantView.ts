@@ -1,7 +1,8 @@
 namespace game {
     export class LetsChantView extends eui.Component {
+        public kImgBg: eui.Image;
         public kComVideo: game.VideoControlComponent;
-
+        private mSkinType: number = 1;
         constructor() {
             super();
             this.skinName = "LetsChantSkin";
@@ -13,7 +14,8 @@ namespace game {
         }
 
         private init(): void {
-            this.kComVideo.setSkinType(1);
+            this.kComVideo.setSkinType(this.mSkinType);
+            this.kImgBg.source = `img_bg_${this.mSkinType}_png`;
             this.kComVideo.play("video");
         }
     }

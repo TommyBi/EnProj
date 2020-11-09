@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSayViewNewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image source="img_ss_bg_png" horizontalCenter="0" verticalCenter="0"/>
+	<e:Group bottom="12" left="20">
+		<e:Group id="kGrpBtn0" x="0" y="0" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg2_png"/>
+			<e:Label text="swim" bold="true" horizontalCenter="0" verticalCenter="0" size="50"/>
+		</e:Group>
+		<e:Group id="kGrpBtn3" x="10" y="10" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg1_png"/>
+			<e:Label text="plant" horizontalCenter="0" verticalCenter="0" size="50" bold="true"/>
+		</e:Group>
+		<e:Group id="kGrpBtn2" x="20" y="20" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg3_png"/>
+			<e:Label text="snow" size="50" bold="true" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Group id="kGrpBtn1" x="30" y="30" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg4_png"/>
+			<e:Label text="sled" bold="true" size="50" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:layout>
+			<e:VerticalLayout gap="5"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true"/>
+	<game:FlagCom skinName="FlagComSkin" left="0" top="0" scaleX="0.8" scaleY="1"/>
+	<e:Group id="kGrpMask0" x="1490" y="610" scaleX="0.5" scaleY="0.5">
+		<e:Image source="img_ss_mask_png" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image id="kImgMask0" source="img_ss_mask_line_png" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group x="680" y="590" id="kGrpMask1" scaleX="0.45" scaleY="0.5">
+		<e:Image source="img_ss_mask_png" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image source="img_ss_mask_line_png" horizontalCenter="0" verticalCenter="0" id="kImgMask1"/>
+	</e:Group>
+	<e:Group x="840" y="110" id="kGrpMask2" scaleX="0.5" scaleY="0.5">
+		<e:Image source="img_ss_mask_png" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image source="img_ss_mask_line_png" horizontalCenter="0" verticalCenter="0" id="kImgMask2"/>
+	</e:Group>
+	<e:Group x="1680" y="140" id="kGrpMask3" scaleX="0.45" scaleY="0.5">
+		<e:Image source="img_ss_mask_png" horizontalCenter="0" verticalCenter="0"/>
+		<e:Image source="img_ss_mask_line_png" horizontalCenter="0" verticalCenter="0" id="kImgMask3"/>
+	</e:Group>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" bottom="50" right="173" visible="false"/>
+	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" verticalCenter="0" x="0" visible="false"/>
+</e:Skin>

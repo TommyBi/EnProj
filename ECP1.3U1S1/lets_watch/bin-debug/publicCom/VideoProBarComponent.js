@@ -31,16 +31,29 @@ var game;
             this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
             this.init();
         };
+        VideoProBarComponent.prototype.setSkinType = function (type) {
+            if (type > 0)
+                this.kImgProBtn.source = "img_pro_icon" + type + "_png";
+        };
         VideoProBarComponent.prototype.reset = function (time) {
             this.kImgProBtn.x = 0;
             this.kImgBar.width = this.kImgProBtn.x;
             this.updateProPos(time);
         };
-        VideoProBarComponent.prototype.updateProPos = function (remainTime) {
+        VideoProBarComponent.prototype.backToStart = function () {
             egret.Tween.removeTweens(this.kImgProBtn);
-            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+        };
+        VideoProBarComponent.prototype.updateProPos = function (remainTime) {
+            var _this = this;
+            egret.Tween.removeTweens(this.kImgProBtn);
+            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000).call(function () {
+                _this.kImgProBtn.x = 0;
+                XDFFrame.EventCenter.sendEvent(game.EventConst.videoPlayFinish);
+            });
             egret.Tween.removeTweens(this.kImgBar);
-            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000).call(function () {
+                _this.kImgBar.width = 0;
+            });
         };
         VideoProBarComponent.prototype.init = function () {
             this.kImgProBtn.x = 0;
@@ -64,21 +77,17 @@ var game;
             if (!this.mIsAdjust)
                 return;
             var offSet = e.stageX - this.mTouchSrcX;
-            console.log("offSet:", offSet);
             if (this.mTmpX + offSet >= this.kGrpBar.width) {
                 // 结束播放
-                console.log("\u7ED3\u675F\u64AD\u653E\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = this.kGrpBar.width;
                 this.kImgBar.width = this.kImgProBtn.x;
             }
             else if (this.mTmpX + offSet <= 0) {
                 // 回到起点 
-                console.log("\u56DE\u5230\u8D77\u70B9\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = 0;
                 this.kImgBar.width = this.kImgProBtn.x;
             }
             else {
-                console.log("\u4F4D\u7F6E\uFF1A" + (this.mTmpX + offSet));
                 this.kImgProBtn.x = this.mTmpX + offSet;
                 this.kImgBar.width = this.kImgProBtn.x;
             }

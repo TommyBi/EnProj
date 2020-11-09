@@ -72,9 +72,9 @@
 	<e:Image id="kImgArrow2" source="img_lm_arr0_png" x="706" y="294" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
 	<e:Image id="kImgArrow0" source="img_lm_arr0_png" x="686" y="329" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
 	<e:Image id="kImgArrow1" source="img_lm_arr0_png" x="709" y="402" width="150" scale9Grid="35,25,617,150" anchorOffsetY="100" scaleY="0.5" anchorOffsetX="25"/>
-	<e:Image id="kImgArrowStatic2" source="img_lm_arr0_png" x="550" y="906" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="-44" anchorOffsetX="50" width="1153.74"/>
-	<e:Image id="kImgArrowStatic1" source="img_lm_arr0_png" x="548" y="538" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="43.5" anchorOffsetX="50" width="1153.74"/>
-	<e:Image source="img_lm_arr0_png" x="549.32" y="160" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="0" anchorOffsetX="36.66" width="845.74" id="kImgArrowStatic0"/>
+	<e:Image id="kImgArrowStatic2" x="550" y="906" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="-44" width="1055.86" source="img_lm_line0_png" anchorOffsetX="0" scale9Grid="94,25,477,150"/>
+	<e:Image id="kImgArrowStatic1" x="548" y="538" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="43.5" width="1048.6" source="img_lm_line1_png" scale9Grid="78,25,475,150" anchorOffsetX="0"/>
+	<e:Image x="549.32" y="160" scaleX="0.5" scaleY="0.5" anchorOffsetY="100" rotation="0" width="771.74" id="kImgArrowStatic0" source="img_lm_line0_png" scale9Grid="78,25,475,150" anchorOffsetX="0"/>
 	<e:Image id="kImgPen" source="img_lm_pencil_0_png" x="733.52" y="254.48" scaleX="0.4" scaleY="0.4" anchorOffsetX="23" anchorOffsetY="208"/>
 	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="50" bottom="50" visible="false"/>
 	<game:AnswerComponent id="kComAnswer" width="20" height="20" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>

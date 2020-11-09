@@ -26,7 +26,7 @@ namespace game {
         }
 
         public setSkinType(type: number): void {
-            this.kImgProBtn.source = `img_pro_icon${type}_png`;
+            if (type > 0) this.kImgProBtn.source = `img_pro_icon${type}_png`;
         }
 
         public reset(time: number): void {
@@ -35,11 +35,20 @@ namespace game {
             this.updateProPos(time);
         }
 
+        public backToStart(): void {
+            egret.Tween.removeTweens(this.kImgProBtn);
+        }
+
         public updateProPos(remainTime): void {
             egret.Tween.removeTweens(this.kImgProBtn);
-            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000).call(() => {
+                this.kImgProBtn.x = 0;
+                XDFFrame.EventCenter.sendEvent(EventConst.videoPlayFinish);
+            });
             egret.Tween.removeTweens(this.kImgBar);
-            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000).call(() => {
+                this.kImgBar.width = 0;
+            });
         }
 
         private init(): void {
@@ -58,7 +67,7 @@ namespace game {
 
         private onTouchEnd(e: egret.TouchEvent): void {
             if (this.mIsAdjust) {
-                XDFFrame.EventCenter.sendEvent(EventConst.eventFinishVideoProgress, this.kImgProBtn.x / this.kGrpBar.width);
+                XDFFrame.EventCenter.sendEvent(EventConst.eventFinishVideoProgress, this.kImgProBtn.x / this.kGrpBar.width)
             }
             this.mIsAdjust = false;
         }
@@ -66,19 +75,15 @@ namespace game {
         private onTouchMove(e: egret.TouchEvent): void {
             if (!this.mIsAdjust) return;
             let offSet = e.stageX - this.mTouchSrcX;
-            console.log("offSet:", offSet);
             if (this.mTmpX + offSet >= this.kGrpBar.width) {
                 // 结束播放
-                console.log(`结束播放：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = this.kGrpBar.width;
                 this.kImgBar.width = this.kImgProBtn.x;
             } else if (this.mTmpX + offSet <= 0) {
                 // 回到起点 
-                console.log(`回到起点：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = 0;
                 this.kImgBar.width = this.kImgProBtn.x;
             } else {
-                console.log(`位置：${this.mTmpX + offSet}`);
                 this.kImgProBtn.x = this.mTmpX + offSet;
                 this.kImgBar.width = this.kImgProBtn.x;
             }

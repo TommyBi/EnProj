@@ -45,7 +45,8 @@ namespace game {
             this.kImgMaskPrePlay.visible = false;
             this.kRect.alpha = 1;
             egret.Tween.removeTweens(this.kRect);
-            this.mVideo.load(`resource/assets/video/${idx}.mp4`);
+            let url = window.__math2_res_config__ ? `${window.__math2_res_config__}/assets/video/${idx}.mp4` : `resource/assets/video/${idx}.mp4`;
+            this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
         }

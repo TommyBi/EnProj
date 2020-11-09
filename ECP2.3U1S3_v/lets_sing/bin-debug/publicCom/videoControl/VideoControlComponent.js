@@ -78,6 +78,7 @@ var game;
             }
             else {
                 console.log("this.mvideo:", this.mVideo);
+                this.mIsPlaying = true;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }

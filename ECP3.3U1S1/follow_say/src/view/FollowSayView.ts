@@ -238,7 +238,7 @@ namespace game {
                 // 文字选项提示去除
                 for (let i = 0; i < this.mOptionCount; i++) {
                     egret.Tween.removeTweens(this[`kGrpOption${i}`]);
-                    this[`kGrpOption${i}`].scaleX = this[`kGrpOption${i}`].scaleY = 0.8;
+                    this[`kGrpOption${i}`].scaleX = this[`kGrpOption${i}`].scaleY = 1.1;
                     egret.Tween.removeTweens(this[`kGrpRoleAnim${i}`]);
                     this[`kGrpRoleAnim${i}`].alpha = 1;
                 }

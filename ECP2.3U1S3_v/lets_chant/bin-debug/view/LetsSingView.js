@@ -25,7 +25,7 @@ var game;
         };
         LetsSingView.prototype.init = function () {
             this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
-            this.kComCaption.setSkinType(1);
+            this.kComCaption.setSkinType(this.mSkinType);
             this.kComCaption.load("video");
         };
         return LetsSingView;

@@ -14,7 +14,7 @@ var game;
         __extends(LetsChantView, _super);
         function LetsChantView() {
             var _this = _super.call(this) || this;
-            _this.mSkinType = 0;
+            _this.mSkinType = 2;
             _this.skinName = "LetsChantSkin";
             return _this;
         }
@@ -24,8 +24,8 @@ var game;
             this.init();
         };
         LetsChantView.prototype.init = function () {
-            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             this.kComVideo.setSkinType(this.mSkinType);
+            this.kImgBg.source = "img_bg_" + this.mSkinType + "_png";
             this.kComVideo.play("video");
         };
         return LetsChantView;

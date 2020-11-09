@@ -4,6 +4,8 @@ declare class LetsChantSkin extends eui.Skin{
 }
 declare class ListenRepeatViewSkin extends eui.Skin{
 }
+declare class LookStickViewSkin extends eui.Skin{
+}
 declare class MainViewSkin extends eui.Skin{
 }
 declare class LetsPlaySkin extends eui.Skin{
@@ -24,11 +26,11 @@ declare class VideoControlComponentSkin extends eui.Skin{
 }
 declare class VideoProBarSkin extends eui.Skin{
 }
+declare class LetsSingViewSkin extends eui.Skin{
+}
 declare class LetsThinkSkin extends eui.Skin{
 }
 declare class ThinkComponentSkin extends eui.Skin{
-}
-declare class VideoPlayerSkin extends eui.Skin{
 }
 declare class LetsWatchSkin extends eui.Skin{
 }

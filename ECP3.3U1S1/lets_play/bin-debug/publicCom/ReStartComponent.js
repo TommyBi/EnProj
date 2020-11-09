@@ -56,6 +56,7 @@ var game;
             }
             this.kGrpGoodJob.visible = true;
             XDFSoundManager.play("sound_start_mp3");
+            XDFSoundManager.play("sound_goodjob_mp3");
             this.mAnimGoodJob.play(null, 1);
         };
         ReStartComponent.prototype.onNotifyStart = function () {

@@ -4,14 +4,14 @@ class XDFSoundManager {
     }
 
     private static _musicHash: { [key: string]: Sound } = {};
-    static play(url: string, startTime: number = 0, loops: number = 1, volume: number = 1, key = url, func?) {
+    static play(url: string, startTime: number = 0, times: number = 1, volume: number = 1, key = url, func?) {
         if (!this._musicHash[key]) {
             this._musicHash[key] = new Sound(url, volume);
         }
         if (key != url) {
             this._musicHash[key].url = url;
         }
-        this._musicHash[key].play(startTime, loops, this.isMuteMusic, func);
+        this._musicHash[key].play(startTime, times, this.isMuteMusic, func);
     }
 
     static stop(url: string, key = url) {
@@ -81,7 +81,7 @@ class Sound {
     constructor(public url: string, private _volume = 0.5) {
 
     }
-    play(startTime: number = 0, loops: number = 1, mute: boolean = false, func?) {
+    play(startTime: number = 0, times: number = 1, mute: boolean = false, func?) {
         this.stop();
         if (func) {
             this.callBack = func;
@@ -93,8 +93,9 @@ class Sound {
         }
 
         if (RES.getRes(this.url)) {
+            console.log("this.url:", this.url);
             this._currentSound = RES.getRes(this.url)
-            this._currentChannel = this._currentSound.play(startTime, loops);
+            this._currentChannel = this._currentSound.play(startTime, times);
             if (mute) {
                 this._currentChannel.volume = 0;
             } else {
@@ -107,7 +108,7 @@ class Sound {
             RES.getResAsync(this.url, (v, k) => {
                 if (v) {
                     this._currentSound = v;
-                    this._currentChannel = this._currentSound.play(startTime, loops);
+                    this._currentChannel = this._currentSound.play(startTime, times);
                     if (mute) {
                         this._currentChannel.volume = 0;
                     } else {

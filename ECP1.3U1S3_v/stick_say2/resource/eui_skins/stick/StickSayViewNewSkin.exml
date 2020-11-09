@@ -16,7 +16,7 @@
 	<e:Image id="kImgBody3" y="428" scaleX="0.5" scaleY="0.5" horizontalCenter="356" source="img_role_b_3_png"/>
 	<e:Image id="kImgCoat0" source="img_coat_0_png" x="1168" y="636" scaleX="0.7" scaleY="0.7"/>
 	<e:Image id="kImgCoat1" source="img_coat_1_png" x="1236" y="904" scaleX="0.7" scaleY="0.7"/>
-	<e:Image id="kImgCoat2" source="img_coat_2_png" x="1214" y="496" scaleX="0.7" scaleY="0.7"/>
+	<e:Image id="kImgCoat2" source="img_coat_2_png" x="1202" y="498" scaleX="0.7" scaleY="0.7"/>
 	<e:Image id="kImgCoat3" source="img_coat_3_png" x="1208" y="972" scaleX="0.7" scaleY="0.7"/>
 	<e:Image source="img_coat_0_png" x="312" y="324" scaleX="0.4" scaleY="0.4" locked="true"/>
 	<e:Image source="img_coat_1_png" x="480" y="392" scaleX="0.4" scaleY="0.4" locked="true"/>

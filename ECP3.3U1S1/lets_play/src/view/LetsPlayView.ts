@@ -7,6 +7,7 @@ namespace game {
         public kGrpSheepJump: eui.Group;
         public kImgMask: eui.Rect;
         public kImgHint: eui.Image;
+        public kGrpOption: eui.Group;
         public kGrpOption0: eui.Group;
         public kImgOption0: eui.Image;
         public kGrpOption1: eui.Group;
@@ -30,6 +31,12 @@ namespace game {
         private mCurHintIdx: number = 0;
         private mShowOrder: number[] = [];
 
+        private mLock_playAnim: boolean = false;
+        private mLock_sound: boolean = false;
+        private get mIsLock(): boolean {
+            return this.mLock_sound || this.mLock_playAnim;
+        }
+
         constructor() {
             super();
             this.skinName = "LetsPlaySkin";
@@ -43,26 +50,22 @@ namespace game {
             this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge1, this);
             this.kGrpOption2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge2, this);
             this.kGrpOption3.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge3, this);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
             this.init();
-        }
-
-        private onTouch(e: egret.TouchEvent): void {
-            egret.log(e.target);
         }
 
         private init(): void {
             this.kComRestart.visible = true;
+            this.kGrpOption.visible = false;
             this.kComRestart.playActionStart();
             this.kImgHint.mask = this.kImgMask;
 
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle", 3);
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch", 2);
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump", 3);
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
             this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepIdle.visible = true;
             this.mAnimSheepIdle.play(null, 0);
@@ -71,6 +74,7 @@ namespace game {
         private onStart(): void {
             this.kComRestart.visible = false;
             this.mOrder = this.calShowOrder(4);
+            this.kGrpOption.visible = true;
             this.hint();
         }
 
@@ -79,7 +83,8 @@ namespace game {
                 // 完成 游戏结束
                 this.kComBar.reset();
                 this.kComRestart.visible = true;
-                this.kComRestart.playActionStart();
+                this.kGrpOption.visible = false;
+                this.kComRestart.playActionGoodJob();
             } else {
                 // 刷新显示界面中对应图片  
                 this.mShowOrder = this.calShowOrder(4);
@@ -87,7 +92,10 @@ namespace game {
 
                 this.mCurHintIdx = this.mOrder.shift();
                 this.mCurrentHint = this.mHintArr[this.mCurHintIdx];
-                XDFSoundManager.play(`sound_words_${this.mCurrentHint}_mp3`);
+                this.mLock_sound = true;
+                XDFSoundManager.play(`sound_words_${this.mCurrentHint}_mp3`, 0, 1, 1, `sound_words_${this.mCurrentHint}_mp3`, () => {
+                    this.mLock_sound = false;
+                });
                 this.kLabelHint.text = `${this.mCurrentHint}`;
                 this.kComBar.play();
             }
@@ -104,7 +112,9 @@ namespace game {
         private playSheepCatch(cb?: Function): void {
             this.kGrpSheepIdle.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepCatch.visible = true;
+            this.mLock_playAnim = true;
             this.mAnimSheepCatch.play(null, 1, () => {
+                this.mLock_playAnim = false;
                 this.kGrpSheepCatch.visible = false;
                 this.playSheepIdle();
                 cb && cb();
@@ -120,7 +130,9 @@ namespace game {
         private playSheepJump(cb: Function): void {
             this.kGrpSheepCatch.visible = this.kGrpSheepIdle.visible = false;
             this.kGrpSheepJump.visible = true;
+            this.mLock_playAnim = true;
             this.mAnimSheepJump.play(null, 1, () => {
+                this.mLock_playAnim = false;
                 this.playSheepIdle();
                 cb && cb();
             }, this);
@@ -134,6 +146,7 @@ namespace game {
 
         /** 点击 */
         private onJudge(idx: number): void {
+            if (this.mIsLock) return;
             XDFSoundManager.play("sound_choise_mp3");
             this.onPlayTouchEffect(this[`kImgOption${idx}`]);
             if (this[`kGrpOption${idx}`].name == this.mCurrentHint) {
@@ -166,7 +179,9 @@ namespace game {
 
         private showCorrect(cb: Function): void {
             XDFSoundManager.play("sound_start_mp3");
+            this.mLock_playAnim = true;
             this.playSheepCatch(() => {
+                this.mLock_playAnim = false;
                 cb && cb();
             })
         }
@@ -204,6 +219,7 @@ namespace game {
 
         private onTimeOut(): void {
             this.kComBar.reset();
+            this.kGrpOption.visible = false;
             this.kComRestart.visible = true;
             this.kComRestart.playActionTimeOut();
         }

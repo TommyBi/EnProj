@@ -221,7 +221,7 @@ namespace game {
             this.mCurPenIdx = idx;
             this.kImgPen.source = `img_lm_pencil_${this.mCurPenIdx}_png`;
             this[`kImgArrow${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
-            this[`kImgArrowStatic${this.mCurHint}`].source = `img_lm_arr${this.mCurPenIdx}_png`;
+            this[`kImgArrowStatic${this.mCurHint}`].source = `img_lm_line${this.mCurPenIdx}_png`;
             this.kImgPen.x = e.stageX;
             this.kImgPen.y = e.stageY;
         }

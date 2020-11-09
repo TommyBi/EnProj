@@ -40,18 +40,10 @@ namespace game {
             this.kGrpVideo.addChild(this.mVideo);
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.videoPlayFinish, this.onPlayOver, this);
 
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            // mouse.enable(this.stage);
-
         }
 
         public setSkinType(type: number): void {
@@ -60,7 +52,8 @@ namespace game {
 
         /** 播放的视频索引 */
         public play(name: string): void {
-            this.mVideo.load(`resource/assets/video/${name}.mp4`);
+            let url = window.__math2_res_config__ ? `${window.__math2_res_config__}/assets/video/${name}.mp4` : `resource/assets/video/${name}.mp4`;
+            this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
         }
@@ -84,6 +77,7 @@ namespace game {
 
         /** 调整性播放进度 */
         private adjustPlay(e: any): void {
+            console.log("调整视频进度", e);
             if (this.mLength == 0) {
                 console.log("视频尚未加载完成");
             } else {
@@ -92,6 +86,12 @@ namespace game {
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        }
+
+        private onPlayOver(): void {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         }
 
         /** ----- 右下角三个控制按钮 ----- */
@@ -124,12 +124,5 @@ namespace game {
             this.mVideo.play(0, false);
             this.kComPro.reset(this.mVideo.length);
         }
-
-        // private onMoveOverPlay(): void { this.kImgPlay.source = "img_btn_play_p_png"; }
-        // private onMoveOutplay(): void { this.kImgPlay.source = "img_btn_play_n_png"; }
-        // private onMoveOverPause(): void { this.kImgPause.source = "img_btn_pause_p_png"; }
-        // private onMoveOutPause(): void { this.kImgPause.source = "img_btn_pause_n_png"; }
-        // private onMoveOverReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_p_png"; }
-        // private onMoveOutReplay(): void { this.kImgRePlay.source = "img_btn_rePlay_n_png"; }
     }
 }

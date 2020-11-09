@@ -4,9 +4,9 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var XDFSoundManager = (function () {
     function XDFSoundManager() {
     }
-    XDFSoundManager.play = function (url, startTime, loops, volume, key, func) {
+    XDFSoundManager.play = function (url, startTime, times, volume, key, func) {
         if (startTime === void 0) { startTime = 0; }
-        if (loops === void 0) { loops = 1; }
+        if (times === void 0) { times = 1; }
         if (volume === void 0) { volume = 1; }
         if (key === void 0) { key = url; }
         if (!this._musicHash[key]) {
@@ -15,7 +15,7 @@ var XDFSoundManager = (function () {
         if (key != url) {
             this._musicHash[key].url = url;
         }
-        this._musicHash[key].play(startTime, loops, this.isMuteMusic, func);
+        this._musicHash[key].play(startTime, times, this.isMuteMusic, func);
     };
     XDFSoundManager.stop = function (url, key) {
         if (key === void 0) { key = url; }
@@ -81,10 +81,10 @@ var Sound = (function () {
         // private _volume: number = 0.5;
         this._mute = false;
     }
-    Sound.prototype.play = function (startTime, loops, mute, func) {
+    Sound.prototype.play = function (startTime, times, mute, func) {
         var _this = this;
         if (startTime === void 0) { startTime = 0; }
-        if (loops === void 0) { loops = 1; }
+        if (times === void 0) { times = 1; }
         if (mute === void 0) { mute = false; }
         this.stop();
         if (func) {
@@ -95,8 +95,9 @@ var Sound = (function () {
             return;
         }
         if (RES.getRes(this.url)) {
+            console.log("this.url:", this.url);
             this._currentSound = RES.getRes(this.url);
-            this._currentChannel = this._currentSound.play(startTime, loops);
+            this._currentChannel = this._currentSound.play(startTime, times);
             if (mute) {
                 this._currentChannel.volume = 0;
             }
@@ -111,7 +112,7 @@ var Sound = (function () {
             RES.getResAsync(this.url, function (v, k) {
                 if (v) {
                     _this._currentSound = v;
-                    _this._currentChannel = _this._currentSound.play(startTime, loops);
+                    _this._currentChannel = _this._currentSound.play(startTime, times);
                     if (mute) {
                         _this._currentChannel.volume = 0;
                     }

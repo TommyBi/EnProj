@@ -44,6 +44,7 @@
 		"bin-debug/view/LetsThinkView.js",
 		"bin-debug/view/LetsWatchView.js",
 		"bin-debug/view/ListenRepeatView.js",
+		"bin-debug/view/LookStickView.js",
 		"bin-debug/view/MainView.js"
 	]
 }

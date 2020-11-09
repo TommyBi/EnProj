@@ -54,7 +54,7 @@ var game;
         };
         /** 播放的视频索引 */
         VideoControlComponent.prototype.play = function (name) {
-            var url = window.__math2_res_config__ ? window.__math2_res_config__ + "/assets/video/" + name + ".mp4" : "/resource/assets/video/" + name + ".mp4";
+            var url = window.__math2_res_config__ ? window.__math2_res_config__ + "/assets/video/" + name + ".mp4" : "resource/assets/video/" + name + ".mp4";
             this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);

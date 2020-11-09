@@ -1,7 +1,7 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json",
+			"keys":"description_json,pp_game_config_json",
 			"name":"preload"
 		},
 		{
@@ -14,11 +14,6 @@
 			"name":"description_json",
 			"type":"json",
 			"url":"config/description.json"
-		},
-		{
-			"name":"_xdf_logo__png",
-			"type":"image",
-			"url":"assets/_xdf_logo_.png"
 		},
 		{
 			"name":"pp_game_config_json",

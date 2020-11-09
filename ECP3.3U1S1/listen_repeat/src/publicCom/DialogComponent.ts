@@ -17,8 +17,8 @@ namespace game {
             "I always go sledding.",
             "I always go swimming.",
             "I have a dream.",
-            "Someday i want to swim.",
-            "Someday i want to ski."
+            "Someday I want to swim.",
+            "Someday I want to ski."
         ];
 
         public constructor() {

@@ -50,6 +50,7 @@ namespace game {
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
 
             XDFFrame.EventCenter.addEventListenr(EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.videoPlayFinish, this.onPlayOver, this);
         }
 
         public setSkinType(type: number): void {
@@ -58,7 +59,9 @@ namespace game {
 
         /** 播放的视频索引 */
         public load(name: string): void {
-            this.mVideo.load(`resource/assets/video/${name}.mp4`);
+            let url = window.__math2_res_config__ ? `${window.__math2_res_config__}/assets/video/${name}.mp4` : `resource/assets/video/${name}.mp4`;
+            console.log("url:", url, "window.__math2_res_config__:", window.__math2_res_config__);
+            this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
         }
@@ -68,7 +71,7 @@ namespace game {
             this.mLength = this.mVideo.length;
             this.kGrpControl.visible = true;
             this.mIsPlaying = false;
-            this.mVideo.play(1);
+            this.mVideo.play(100);
             egret.Tween.get(this).wait(200).call(() => {
                 this.mVideo.pause();
             })
@@ -85,10 +88,15 @@ namespace game {
             if (this.mLength == 0) {
                 console.log("视频尚未加载完成");
             } else {
-                this.mIsPlaying = true;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        }
+
+        private onPlayOver(): void {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         }
 
         /** ----- 右下角三个控制按钮 ----- */

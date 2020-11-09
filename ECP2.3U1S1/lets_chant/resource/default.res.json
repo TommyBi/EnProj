@@ -1,11 +1,11 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json",
+			"keys":"description_json,pp_game_config_json",
 			"name":"preload"
 		},
 		{
-			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png",
+			"keys":"img_bg_0_png,img_bg_1_png,img_bg_2_png,img_goodjob_png,img_mask_video_png,img_pro_icon_png,img_pro_line_bg_png,img_pro_line_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_btn_pause_n_png,img_btn_pause_p_png,img_btn_play_n_png,img_btn_play_p_png,img_btn_rePlay_n_png,img_btn_rePlay_p_png,img_micro_enable_png,img_micro_forbid_png,img_pause_png,img_play_png,img_rePlay_png,img_mask_png,img_tv_png,img_pro_icon1_png,img_start_png,img_pro_icon2_png",
 			"name":"public"
 		}
 	],
@@ -14,16 +14,6 @@
 			"name":"description_json",
 			"type":"json",
 			"url":"config/description.json"
-		},
-		{
-			"name":"font_TTF",
-			"type":"bin",
-			"url":"assets/font.TTF"
-		},
-		{
-			"name":"_xdf_logo__png",
-			"type":"image",
-			"url":"assets/_xdf_logo_.png"
 		},
 		{
 			"name":"pp_game_config_json",
@@ -164,6 +154,16 @@
 			"name":"img_pro_icon1_png",
 			"type":"image",
 			"url":"assets/img/public/img_pro_icon1.png"
+		},
+		{
+			"name":"img_start_png",
+			"type":"image",
+			"url":"assets/img/public/img_start.png"
+		},
+		{
+			"name":"img_pro_icon2_png",
+			"type":"image",
+			"url":"assets/img/public/img_pro_icon2.png"
 		}
 	]
 }

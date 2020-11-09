@@ -45,23 +45,17 @@ var game;
             this.mVideo.fullscreen = false; //设置是否全屏（暂不支持移动设备）
             this.kGrpVideo.addChild(this.mVideo);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.videoPlayFinish, this.onPlayOver, this);
             this.kImgPlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onStart, this);
-            // this.kImgPause.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPause, this);
             this.kImgRePlay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRestart, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPlay, this);
-            // this.kImgPlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutplay, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverPause, this);
-            // this.kImgPause.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutPause, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplay, this);
-            // this.kImgRePlay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplay, this);
-            // mouse.enable(this.stage);
         };
         VideoControlComponent.prototype.setSkinType = function (type) {
             this.kComPro.setSkinType(type);
         };
         /** 播放的视频索引 */
         VideoControlComponent.prototype.play = function (name) {
-            this.mVideo.load("resource/assets/video/" + name + ".mp4");
+            var url = window.__math2_res_config__ ? window.__math2_res_config__ + "/assets/video/" + name + ".mp4" : "resource/assets/video/" + name + ".mp4";
+            this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
         };
@@ -81,6 +75,7 @@ var game;
         };
         /** 调整性播放进度 */
         VideoControlComponent.prototype.adjustPlay = function (e) {
+            console.log("调整视频进度", e);
             if (this.mLength == 0) {
                 console.log("视频尚未加载完成");
             }
@@ -90,6 +85,11 @@ var game;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        };
+        VideoControlComponent.prototype.onPlayOver = function () {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         };
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */

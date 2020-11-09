@@ -7,6 +7,7 @@ namespace game {
 
         public kGrpReplay: eui.Group;
         public kImgReplay: eui.Image;
+        public kImgStart: eui.Image;
 
         public constructor() {
             super();
@@ -16,15 +17,12 @@ namespace game {
         protected createChildren() {
             super.createChildren();
             this.kImgReplay.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onRePlay, this);
-            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OVER, this.onMoveOverReplayBtn, this);
-            // this.kImgReplay.addEventListener(mouse.MouseEvent.ROLL_OUT, this.onMoveOutReplayBtn, this);
-            // mouse.enable(this.stage);
+            this.kImgStart.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onReStart, this);
             this.init();
         }
 
         private init(): void {
             egret.Tween.removeTweens(this.kGrpReplay);
-            this.kImgReplay.y = 0;
         }
 
         /** 重新开始 */
@@ -33,11 +31,17 @@ namespace game {
             XDFFrame.EventCenter.sendEvent(EventConst.eventReplay);
         }
 
+        /** 开始 */
+        private onReStart(): void {
+            egret.Tween.removeTweens(this.kImgStart);
+            XDFFrame.EventCenter.sendEvent(EventConst.eventStart);
+        }
+
         public showReplay(): void {
+            this.kImgReplay.visible = true;
+            this.kImgStart.visible = false;
             egret.Tween.removeTweens(this.kImgReplay);
             this.kImgReplay.scaleX = this.kImgReplay.scaleY = 1;
-            this.kImgReplay.source = "img_replay_j_png";
-            this.kImgReplay.visible = true;
             egret.Tween.get(this.kImgReplay, { loop: true })
                 .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
                 .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
@@ -45,29 +49,18 @@ namespace game {
                 .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
         }
 
-        // /** 鼠标移到重放按钮 */
-        // private onMoveOverReplayBtn(): void {
-        //     if (this.kImgReplay.source != "img_replay_d_png") {
-        //         this.kImgReplay.source = "img_replay_d_png";
-        //         egret.Tween.removeTweens(this.kImgReplay);
-        //         egret.Tween.removeTweens(this.kGrpReplay);
-        //         this.kGrpReplay.y = 0;
-        //         egret.Tween.get(this.kGrpReplay, { loop: true })
-        //             .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: 10 }, 300, egret.Ease.cubicInOut)
-        //             .to({ y: -10 }, 300, egret.Ease.cubicInOut)
-        //     }
-        // }
-
-        // /** 鼠标移出重放按钮 */
-        // private onMoveOutReplayBtn(): void {
-        //     if (this.kImgReplay.source != "img_replay_j_png") this.kImgReplay.source = "img_replay_j_png";
-        //     egret.Tween.removeTweens(this.kGrpReplay);
-        //     this.kGrpReplay.y = 0;
-        //     this.showReplay();
-        // }
-
+        /** 显示开始组件 */
+        public showStart(): void {
+            egret.Tween.removeTweens(this.kImgStart);
+            this.kImgReplay.visible = false;
+            this.kImgStart.visible = true;
+            this.kImgStart.scaleX = this.kImgStart.scaleY = 1;
+            egret.Tween.get(this.kImgStart, { loop: true })
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1.1, scaleY: 1.1 }, 400, egret.Ease.cubicInOut)
+                .to({ scaleX: 1, scaleY: 1 }, 400, egret.Ease.cubicInOut)
+        }
     }
 
 }

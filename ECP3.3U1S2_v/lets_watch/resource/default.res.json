@@ -1,7 +1,7 @@
 {
 	"groups":[
 		{
-			"keys":"description_json,_xdf_logo__png,pp_game_config_json",
+			"keys":"description_json,_xdf_logo__png,pp_game_config_json,video_mp4",
 			"name":"preload"
 		},
 		{
@@ -169,6 +169,11 @@
 			"name":"img_pro_icon2_png",
 			"type":"image",
 			"url":"assets/img/public/img_pro_icon2.png"
+		},
+		{
+			"name":"video_mp4",
+			"type":"bin",
+			"url":"assets/video/video.mp4"
 		}
 	]
 }

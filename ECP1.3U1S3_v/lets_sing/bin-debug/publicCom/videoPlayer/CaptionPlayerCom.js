@@ -52,13 +52,15 @@ var game;
             this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.showControl, this);
             this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.hideControl, this);
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventFinishVideoProgress, this.adjustPlay, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.videoPlayFinish, this.onPlayOver, this);
         };
         CaptionPlayerCom.prototype.setSkinType = function (type) {
             this.kComPro.setSkinType(type);
         };
         /** 播放的视频索引 */
         CaptionPlayerCom.prototype.load = function (name) {
-            this.mVideo.load("resource/assets/video/" + name + ".mp4");
+            var url = window.__math2_res_config__ ? window.__math2_res_config__ + "/assets/video/" + name + ".mp4" : "resource/assets/video/" + name + ".mp4";
+            this.mVideo.load(url);
             this.mVideo.once(egret.Event.COMPLETE, this.onLoad, this);
             this.mVideo.once(egret.IOErrorEvent.IO_ERROR, this.onLoadErr, this);
         };
@@ -87,6 +89,11 @@ var game;
                 this.mVideo.play(e.data * this.mVideo.length);
                 this.kComPro.updateProPos(this.mVideo.length - e.data * this.mVideo.length);
             }
+        };
+        CaptionPlayerCom.prototype.onPlayOver = function () {
+            this.mIsPlaying = false;
+            this.mVideo.pause();
+            this.kComPro.backToStart();
         };
         /** ----- 右下角三个控制按钮 ----- */
         /** 继续播放 */

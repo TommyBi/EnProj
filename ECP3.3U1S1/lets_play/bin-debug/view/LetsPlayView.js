@@ -19,9 +19,18 @@ var game;
             _this.mOrder = [];
             _this.mCurHintIdx = 0;
             _this.mShowOrder = [];
+            _this.mLock_playAnim = false;
+            _this.mLock_sound = false;
             _this.skinName = "LetsPlaySkin";
             return _this;
         }
+        Object.defineProperty(LetsPlayView.prototype, "mIsLock", {
+            get: function () {
+                return this.mLock_sound || this.mLock_playAnim;
+            },
+            enumerable: true,
+            configurable: true
+        });
         ;
         LetsPlayView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
@@ -31,23 +40,20 @@ var game;
             this.kGrpOption1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge1, this);
             this.kGrpOption2.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge2, this);
             this.kGrpOption3.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJudge3, this);
-            this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch, this);
             this.init();
-        };
-        LetsPlayView.prototype.onTouch = function (e) {
-            egret.log(e.target);
         };
         LetsPlayView.prototype.init = function () {
             this.kComRestart.visible = true;
+            this.kGrpOption.visible = false;
             this.kComRestart.playActionStart();
             this.kImgHint.mask = this.kImgMask;
             // init DBAnim
             this.mAnimSheepIdle = XDFFrame.DBFactory.createAnim("db_sheep_idle", 3);
-            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepIdle.setProtery({ parent: this.kGrpSheepIdle, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimSheepCatch = XDFFrame.DBFactory.createAnim("db_sheep_catch", 2);
-            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepCatch.setProtery({ parent: this.kGrpSheepCatch, scaleX: 1.5, scaleY: 1.5 });
             this.mAnimSheepJump = XDFFrame.DBFactory.createAnim("db_sheep_jump", 3);
-            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.4, scaleY: 1.4 });
+            this.mAnimSheepJump.setProtery({ parent: this.kGrpSheepJump, scaleX: 1.5, scaleY: 1.5 });
             this.kGrpSheepCatch.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepIdle.visible = true;
             this.mAnimSheepIdle.play(null, 0);
@@ -55,14 +61,17 @@ var game;
         LetsPlayView.prototype.onStart = function () {
             this.kComRestart.visible = false;
             this.mOrder = this.calShowOrder(4);
+            this.kGrpOption.visible = true;
             this.hint();
         };
         LetsPlayView.prototype.hint = function () {
+            var _this = this;
             if (this.mOrder.length <= 0) {
                 // 完成 游戏结束
                 this.kComBar.reset();
                 this.kComRestart.visible = true;
-                this.kComRestart.playActionStart();
+                this.kGrpOption.visible = false;
+                this.kComRestart.playActionGoodJob();
             }
             else {
                 // 刷新显示界面中对应图片  
@@ -70,7 +79,10 @@ var game;
                 this.formatPicInfo();
                 this.mCurHintIdx = this.mOrder.shift();
                 this.mCurrentHint = this.mHintArr[this.mCurHintIdx];
-                XDFSoundManager.play("sound_words_" + this.mCurrentHint + "_mp3");
+                this.mLock_sound = true;
+                XDFSoundManager.play("sound_words_" + this.mCurrentHint + "_mp3", 0, 1, 1, "sound_words_" + this.mCurrentHint + "_mp3", function () {
+                    _this.mLock_sound = false;
+                });
                 this.kLabelHint.text = "" + this.mCurrentHint;
                 this.kComBar.play();
             }
@@ -86,7 +98,9 @@ var game;
             var _this = this;
             this.kGrpSheepIdle.visible = this.kGrpSheepJump.visible = false;
             this.kGrpSheepCatch.visible = true;
+            this.mLock_playAnim = true;
             this.mAnimSheepCatch.play(null, 1, function () {
+                _this.mLock_playAnim = false;
                 _this.kGrpSheepCatch.visible = false;
                 _this.playSheepIdle();
                 cb && cb();
@@ -101,7 +115,9 @@ var game;
             var _this = this;
             this.kGrpSheepCatch.visible = this.kGrpSheepIdle.visible = false;
             this.kGrpSheepJump.visible = true;
+            this.mLock_playAnim = true;
             this.mAnimSheepJump.play(null, 1, function () {
+                _this.mLock_playAnim = false;
                 _this.playSheepIdle();
                 cb && cb();
             }, this);
@@ -114,6 +130,8 @@ var game;
         /** 点击 */
         LetsPlayView.prototype.onJudge = function (idx) {
             var _this = this;
+            if (this.mIsLock)
+                return;
             XDFSoundManager.play("sound_choise_mp3");
             this.onPlayTouchEffect(this["kImgOption" + idx]);
             if (this["kGrpOption" + idx].name == this.mCurrentHint) {
@@ -145,8 +163,11 @@ var game;
                 .to({ scaleX: sScaleX, scaleY: sScaleX }, 70);
         };
         LetsPlayView.prototype.showCorrect = function (cb) {
+            var _this = this;
             XDFSoundManager.play("sound_start_mp3");
+            this.mLock_playAnim = true;
             this.playSheepCatch(function () {
+                _this.mLock_playAnim = false;
                 cb && cb();
             });
         };
@@ -183,6 +204,7 @@ var game;
         };
         LetsPlayView.prototype.onTimeOut = function () {
             this.kComBar.reset();
+            this.kGrpOption.visible = false;
             this.kComRestart.visible = true;
             this.kComRestart.playActionTimeOut();
         };

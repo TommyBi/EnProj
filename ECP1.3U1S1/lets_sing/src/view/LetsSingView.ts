@@ -17,7 +17,7 @@ namespace game {
 
         private init(): void {
             this.kImgBg.source = `img_bg_${this.mSkinType}_png`;
-            this.kComCaption.setSkinType(1);
+            this.kComCaption.setSkinType(this.mSkinType);
             this.kComCaption.load("video");
         }
     }

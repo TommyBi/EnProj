@@ -15,13 +15,14 @@
 		"resource/eui_skins/listenRepeat/ListenRepeatViewSkin.exml",
 		"resource/eui_skins/public/ReplayComponentSkin.exml",
 		"resource/eui_skins/public/AnswerComponentSkin.exml",
+		"resource/eui_skins/LookStickViewSkin.exml",
 		"resource/eui_skins/MainViewSkin.exml",
 		"resource/eui_skins/public/ReStartComponentSkin.exml",
 		"resource/eui_skins/public/TimeBarComponentSkin.exml",
 		"resource/eui_skins/play/LetsPlaySkin.exml",
+		"resource/eui_skins/sing/LetsSingViewSkin.exml",
 		"resource/eui_skins/think/LetsThinkSkin.exml",
 		"resource/eui_skins/think/ThinkComponentSkin.exml",
-		"resource/eui_skins/VideoPlayerSkin.exml",
 		"resource/eui_skins/watch/LetsWatchSkin.exml"
 	],
 	"path": "resource/default.thm.json"

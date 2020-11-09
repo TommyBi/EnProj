@@ -37,9 +37,14 @@ namespace game {
 
         public updateProPos(remainTime): void {
             egret.Tween.removeTweens(this.kImgProBtn);
-            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000).call(() => {
+                this.kImgProBtn.x = 0;
+                XDFFrame.EventCenter.sendEvent(EventConst.videoPlayFinish);
+            });
             egret.Tween.removeTweens(this.kImgBar);
-            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000).call(() => {
+                this.kImgBar.width = 0;
+            });
         }
 
         private init(): void {
@@ -92,6 +97,10 @@ namespace game {
         public pause(): void {
             egret.Tween.removeTweens(this.kImgProBtn);
             egret.Tween.removeTweens(this.kImgBar);
+        }
+
+        public backToStart(): void {
+            egret.Tween.removeTweens(this.kImgProBtn);
         }
     }
 

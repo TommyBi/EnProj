@@ -41,10 +41,16 @@ var game;
             this.updateProPos(time);
         };
         VideoProBarComponent.prototype.updateProPos = function (remainTime) {
+            var _this = this;
             egret.Tween.removeTweens(this.kImgProBtn);
-            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgProBtn).to({ x: this.kGrpBar.width }, remainTime * 1000).call(function () {
+                _this.kImgProBtn.x = 0;
+                XDFFrame.EventCenter.sendEvent(game.EventConst.videoPlayFinish);
+            });
             egret.Tween.removeTweens(this.kImgBar);
-            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000);
+            egret.Tween.get(this.kImgBar).to({ width: this.kGrpBar.width }, remainTime * 1000).call(function () {
+                _this.kImgBar.width = 0;
+            });
         };
         VideoProBarComponent.prototype.init = function () {
             this.kImgProBtn.x = 0;
@@ -98,6 +104,9 @@ var game;
         VideoProBarComponent.prototype.pause = function () {
             egret.Tween.removeTweens(this.kImgProBtn);
             egret.Tween.removeTweens(this.kImgBar);
+        };
+        VideoProBarComponent.prototype.backToStart = function () {
+            egret.Tween.removeTweens(this.kImgProBtn);
         };
         return VideoProBarComponent;
     }(eui.Component));

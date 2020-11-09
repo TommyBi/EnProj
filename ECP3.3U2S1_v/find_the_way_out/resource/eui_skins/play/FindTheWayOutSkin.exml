@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FindTheWayOutSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_2_png" horizontalCenter="0" verticalCenter="0"  locked="true"/>
+	<e:Image source="img_f_bg_png" anchorOffsetX="0" width="1464.39" anchorOffsetY="0" height="1099.58"
+	         horizontalCenter="0" verticalCenter="0"  locked="true"/>
+	<e:Image id="kIcon0" source="img_f_btn_0_png" y="236.49" scaleX="1.4" scaleY="1.4" horizontalCenter="0.5" anchorOffsetX="65"
+	         anchorOffsetY="65" />
+	<e:Image id="kIcon1" y="434.55" scaleX="1.4" scaleY="1.4" horizontalCenter="2" anchorOffsetX="65"
+	         anchorOffsetY="65"  source="img_f_btn_1_png"/>
+	<e:Image id="kIcon2" y="659.61" scaleX="1.4" scaleY="1.4" horizontalCenter="1.5" anchorOffsetX="65"
+	         anchorOffsetY="65"  source="img_f_btn_2_png"/>
+	<e:Group id="kGrpFrame0" y="318.67" horizontalCenter="0">
+		<e:Image source="img_f_frame_png" x="0" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="0_0"/>
+		<e:Image source="img_f_frame_png" x="643.33" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="0_1"/>
+	</e:Group>
+	<e:Group y="481.67" id="kGrpFrame1" horizontalCenter="0">
+		<e:Image source="img_f_frame_png" x="0" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="1_0"/>
+		<e:Image source="img_f_frame_png" x="643.33" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="1_1"/>
+	</e:Group>
+	<e:Group y="644.67" id="kGrpFrame2" horizontalCenter="0">
+		<e:Image source="img_f_frame_png" x="0" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="2_0"/>
+		<e:Image source="img_f_frame_png" x="643.33" scaleX="1.4" scaleY="1.4" verticalCenter="0"  name="2_1"/>
+	</e:Group>
+	<e:Group id="kGrpAnim" width="200" height="200" x="643.79" y="979.21" anchorOffsetX="100" anchorOffsetY="100"  touchChildren="false" touchEnabled="false" touchThrough="true"/>
+	<game:ReplayComponent id="kComReplay" x="1454.91" y="829.82" skinName="ReplayComponentSkin" visible="false"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
+</e:Skin>

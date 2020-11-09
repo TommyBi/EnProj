@@ -16,8 +16,8 @@ namespace game {
         }
 
         private init(): void {
-            this.kImgBg.source = `img_bg_${this.mSkinType}_png`;
             this.kComVideo.setSkinType(this.mSkinType);
+            this.kImgBg.source = `img_bg_${this.mSkinType}_png`;
             this.kComVideo.play("video");
         }
     }
