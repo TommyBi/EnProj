@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSayViewNewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Image source="img_ss_bg_png" scaleX="1.12" scaleY="1.12" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Group bottom="12" left="170">
+		<e:Group id="kGrpBtn0" x="0" y="0" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image source="img_stick_bg1_png" x="0" y="0" scaleX="0.35" scaleY="0.35"/>
+			<e:Image source="img_ss_btn_0_png" scaleX="0.25" scaleY="0.25" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Group x="10" y="10" id="kGrpBtn1" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg3_png"/>
+			<e:Image scaleX="0.4" scaleY="0.4" horizontalCenter="0" verticalCenter="0" source="img_ss_btn_1_png"/>
+		</e:Group>
+		<e:Group x="20" y="20" id="kGrpBtn2" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg2_png"/>
+			<e:Image scaleX="0.25" scaleY="0.25" horizontalCenter="0" verticalCenter="0" source="img_ss_btn_2_png"/>
+		</e:Group>
+		<e:Group x="30" y="30" id="kGrpBtn3" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image x="0" y="0" scaleX="0.35" scaleY="0.35" source="img_stick_bg3_png"/>
+			<e:Image scaleX="0.2" scaleY="0.2" horizontalCenter="0" verticalCenter="0" source="img_ss_btn_3_png"/>
+		</e:Group>
+		<e:layout>
+			<e:VerticalLayout gap="5"/>
+		</e:layout>
+	</e:Group>
+	<e:Image id="kImgMask0" source="img_ss_head_mask0_png" x="660.76" y="84.61" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMaskLine0" source="img_ss_head_mask_l0_png" x="785.09" y="227.52" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMask1" source="img_ss_head_mask1_png" x="1315.25" y="42.03" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMaskLine1" source="img_ss_head_mask_l1_png" x="1463.41" y="257.99" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMask2" source="img_ss_head_mask2_png" x="566.7" y="521.28" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMaskLine2" source="img_ss_head_mask_l2_png" x="571.6" y="668.05" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMask3" source="img_ss_head_mask3_png" x="1065.31" y="520.94" scaleX="0.4" scaleY="0.4"/>
+	<e:Image id="kImgMaskLine3" source="img_ss_head_mask_l3_png" x="1143.33" y="681" scaleX="0.4" scaleY="0.4"/>
+	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true"/>
+	<e:Image id="kImgDesc0" source="img_hint_panel_0_png" x="875.7" y="238.06" scaleX="2" scaleY="2" anchorOffsetX="120" anchorOffsetY="74"/>
+	<e:Image id="kImgDesc1" source="img_hint_panel_1_png" x="1535.33" y="249.21" scaleX="2" scaleY="2" anchorOffsetX="119" anchorOffsetY="71"/>
+	<e:Image id="kImgDesc2" source="img_hint_panel_2_png" x="651.4" y="669.21" scaleX="2" scaleY="2" anchorOffsetX="118" anchorOffsetY="82"/>
+	<e:Image id="kImgDesc3" source="img_hint_panel_3_png" x="1263.6" y="667.63" scaleX="2" scaleY="2" anchorOffsetX="117" anchorOffsetY="80"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" locked="true" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" bottom="50" right="173" locked="true" visible="false"/>
+	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" verticalCenter="0" x="148" locked="true" visible="false"/>
+	<game:FlagCom skinName="FlagComSkin" left="135" top="0" scaleX="0.8" scaleY="1"/>
+	<e:Image source="img_bg_0_png" x="-30" anchorOffsetX="0" verticalCenter="0" width="186.67" fillMode="repeat"/>
+</e:Skin>
