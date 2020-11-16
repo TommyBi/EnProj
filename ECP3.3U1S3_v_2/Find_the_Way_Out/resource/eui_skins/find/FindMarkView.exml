@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FindMarkViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" >
+	<w:Config id="175608b161b" ></w:Config>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_1_png"/>
+	<e:Group width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="find_bg1_png" left="0" right="0" top="0" bottom="0"/>
+		<e:Image source="find_bg2_png" x="474" y="566" scaleX="0.8" scaleY="0.8" touchEnabled="false"/>
+		<e:Group width="224" height="184" x="446" y="508" anchorOffsetX="0" anchorOffsetY="0" id="kGp0"/>
+		<e:Group id="kGp1" width="304" height="184" x="254" y="634" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Group width="224" height="184" x="750" y="518" anchorOffsetX="0" anchorOffsetY="0" id="kGp2"/>
+		<e:Group width="304" height="184" x="834" y="558" anchorOffsetX="0" anchorOffsetY="0" id="kGp3"/>
+		<e:Group width="310" height="312" x="976" y="678" anchorOffsetX="0" anchorOffsetY="0" id="kGp4"/>
+		<e:Image id="kImg1" source="find_xjl_png" x="80" y="478" scaleX="0.8" scaleY="0.8" name="1"/>
+		<e:Image id="kImg2" source="find_dx_png" x="982.42" y="374" scaleX="0.5" scaleY="0.5" name="2"/>
+		<e:Image id="kImg3" source="find_hz_png" x="412" y="277.5" scaleX="-0.5" scaleY="0.5" name="3"/>
+		<e:Group id="kAnimGp1" width="5" height="5" x="234" y="714" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Group id="kAnimGp2" width="5" height="5" x="1169" y="452" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Group id="kAnimGp3" width="5" height="5" x="294" y="330" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Image source="find_bg3_png" scaleX="0.7" scaleY="0.7" x="607" y="25"/>
+		<e:Group width="750" height="300" x="617" y="15">
+			<game:FindMarkItem id="kItem1" width="200" height="300" x="71" y="4"/>
+			<game:FindMarkItem id="kItem2" width="200" height="300" x="81" y="14"/>
+			<game:FindMarkItem id="kItem3" width="200" height="300" x="91" y="24"/>
+			<e:layout>
+				<e:HorizontalLayout gap="50" paddingLeft="10"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<game:AnswerComponent id="kAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0"/>
+	<game:ReplayComponent id="kReplay" width="20" height="20" verticalCenter="329" right="327"/>
+</e:Skin>

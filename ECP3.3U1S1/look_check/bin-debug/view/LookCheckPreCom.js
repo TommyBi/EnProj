@@ -18,6 +18,7 @@ var game;
         function LookCheckPreCom() {
             var _this = _super.call(this) || this;
             _this.mIsActive = false;
+            _this.mLock_sound = false;
             _this.mCfg = [
                 {
                     desc0: "I always go sledding.",
@@ -40,6 +41,13 @@ var game;
             _this.skinName = "LookCheckPreComSkin";
             return _this;
         }
+        Object.defineProperty(LookCheckPreCom.prototype, "mIsLock", {
+            get: function () {
+                return this.mLock_sound;
+            },
+            enumerable: true,
+            configurable: true
+        });
         LookCheckPreCom.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
             this.kGrp0.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouch0, this);
@@ -67,6 +75,8 @@ var game;
             this.onMatch(1);
         };
         LookCheckPreCom.prototype.onMatch = function (idx) {
+            if (this.mIsLock)
+                return;
             if (!this.mIsActive)
                 return;
             var cfg = this.mCfg[this.mIdx];
@@ -82,9 +92,13 @@ var game;
             }
         };
         LookCheckPreCom.prototype.showAction = function () {
+            var _this = this;
             this.kImgLine.visible = true;
             this.mIsActive = true;
-            XDFSoundManager.play("sound_" + this.mIdx + "_mp3");
+            this.mLock_sound = true;
+            XDFSoundManager.play("sound_" + this.mIdx + "_mp3", 0, 1, 1, "sound_" + this.mIdx + "_mp3", function () {
+                _this.mLock_sound = false;
+            });
             this.mAnimRole.play(null, 3);
         };
         LookCheckPreCom.prototype.reset = function () {

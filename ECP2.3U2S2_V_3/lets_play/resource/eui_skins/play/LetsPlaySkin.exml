@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image horizontalCenter="0" verticalCenter="0"  source="img_bg_2_png"/>
+	<e:Image source="img_p_bg_png" anchorOffsetX="0" anchorOffsetY="0" width="1331.16" height="1139.13" horizontalCenter="0" verticalCenter="0"/>
+	<e:Group x="533.07" y="242.21" scaleX="1.5" scaleY="1.5">
+		<e:Image id="kImg0" source="img_option_0_png" x="0" y="0"/>
+		<e:Image x="10" y="10" id="kImg1" source="img_option_1_png"/>
+		<e:Image x="20" y="20" id="kImg2" source="img_option_2_png"/>
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="kGrpRole" x="1347.36" y="768.12" touchChildren="false" touchEnabled="false" touchThrough="true"/>
+	<e:Image source="img_p_panel_png" y="-64.51" horizontalCenter="0"/>
+	<e:Label id="kLabelDesc" text="test" y="82.18" bold="true" textColor="0x000000" size="50" horizontalCenter="0"/>
+	<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>
+	<game:TimeBarComponent id="kComTimeBar" x="263.52" y="878.36" skinName="TimeBarComponentSkin"/>
+</e:Skin>

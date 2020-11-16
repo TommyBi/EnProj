@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BtnSelectSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="17572606f75" ></w:Config>
+	<e:Group id="kGp" horizontalCenter="0" verticalCenter="0" width="700">
+		<e:Button label="Vietnamese" y="2" name="1" right="0">
+			<e:skinName>
+			<e:Skin states="up,down,disabled">
+				<e:Image source="stick_1_png" source.down="stick_1_png" scaleX="1.8" scaleY="2"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" text="Vietnamese" size="50"/>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button label="Korean" verticalCenter="0" left="0" name="2">
+			<e:skinName>
+				<e:Skin states="up,down,disabled">
+				<e:Image source="stick_2_png" source.down="stick_2_png" scaleX="1.8" scaleY="2"/>
+				<e:Label id="labelDisplay" horizontalCenter="0" verticalCenter="0" size="50"/>
+				</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:layout>
+			<e:BasicLayout/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

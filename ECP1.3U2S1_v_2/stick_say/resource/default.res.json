@@ -1,0 +1,406 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,pp_game_config_json",
+			"name": "preload"
+		},
+		{
+			"keys": "img_bg_1_png,img_goodjob_png,img_replay_d_png,img_replay_j_png,img_star_bg_png,img_star_png,img_tryAgain_png,img_mask_png,img_start_png,img_stick_bg1_png,img_stick_bg2_png,img_stick_bg3_png,img_bg_0_png",
+			"name": "public"
+		},
+		{
+			"keys": "stick_10_png,stick_11_png,stick_1_png,stick_2_png,stick_3_png,stick_4_png,stick_5_png,stick_6_png,stick_7_png,stick_8_png,stick_9_png,stick_14_png,stick_12_png,stick_13_png,sound_2_mp3,sound_3_mp3,sound_1_mp3,cold_mp3,snowy_mp3,btn_1_png,btn_2_png,btn_3_png",
+			"name": "stick_say"
+		},
+		{
+			"keys": "sound_goodjob_mp3,sound_oopstryagain_mp3,sound_stick_right_mp3,sound_think_choise_mp3,sound_ding_mp3",
+			"name": "sound"
+		},
+		{
+			"keys": "db_word_flag_tex_png,db_word_flag_ske_json,db_word_flag_tex_json,db_stick_smoke_ske_json,db_stick_smoke_tex_json,db_stick_smoke_tex_png,dianji1_tex_json,dianji1_tex_png,dianji1_ske_json,img_panel_png,role2_ske_json,role2_tex_json,role2_tex_png,role3_ske_json,role3_tex_json,role3_tex_png,role4_ske_json,role4_tex_json,role4_tex_png,role5_ske_json,role5_tex_json,role5_tex_png,snow1_ske_json,snow1_tex_json,snow1_tex_png,snow2_ske_json,snow2_tex_json,snow2_tex_png,dog_ske_json,dog_tex_json,dog_tex_png,role1_ske_json,role1_tex_json,role1_tex_png",
+			"name": "db"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/pp_game_config.json",
+			"type": "json",
+			"name": "pp_game_config_json"
+		},
+		{
+			"url": "assets/img/public/img_bg_1.png",
+			"type": "image",
+			"name": "img_bg_1_png"
+		},
+		{
+			"url": "assets/img/public/img_goodjob.png",
+			"type": "image",
+			"name": "img_goodjob_png"
+		},
+		{
+			"url": "assets/img/public/img_replay_d.png",
+			"type": "image",
+			"name": "img_replay_d_png"
+		},
+		{
+			"url": "assets/img/public/img_replay_j.png",
+			"type": "image",
+			"name": "img_replay_j_png"
+		},
+		{
+			"url": "assets/img/public/img_star_bg.png",
+			"type": "image",
+			"name": "img_star_bg_png"
+		},
+		{
+			"url": "assets/img/public/img_star.png",
+			"type": "image",
+			"name": "img_star_png"
+		},
+		{
+			"url": "assets/img/public/img_tryAgain.png",
+			"type": "image",
+			"name": "img_tryAgain_png"
+		},
+		{
+			"url": "assets/img/public/img_mask.png",
+			"type": "image",
+			"name": "img_mask_png"
+		},
+		{
+			"url": "assets/img/public/img_start.png",
+			"type": "image",
+			"name": "img_start_png"
+		},
+		{
+			"url": "assets/sound/sound_goodjob.mp3",
+			"type": "sound",
+			"name": "sound_goodjob_mp3"
+		},
+		{
+			"url": "assets/sound/sound_oopstryagain.mp3",
+			"type": "sound",
+			"name": "sound_oopstryagain_mp3"
+		},
+		{
+			"url": "assets/sound/sound_stick_right.mp3",
+			"type": "sound",
+			"name": "sound_stick_right_mp3"
+		},
+		{
+			"url": "assets/sound/sound_think_choise.mp3",
+			"type": "sound",
+			"name": "sound_think_choise_mp3"
+		},
+		{
+			"url": "assets/img/public/img_stick_bg1.png",
+			"type": "image",
+			"name": "img_stick_bg1_png"
+		},
+		{
+			"url": "assets/img/public/img_stick_bg2.png",
+			"type": "image",
+			"name": "img_stick_bg2_png"
+		},
+		{
+			"url": "assets/img/public/img_stick_bg3.png",
+			"type": "image",
+			"name": "img_stick_bg3_png"
+		},
+		{
+			"url": "assets/db/db_word_flag/db_word_flag_tex.png",
+			"type": "image",
+			"name": "db_word_flag_tex_png"
+		},
+		{
+			"url": "assets/db/db_word_flag/db_word_flag_ske.json",
+			"type": "json",
+			"name": "db_word_flag_ske_json"
+		},
+		{
+			"url": "assets/db/db_word_flag/db_word_flag_tex.json",
+			"type": "json",
+			"name": "db_word_flag_tex_json"
+		},
+		{
+			"url": "assets/db/db_stick_smoke/db_stick_smoke_ske.json",
+			"type": "json",
+			"name": "db_stick_smoke_ske_json"
+		},
+		{
+			"url": "assets/db/db_stick_smoke/db_stick_smoke_tex.json",
+			"type": "json",
+			"name": "db_stick_smoke_tex_json"
+		},
+		{
+			"url": "assets/db/db_stick_smoke/db_stick_smoke_tex.png",
+			"type": "image",
+			"name": "db_stick_smoke_tex_png"
+		},
+		{
+			"url": "assets/db/db_click_effect/dianji1_tex.json",
+			"type": "json",
+			"name": "dianji1_tex_json"
+		},
+		{
+			"url": "assets/db/db_click_effect/dianji1_tex.png",
+			"type": "image",
+			"name": "dianji1_tex_png"
+		},
+		{
+			"url": "assets/db/db_click_effect/dianji1_ske.json",
+			"type": "json",
+			"name": "dianji1_ske_json"
+		},
+		{
+			"url": "assets/img/public/img_panel.png",
+			"type": "image",
+			"name": "img_panel_png"
+		},
+		{
+			"url": "assets/img/public/img_bg_0.png",
+			"type": "image",
+			"name": "img_bg_0_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_10.png",
+			"type": "image",
+			"name": "stick_10_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_11.png",
+			"type": "image",
+			"name": "stick_11_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_1.png",
+			"type": "image",
+			"name": "stick_1_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_2.png",
+			"type": "image",
+			"name": "stick_2_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_3.png",
+			"type": "image",
+			"name": "stick_3_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_4.png",
+			"type": "image",
+			"name": "stick_4_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_5.png",
+			"type": "image",
+			"name": "stick_5_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_6.png",
+			"type": "image",
+			"name": "stick_6_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_7.png",
+			"type": "image",
+			"name": "stick_7_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_8.png",
+			"type": "image",
+			"name": "stick_8_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_9.png",
+			"type": "image",
+			"name": "stick_9_png"
+		},
+		{
+			"url": "assets/db/role2_ske.json",
+			"type": "json",
+			"name": "role2_ske_json"
+		},
+		{
+			"url": "assets/db/role2_tex.json",
+			"type": "json",
+			"name": "role2_tex_json"
+		},
+		{
+			"url": "assets/db/role2_tex.png",
+			"type": "image",
+			"name": "role2_tex_png"
+		},
+		{
+			"url": "assets/db/role3_ske.json",
+			"type": "json",
+			"name": "role3_ske_json"
+		},
+		{
+			"url": "assets/db/role3_tex.json",
+			"type": "json",
+			"name": "role3_tex_json"
+		},
+		{
+			"url": "assets/db/role3_tex.png",
+			"type": "image",
+			"name": "role3_tex_png"
+		},
+		{
+			"url": "assets/db/role4_ske.json",
+			"type": "json",
+			"name": "role4_ske_json"
+		},
+		{
+			"url": "assets/db/role4_tex.json",
+			"type": "json",
+			"name": "role4_tex_json"
+		},
+		{
+			"url": "assets/db/role4_tex.png",
+			"type": "image",
+			"name": "role4_tex_png"
+		},
+		{
+			"url": "assets/db/role5_ske.json",
+			"type": "json",
+			"name": "role5_ske_json"
+		},
+		{
+			"url": "assets/db/role5_tex.json",
+			"type": "json",
+			"name": "role5_tex_json"
+		},
+		{
+			"url": "assets/db/role5_tex.png",
+			"type": "image",
+			"name": "role5_tex_png"
+		},
+		{
+			"url": "assets/db/snow1_ske.json",
+			"type": "json",
+			"name": "snow1_ske_json"
+		},
+		{
+			"url": "assets/db/snow1_tex.json",
+			"type": "json",
+			"name": "snow1_tex_json"
+		},
+		{
+			"url": "assets/db/snow1_tex.png",
+			"type": "image",
+			"name": "snow1_tex_png"
+		},
+		{
+			"url": "assets/db/snow2_ske.json",
+			"type": "json",
+			"name": "snow2_ske_json"
+		},
+		{
+			"url": "assets/db/snow2_tex.json",
+			"type": "json",
+			"name": "snow2_tex_json"
+		},
+		{
+			"url": "assets/db/snow2_tex.png",
+			"type": "image",
+			"name": "snow2_tex_png"
+		},
+		{
+			"url": "assets/db/dog_ske.json",
+			"type": "json",
+			"name": "dog_ske_json"
+		},
+		{
+			"url": "assets/db/dog_tex.json",
+			"type": "json",
+			"name": "dog_tex_json"
+		},
+		{
+			"url": "assets/db/dog_tex.png",
+			"type": "image",
+			"name": "dog_tex_png"
+		},
+		{
+			"url": "assets/db/role1_ske.json",
+			"type": "json",
+			"name": "role1_ske_json"
+		},
+		{
+			"url": "assets/db/role1_tex.json",
+			"type": "json",
+			"name": "role1_tex_json"
+		},
+		{
+			"url": "assets/db/role1_tex.png",
+			"type": "image",
+			"name": "role1_tex_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_14.png",
+			"type": "image",
+			"name": "stick_14_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_12.png",
+			"type": "image",
+			"name": "stick_12_png"
+		},
+		{
+			"url": "assets/img/stick_say/stick_13.png",
+			"type": "image",
+			"name": "stick_13_png"
+		},
+		{
+			"url": "assets/img/stick_say/sound_2.mp3",
+			"type": "sound",
+			"name": "sound_2_mp3"
+		},
+		{
+			"url": "assets/img/stick_say/sound_3.mp3",
+			"type": "sound",
+			"name": "sound_3_mp3"
+		},
+		{
+			"url": "assets/img/stick_say/sound_1.mp3",
+			"type": "sound",
+			"name": "sound_1_mp3"
+		},
+		{
+			"url": "assets/img/stick_say/cold.mp3",
+			"type": "sound",
+			"name": "cold_mp3"
+		},
+		{
+			"url": "assets/img/stick_say/snowy.mp3",
+			"type": "sound",
+			"name": "snowy_mp3"
+		},
+		{
+			"url": "assets/img/stick_say/btn_1.png",
+			"type": "image",
+			"name": "btn_1_png"
+		},
+		{
+			"url": "assets/img/stick_say/btn_2.png",
+			"type": "image",
+			"name": "btn_2_png"
+		},
+		{
+			"url": "assets/img/stick_say/btn_3.png",
+			"type": "image",
+			"name": "btn_3_png"
+		},
+		{
+			"url": "assets/sound/sound_ding.mp3",
+			"type": "sound",
+			"name": "sound_ding_mp3"
+		}
+	]
+}

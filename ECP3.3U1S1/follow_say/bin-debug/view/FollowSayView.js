@@ -45,6 +45,7 @@ var game;
             _super.prototype.createChildren.call(this);
             // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(game.EventConst.eventStart, this.onStart, this);
+            XDFFrame.EventCenter.addEventListenr(game.EventConst.eventReplay, this.onReplay, this);
             for (var i = 0; i < this.mOptionCount; i++) {
                 this["kGrpOption" + i].mIdx = i;
             }
@@ -75,7 +76,6 @@ var game;
         FollowSayView.prototype.init = function () {
             this.reset();
             this.kComReplay.visible = true;
-            this.kComAnswer.visible = false;
             this.kComReplay.showStart();
         };
         /** 重置到初始化状态 */
@@ -96,6 +96,8 @@ var game;
             this.kImgFrameLine0.alpha = this.kImgFrameLine1.alpha = 0;
             egret.Tween.removeTweens(this.kImgFrameLine0);
             egret.Tween.removeTweens(this.kImgFrameLine1);
+            this.kComAnswer.visible = false;
+            this.mLock_isFinish = false;
             this.mHintArr = this.calShowOrder(4);
         };
         /** 开始游戏 */
@@ -103,6 +105,10 @@ var game;
             this.kComReplay.visible = false;
             this.mLock_startGame = false;
             this.next();
+        };
+        FollowSayView.prototype.onReplay = function () {
+            this.reset();
+            this.onStart();
         };
         /** 提示下一个 */
         FollowSayView.prototype.next = function () {

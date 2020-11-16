@@ -175,7 +175,7 @@ var game;
             var _this = this;
             XDFSoundManager.play("sound_die_mp3");
             this.playSheepJump(function () {
-                XDFSoundManager.play("sound_" + _this.mCurrentHint + "_mp3");
+                XDFSoundManager.play("sound_words_" + _this.mCurrentHint + "_mp3");
             });
         };
         /**

@@ -1,0 +1,391 @@
+{
+	"groups": [
+		{
+			"keys": "description_json",
+			"name": "preload"
+		},
+		{
+			"keys": "img_bg_2_png",
+			"name": "public"
+		},
+		{
+			"keys": "db_goodJob_ske_json,db_idle_ske_json,db_right_ske_json,db_start_ske_json,db_timeOut_ske_json,db_wrong_ske_json,db_wrong_tex_0_json,db_wrong_tex_0_png,db_wrong_tex_1_json,db_wrong_tex_1_png,db_wrong_tex_2_json,db_wrong_tex_2_png,db_wrong_tex_3_json,db_wrong_tex_3_png,db_wrong_tex_4_json,db_wrong_tex_4_png,db_wrong_tex_5_json,db_wrong_tex_5_png,db_wrong_tex_6_json,db_wrong_tex_6_png,db_wrong_tex_7_json,db_wrong_tex_7_png,db_wrong_tex_8_json,db_wrong_tex_8_png,db_goodJob_tex_0_png,db_goodJob_tex_1_json,db_goodJob_tex_1_png,db_goodJob_tex_2_json,db_goodJob_tex_2_png,db_goodJob_tex_0_json,db_start_tex_0_png,db_start_tex_1_json,db_start_tex_1_png,db_start_tex_2_json,db_start_tex_2_png,db_start_tex_0_json,db_timeOut_tex_0_png,db_timeOut_tex_1_json,db_timeOut_tex_1_png,db_timeOut_tex_0_json,db_right_tex_0_json,db_right_tex_0_png,db_right_tex_1_json,db_right_tex_1_png,db_idle_tex_0_json,db_idle_tex_0_png,db_idle_tex_1_json,db_idle_tex_1_png",
+			"name": "db"
+		},
+		{
+			"keys": "img_lp_bg_png,img_lp_bar_clock_png,img_lp_bar_frame_png,img_bar_png,img_lp_bar_bg_png,img_lp_hintPanel_0_png,img_lp_hintPanel_1_png,img_lp_hintPanel_3_png,img_lp_micro_png,img_lp_option0_png,img_lp_option1_png,img_lp_option2_png,img_lp_scale_png",
+			"name": "letsPlay"
+		},
+		{
+			"keys": "sound_die_mp3,sound_ding_mp3,sound_goodjob_mp3,sound_lp_choise_err_mp3,sound_lp_choise_right_mp3,sound_lp_option0_mp3,sound_lp_option1_mp3,sound_lp_option2_mp3,sound_start_mp3,deng_mp3",
+			"name": "sound"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/img/public/img_bg_2.png",
+			"type": "image",
+			"name": "img_bg_2_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_bg.png",
+			"type": "image",
+			"name": "img_lp_bg_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_bar_clock.png",
+			"type": "image",
+			"name": "img_lp_bar_clock_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_bar_frame.png",
+			"type": "image",
+			"name": "img_lp_bar_frame_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_bar.png",
+			"type": "image",
+			"name": "img_bar_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_bar_bg.png",
+			"type": "image",
+			"name": "img_lp_bar_bg_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_hintPanel_0.png",
+			"type": "image",
+			"name": "img_lp_hintPanel_0_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_hintPanel_1.png",
+			"type": "image",
+			"name": "img_lp_hintPanel_1_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_hintPanel_3.png",
+			"type": "image",
+			"name": "img_lp_hintPanel_3_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_micro.png",
+			"type": "image",
+			"name": "img_lp_micro_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_option0.png",
+			"type": "image",
+			"name": "img_lp_option0_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_option1.png",
+			"type": "image",
+			"name": "img_lp_option1_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_option2.png",
+			"type": "image",
+			"name": "img_lp_option2_png"
+		},
+		{
+			"url": "assets/img/lets_play/img_lp_scale.png",
+			"type": "image",
+			"name": "img_lp_scale_png"
+		},
+		{
+			"url": "assets/sound/sound_die.mp3",
+			"type": "sound",
+			"name": "sound_die_mp3"
+		},
+		{
+			"url": "assets/sound/sound_ding.mp3",
+			"type": "sound",
+			"name": "sound_ding_mp3"
+		},
+		{
+			"url": "assets/sound/sound_goodjob.mp3",
+			"type": "sound",
+			"name": "sound_goodjob_mp3"
+		},
+		{
+			"url": "assets/sound/sound_lp_choise_err.mp3",
+			"type": "sound",
+			"name": "sound_lp_choise_err_mp3"
+		},
+		{
+			"url": "assets/sound/sound_lp_choise_right.mp3",
+			"type": "sound",
+			"name": "sound_lp_choise_right_mp3"
+		},
+		{
+			"url": "assets/sound/sound_lp_option0.mp3",
+			"type": "sound",
+			"name": "sound_lp_option0_mp3"
+		},
+		{
+			"url": "assets/sound/sound_lp_option1.mp3",
+			"type": "sound",
+			"name": "sound_lp_option1_mp3"
+		},
+		{
+			"url": "assets/sound/sound_lp_option2.mp3",
+			"type": "sound",
+			"name": "sound_lp_option2_mp3"
+		},
+		{
+			"url": "assets/sound/sound_start.mp3",
+			"type": "sound",
+			"name": "sound_start_mp3"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_ske.json",
+			"type": "json",
+			"name": "db_goodJob_ske_json"
+		},
+		{
+			"url": "assets/db/db_idle/db_idle_ske.json",
+			"type": "json",
+			"name": "db_idle_ske_json"
+		},
+		{
+			"url": "assets/db/db_right/db_right_ske.json",
+			"type": "json",
+			"name": "db_right_ske_json"
+		},
+		{
+			"url": "assets/db/db_start/db_start_ske.json",
+			"type": "json",
+			"name": "db_start_ske_json"
+		},
+		{
+			"url": "assets/db/db_timeOut/db_timeOut_ske.json",
+			"type": "json",
+			"name": "db_timeOut_ske_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_ske.json",
+			"type": "json",
+			"name": "db_wrong_ske_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_0.json",
+			"type": "json",
+			"name": "db_wrong_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_0.png",
+			"type": "image",
+			"name": "db_wrong_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_1.json",
+			"type": "json",
+			"name": "db_wrong_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_1.png",
+			"type": "image",
+			"name": "db_wrong_tex_1_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_2.json",
+			"type": "json",
+			"name": "db_wrong_tex_2_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_2.png",
+			"type": "image",
+			"name": "db_wrong_tex_2_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_3.json",
+			"type": "json",
+			"name": "db_wrong_tex_3_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_3.png",
+			"type": "image",
+			"name": "db_wrong_tex_3_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_4.json",
+			"type": "json",
+			"name": "db_wrong_tex_4_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_4.png",
+			"type": "image",
+			"name": "db_wrong_tex_4_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_5.json",
+			"type": "json",
+			"name": "db_wrong_tex_5_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_5.png",
+			"type": "image",
+			"name": "db_wrong_tex_5_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_6.json",
+			"type": "json",
+			"name": "db_wrong_tex_6_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_6.png",
+			"type": "image",
+			"name": "db_wrong_tex_6_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_7.json",
+			"type": "json",
+			"name": "db_wrong_tex_7_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_7.png",
+			"type": "image",
+			"name": "db_wrong_tex_7_png"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_8.json",
+			"type": "json",
+			"name": "db_wrong_tex_8_json"
+		},
+		{
+			"url": "assets/db/db_wrong/db_wrong_tex_8.png",
+			"type": "image",
+			"name": "db_wrong_tex_8_png"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_0.png",
+			"type": "image",
+			"name": "db_goodJob_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_1.json",
+			"type": "json",
+			"name": "db_goodJob_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_1.png",
+			"type": "image",
+			"name": "db_goodJob_tex_1_png"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_2.json",
+			"type": "json",
+			"name": "db_goodJob_tex_2_json"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_2.png",
+			"type": "image",
+			"name": "db_goodJob_tex_2_png"
+		},
+		{
+			"url": "assets/db/db_goodJob/db_goodJob_tex_0.json",
+			"type": "json",
+			"name": "db_goodJob_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_0.png",
+			"type": "image",
+			"name": "db_start_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_1.json",
+			"type": "json",
+			"name": "db_start_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_1.png",
+			"type": "image",
+			"name": "db_start_tex_1_png"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_2.json",
+			"type": "json",
+			"name": "db_start_tex_2_json"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_2.png",
+			"type": "image",
+			"name": "db_start_tex_2_png"
+		},
+		{
+			"url": "assets/db/db_start/db_start_tex_0.json",
+			"type": "json",
+			"name": "db_start_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_timeOut/db_timeOut_tex_0.png",
+			"type": "image",
+			"name": "db_timeOut_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_timeOut/db_timeOut_tex_1.json",
+			"type": "json",
+			"name": "db_timeOut_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_timeOut/db_timeOut_tex_1.png",
+			"type": "image",
+			"name": "db_timeOut_tex_1_png"
+		},
+		{
+			"url": "assets/db/db_timeOut/db_timeOut_tex_0.json",
+			"type": "json",
+			"name": "db_timeOut_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_right/db_right_tex_0.json",
+			"type": "json",
+			"name": "db_right_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_right/db_right_tex_0.png",
+			"type": "image",
+			"name": "db_right_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_right/db_right_tex_1.json",
+			"type": "json",
+			"name": "db_right_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_right/db_right_tex_1.png",
+			"type": "image",
+			"name": "db_right_tex_1_png"
+		},
+		{
+			"url": "assets/db/db_idle/db_idle_tex_0.json",
+			"type": "json",
+			"name": "db_idle_tex_0_json"
+		},
+		{
+			"url": "assets/db/db_idle/db_idle_tex_0.png",
+			"type": "image",
+			"name": "db_idle_tex_0_png"
+		},
+		{
+			"url": "assets/db/db_idle/db_idle_tex_1.json",
+			"type": "json",
+			"name": "db_idle_tex_1_json"
+		},
+		{
+			"url": "assets/db/db_idle/db_idle_tex_1.png",
+			"type": "image",
+			"name": "db_idle_tex_1_png"
+		},
+		{
+			"url": "assets/img/lets_play/deng.mp3",
+			"type": "sound",
+			"name": "deng_mp3"
+		}
+	]
+}

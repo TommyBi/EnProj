@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
-	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" />
+	<e:Image horizontalCenter="0" verticalCenter="0"  source="img_bg_1_png"/>
 	<e:Group id="kGrpMain" x="240" y="0" width="1440" height="1080">
 		<e:Image source="img_lp_bg_png"  verticalCenter="0" horizontalCenter="0"/>
 		<e:Group y="63.3" horizontalCenter="24">

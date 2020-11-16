@@ -67,7 +67,7 @@ class Main extends eui.UILayer {
             await RES.loadGroup("sound");
             await RES.loadGroup("public");
             await RES.loadGroup("db");
-            await RES.loadGroup("lets_play");
+            await RES.loadGroup("find_mark");
             await this.loadTheme();
         }
         catch (e) {
@@ -92,7 +92,7 @@ class Main extends eui.UILayer {
     protected createGameScene(): void {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        let view = new game.LetsPlayView();
+        let view = new game.FindMarkView();
         XDFFrame.LayerManager.UI_View.addChild(view);
     }
 

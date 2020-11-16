@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:tween="egret.tween.*" >
+	<w:Declarations>
+		<tween:TweenGroup id="anim2">
+			<tween:TweenItem target="{kImg2}">
+				<tween:Set/>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{30}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+		<tween:TweenGroup id="anim1">
+			<tween:TweenItem target="{kImg1}">
+				<tween:Set/>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{9}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<w:Config id="175722876ba" ></w:Config>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_1_png" locked="true"/>
+	<e:Group id="kGp" width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Image left="0" right="0" source="look_1_png" height="1180" bottom="0" locked="true"/>
+		<e:Group id="kAnimGp" left="0" right="0" top="0" bottom="0" touchEnabled="false" locked="true"/>
+		<e:Group width="464" anchorOffsetX="0" top="0" bottom="0" right="7">
+			<e:Image source="look_13_png" verticalCenter="0" horizontalCenter="0" scaleX="1.8" scaleY="1.8"/>
+			<e:Group id="kGp1" x="256.68" y="273.01" scaleX="1.6" scaleY="1.6" locked="true">
+				<e:Image id="kSide1" scaleX="1" scaleY="1" horizontalCenter="-3" verticalCenter="2" source="look_7_png" visible="false"/>
+				<e:Image id="kHui1" scaleX="1" scaleY="1" horizontalCenter="-2" verticalCenter="1" source="look_6_png"/>
+			</e:Group>
+			<e:Group id="kGp2" x="95.69" y="535.37" scaleX="1.6" scaleY="1.6">
+				<e:Image id="kHui2" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="look_2_png" locked="true"/>
+				<e:Image id="kSide2" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="look_3_png" locked="true" visible="false"/>
+			</e:Group>
+			<e:Group id="kGp3" y="792.62" scaleX="1.6" scaleY="1.6" x="164.34">
+				<e:Image id="kHui3" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="look_4_png"/>
+				<e:Image id="kSide3" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="look_5_png" visible="false"/>
+			</e:Group>
+			<e:Image source="look_8_png" x="91.92" y="308.35" scaleX="1.6" scaleY="1.6"/>
+			<e:Image id="kTarget2" source="look_9_png" x="112.98" y="538.67" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image id="kTarget1" source="look_12_png" x="264.69" y="293" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image id="kTarget3" source="look_11_png" x="174.02" y="796" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image source="look_10_png" x="268.38" y="543.03" scaleX="1.5" scaleY="1.5"/>
+			<e:Group scaleX="1" scaleY="1" horizontalCenter="0" y="711.55">
+				<e:Label text="I’m good at skating." scaleX="1" scaleY="1" textColor="0x000000" size="36" bold="true" horizontalCenter="0" verticalCenter="0" x="-180" y="-421.0000000000001"/>
+				<e:Label id="kAnswer3" text="I’m good at skating." scaleX="1" scaleY="1" size="36" bold="true" horizontalCenter="0" verticalCenter="0" x="-180" y="-421.0000000000001" textColor="0xcc0000" visible="false"/>
+			</e:Group>
+			<e:Group y="455.28" scaleX="1" scaleY="1" horizontalCenter="6">
+				<e:Label text="I’m good at sledding." scaleX="1" scaleY="1" textColor="0x000000" size="36" bold="true" horizontalCenter="0" verticalCenter="0" x="-167" y="-202.26999999999998"/>
+				<e:Label id="kAnswer2" text="I’m good at sledding." scaleX="1" scaleY="1" size="36" bold="true" horizontalCenter="0" verticalCenter="0" x="-167" y="-202.26999999999998" textColor="0xcc0000" visible="false"/>
+			</e:Group>
+			<e:Group y="214.72" scaleX="1" scaleY="1" x="69">
+				<e:Label text="I’m good at skiing." scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" textColor="0x000000" size="36" bold="true"/>
+				<e:Label id="kAnswer1" text="I’m good at skiing." scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" size="36" bold="true" x="10" y="10" textColor="0xcc0000" visible="false"/>
+			</e:Group>
+		</e:Group>
+		<game:BtnSelect id="kBtn" width="50" height="100" x="490.64" y="914.82" rotation="0"/>
+	</e:Group>
+	<e:Image source="img_bg_1_png" fillMode="repeat" anchorOffsetX="0" width="239.85" left="0" verticalCenter="0"/>
+	<e:Group id="kGrpSmokeAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true" visible="false"/>
+	<game:ReplayComponent id="kReplay" skinName="ReplayComponentSkin" y="859" x="1465"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+</e:Skin>

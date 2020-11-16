@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="AnswerComponentSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group horizontalCenter="0" verticalCenter="0" touchChildren="false" touchEnabled="false" touchThrough="true" width="1920" height="1080">
+		<e:Image id="kImgStarBg" source="img_star_bg_png" scaleX="1.5" scaleY="1.5" horizontalCenter="0" verticalCenter="0"/>
+		<e:Group id="kGrpStarLeft" x="470" y="500" scaleX="1.5" scaleY="1.5">
+			<e:Image source="img_star_png" x="0" y="0" rotation="-20" scaleX="1.5" scaleY="1.5"/>
+			<e:Image source="img_star_png" x="68.72" y="14.46" rotation="-10"/>
+		</e:Group>
+		<e:Group id="kGrpStarRight" x="1374" y="250" scaleX="-1.5" scaleY="1.5">
+			<e:Image source="img_star_png" x="68.72" y="14.46" rotation="10"/>
+			<e:Image source="img_star_png" x="0" y="-14" rotation="10" scaleX="1.5" scaleY="1.5"/>
+		</e:Group>
+		<e:Image id="kImgGood" source="img_goodjob_png" rotation="700" anchorOffsetX="401" anchorOffsetY="73" scaleX="1.5" scaleY="1.5" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Image id="kImgErr" source="img_tryAgain_png" horizontalCenter="0" verticalCenter="0" anchorOffsetX="381" anchorOffsetY="152" rotation="-1080" visible="false"/>
+</e:Skin>

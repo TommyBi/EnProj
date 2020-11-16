@@ -27,9 +27,17 @@ var game;
             _this.mActionQueue = []; // 当前队列
             _this.mCurHintActionType = -1;
             _this.mLock = false; // 同步操作的锁子
+            _this.mLock_sound = false;
             _this.skinName = "MainViewSkin";
             return _this;
         }
+        Object.defineProperty(MainView.prototype, "mIsLock", {
+            get: function () {
+                return this.mLock_sound;
+            },
+            enumerable: true,
+            configurable: true
+        });
         ;
         MainView.prototype.createChildren = function () {
             _super.prototype.createChildren.call(this);
@@ -99,7 +107,9 @@ var game;
             this.kImgPantsDown1.source = "img_pants_1_g_png";
             this.mCurHintActionType = -1;
             this.mActionQueue = [0, 0, 1, 1];
+            this.mLock_sound = true;
             XDFSoundManager.play("sound_put_on_mp3", 0, 1, 1, "sound_put_on_mp3", function () {
+                _this.mLock_sound = false;
                 _this.goNextStep();
             });
         };
@@ -123,7 +133,9 @@ var game;
             this.kImgShirtUp_0_g.visible = this.kImgShirtUp_1_g.visible = this.kImgPantsUp_0_g.visible = this.kImgPantsUp_1_g.visible = true;
             this.mCurHintActionType = -1;
             this.mActionQueue = [2, 2, 3, 3];
+            this.mLock_sound = true;
             XDFSoundManager.play("sound_take_off_mp3", 0, 1, 1, "sound_take_off_mp3", function () {
+                _this.mLock_sound = false;
                 _this.goNextStep();
             });
         };
@@ -131,6 +143,8 @@ var game;
         MainView.prototype.onPutOnShirt0 = function () {
             var _this = this;
             if (this.mLock)
+                return;
+            if (this.mIsLock)
                 return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
@@ -151,6 +165,8 @@ var game;
             var _this = this;
             if (this.mLock)
                 return;
+            if (this.mIsLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -170,6 +186,8 @@ var game;
             var _this = this;
             if (this.mLock)
                 return;
+            if (this.mIsLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -188,6 +206,8 @@ var game;
         MainView.prototype.onPutOnPants1 = function () {
             var _this = this;
             if (this.mLock)
+                return;
+            if (this.mIsLock)
                 return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
@@ -209,6 +229,8 @@ var game;
             var _this = this;
             if (this.mLock)
                 return;
+            if (this.mIsLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -227,6 +249,8 @@ var game;
         MainView.prototype.onTakeOffShirt1 = function () {
             var _this = this;
             if (this.mLock)
+                return;
+            if (this.mIsLock)
                 return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
@@ -247,6 +271,8 @@ var game;
             var _this = this;
             if (this.mLock)
                 return;
+            if (this.mIsLock)
+                return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(function () {
@@ -265,6 +291,8 @@ var game;
         MainView.prototype.onTakeOffPants1 = function () {
             var _this = this;
             if (this.mLock)
+                return;
+            if (this.mIsLock)
                 return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
@@ -301,33 +329,37 @@ var game;
                 else {
                     this.mCurPlayMode = -1;
                     this.showHintMode();
-                    // if (this.mCurPlayMode == 0) {
-                    //     this.mCurPlayMode = 1;
-                    //     this.mCurHintActionType = -1;
-                    //     this.mActionQueue = [2, 2, 3, 3];
-                    // } else if (this.mCurPlayMode == 1) {
-                    //     this.mCurPlayMode = 0;
-                    //     this.mCurHintActionType = -1;
-                    //     this.mActionQueue = [0, 0, 1, 1];
-                    // }
                 }
             }
             this.mCurHintActionType = this.mActionQueue.shift();
             this.playHintSound();
         };
         MainView.prototype.playHintSound = function () {
+            var _this = this;
             switch (this.mCurHintActionType) {
                 case ACTION_TYPE.PUTON_SHIRT:
-                    XDFSoundManager.play("sound_put_on_shirt_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_put_on_shirt_mp3", 0, 1, 1, "sound_put_on_shirt_mp3", function () {
+                        _this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.PUTON_PANTS:
-                    XDFSoundManager.play("sound_put_on_pants_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_put_on_pants_mp3", 0, 1, 1, "sound_put_on_pants_mp3", function () {
+                        _this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.TAKEOFF_SHIRT:
-                    XDFSoundManager.play("sound_take_off_shirt_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_take_off_shirt_mp3", 0, 1, 1, "sound_take_off_shirt_mp3", function () {
+                        _this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.TAKEOFF_PANTS:
-                    XDFSoundManager.play("sound_take_off_pants_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_take_off_pants_mp3", 0, 1, 1, "sound_take_off_pants_mp3", function () {
+                        _this.mLock_sound = false;
+                    });
                     break;
             }
         };

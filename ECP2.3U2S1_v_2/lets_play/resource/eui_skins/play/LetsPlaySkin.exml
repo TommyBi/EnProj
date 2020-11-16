@@ -1,0 +1,24 @@
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:tween="egret.tween.*">
+	<w:Declarations>
+	</w:Declarations>
+	<e:Image horizontalCenter="0" verticalCenter="0"  source="img_bg_1_png" locked="true"/>
+	<e:Group id="kGp" x="240" y="0" width="1440" height="1080">
+		<e:Image top="0" bottom="0" source="play_2_png" anchorOffsetX="0" width="1486" horizontalCenter="8" locked="true"/>
+		<e:Group width="1920" height="1080" touchEnabled="false" horizontalCenter="0" verticalCenter="0" locked="true">
+			<e:Image verticalCenter="0" source="img_bg_1_png" y="0" scaleX="1" scaleY="1" fillMode="clip" anchorOffsetX="0" width="236" left="0"/>
+			<e:Image source="img_bg_1_png" y="0" scaleX="1" scaleY="1" fillMode="clip" anchorOffsetX="0" width="236" right="0"/>
+		</e:Group>
+		<game:PlayItem id="kItem1" x="122" y="154" name="1" visible="false"/>
+		<game:PlayItem id="kItem2" x="541" y="154" name="2" visible="false"/>
+		<game:PlayItem id="kItem3" x="960.18" y="154" name="3" visible="false"/>
+		<e:Group id="kAnimGp" width="1440" height="1080" touchEnabled="false" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" visible="false">
+		</e:Group>
+		<e:Group id="kTargetGp" width="260.61" height="315.15" x="152" y="641" anchorOffsetX="0" anchorOffsetY="0" visible="false">
+			<e:Image source="play_1_png" x="1.7899999999999636" y="55.72000000000003" scaleX="2" scaleY="2"/>
+			<e:Label id="kLb" text="ski" x="27.46999999999997" y="116.09000000000003" textColor="0x000000" size="50" bold="true" anchorOffsetX="0" width="198.79" textAlign="center" scaleX="1" scaleY="1"/>
+		</e:Group>
+	</e:Group>
+	<game:ReStartComponent id="kRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<game:TimeBarComponent id="kTimeBar" skinName="TimeBarComponentSkin" bottom="-13" scaleX="0.9" scaleY="0.9" left="238"/>
+</e:Skin>

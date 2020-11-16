@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FlowItemSkin" width="200" height="200" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"  states="1,2,3" >
+	<w:Config id="17550d2dba8" ></w:Config>
+	<e:Image id="kImg3" source="img_flow_8_png" scaleX="2" scaleY="2" verticalCenter="0" horizontalCenter="0" includeIn="3"/>
+	<e:Image id="kImg1" source="img_flow_9_png" horizontalCenter="0" verticalCenter="0" scaleX="2" scaleY="2" includeIn="1"/>
+	<e:Image id="kImg2" source="img_flow_7_png" horizontalCenter="0" verticalCenter="0" scaleX="2" scaleY="2" includeIn="2"/>
+	<e:Group id="kGp3" width="200" height="200" horizontalCenter="0" verticalCenter="0" visible.2="false" includeIn="3">
+		<e:Image id="kSide3" source="img_flow_15_png" scaleX="0.3" scaleY="0.3" horizontalCenter="0" verticalCenter="0" visible="false"/>
+		<e:Image source="img_flow_6_png" scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+	<e:Group id="kGp1" width="200" height="200" horizontalCenter="0" verticalCenter="0" x="10" y="10" includeIn="1">
+		<e:Image id="kSide1" scaleX="0.3" scaleY="0.3" horizontalCenter="0" verticalCenter="0" source="img_flow_14_png" visible="false"/>
+		<e:Image scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0" source="img_flow_13_png"/>
+	</e:Group>
+	<e:Group id="kGp2" width="200" height="200" horizontalCenter="0" verticalCenter="0" x="20" y="20" includeIn="2">
+		<e:Image id="kSide2" scaleX="0.3" scaleY="0.3" horizontalCenter="0" verticalCenter="0" source="img_flow_16_png" visible="false"/>
+		<e:Image scaleX="2" scaleY="2" horizontalCenter="0" verticalCenter="0" source="img_flow_5_png"/>
+	</e:Group>
+	<e:Group id="kGrpSmokeAnim" width="10" height="10" horizontalCenter="0" verticalCenter="0"/>
+</e:Skin>

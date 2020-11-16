@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSay1ViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_2_png" horizontalCenter="0"  verticalCenter="0"/>
+	<e:Image source="img_ss_bg_png"  y="0" anchorOffsetX="0" width="1546.3" anchorOffsetY="0" height="1076.02" horizontalCenter="0"/>
+	<e:Group id="kGrpAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true">
+	</e:Group>
+	<e:Group x="380.93" y="104.79">
+		<e:Group x="0" y="0">
+			<e:Image source="img_ss_bg_0_png" scaleX="1" scaleY="1" horizontalCenter="-2.5" verticalCenter="6.5"/>
+			<e:Image id="kImgMaskLineBig0" horizontalCenter="-1" verticalCenter="3.5" source="img_ss_mask_line_big0_png"/>
+		</e:Group>
+		<e:Group id="kGrpDesc0" y="47.24" horizontalCenter="-3">
+			<e:Label text="Camels keep water" y="0" textColor="0x000000" strokeColor="0xffffff" size="35" anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" horizontalCenter="0"/>
+			<e:Label text="in their bodies" y="52.97" textColor="0x000000" strokeColor="0xFFFFFF" size="35" anchorOffsetY="0" anchorOffsetX="0" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+			<e:layout>
+				<e:VerticalLayout/>
+			</e:layout>
+		</e:Group>
+		<e:Group y="46.72" left="46">
+			<e:Image id="kImgMask0" source="img_ss_mask_0_png" scaleX="0.1" scaleY="0.1" scale9Grid="113,117,711,198" anchorOffsetX="0" width="994.33"/>
+			<e:Image id="kImgMaskLine0" source="img_ss_mask_line_0_png" scaleX="0.3" scaleY="0.3" left="0" right="0" top="0" bottom="0"/>
+		</e:Group>
+	</e:Group>
+	<e:Group x="989.12" y="46.43">
+		<e:Group x="0" y="0">
+		<e:Image source="img_ss_bg_0_png" scaleX="1" scaleY="1" horizontalCenter="-2.5" verticalCenter="6.5"/>
+		<e:Image id="kImgMaskLineBig1" horizontalCenter="-1" verticalCenter="3.5" source="img_ss_mask_line_big0_png"/>
+		</e:Group>
+		<e:Group id="kGrpDesc1" y="47.24" horizontalCenter="-3">
+		<e:Label text="Cactuses keep water" y="0" textColor="0x000000" strokeColor="0xFFFFFF" size="35" anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" horizontalCenter="0"/>
+		<e:Label text="in their bodies" y="52.97" textColor="0x000000" strokeColor="0xFFFFFF" size="35" anchorOffsetY="0" anchorOffsetX="0" verticalAlign="middle" textAlign="center" horizontalCenter="0"/>
+		<e:layout>
+			<e:VerticalLayout/>
+		</e:layout>
+		</e:Group>
+		<e:Group y="43.69" left="21">
+		<e:Image id="kImgMask1" source="img_ss_mask_0_png" scaleX="0.12" scaleY="0.1" scale9Grid="113,117,711,198" anchorOffsetX="0" width="994.33"/>
+		<e:Image id="kImgMaskLine1" source="img_ss_mask_line_0_png" scaleX="0.3" scaleY="0.3" left="0" right="0" top="0" bottom="0"/>
+		</e:Group>
+	</e:Group>
+	<e:Group x="307.2" y="667.27">
+		<e:Group x="0" y="0">
+		<e:Image source="img_ss_bg_0_png" scaleX="1" scaleY="1" horizontalCenter="-2.5" verticalCenter="6.5"/>
+		<e:Image id="kImgMaskLineBig2" horizontalCenter="-1" verticalCenter="3.5" source="img_ss_mask_line_big0_png"/>
+		</e:Group>
+		<e:Group id="kGrpDesc2" y="68.45" horizontalCenter="-3">
+		<e:Label text="This is an oasis." y="0" textColor="0x000000" strokeColor="0xFFFFFF" size="35" anchorOffsetY="0" anchorOffsetX="0" textAlign="center" verticalAlign="middle" horizontalCenter="0"/>
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
+		</e:layout>
+		</e:Group>
+		<e:Group y="61.87" left="225">
+		<e:Image id="kImgMask2" source="img_ss_mask_0_png" scaleX="0.09" scaleY="0.1" scale9Grid="113,117,711,198" anchorOffsetX="0"/>
+		<e:Image id="kImgMaskLine2" source="img_ss_mask_line_0_png" left="0" right="0" top="0" bottom="0" scaleX="0.18" scaleY="0.3"/>
+		</e:Group>
+	</e:Group>
+	<game:AnswerComponent id="kComAnswer" width="20" height="20" horizontalCenter="0" verticalCenter="0"
+	                      skinName="AnswerComponentSkin"  locked="true" visible="false"/>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" x="1507.18" y="848.03" scaleX="1" scaleY="1" name="flag"/>
+	<e:Group bottom="20" horizontalCenter="0" scaleX="0.8" scaleY="0.8">
+		<e:Group id="kGrpOption2" x="686" y="0" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image source="img_stick_bg2_png" x="0" y="0" scaleX="0.4" scaleY="0.4"/>
+			<e:Label text="Oasis" horizontalCenter="0" verticalCenter="0" size="50" bold="true"/>
+		</e:Group>
+		<e:Group x="696" y="10" touchChildren="false" touchEnabled="true" touchThrough="false" id="kGrpOption0">
+			<e:Image x="0" y="0" scaleX="0.4" scaleY="0.4" source="img_stick_bg1_png"/>
+			<e:Label text="Camel" horizontalCenter="0" verticalCenter="0" size="50" bold="true"/>
+		</e:Group>
+		<e:Group x="706" y="20" touchChildren="false" touchEnabled="true" touchThrough="false" id="kGrpOption1">
+			<e:Image x="0" y="0" scaleX="0.4" scaleY="0.4" source="img_stick_bg3_png"/>
+			<e:Label text="Cactus" horizontalCenter="0" verticalCenter="0" size="50" bold="true"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout gap="30"/>
+		</e:layout>
+	</e:Group>
+	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" x="170" verticalCenter="0"/>
+	<game:FlagCom skinName="FlagComSkin" name="flag" x="163" y="1"/>
+	<e:Image source="img_bg_2_png" fillMode="repeat" anchorOffsetX="0" left="0" verticalCenter="0" width="189.7"/>
+</e:Skin>

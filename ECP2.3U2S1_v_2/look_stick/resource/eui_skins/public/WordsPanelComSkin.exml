@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="WordsPanelComSkin" width="320" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="kGrpMain" x="10" top="100" bottom="30" width="310" height="950">
+		<e:Image width="310" top="0" bottom="0" source="stick_14_png" horizontalCenter="-4"/>
+		<e:Group id="kGrpWords" width="278" horizontalCenter="0" verticalCenter="0" locked="true">
+			<e:layout>
+				<e:VerticalLayout gap="15" paddingTop="100"/>
+			</e:layout>
+		</e:Group>
+	</e:Group>
+</e:Skin>

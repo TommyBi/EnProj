@@ -18,6 +18,11 @@ namespace game {
         private mAnimRole: XDFFrame.DBAnim;
         private mIsActive: Boolean = false;
 
+        private mLock_sound: boolean = false;
+        private get mIsLock(): boolean {
+            return this.mLock_sound;
+        }
+
         private mCfg = [
             {
                 desc0: "I always go sledding.",
@@ -72,6 +77,7 @@ namespace game {
         }
 
         public onMatch(idx: number): void {
+            if (this.mIsLock) return;
             if (!this.mIsActive) return;
             let cfg = this.mCfg[this.mIdx];
             if (cfg.correct == idx) {
@@ -88,7 +94,10 @@ namespace game {
         public showAction(): void {
             this.kImgLine.visible = true;
             this.mIsActive = true;
-            XDFSoundManager.play(`sound_${this.mIdx}_mp3`);
+            this.mLock_sound = true;
+            XDFSoundManager.play(`sound_${this.mIdx}_mp3`, 0, 1, 1, `sound_${this.mIdx}_mp3`, () => {
+                this.mLock_sound = false;
+            });
             this.mAnimRole.play(null, 3)
         }
 

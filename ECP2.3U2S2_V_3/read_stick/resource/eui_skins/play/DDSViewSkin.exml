@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="DDSViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Group y="0" width="1920" horizontalCenter="0">
+		<e:Image source="img_bg_1_png" x="0" y="0"/>
+		<e:Image source="img_lp_bg_png" x="240" y="0" anchorOffsetX="0" width="1447.12"/>
+	</e:Group>
+	<e:Group width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Group horizontalCenter="0" top="-86">
+			<e:Image anchorOffsetX="0" source="img_lp_wordPanel_png" scaleX="2" scaleY="2" top="0" width="400" scale9Grid="126,25,257,117" horizontalCenter="0"/>
+			<e:Label id="kLabelDesc" text="Everyone wears a mask and a costume." verticalCenter="58" size="55" bold="true" horizontalCenter="0" textColor="0x000000"/>
+		</e:Group>
+		<game:DDSComponent id="kCom0" x="198.99" y="279.69" skinName="DDSComponentSkin"/>
+		<game:DDSComponent x="930.21" y="282.72" skinName="DDSComponentSkin" id="kCom1"/>
+		<game:DDSComponent x="567.49" y="521.82" skinName="DDSComponentSkin" id="kCom2"/>
+		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" scaleX="0.9" scaleY="0.9" y="913.34" x="0"/>
+	</e:Group>
+	<e:Group x="0" y="0" touchChildren="false" touchEnabled="false" touchThrough="true" locked="true">
+		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="0"/>
+		<e:Image source="img_bg_1_png" y="0" fillMode="repeat" anchorOffsetX="0" width="240" x="1680"/>
+	</e:Group>
+	<e:Group id="kGrpAnimHummer" width="200" height="200" x="96" y="421" touchChildren="false" touchEnabled="false" touchThrough="true"/>
+	<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0"/>
+</e:Skin>

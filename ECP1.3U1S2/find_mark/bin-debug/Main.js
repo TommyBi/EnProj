@@ -134,7 +134,7 @@ var Main = (function (_super) {
                         return [4 /*yield*/, RES.loadGroup("db")];
                     case 5:
                         _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("lets_play")];
+                        return [4 /*yield*/, RES.loadGroup("find_mark")];
                     case 6:
                         _a.sent();
                         return [4 /*yield*/, this.loadTheme()];
@@ -168,7 +168,7 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         window.platform.sendMessage(10001, "", -1);
         XDFFrame.LayerManager.initLayer();
-        var view = new game.LetsPlayView();
+        var view = new game.FindMarkView();
         XDFFrame.LayerManager.UI_View.addChild(view);
     };
     Main.prototype.loadMusic = function () {

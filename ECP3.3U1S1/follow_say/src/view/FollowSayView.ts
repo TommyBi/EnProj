@@ -60,6 +60,7 @@ namespace game {
             super.createChildren();
             // 注册界面事件
             XDFFrame.EventCenter.addEventListenr(EventConst.eventStart, this.onStart, this);
+            XDFFrame.EventCenter.addEventListenr(EventConst.eventReplay, this.onReplay, this);
             for (let i = 0; i < this.mOptionCount; i++) {
                 this[`kGrpOption${i}`].mIdx = i;
             }
@@ -92,7 +93,6 @@ namespace game {
         private init(): void {
             this.reset();
             this.kComReplay.visible = true;
-            this.kComAnswer.visible = false;
             this.kComReplay.showStart();
         }
 
@@ -116,6 +116,9 @@ namespace game {
             egret.Tween.removeTweens(this.kImgFrameLine0);
             egret.Tween.removeTweens(this.kImgFrameLine1);
 
+            this.kComAnswer.visible = false;
+            this.mLock_isFinish = false;
+
             this.mHintArr = this.calShowOrder(4);
         }
 
@@ -124,6 +127,11 @@ namespace game {
             this.kComReplay.visible = false;
             this.mLock_startGame = false;
             this.next();
+        }
+
+        private onReplay(): void {
+            this.reset();
+            this.onStart();
         }
 
         /** 提示下一个 */

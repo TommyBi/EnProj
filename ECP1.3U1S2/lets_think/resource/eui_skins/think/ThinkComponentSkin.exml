@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ThinkComponentSkin" height="666" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="kGrpMain" width="469" height="666" horizontalCenter="0" y="0">
+		<e:Group id="kGrpBg" x="0" y="0" scaleX="1" scaleY="1" touchChildren="false" touchEnabled="true" touchThrough="false">
+			<e:Image id="kImgShadow" x="0" y="0" source="img_think_shadow_png"/>
+			<e:Image id="kImgCard" x="0" y="0" source="img_think_bg0_png"/>
+		</e:Group>
+		<e:Group id="kGrpWord" y="493" width="400" x="12" scaleX="1" scaleY="1">
+			<e:Image id="kImgNameBg" source="img_think_name_bg_png" x="0" y="0" anchorOffsetX="0" width="400" scale9Grid="5,13,382,78" touchEnabled="false"/>
+			<e:Image id="kImgArrow" source="img_think_arrow_png" verticalCenter="0" right="15"/>
+			<e:Label id="kLabelWord" text="luckyWords" bold="true" size="65" horizontalCenter="-20" verticalCenter="0" touchEnabled="false"/>
+		</e:Group>
+		<e:Rect id="kMask" width="400" height="104" x="9" y="493" strokeWeight="2"/>
+		<e:Group id="kGrpWordStatic" y="493" x="9" scaleX="1" scaleY="1">
+			<e:Image id="kImgNameBg0" source="img_think_name_bg_png" x="0" y="0" anchorOffsetX="0" scale9Grid="5,13,382,78" touchEnabled="false" width="57"/>
+			<e:Image id="kImgArrow0" source="img_think_arrow_png" verticalCenter="0" right="15"/>
+		</e:Group>
+		<e:Image id="kImgSound" x="377" y="317" scaleX="1" scaleY="1" name="sound" source="img_think_sound0_png"/>
+	</e:Group>
+</e:Skin>

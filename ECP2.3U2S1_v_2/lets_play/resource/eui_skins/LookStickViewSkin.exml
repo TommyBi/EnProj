@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LookStickViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_stick_bg_png" horizontalCenter="0" verticalCenter="0"/>
+	<e:Image source="img_stick_bg3_png" x="74" y="34"/>
+	<e:Group x="1098" y="50">
+		<e:Image source="img_stick_bg2_png" x="0" y="70" scale9Grid="45,93,274,837" anchorOffsetY="0" height="930"/>
+		<e:Group id="kGrpTar0" y="254" width="132" height="125" horizontalCenter="0" scaleX="1.7" scaleY="1.7">
+			<e:Image id="kImgPicHead0" source="img_stick_shadow_0_png" x="12" y="0"/>
+			<e:Image id="kImgHintTarFrame0" source="img_stick_o_s_0_png" x="11.74" y="1.44"/>
+		</e:Group>
+		<e:Group y="722" width="132" height="125" id="kGrpTar2" scaleX="1.7" scaleY="1.7" horizontalCenter="0">
+			<e:Image id="kImgPicHead2" x="12" y="0" source="img_stick_shadow_2_png"/>
+			<e:Image id="kImgHintTarFrame2" horizontalCenter="2.5" verticalCenter="2" source="img_stick_o_s_2_png"/>
+		</e:Group>
+		<e:Label text="I like dogs." y="145" textColor="0x000000" size="43" bold="true" horizontalCenter="0.5"/>
+		<e:Label text="I like cats." y="615" textColor="0x000000" size="43" bold="true" horizontalCenter="0"/>
+		<e:Image id="kImgHappy" source="img_stick_happy_png" anchorOffsetX="87" anchorOffsetY="86" y="66" x="182"/>
+		<e:Group id="kGrpHead0" x="63" y="235.09">
+			<e:Image source="img_head_02_png" x="30.08" y="157.24"/>
+			<e:Image source="img_head_01_png" x="0" y="0"/>
+		</e:Group>
+		<e:Group id="kGrpHead2" y="702.54" horizontalCenter="-8.5">
+			<e:Image x="30.08" y="157.24" source="img_head_06_png"/>
+			<e:Image x="24.24" y="12.12" source="img_head_05_png"/>
+		</e:Group>
+	</e:Group>
+	<e:Group x="1536" y="50">
+		<e:Image source="img_stick_bg1_png" x="0" y="70" height="930"/>
+		<e:Label text="I don't like cats." y="615" textColor="0x000000" size="43" bold="true" horizontalCenter="0.5"/>
+		<e:Label text="I don't like dogs." y="145" textColor="0x000000" size="43" bold="true" horizontalCenter="0"/>
+		<e:Group y="254" width="132" height="125" id="kGrpTar1" scaleX="1.7" scaleY="1.7" horizontalCenter="0">
+			<e:Image id="kImgPicHead1" x="9.34" y="-6.65" source="img_stick_shadow_1_png"/>
+			<e:Image id="kImgHintTarFrame1" horizontalCenter="0.5" verticalCenter="0" source="img_stick_o_s_1_png"/>
+		</e:Group>
+		<e:Group y="728" width="132" height="125" id="kGrpTar3" scaleX="1.7" scaleY="1.7" horizontalCenter="0">
+			<e:Image id="kImgPicHead3" x="12" y="0" source="img_stick_shadow_3_png"/>
+			<e:Image id="kImgHintTarFrame3" horizontalCenter="8" verticalCenter="-0.5" source="img_stick_o_s_3_png"/>
+		</e:Group>
+		<e:Image id="kImgSad" source="img_stick_sad_png" anchorOffsetX="86" anchorOffsetY="86" y="66" x="181"/>
+		<e:Group y="212.09" id="kGrpHead1" x="67.12">
+			<e:Image x="-3.25" y="75.42" source="img_head_04_png"/>
+			<e:Image x="24.24" y="12.12" source="img_head_03_png"/>
+		</e:Group>
+		<e:Group y="695.24" id="kGrpHead3" x="51.97">
+			<e:Image x="20.99" y="148.14" source="img_head_08_png"/>
+			<e:Image x="24.24" y="12.12" source="img_head_07_png"/>
+		</e:Group>
+	</e:Group>
+	<e:Group id="kGrp0" x="188" y="108" touchChildren="false" touchEnabled="true" touchThrough="false">
+		<e:Group x="0" y="322">
+		<e:Image source="img_stick_words_bg_png" x="0" y="0" scaleX="0.8" scaleY="0.8"/>
+		<e:Label text="Kate" textColor="0x000000" horizontalCenter="0" verticalCenter="0" size="40"/>
+		</e:Group>
+		<e:Group id="kGrpOption0" x="52" y="0">
+			<e:Image id="kImgFrame0" source="img_stick_option_shadow_0_png" x="2" y="2" scaleX="1.5" scaleY="1.5"/>
+			<e:Image source="img_stick_option_0_png" x="0" y="0" scaleX="0.3" scaleY="0.3"/>
+		</e:Group>
+	</e:Group>
+	<e:Group id="kGrp1" x="510" y="110" touchChildren="false" touchEnabled="true" touchThrough="false" locked="true">
+		<e:Group id="kGrpOption1" x="0" y="0">
+			<e:Image source="img_stick_dog_png" x="0" y="220"/>
+			<e:Image source="img_stick_option_1_png" x="150" y="0" scaleX="0.3" scaleY="0.3"/>
+			<e:Image id="kImgFrame1" source="img_stick_option_shadow_1_png" x="150" y="0" scaleX="1.5" scaleY="1.6"/>
+		</e:Group>
+		<e:Group y="320" horizontalCenter="0">
+			<e:Image source="img_stick_words_bg_png" x="0" y="0" scaleX="0.8" scaleY="0.8"/>
+			<e:Label text="Paul" textColor="0x000000" horizontalCenter="0" verticalCenter="0" size="40"/>
+		</e:Group>
+	</e:Group>
+	<e:Group id="kGrp2" x="182" y="658" locked="true">
+		<e:Group x="0" y="242">
+			<e:Image source="img_stick_words_bg_png" x="0" y="0" scaleX="0.8" scaleY="0.8"/>
+			<e:Label text="Neo" textColor="0x000000" horizontalCenter="0" verticalCenter="0" size="40"/>
+		</e:Group>
+		<e:Group id="kGrpOption2" x="40" y="0">
+			<e:Image id="kImgFrame2" source="img_stick_option_shadow_2_png" x="0" y="0" scaleX="1.5" scaleY="1.5"/>
+			<e:Image source="img_stick_option_2_png" x="14" y="12" scaleX="0.3" scaleY="0.3"/>
+		</e:Group>
+	</e:Group>
+	<e:Group id="kGrp3" x="516" y="642" locked="true">
+		<e:Group x="32" y="258">
+			<e:Image source="img_stick_words_bg_png" x="0" y="0" scaleX="0.8" scaleY="0.8"/>
+			<e:Label text="Jenny" textColor="0x000000" horizontalCenter="0" verticalCenter="0" size="40"/>
+		</e:Group>
+		<e:Group id="kGrpOption3" x="0" y="0">
+			<e:Image source="img_stick_cat_png" x="0" y="102"/>
+			<e:Image id="kImgFrame3" source="img_stick_option_shadow_3_png" x="148" y="0" scaleX="1.5" scaleY="1.5"/>
+			<e:Image source="img_stick_option_3_png" x="132" y="6" scaleX="0.3" scaleY="0.3"/>
+		</e:Group>
+	</e:Group>
+	<game:ReplayComponent id="kComReplay" skinName="ReplayComponentSkin" right="100" bottom="100" visible="false"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0" visible="false"/>
+	<e:Group id="kGrpSmokeAnim" x="1726" y="623.09">
+	</e:Group>
+</e:Skin>

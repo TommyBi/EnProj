@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FindMarkItemSkin" width="200" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="1756099d8a6" ></w:Config>
+	<e:Group right="0" top="0" bottom="0" left="0">
+		<e:Image id="kImg" horizontalCenter="0" x="39" scaleX="0.3" scaleY="0.3" source="find_xjl_png" verticalCenter="-14.5"/>
+		<e:Label id="kLb" text="elephant" textColor="0x000000" size="50" scaleX="1" scaleY="1" bottom="28" horizontalCenter="13" fontFamily="Arial" stroke="2" strokeColor="0xffffff"/>
+		<e:layout>
+			<e:BasicLayout/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="kAnim" height="10" width="10" horizontalCenter="0" verticalCenter="0">
+		<e:layout>
+		<e:BasicLayout/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

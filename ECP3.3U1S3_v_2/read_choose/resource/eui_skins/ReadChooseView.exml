@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ReadChooseViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" >
+	<w:Config id="17588ebc2cb" ></w:Config>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_2_png" locked="true"/>
+	<e:Group id="kGp" width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0xffffff"/>
+		<e:Image left="0" right="0" top="0" bottom="0" source="choose_bg_png"/>
+		<e:Group height="384.84" anchorOffsetY="0" left="0" right="0" top="0">
+			<e:Image id="kYes1" source="choose_dui_png" x="328" y="267.33" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image id="kSide1" source="choose_1_png" y="105.68" scaleX="1.8" scaleY="1.8" horizontalCenter="0" visible="false"/>
+			<e:Group id="kRight1" width="332" height="209.33" x="325.67" y="122.67" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Group id="kLost1" width="332" height="209.33" x="799.67" y="126.01" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Label id="kAnswer1" text="He is Korean." y="45.03" textColor="0x000000" size="50" horizontalCenter="0.5"/>
+			<e:Label id="kAnswerAnim1" text="He is Korean." y="67.69" textColor="0x000000" size="50" horizontalCenter="1" stroke="4" strokeColor="0xe06411" width="310" height="50" anchorOffsetX="155" anchorOffsetY="25" visible="false"/>
+		</e:Group>
+		<e:Group height="384.84" anchorOffsetY="0" left="0" right="0" top="344">
+			<e:Image id="kYes2" source="choose_dui_png" x="1068.93" y="267.33" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image id="kSide2" source="choose_1_png" y="105.68" scaleX="1.8" scaleY="1.8" horizontalCenter="0" visible="false"/>
+			<e:Group id="kRight2" width="332" height="209.33" x="801.43" y="122.67" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Group id="kLost2" width="332" height="209.33" x="328.48" y="126.01" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Label id="kAnswer2" text="She is Vietnamese." y="45.03" textColor="0x000000" size="50" horizontalCenter="0.5"/>
+			<e:Label id="kAnswerAnim2" text="She is Vietnamese." y="70.25" textColor="0x000000" size="50" horizontalCenter="1" stroke="4" strokeColor="0xE06411" width="430" height="50" anchorOffsetX="215" anchorOffsetY="25" visible="false"/>
+		</e:Group>
+		<e:Group height="384.84" anchorOffsetY="0" left="0" right="0" top="678">
+			<e:Image id="kYes3" source="choose_dui_png" x="1074" y="273.33" scaleX="1.5" scaleY="1.5" visible="false"/>
+			<e:Image id="kSide3" source="choose_1_png" y="117.81" scaleX="1.8" scaleY="1.8" horizontalCenter="0" visible="false"/>
+			<e:Group id="kRight3" width="332" height="209.33" x="800" y="122.67" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Group id="kLost3" width="332" height="209.33" x="322.71" y="126.01" anchorOffsetX="0" anchorOffsetY="0"/>
+			<e:Label id="kAnswer3" text="We speak Korean and Vietnamese." y="55.03" textColor="0x000000" size="50" horizontalCenter="0.5"/>
+			<e:Label id="kAnswerAnim3" text="We speak Korean and Vietnamese." y="79.69" textColor="0x000000" size="50" horizontalCenter="1" stroke="4" strokeColor="0xe06411" width="786" height="50" anchorOffsetX="393" anchorOffsetY="25" visible="false"/>
+		</e:Group>
+	</e:Group>
+	<game:ReplayComponent id="kReplay" skinName="ReplayComponentSkin" y="855" x="1447"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+</e:Skin>

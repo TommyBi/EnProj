@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:tween="egret.tween.*" >
+	<w:Declarations>
+		<tween:TweenGroup id="anim2">
+			<tween:TweenItem target="{kImg2}">
+				<tween:Set/>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{30}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+		<tween:TweenGroup id="anim1">
+			<tween:TweenItem target="{kImg1}">
+				<tween:Set/>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{9}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<w:Config id="175722876ba" ></w:Config>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_1_png" locked="true"/>
+	<e:Group id="kGp" width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="stick_1_png" left="0" right="0" top="0" bottom="0"/>
+		<e:Group id="kAnimGp" left="0" right="0" top="0" bottom="0" touchEnabled="false"/>
+		<e:Group id="kGp1" x="135.36" y="532.79" scaleX="1.5" scaleY="1.5" width="212" height="272" locked="true">
+			<e:Image id="kSide1" scaleX="1" scaleY="1" source="stick_8_png" horizontalCenter="-3" verticalCenter="2" visible="false"/>
+			<e:Image id="kHui1" scaleX="1" scaleY="1" source="stick_7_png" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Group id="kGp2" x="760.51" y="489.6" scaleX="1.5" scaleY="1.5" locked="true">
+			<e:Image id="kHui2" scaleX="1" scaleY="1" source="stick_5_png" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="kSide2" scaleX="1" scaleY="1" source="stick_6_png" horizontalCenter="0" verticalCenter="0" visible="false"/>
+		</e:Group>
+		<e:Group id="kGp3" x="1103.04" y="393.45" scaleX="1.5" scaleY="1.5" locked="true">
+			<e:Image id="kHui3" scaleX="1" scaleY="1" source="stick_9_png" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image id="kSide3" scaleX="1" scaleY="1" source="stick_10_png" horizontalCenter="0" verticalCenter="0" visible="false"/>
+		</e:Group>
+		<e:Group id="kAnswer3" x="1235.21" y="411.09" anchorOffsetX="209.09" anchorOffsetY="137.88" visible="false">
+			<e:Image horizontalCenter="0" verticalCenter="0" scaleX="1.5" scaleY="1.5" source="stick_2_png" locked="true"/>
+		</e:Group>
+		<e:Group id="kAnswer2" x="803.73" y="732.36" anchorOffsetX="156.06" anchorOffsetY="9.09" visible="false">
+			<e:Image horizontalCenter="0" verticalCenter="0" scaleX="1.5" scaleY="1.5" source="stick_3_png" locked="true"/>
+		</e:Group>
+		<e:Group id="kAnswer1" x="194.73" y="548.42" anchorOffsetX="53.03" anchorOffsetY="119.7" visible="false">
+			<e:Image horizontalCenter="0" verticalCenter="0" scaleX="1.5" scaleY="1.5" source="stick_4_png"/>
+		</e:Group>
+		<game:BtnSelect id="kBtn" width="50" height="100" x="781.55" y="908.76" rotation="0"/>
+	</e:Group>
+	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" x="218.73" verticalCenter="0"/>
+	<game:FlagCom skinName="FlagComSkin" left="244" top="0" scaleX="0.8" scaleY="1"/>
+	<e:Image source="img_bg_1_png" fillMode="repeat" anchorOffsetX="0" width="239.85" left="0" verticalCenter="0"/>
+	<e:Group id="kGrpSmokeAnim" left="0" right="0" top="0" bottom="0" touchChildren="false" touchEnabled="false" touchThrough="true" visible="false"/>
+	<game:ReplayComponent id="kReplay" skinName="ReplayComponentSkin" y="859" x="1465"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+</e:Skin>

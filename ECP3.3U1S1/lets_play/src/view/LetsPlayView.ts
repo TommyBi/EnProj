@@ -189,7 +189,7 @@ namespace game {
         private showErr(): void {
             XDFSoundManager.play("sound_die_mp3");
             this.playSheepJump(() => {
-                XDFSoundManager.play(`sound_${this.mCurrentHint}_mp3`);
+                XDFSoundManager.play(`sound_words_${this.mCurrentHint}_mp3`);
             })
         }
 

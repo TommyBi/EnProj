@@ -37,6 +37,11 @@ namespace game {
         private mCurHintActionType: number = -1;
         private mLock: boolean = false;// 同步操作的锁子
 
+        private mLock_sound: boolean = false;
+        private get mIsLock(): boolean {
+            return this.mLock_sound;
+        }
+
         constructor() {
             super();
             this.skinName = "MainViewSkin";
@@ -119,7 +124,9 @@ namespace game {
 
             this.mCurHintActionType = -1;
             this.mActionQueue = [0, 0, 1, 1];
+            this.mLock_sound = true;
             XDFSoundManager.play("sound_put_on_mp3", 0, 1, 1, "sound_put_on_mp3", () => {
+                this.mLock_sound = false;
                 this.goNextStep();
             });
         }
@@ -144,7 +151,9 @@ namespace game {
 
             this.mCurHintActionType = -1;
             this.mActionQueue = [2, 2, 3, 3];
+            this.mLock_sound = true;
             XDFSoundManager.play("sound_take_off_mp3", 0, 1, 1, "sound_take_off_mp3", () => {
+                this.mLock_sound = false;
                 this.goNextStep();
             });
         }
@@ -152,6 +161,7 @@ namespace game {
         /** 穿衣服0 */
         private onPutOnShirt0(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -169,6 +179,7 @@ namespace game {
         /** 穿衣服1 */
         private onPutOnShirt1(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -187,6 +198,7 @@ namespace game {
         /** 穿裤子0 */
         private onPutOnPants0(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -204,6 +216,7 @@ namespace game {
         /** 穿裤子1 */
         private onPutOnPants1(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.PUTON_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -224,6 +237,7 @@ namespace game {
         /** 脱上衣0 */
         private onTakeOffShirt0(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -241,6 +255,7 @@ namespace game {
         /** 脱上衣1 */
         private onTakeOffShirt1(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_SHIRT) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -258,6 +273,7 @@ namespace game {
         /** 脱裤子0 */
         private onTakeOffPants0(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -275,6 +291,7 @@ namespace game {
         /** 脱裤子1 */
         private onTakeOffPants1(): void {
             if (this.mLock) return;
+            if (this.mIsLock) return;
             if (this.mCurHintActionType != ACTION_TYPE.TAKEOFF_PANTS) {
                 this.kComAnswer.visible = true;
                 this.kComAnswer.playErr(() => {
@@ -309,15 +326,6 @@ namespace game {
                 } else {
                     this.mCurPlayMode = -1;
                     this.showHintMode();
-                    // if (this.mCurPlayMode == 0) {
-                    //     this.mCurPlayMode = 1;
-                    //     this.mCurHintActionType = -1;
-                    //     this.mActionQueue = [2, 2, 3, 3];
-                    // } else if (this.mCurPlayMode == 1) {
-                    //     this.mCurPlayMode = 0;
-                    //     this.mCurHintActionType = -1;
-                    //     this.mActionQueue = [0, 0, 1, 1];
-                    // }
                 }
             }
 
@@ -328,16 +336,28 @@ namespace game {
         private playHintSound(): void {
             switch (this.mCurHintActionType) {
                 case ACTION_TYPE.PUTON_SHIRT:
-                    XDFSoundManager.play("sound_put_on_shirt_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_put_on_shirt_mp3", 0, 1, 1, "sound_put_on_shirt_mp3", () => {
+                        this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.PUTON_PANTS:
-                    XDFSoundManager.play("sound_put_on_pants_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_put_on_pants_mp3", 0, 1, 1, "sound_put_on_pants_mp3", () => {
+                        this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.TAKEOFF_SHIRT:
-                    XDFSoundManager.play("sound_take_off_shirt_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_take_off_shirt_mp3", 0, 1, 1, "sound_take_off_shirt_mp3", () => {
+                        this.mLock_sound = false;
+                    });
                     break;
                 case ACTION_TYPE.TAKEOFF_PANTS:
-                    XDFSoundManager.play("sound_take_off_pants_mp3");
+                    this.mLock_sound = true;
+                    XDFSoundManager.play("sound_take_off_pants_mp3", 0, 1, 1, "sound_take_off_pants_mp3", () => {
+                        this.mLock_sound = false;
+                    });
                     break;
             }
         }

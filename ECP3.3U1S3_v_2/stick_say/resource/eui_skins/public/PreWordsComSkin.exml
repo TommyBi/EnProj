@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="PreWordsComSkin" width="278" height="278" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group width="278" height="278" y="0" x="0">
+		<e:Image id="kImgWords" source="img_start_png" horizontalCenter="0" verticalCenter="-20" x="39" y="5" scaleX="1" scaleY="1"/>
+		<e:Label id="kLabelWords" text="words" y="215" textColor="0x000000" size="40" horizontalCenter="0" x="86" scaleX="1" scaleY="1" bold="true"/>
+		<e:layout>
+			<e:VerticalLayout horizontalAlign="center" gap="10"/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

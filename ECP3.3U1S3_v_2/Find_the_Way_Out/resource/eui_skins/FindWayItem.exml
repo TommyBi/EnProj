@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FindWayItemSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing"  states="1,2,3" >
+	<w:Config id="175869cbc83" ></w:Config>
+	<e:Group left="0" right="0" top="0" bottom="0" touchEnabled="true">
+		<e:Image source="find_1_png" horizontalCenter="0" verticalCenter="0" source.2="find_2_png" width.2="250" source.3="find_5_png" width.3="250" height.3="70" scaleX="1.5" scaleY="1.6" x="4" y="5"/>
+		<e:Label id="kLb" text="He is Korean." textColor="0x000000" size="40" horizontalCenter="3" verticalCenter="2.5" text.2="She is Vietnamese." text.3="" width.3="320" horizontalCenter.3="3.5" verticalCenter.3="6" x="15" y="35" scaleX="1" scaleY="1"/>
+		<e:Image id="kSide" source="side_1_png" horizontalCenter="0" verticalCenter="0" anchorOffsetX="88" anchorOffsetY="35" source.2="side_2_png" anchorOffsetX.2="130" width.2="260" source.3="side_3_png" scaleX="1.5" scaleY="1.5" x="0" y="0.5" visible="false"/>
+	</e:Group>
+</e:Skin>

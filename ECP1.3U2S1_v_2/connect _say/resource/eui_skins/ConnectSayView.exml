@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="ConnectSayViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" >
+	<w:Config id="17591121ab4" ></w:Config>
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Group width="1440" height="1080" verticalCenter="0" horizontalCenter="0">
+		<e:Image source="6_png" scaleX="1" scaleY="1" left="0" right="0" top="0" bottom="0" x="-240" y="0"/>
+		<e:Group id="kLeft" verticalCenter="0" left="15" locked="true">
+			<e:Image source="connect_10_png" scale9Grid="26,40,161,240" scaleX="2" scaleY="2.2" horizontalCenter="0" verticalCenter="0"/>
+			<e:Group id="kLeft1" y="62" horizontalCenter="0" width="370" height="266">
+				<e:Rect id="kRect1" fillColor="0xef864a" width="380" height="276" ellipseWidth="20" ellipseHeight="20" anchorOffsetX="185" anchorOffsetY="133" horizontalCenter="0" verticalCenter="0" visible="false"/>
+				<e:Image scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="connect_2_png"/>
+			</e:Group>
+			<e:Group id="kLeft2" y="380" width="366" horizontalCenter="0" height="266">
+				<e:Rect id="kRect2" fillColor="0xEF864A" ellipseWidth="20" ellipseHeight="20" anchorOffsetX="185" anchorOffsetY="133" scaleX="1" scaleY="1" width="380" height="276" horizontalCenter="0" verticalCenter="0" visible="false"/>
+				<e:Image scaleY="1.01" source="connect_9_png" verticalCenter="3.5" right="4" scaleX="0.99"/>
+			</e:Group>
+		</e:Group>
+		<e:Group id="kRight" right="27" verticalCenter="0" width="970" height="1018">
+			<e:Image source="connect_11_png" right="-33" verticalCenter="11.5" scale9Grid="71,87,428,528" x="-13" y="-5" scaleX="1.7" scaleY="1.455"/>
+			<e:Group id="k10" left="9" right="-9" top="0" bottom="0" visible="false">
+				<e:Image source="4_png" scaleX="1.8" scaleY="2" horizontalCenter="0.5" verticalCenter="-48"/>
+				<e:Group id="k10_1" horizontalCenter="-14" verticalCenter="-73" x="21" y="215" scaleX="1" scaleY="1">
+					<e:Image source="2_png" x="114" y="194" scaleX="1.8" scaleY="2"/>
+					<e:Image source="3_png" x="376" y="80" scaleX="1.8" scaleY="2"/>
+					<e:Image id="kGirlLine1" source="girl_1_png" x="202.39" y="473.83" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kGirlLine2" source="girl_2_png" x="244.08" y="504.54" scaleX="2.2" scaleY="2.2" visible="false"/>
+					<e:Image id="kGirlLine3" source="girl_3_png" x="283.68" y="466.17" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kBoyLine1" source="boy_1_png" x="451.68" y="509" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kBoyLine2" source="boy_2_png" x="445.68" y="527" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kBoyLine3" source="boy_3_png" x="473.01" y="555" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kBoyLine4" source="boy_4_png" x="516.99" y="548.34" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image id="kBoyLine5" source="boy_5_png" x="543.02" y="516" scaleX="2.6" scaleY="2.6" visible="false"/>
+				</e:Group>
+				<e:Image source="connect_6_png" scaleX="1.5" scaleY="1.2" horizontalCenter="0.5" bottom="20"/>
+				<e:Image source="connect_1_png" scaleX="2.5" scaleY="2.5" top="32" horizontalCenter="-7.5"/>
+				<e:Image id="kTips1" source="connect_5_png" y="833.24" scaleX="1.5" scaleY="1.5" horizontalCenter="-1.5" visible="false"/>
+			</e:Group>
+			<e:Group id="k19" width="970" x="9.09" height="1018" y="0" visible="false">
+				<e:Image source="5_png" y="131" x="-26" scaleX="1.8" scaleY="2"/>
+				<e:Image id="kSnow" source="connect_12_png" x="125.71" y="218.99" scaleX="1.8" scaleY="2" visible="false"/>
+				<e:Image source="connect_4_png" scaleX="2.5" scaleY="2.5" horizontalCenter="0" top="24"/>
+				<e:Group id="kSnowGp" width="300" height="500" x="207.68" y="289.02">
+					<e:Image source="1_png" x="-79.68000000000006" y="-68.01999999999998" scaleX="1.8" scaleY="2"/>
+					<e:Image source="snow_1_png" x="151.32000000000005" y="18.980000000000018" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image source="snow_2_png" x="208.32000000000005" y="71.98000000000002" scaleX="2.6" scaleY="3" visible="false"/>
+					<e:Image source="snow_3_png" x="175.32000000000005" y="155.98000000000002" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image source="snow_4_png" x="219.32000000000005" y="208.98000000000002" scaleX="2.6" scaleY="2.6" visible="false"/>
+					<e:Image source="snow_5_png" x="259.32000000000005" y="278.98" scaleX="2.6" scaleY="2.6" rotation="354.73" visible="false"/>
+					<e:Image source="snow_6_png" x="177.32000000000005" y="389.98" scaleX="2.6" scaleY="2.6" rotation="346.74" visible="false"/>
+				</e:Group>
+				<e:Image source="connect_6_png" y="909.24" scaleX="1.5" horizontalCenter="0.5" scaleY="1.2"/>
+				<e:Image id="kTips2" y="831.24" scaleX="1.5" scaleY="1.5" source="connect_13_png" horizontalCenter="0" visible="false"/>
+			</e:Group>
+		</e:Group>
+		<e:Image source="connect_7_png" scaleX="2" scaleY="2" x="407.06" verticalCenter="0"/>
+	</e:Group>
+	<game:ReplayComponent id="kReplay" skinName="ReplayComponentSkin" y="855" x="1447" locked="true"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+</e:Skin>

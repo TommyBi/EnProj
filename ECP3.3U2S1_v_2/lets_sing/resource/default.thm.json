@@ -1,0 +1,29 @@
+{
+	"skins": {
+		"ItembkSkin": "resource/eui_skins/component/itembkSkin.exml",
+		"ItembkSkin1": "resource/eui_skins/component/itembkSkin1.exml",
+		"Box": "resource/eui_skins/component/Box.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/public/VideoProBarSkin.exml",
+		"resource/eui_skins/captionVideoPlayer/CaptionPlayerComSkin.exml",
+		"resource/eui_skins/public/VideoControlComponentSkin.exml",
+		"resource/eui_skins/chant/LetsChantSkin.exml",
+		"resource/eui_skins/public/DialogComponentSkin.exml",
+		"resource/eui_skins/public/VideoComponentSkin.exml",
+		"resource/eui_skins/listenRepeat/ListenRepeatViewSkin.exml",
+		"resource/eui_skins/public/ReplayComponentSkin.exml",
+		"resource/eui_skins/public/AnswerComponentSkin.exml",
+		"resource/eui_skins/LookStickViewSkin.exml",
+		"resource/eui_skins/MainViewSkin.exml",
+		"resource/eui_skins/public/ReStartComponentSkin.exml",
+		"resource/eui_skins/public/TimeBarComponentSkin.exml",
+		"resource/eui_skins/play/LetsPlaySkin.exml",
+		"resource/eui_skins/sing/LetsSingViewSkin.exml",
+		"resource/eui_skins/think/LetsThinkSkin.exml",
+		"resource/eui_skins/think/ThinkComponentSkin.exml",
+		"resource/eui_skins/watch/LetsWatchSkin.exml"
+	],
+	"path": "resource/default.thm.json"
+}

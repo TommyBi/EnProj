@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StickSaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:tween="egret.tween.*" >
+	<w:Declarations>
+		<tween:TweenGroup id="anim2">
+			<tween:TweenItem target="{kImg2}">
+				<tween:Set/>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{30}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="250">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+		<tween:TweenGroup id="anim1">
+			<tween:TweenItem target="{kImg1}">
+				<tween:Set/>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{9}"/>
+					</tween:props>
+				</tween:To>
+				<tween:To duration="500">
+					<tween:props>
+						<e:Object rotation="{0}"/>
+					</tween:props>
+				</tween:To>
+			</tween:TweenItem>
+		</tween:TweenGroup>
+	</w:Declarations>
+	<w:Config id="175722876ba" ></w:Config>
+	<e:Image horizontalCenter="0" verticalCenter="0" source="img_bg_2_png"/>
+	<e:Group id="kGp" width="1440" height="1080" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="stick_5_png" left="0" right="0" top="0" bottom="0" locked="true"/>
+		<e:Image source="stick_15_png" x="1002" y="714.24" scaleX="1.6" scaleY="1.6"/>
+		<e:Group id="kAnim1" width="122" height="104" x="374.35" y="400" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Group id="kAnim2" width="74" height="102" x="600" y="700" anchorOffsetX="0" anchorOffsetY="0"/>
+		<e:Group id="kAnswer3" scaleX="1" scaleY="1" x="268" y="796">
+			<e:Rect width="280" height="70" horizontalCenter="0" verticalCenter="0" fillColor="0xfcfcfc" ellipseWidth="30" x="158" y="-183" scaleX="1" scaleY="1" locked="true"/>
+			<e:Label text="He is Korean." textColor="0x000000" size="40" left="17" verticalCenter="0" x="-405" y="-168" scaleX="1" scaleY="1" locked="true"/>
+			<e:Group id="kGp2" scaleX="1" scaleY="1.2" horizontalCenter="44" verticalCenter="0.5">
+				<e:Image scaleX="1" scaleY="1" source="stick_13_png" horizontalCenter="0" verticalCenter="0"/>
+				<e:Image id="kSide2" scaleX="1" scaleY="1" source="stick_14_png" horizontalCenter="0" verticalCenter="0" visible="false"/>
+			</e:Group>
+		</e:Group>
+		<e:Group id="kAnswer2" scaleX="1" scaleY="1" x="725.33" y="537.2">
+			<e:Rect width="685" height="70" fillColor="0xFCFCFC" ellipseWidth="30" scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0"/>
+			<e:Label text="We speak Korean and Vietnamese." textColor="0x000000" size="40" verticalCenter="0" y="-168" scaleX="1" scaleY="1" horizontalCenter="0"/>
+			<e:Group id="kGp3" verticalCenter="0.5" scaleX="1.7" horizontalCenter="0" scaleY="1.6">
+			<e:Image id="kSide3" scaleY="1" verticalCenter="0" source="stick_12_png" horizontalCenter="1" visible="false"/>
+			</e:Group>
+		</e:Group>
+		<e:Group id="kAnswer1" scaleX="1" scaleY="1" x="512.82" y="161">
+			<e:Rect width="380" height="70" horizontalCenter="0" verticalCenter="0" fillColor="0xFCFCFC" ellipseWidth="30" x="158" y="-183" scaleX="1" scaleY="1"/>
+			<e:Label text="She is Vietnamese." textColor="0x000000" size="40" left="17" verticalCenter="0" x="-405" y="-168" scaleX="1" scaleY="1"/>
+			<e:Group id="kGp1" scaleX="1.6" scaleY="1.4" horizontalCenter="52.5" verticalCenter="0">
+			<e:Image scaleX="1" scaleY="1" horizontalCenter="0" verticalCenter="0" source="stick_13_png" scale9Grid="17,9,102,13"/>
+			<e:Image id="kSide1" scaleX="1" scaleY="1" source="stick_14_png" horizontalCenter="0" verticalCenter="0" visible="false"/>
+			</e:Group>
+		</e:Group>
+		<game:BtnSelect id="kBtn" width="50" height="100" x="817.55" y="930.76" rotation="0"/>
+		<e:Group touchChildren="false" touchEnabled="false" touchThrough="true" width="200" x="958.18" height="200" y="65.45" scaleX="2" scaleY="2">
+			<e:Image source="stick_11_png" horizontalCenter="0" verticalCenter="0"/>
+			<e:Image source="stick_10_png" scaleX="1.6" scaleY="1.7" horizontalCenter="0.5" verticalCenter="-2"/>
+		</e:Group>
+	</e:Group>
+	<game:WordsPanelCom id="kComWordsPanel" skinName="WordsPanelComSkin" x="218.73" verticalCenter="0"/>
+	<game:FlagCom skinName="FlagComSkin" left="244" top="0" scaleX="0.8" scaleY="1"/>
+	<e:Image source="img_bg_1_png" fillMode="repeat" anchorOffsetX="0" width="239.85" left="0" verticalCenter="0"/>
+	<game:ReplayComponent id="kReplay" skinName="ReplayComponentSkin" y="855" x="1447"/>
+	<game:AnswerComponent id="kAnswer" horizontalCenter="0" verticalCenter="0" skinName="AnswerComponentSkin" visible="false"/>
+</e:Skin>

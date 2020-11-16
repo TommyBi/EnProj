@@ -93,12 +93,6 @@ var game;
             egret.log("num: " + num + "  this.mHintIdx: " + this.mHintIdx);
             if (num == this.mHintIdx) {
                 // 选择正确
-                this.mSelectMode = 1;
-                XDFSoundManager.play("sound_stick_right_mp3");
-                this.mLock_sound = true;
-                XDFSoundManager.play("sound_" + this.mHintIdx + "_mp3", 0, 1, 1, "sound_" + this.mHintIdx + "_mp3", function () {
-                    _this.mLock_sound = false;
-                });
                 for (var i = 0; i < 4; i++) {
                     egret.Tween.removeTweens(this["kImgOption" + i]);
                     egret.Tween.removeTweens(this["kGrp_b_" + i]);
@@ -112,8 +106,15 @@ var game;
                         .to({ scaleX: 1, scaleY: 1 }, 300);
                 }
                 this.mTarLblIdx = posIdx;
-                this.kComTimeBar.reset();
-                this.kComTimeBar.play();
+                this.kComTimeBar.stop();
+                this.mSelectMode = 1;
+                this.mLock_sound = true;
+                XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "sound_stick_right_mp3", function () {
+                    XDFSoundManager.play("sound_" + _this.mHintIdx + "_mp3", 0, 1, 1, "sound_" + _this.mHintIdx + "_mp3", function () {
+                        _this.kComTimeBar.play();
+                        _this.mLock_sound = false;
+                    });
+                });
             }
             else {
                 this.mLock_sound = true;
@@ -132,16 +133,16 @@ var game;
                 return;
             if (num == this.mHintIdx) {
                 // 选择正确
-                XDFSoundManager.play("sound_stick_right_mp3");
                 for (var i = 0; i < 4; i++) {
                     egret.Tween.removeTweens(["this.kGrp_b_" + i]);
+                    this["kGrp_b_" + i].alpha = 0.5;
                 }
                 this.mSelectMode = 0;
                 this["kGrp_b_" + posIdx].visible = false;
                 this["klbl_m_" + this.mTarLblIdx].text = this.mContent[posIdx];
-                this.mLock_sound = true;
                 this.kComTimeBar.stop();
-                XDFSoundManager.play("sound_" + this.mHintIdx + "_mp3", 0, 1, 1, "sound_" + this.mHintIdx + "_mp3", function () {
+                this.mLock_sound = true;
+                XDFSoundManager.play("sound_stick_right_mp3", 0, 1, 1, "", function () {
                     _this.mLock_sound = false;
                     _this.next();
                 });

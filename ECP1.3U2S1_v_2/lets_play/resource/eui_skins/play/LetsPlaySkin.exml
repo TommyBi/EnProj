@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="LetsPlaySkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image horizontalCenter="0" verticalCenter="0"  source="img_bg_0_png" locked="true"/>
+	<e:Group id="kGp" x="240" y="0" width="1440" height="1080" touchEnabled="false">
+		<e:Image  source="play_2_png" scaleX="1.65" scaleY="2" left="0" right="0" top="0" bottom="0"/>
+		<e:Image id="kAnswer2" source="play_5_png" scaleX="1.8" scaleY="1.8" x="317" y="22" visible="false"/>
+		<e:Image id="kAnswer1" anchorOffsetX="0" source="play_4_png" scaleX="1.8" scaleY="1.8" y="28" x="313" visible="false"/>
+		<e:Image id="kIcon2" source="play_10_png" x="914.78" y="251.93" scaleX="0.9" scaleY="0.75"/>
+		<e:Image id="kIcon1" source="play_10_png" x="258.08" y="250" scaleX="0.9" scaleY="0.75"/>
+		<e:Image source="play1_png" y="468" horizontalCenter="-316" scaleX="1.5" scaleY="1.5" touchEnabled="false"/>
+		<e:Image source="play1_png" y="466.48" scaleX="1.5" scaleY="1.5" x="961" touchEnabled="false"/>
+		<e:Group id="kAnim" left="0" right="0" top="0" bottom="0" touchEnabled="false">
+		</e:Group>
+		<e:Image source="play2_png" scaleX="1.5" scaleY="1.5" x="299.48" y="467" touchEnabled="false"/>
+		<e:Image source="play2_png" scaleX="1.5" scaleY="1.5" x="961" y="462" touchEnabled="false"/>
+		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" locked="true"/>
+		<game:TimeBarComponent id="kComBar" skinName="TimeBarComponentSkin" left="0" bottom="-13" scaleX="0.9" scaleY="0.9" locked="true"/>
+	</e:Group>
+</e:Skin>

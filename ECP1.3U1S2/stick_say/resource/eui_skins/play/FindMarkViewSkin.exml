@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="FindMarkViewSkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
+	<e:Image source="img_bg_0_png" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Image source="img_fm_bg_png" anchorOffsetX="0" width="1602.39" anchorOffsetY="0" height="1082" horizontalCenter="0" verticalCenter="0" locked="true"/>
+	<e:Group id="kGrp0" x="296" y="170" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp1" x="306" y="180" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp2" x="316" y="190" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp3" x="326" y="200" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp4" x="336" y="210" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp5" x="346" y="220" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp6" x="356" y="230" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Group id="kGrp7" x="366" y="240" touchChildren="false" touchEnabled="true" touchThrough="false" name="0"/>
+	<e:Image source="img_fm_option_panel_png" x="1244" y="752" scale9Grid="58,109,350,6" scaleX="2" scaleY="2" locked="true"/>
+	<e:Image source="img_bg_0_png" fillMode="repeat" anchorOffsetX="0" width="159" right="0" verticalCenter="0" locked="true"/>
+	<e:Label text="The Same =" x="1360" y="860" textColor="0xff0000" bold="true" size="40"/>
+	<e:Label text="Different =" x="1384" y="956" bold="true" size="40" textColor="0x4a64a8"/>
+	<e:Image id="kImgOptionSame" source="img_fm_same_png" scaleX="0.3" scaleY="0.3" anchorOffsetX="136" anchorOffsetY="136" x="1661" y="873"/>
+	<e:Image id="kImgOptionDif" source="img_fm_dif_png" scaleX="0.3" scaleY="0.3" anchorOffsetX="121" anchorOffsetY="121" x="1663" y="981"/>
+	<game:AnswerComponent id="kComAnswer" skinName="AnswerComponentSkin" horizontalCenter="0" verticalCenter="0"/>
+	<game:ReplayComponent id="kComReplay" x="1528" y="840" skinName="ReplayComponentSkin" visible="false"/>
+</e:Skin>

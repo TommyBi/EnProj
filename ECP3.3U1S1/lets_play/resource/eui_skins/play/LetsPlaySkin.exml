@@ -31,7 +31,7 @@
 		</e:Group>
 		<e:Group id="kGrpGame" horizontalCenter="0" verticalCenter="0" />
 		<game:ReStartComponent id="kComRestart" skinName="ReStartComponentSkin" horizontalCenter="0" verticalCenter="0" />
-		<e:Label id="kLabelHint" text="shirts" y="710" size="50" bold="true" textColor="0x000000" horizontalCenter="541.5"/>
+		<e:Label id="kLabelHint" text="" y="710" size="50" bold="true" textColor="0x000000" horizontalCenter="541.5"/>
 		<game:TimeBarComponent id="kComBar" x="-20.58" y="903.04" skinName="TimeBarComponentSkin"/>
 	</e:Group>
 </e:Skin>

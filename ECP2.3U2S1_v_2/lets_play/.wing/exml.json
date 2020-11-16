@@ -1,0 +1,32 @@
+{
+  "global": {
+    "globalAutoLayerMarkEnable": false,
+    "gridColor": 8421504,
+    "gridEnabled": false,
+    "gridSize": "100",
+    "globalRulerEnable": true,
+    "globalAdsorbEnable": false
+  },
+  "1752bd58c87": {
+    "guideLinesEnabled": false,
+    "guideLines": [
+      {
+        "type": "v",
+        "pos": -464
+      },
+      {
+        "type": "h",
+        "pos": -200
+      },
+      {
+        "type": "h",
+        "pos": -276
+      }
+    ]
+  },
+  "17550d2dba8": {
+    "path": "component\\FlowItem.ts",
+    "class": "FlowItem",
+    "parentPath": ""
+  }
+}

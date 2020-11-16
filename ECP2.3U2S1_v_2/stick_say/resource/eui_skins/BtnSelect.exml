@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="BtnSelectSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="17572606f75" ></w:Config>
+	<e:Group id="kGp" horizontalCenter="0" verticalCenter="0" width="627" height="188">
+		<e:Button label="" scaleX="0.35" scaleY="0.35" name="1" y="0" left="0">
+		<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:game="game.*">
+	<e:Group width="100%" height="100%" horizontalCenter="0" verticalCenter="0" width.down="100%" height.down="90%">
+		<e:Image width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" source="img_stick_bg4_png"/>
+		<e:Image horizontalCenter="0.5" verticalCenter="-3" x="46" y="44" source="40001_png" width="75%" height="75%"/>
+	</e:Group>
+			</e:Skin>
+		</e:skinName>
+		</e:Button>
+		<e:Button label="" y="0" scaleX="0.35" scaleY="0.35" name="2" horizontalCenter="0">
+			<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:game="game.*">
+	<e:Group width="100%" height="100%" horizontalCenter="0" verticalCenter="0" width.down="100%" height.down="100%">
+		<e:Image width="100%" height="100%" source="img_stick_bg2_png" x="0" y="0" scaleX="1" scaleY="1"/>
+		<e:Image horizontalCenter="-17.5" verticalCenter="-3" scaleX="1" scaleY="1" x="46" y="44" width="75%" height="75%" source="60001_png"/>
+	</e:Group>
+			</e:Skin>
+			</e:skinName>
+		</e:Button>
+		<e:Button label="" y="0" scaleX="0.35" scaleY="0.35" name="3" right="0">
+		<e:skinName>
+			<e:Skin states="up,down,disabled" xmlns:game="game.*">
+	<e:Group width="100%" height="100%" horizontalCenter="0" verticalCenter="0" width.down="100%" height.down="100%">
+		<e:Image width="100%" height="100%" x="0" y="0" scaleX="1" scaleY="1" source="img_stick_bg1_png"/>
+		<e:Image horizontalCenter="-17.5" verticalCenter="0" scaleX="1" scaleY="1" x="46" y="44" width="75%" height="75%" source="50001_png"/>
+	</e:Group>
+			</e:Skin>
+		</e:skinName>
+		</e:Button>
+		<e:layout>
+			<e:BasicLayout/>
+		</e:layout>
+	</e:Group>
+</e:Skin>
